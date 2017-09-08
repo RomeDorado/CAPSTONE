@@ -42,22 +42,22 @@ exports.menus = {
         {   
             name: 'ccl_card',
             title: 'Credit Cards & Loans', 
-            image: 'http://res.cloudinary.com/hobwovvya/image/upload/v1494397786/chatbot_logo_head_c5ya3g.png',
+            image: 'https://d11zeux9tyyeep.cloudfront.net/product/868/image_citi_064.17_-_citi_rewards_visa_card_r1_2x_360.png',
             button: [
                 {msg: 'Credit Cards', title: 'Credit Cards'},
                 {msg: 'Loans', title: 'Loans'}
             ]
         },
         {  
-            name: 'cfc_card',
-            title: 'Click For Cash', 
-            image: 'http://res.cloudinary.com/hobwovvya/image/upload/v1494397786/chatbot_logo_head_c5ya3g.png',
-            button: [{msg: 'Click For Cash', title: 'Click For Cash'}]
+            name: 'usage_deals',
+            title: 'Usage Deals', 
+            image: 'https://www.citibank.com.sg/gcb/credit_cards/images/citi_clear_card/slide2.jpg',
+            button: [{msg: 'Usage Deals', title: 'Usage Deals'}]
         },
         {  
             name: 'citireward_card',
             title: 'Citi Rewards® Card', 
-            image: 'http://res.cloudinary.com/hobwovvya/image/upload/v1494397786/chatbot_logo_head_c5ya3g.png',
+            image: 'https://ringgitplus.com/img/card-400/57eddcb0655a14fd555f44f0/citi-rewards-world-mastercard.jpg',
             button: [
                 {msg: 'Learn Rewards', title: 'Learn More'},
                 {msg: 'Call Me', title: 'Call Me'},
@@ -67,7 +67,7 @@ exports.menus = {
         {  
             name: 'citicashback_card',
             title: 'Citi Cash Back® Card', 
-            image: 'http://res.cloudinary.com/hobwovvya/image/upload/v1494397786/chatbot_logo_head_c5ya3g.png',
+            image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
             button: [
                 {msg: 'Learn Cash', title: 'Learn More'},
                 {msg: 'Call Me', title: 'Call Me'},
@@ -77,7 +77,7 @@ exports.menus = {
         {  
             name: 'citipremiermiles_card',
             title: 'Citi® PremierMiles® Card', 
-            image: 'http://res.cloudinary.com/hobwovvya/image/upload/v1494397786/chatbot_logo_head_c5ya3g.png',
+            image: 'https://news.manikarthik.com/wp-content/uploads/Citi_PremierMiles_Card_Review_India.png',
             button: [
                 {msg: 'Learn Premier', title: 'Learn More'},
                 {msg: 'Call Me', title: 'Call Me'},
@@ -87,7 +87,7 @@ exports.menus = {
         {  
             name: 'shellciti_card',
             title: 'Shell Citi® Card', 
-            image: 'http://res.cloudinary.com/hobwovvya/image/upload/v1494397786/chatbot_logo_head_c5ya3g.png',
+            image: 'https://ringgitplus.com/img/card-400/519489e2193821ed4a000083/shell-citi-gold-credit-card.jpg',
             button: [
                 {msg: 'Learn Shell', title: 'Learn More'},
                 {msg: 'Call Me', title: 'Call Me'},
@@ -97,7 +97,7 @@ exports.menus = {
         {  
             name: 'mercurydrugciti_card',
             title: 'Mercury Drug Citi® Card', 
-            image: 'http://res.cloudinary.com/hobwovvya/image/upload/v1494397786/chatbot_logo_head_c5ya3g.png',
+            image: 'https://www.reviewstream.com/images_items/hPxuFV8Qm.png',
             button: [
                 {msg: 'Learn Mercury', title: 'Learn More'},
                 {msg: 'Call Me', title: 'Call Me'},
