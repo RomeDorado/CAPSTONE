@@ -11,7 +11,7 @@ const dialogs = require('./src/dialogs');
 /**Create chat bot*/
 const connector = new builder.ChatConnector({
     appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD 
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 const bot = new builder.UniversalBot(connector);
 
@@ -22,14 +22,16 @@ bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i
 bot.use(builder.Middleware.sendTyping());
 bot.use({
     botbuilder: (session, next) => {
-        if(session.message.text.toLocaleLowerCase() == 'get started'){
+        var startOver = /^started|get started|start over/i.test(session.message.text);
+
+        if (session.message.text === "GET_STARTED" || startOver) {
             session.userData = {};
         }
 
-        if(!session.userData.firstRun){
+        if (!session.userData.firstRun) {
             session.userData.firstRun = true;
             session.beginDialog('/GetStarted');
-        }else{next();}
+        } else { next(); }
     }
 });
 
@@ -61,7 +63,7 @@ const server = restify.createServer();
 /**Endpoint for incoming messages*/
 server.post('/api/messages', connector.listen());
 
-/**Start listening on 3978 by default*/ 
+/**Start listening on 3978 by default*/
 server.listen(process.env.port || process.env.PORT || 3978, () => {
     console.log('Restify listening to port: %s', server.url);
 });
