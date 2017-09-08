@@ -22,9 +22,9 @@ bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i
 bot.use(builder.Middleware.sendTyping());
 bot.use({
     botbuilder: (session, next) => {
-        var startOver = /^started|get started|start over/i.test(session.message.text);
+        var startOver = /^started|get started|start over|get started|get_started/i.test(session.message.text);
 
-        if (session.message.text === "GET_STARTED" || startOver) {
+        if (startOver) {
             session.userData = {};
         }
 
