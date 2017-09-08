@@ -5,21 +5,9 @@ const card = require('../helpers/cardBuilder');
 
 
 module.exports =
-[
-    (session) => {
-        var cardName = ['intro_card'];
-        var msg = card(session, consts.menus.card, cardName)
-
-        builder.Prompts.choice(session, msg, consts.choices.GET_STARTED);
-    },
-    (session, results, next) => {
-        if(results.response.entity != 'Quit'){
-            session.beginDialog('/Menu');
-        }else{
-            next();
+    [
+        (session) => {
+            session.send(consts.prompts.GET_STARTED);
+            session.beginDialog('/Menu')
         }
-    },
-    (session, results) => {
-        session.endConversation('bye');
-    }
-]
+    ]

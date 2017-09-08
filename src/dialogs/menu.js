@@ -8,8 +8,7 @@ module.exports =
     (session) => {
         var cardName = ['ccl_card', 'usage_deals'];
         var msg = card(session, consts.menus.card, cardName);
-
-        session.send(format(consts.prompts.GET_STARTED,session.message.address.user.name ));
+        session.send(consts.prompts.MENU);
         builder.Prompts.choice(session, msg, consts.choices.MENU);
     },
     (session, results) => {
@@ -23,7 +22,7 @@ module.exports =
             break;
 
             case consts.choices.MENU[3]:
-                console.log('CLICK_FOR_CASH');
+                console.log('Usage Deals');
             break;
         }
     }

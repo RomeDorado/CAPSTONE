@@ -1,6 +1,7 @@
 const builder = require('botbuilder');
 exports.prompts = {
-    GET_STARTED: 'Hi {0}! Welcome to Citibank! I\'m here to help with all your banking needs. \n\nWhat would you like to do? :)',
+    GET_STARTED: 'Hi {0}! We offer a wide range on financial services like Credit Cards, Deposits, Loans, Investment options & Digital Banking. Join the Citibank Philippines family today!',
+    MENU: 'What do you want to do?',
     LEARN_PROMPT: 'What would you like to know?',
     REWARD_BENEFITS: '*Earn never-expiring Rewards Points (P30 = 1 Point)\n\n *Get 3x Rewards Points when you shop, dine or book Cebu Pacific tickets\n\n *Use your Points to pay for your purchases at over 1,000 shops, cinemas and restaurants nationwide',
     CASH_BENEFITS: '*Get up to 6% rebate on your supermarket expenses\n\n *Get up to 2% rebate on your Meralcobills\n\n *Get up to 0.20% rebate on all other purchases',
@@ -29,16 +30,6 @@ exports.prompts = {
 
 exports.menus = {
     card: [
-        {   
-            name: 'intro_card',
-            title: 'Citibank', 
-            text: 'We offer a wide range on financial services like Credit Cards, Deposits, Loans, Investment options & Digital Banking. Join the Citibank Philippines family today!', 
-            image: 'http://res.cloudinary.com/hobwovvya/image/upload/v1494397786/chatbot_logo_head_c5ya3g.png',
-            button: [
-                {msg: 'Let\'s get started', title: 'Let\'s get started'},
-                {msg: 'QUIT', title: 'Quit'}
-            ]
-        },
         {   
             name: 'ccl_card',
             title: 'Credit Cards & Loans', 
