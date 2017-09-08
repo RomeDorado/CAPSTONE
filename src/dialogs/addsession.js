@@ -15,10 +15,10 @@ module.exports =
                     if (!error && response.statusCode == 200) {
                         console.log(response);
                         console.log(body);
-                        session.userData.user == {};
-                        session.userData.user.first_name = body.first_name;
-                        session.userData.user.gender = body.gender;
-                        session.userData.user.last_name = body.last_name;
+                        // session.userData.user == {};
+                        // session.userData.user.first_name = body.first_name;
+                        // session.userData.user.gender = body.gender;
+                        // session.userData.user.last_name = body.last_name;
                     }
                 })
         }
