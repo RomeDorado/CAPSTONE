@@ -7,7 +7,7 @@ const card = require('../helpers/cardBuilder');
 module.exports =
     [
         (session) => {
-            session.send(consts.prompts.GET_STARTED);
+            session.send(format(consts.prompts.GET_STARTED, session.message.address.name));
             session.beginDialog('/Menu')
         }
     ]
