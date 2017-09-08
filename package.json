@@ -1,0 +1,19 @@
+{
+  "name": "citibank-bot",
+  "version": "1.0.0",
+  "description": "citibank bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "author": "shin@chatbot.ph",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.8.4",
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0",
+    "restify": "^5.0.0",
+    "string-format": "^0.5.0"
+  }
+}
