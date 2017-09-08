@@ -22,7 +22,7 @@ bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i
 bot.use(builder.Middleware.sendTyping());
 bot.use({
     botbuilder: (session, next) => {
-        if(session.message.text == 'Get_Started'){
+        if(session.message.text.toLocaleLowerCase() == 'get started'){
             session.userData = {};
         }
 

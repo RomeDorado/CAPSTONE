@@ -6,7 +6,7 @@ const card = require('../helpers/cardBuilder');
 module.exports =
 [
     (session) => {
-        var cardName = ['ccl_card', 'cfc_card'];
+        var cardName = ['ccl_card', 'usage_deals'];
         var msg = card(session, consts.menus.card, cardName);
 
         session.send(format(consts.prompts.GET_STARTED, 'User'));
