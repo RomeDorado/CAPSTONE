@@ -17,7 +17,6 @@ module.exports =
                         session.userData.user.last_name = body.last_name;
                     }
                 })
-            return;
         }
 
     ]
