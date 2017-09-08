@@ -9,7 +9,7 @@ module.exports =
         var cardName = ['ccl_card', 'usage_deals'];
         var msg = card(session, consts.menus.card, cardName);
 
-        session.send(format(consts.prompts.GET_STARTED, ));
+        session.send(format(consts.prompts.GET_STARTED,session.message.address.user.name ));
         builder.Prompts.choice(session, msg, consts.choices.MENU);
     },
     (session, results) => {
