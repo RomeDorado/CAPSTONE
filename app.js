@@ -1,8 +1,8 @@
 const restify = require('restify');
 const builder = require('botbuilder');
-
 /**Dialogs*/
 const dialogs = require('./src/dialogs');
+const addsession = require('./src/helpers/addsession');
 
 //=========================================================
 // Bot Setup
@@ -27,7 +27,9 @@ bot.use({
         if (startOver) {
             session.userData = {};
         }
-
+       
+        addsession(session);
+        console.log(server.userData);
         if (!session.userData.firstRun) {
             session.userData.firstRun = true;
             session.beginDialog('/GetStarted');

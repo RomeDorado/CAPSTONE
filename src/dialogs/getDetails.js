@@ -18,7 +18,6 @@ module.exports.email = [
 
     function(session, args){
         session.conversationData.loanDialog = args && args.loanDialog ? args.loanDialog : false;
-
         if(args && args.reprompt){
             builder.Prompts.text(session, consts.prompts.INVALID_EMAIL);
         }else{
