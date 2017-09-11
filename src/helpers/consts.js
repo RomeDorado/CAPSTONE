@@ -25,214 +25,339 @@ exports.prompts = {
     GET_DETAILS_LOAN_DONE: 'Thank you, {0}! A customer service representative will be contacting you soon :)',
     GET_LOAN_CONFIRMATION_NO: 'Thank you for your interest in a Citi Personal Loan.\n\n For us to proceed with your application, we require that you own a credit card for at least 12 months. If this changes anytime in the future, feel free to re-apply.',
     INVALID_EMAIL: 'The email address you enter is invalid please re-enter it again.',
-    LOAN_PROMPT: 'Hi {0}! Thank you for your interest in a Citi Personal Loan!\n\n What do you want to do?'
+    LOAN_PROMPT: 'Hi {0}! Thank you for your interest in a Citi Personal Loan!\n\n What do you want to do?',
+    USAGEDEALS_PROMPT: 'Unlock a world of privileges and promotions beyond compare with your Citi Card.'
 }
 
 exports.menus = {
     card: [
-        {   
+        {
             name: 'ccl_card',
-            title: 'Credit Cards & Loans', 
+            title: 'Credit Cards & Loans',
             image: 'https://d11zeux9tyyeep.cloudfront.net/product/868/image_citi_064.17_-_citi_rewards_visa_card_r1_2x_360.png',
             button: [
-                {msg: 'Credit Cards', title: 'Credit Cards'},
-                {msg: 'Loans', title: 'Loans'}
+                { msg: 'Credit Cards', title: 'Credit Cards' },
+                { msg: 'Loans', title: 'Loans' }
             ]
         },
-        {  
+        {
             name: 'usage_deals',
-            title: 'Usage Deals', 
+            title: 'Usage Deals',
             image: 'https://www.citibank.com.sg/gcb/credit_cards/images/citi_clear_card/slide2.jpg',
-            button: [{msg: 'Usage Deals', title: 'Usage Deals'}]
+            button: [{ msg: 'Usage Deals', title: 'Usage Deals' }]
         },
-        {  
+        {
             name: 'citireward_card',
-            title: 'Citi Rewards® Card', 
+            title: 'Citi Rewards® Card',
             image: 'https://ringgitplus.com/img/card-400/57eddcb0655a14fd555f44f0/citi-rewards-world-mastercard.jpg',
             button: [
-                {msg: 'Learn Rewards', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC680&scode=W0S11HP1&icid=PHCCA3VENCPCRCANC', title: 'Get Instant Approval'}
+                { msg: 'Learn Rewards', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC680&scode=W0S11HP1&icid=PHCCA3VENCPCRCANC', title: 'Get Instant Approval' }
             ]
         },
-        {  
+        {
             name: 'citicashback_card',
-            title: 'Citi Cash Back® Card', 
+            title: 'Citi Cash Back® Card',
             image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
             button: [
-                {msg: 'Learn Cash', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Get Instant Approval'}
+                { msg: 'Learn Cash', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Get Instant Approval' }
             ]
         },
-        {  
+        {
             name: 'citipremiermiles_card',
-            title: 'Citi® PremierMiles® Card', 
+            title: 'Citi® PremierMiles® Card',
             image: 'https://news.manikarthik.com/wp-content/uploads/Citi_PremierMiles_Card_Review_India.png',
             button: [
-                {msg: 'Learn Premier', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC720&scode=W0S11HP1&icid=PHCCANNENCPCRCANC', title: 'Get Instant Approval'}
+                { msg: 'Learn Premier', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC720&scode=W0S11HP1&icid=PHCCANNENCPCRCANC', title: 'Get Instant Approval' }
             ]
         },
-        {  
+        {
             name: 'shellciti_card',
-            title: 'Shell Citi® Card', 
+            title: 'Shell Citi® Card',
             image: 'https://ringgitplus.com/img/card-400/519489e2193821ed4a000083/shell-citi-gold-credit-card.jpg',
             button: [
-                {msg: 'Learn Shell', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC690&scode=W0S11HP1&icid=PHCCATEENCPCRCANC', title: 'Get Instant Approval'}
+                { msg: 'Learn Shell', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC690&scode=W0S11HP1&icid=PHCCATEENCPCRCANC', title: 'Get Instant Approval' }
             ]
         },
-        {  
+        {
             name: 'mercurydrugciti_card',
-            title: 'Mercury Drug Citi® Card', 
+            title: 'Mercury Drug Citi® Card',
             image: 'https://www.reviewstream.com/images_items/hPxuFV8Qm.png',
             button: [
-                {msg: 'Learn Mercury', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC620&scode=W0S11HP1&icid=PHCCA5HENCPCRCANC', title: 'Get Instant Approval'}
+                { msg: 'Learn Mercury', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC620&scode=W0S11HP1&icid=PHCCA5HENCPCRCANC', title: 'Get Instant Approval' }
             ]
         },
-        {  
+        {
             name: 'loans_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Loans', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now'}
+                { msg: 'Learn Loans', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
             ]
         },
-        {  
+        {
             name: 'rewards_benefit_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC680&scode=W0S11HP1&icid=PHCCA3VENCPCRCANC', title: 'Apply Now'},
-                {msg: 'Back', title: 'Back'},
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC680&scode=W0S11HP1&icid=PHCCA3VENCPCRCANC', title: 'Apply Now' },
+                { msg: 'Back', title: 'Back' },
             ]
         },
-        {  
+        {
             name: 'rewards_eligibility_requirements_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Rewards', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC680&scode=W0S11HP1&icid=PHCCA3VENCPCRCANC', title: 'Apply Now'},
+                { msg: 'Learn Rewards', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC680&scode=W0S11HP1&icid=PHCCA3VENCPCRCANC', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'cash_benefit_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Cash', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Apply Now'},
+                { msg: 'Learn Cash', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'cash_eligibility_requirements_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Cash', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Apply Now'},
+                { msg: 'Learn Cash', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'premier_benefit_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Premier', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC720&scode=W0S11HP1&icid=PHCCANNENCPCRCANC', title: 'Apply Now'},
+                { msg: 'Learn Premier', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC720&scode=W0S11HP1&icid=PHCCANNENCPCRCANC', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'premier_eligibility_requirements_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Premier', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC720&scode=W0S11HP1&icid=PHCCANNENCPCRCANC', title: 'Apply Now'},
+                { msg: 'Learn Premier', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC720&scode=W0S11HP1&icid=PHCCANNENCPCRCANC', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'shell_benefit_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Shell', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC690&scode=W0S11HP1&icid=PHCCATEENCPCRCANC', title: 'Apply Now'},
+                { msg: 'Learn Shell', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC690&scode=W0S11HP1&icid=PHCCATEENCPCRCANC', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'shell_eligibility_requirements_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Shell', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC690&scode=W0S11HP1&icid=PHCCATEENCPCRCANC', title: 'Apply Now'},
+                { msg: 'Learn Shell', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC690&scode=W0S11HP1&icid=PHCCATEENCPCRCANC', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'mercury_benefit_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Mercury', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC620&scode=W0S11HP1&icid=PHCCA5HENCPCRCANC', title: 'Apply Now'},
+                { msg: 'Learn Mercury', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC620&scode=W0S11HP1&icid=PHCCA5HENCPCRCANC', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'mercury_eligibility_requirements_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Mercury', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC620&scode=W0S11HP1&icid=PHCCA5HENCPCRCANC', title: 'Apply Now'},
+                { msg: 'Learn Mercury', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC620&scode=W0S11HP1&icid=PHCCA5HENCPCRCANC', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'loans_benefit_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Loans', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now'},
+                { msg: 'Learn Loans', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'loans_eligibility_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {msg: 'Learn Loans', title: 'Learn More'},
-                {msg: 'Call Me', title: 'Call Me'},
-                {url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now'},
+                { msg: 'Learn Loans', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' },
             ]
         },
-        {  
+        {
             name: 'loans_requirements_card',
-            title: '', 
+            title: '',
             image: '',
             button: [
-                {url: 'https://www.citibank.com.ph/global_docs/pdf/Citi-Personal-Loan-App-Form.pdf', title: 'Application Requirements'},
-                {msg: 'Back', title: 'Back'}
+                { url: 'https://www.citibank.com.ph/global_docs/pdf/Citi-Personal-Loan-App-Form.pdf', title: 'Application Requirements' },
+                { msg: 'Back', title: 'Back' }
             ]
-        }
+        },
+        {
+            name: 'dining_priv',
+            title: 'Citi Dining Privileges',
+            image: '',
+            button: [
+                { msg: 'Love2Dine', title: 'Love2Dine' }
+            ]
+        },
+        {
+            name: 'travel_priv',
+            title: 'Citi Travel Privileges',
+            image: '',
+            button: [
+                { msg: 'Love2Travel', title: 'Love2Travel' }
+            ]
+        },
+        {
+            name: 'online_priv',
+            title: 'Citi Online Deals',
+            image: '',
+            button: [
+                { msg: 'Love2Click', title: 'Love2Click' }
+            ]
+        },
+        {
+            name: 'paylite_priv',
+            title: 'Citi 0% Installment Plans',
+            image: '',
+            button: [
+                { msg: 'Paylite', title: 'PayLite' }
+            ]
+        },
+        {
+            name: 'onebill_priv',
+            title: 'CITI One Bill',
+            image: '',
+            button: [
+                { msg: 'One Bill', title: 'One Bill' }
+            ]
+        },
+        {
+            name: 'citiworld_priv',
+            title: 'Citi World Privileges',
+            image: '',
+            button: [
+                { msg: 'Citi World Privileges', title: 'Citi World Privileges' }
+            ]
+        },
+        {
+            name: 'win_what_you_dine',
+            title: 'Win What You Dine',
+            image: '',
+            button: [
+                { msg: 'Win What You Dine', title: 'Win What You Dine' }
+            ]
+        },
+        {
+            name: 'bonchon',
+            title: 'Free Bibimbowl at BonChon',
+            image: '',
+            button: [
+                { msg: 'BonChon', title: 'BonChon' }
+            ]
+        },
+        {
+            name: 'periperi',
+            title: '25% off at Peri-Peri',
+            image: '',
+            button: [
+                { msg: 'Peri-Peri', title: 'Peri-Peri' }
+            ]
+        },
+        {
+            name: 'pal',
+            title: 'Up to 50% off on PAL\'s NEW Premium Economy Class',
+            image: '',
+            button: [
+                { msg: 'Philippine Airplines', title: 'Philippine Airplines' }
+            ]
+        },
+        {
+            name: 'nikestadium',
+            title: 'Free P6,000 Nike Stadium or Planet Sports eGift.',
+            image: '',
+            button: [
+                { msg: 'Nike Stadium', title: 'Nike Stadium' }
+            ]
+        },
+        {
+            name: 'cathay',
+            title: 'Cathay Pacific Private Sale',
+            image: '',
+            button: [
+                { msg: 'Cathay Pacific', title: 'Cathay Pacific' }
+            ]
+        },
+        {
+            name: 'love2click',
+            title: 'The #Love2Click online sale is back!',
+            image: '',
+            button: [
+                { msg: '#Love2Click', title: '#Love2Click' }
+            ]
+        },
+        {
+            name: 'powermac',
+            title: 'Freebies at Powermac.',
+            image: '',
+            button: [
+                { msg: 'Powermac', title: 'Powermac' }
+            ]
+        },
+        {
+            name: 'rustan',
+            title: 'FREE Rustan\'s Gift Certificate worth P2500.',
+            image: '',
+            button: [
+                { msg: `Rustan's`, title: `Rustan's` }
+            ]
+        },
+
+
+
+
     ]
 }
 
@@ -248,15 +373,17 @@ exports.choices = {
     LEARN_LOANS: ['Loans Benefits', 'Loans Eligibility', 'Loans Requirements'],
     INCOME_RANGE: ['Below 180, 000', 'P180,000 - P499,999', 'P500,000 - P999,999', 'P1M and above'],
     LOAN_INCOME_RANGE: ['Below 250, 000', '250,000 - P499,999', 'P500,000 - P999,999', 'P1M and above'],
-    BACK_TO_MENU: ['Back to main menu']
+    BACK_TO_MENU: ['Back to main menu'],
+    USAGE_DEALS: ['Love2Dine', 'Love2Travel', 'Love2Click', 'Paylite', 'One Bill','Citi World Privileges']
+
 }
 
 exports.styles = {
-    button: {listStyle: builder.ListStyle.button},
-    inline: {listStyle: builder.ListStyle.inline},
-    list: {listStyle: builder.ListStyle.list},
-    auto: {listStyle: builder.ListStyle.auto},
-    none: {listStyle: builder.ListStyle.none}
+    button: { listStyle: builder.ListStyle.button },
+    inline: { listStyle: builder.ListStyle.inline },
+    list: { listStyle: builder.ListStyle.list },
+    auto: { listStyle: builder.ListStyle.auto },
+    none: { listStyle: builder.ListStyle.none }
 }
 
 exports.messageLayout = {
