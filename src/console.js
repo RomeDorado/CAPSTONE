@@ -2,6 +2,7 @@ const restify = require('restify');
 const builder = require('botbuilder');
 /**Dialogs*/
 const dialogs = require('./dialogs');
+const request = require('request');
 
 //=========================================================
 // Bot Setup
@@ -27,8 +28,6 @@ bot.use({
         if (startOver) {
             session.userData = {};
         }
-        session.beginDialog('/addsession');
-        console.log(session.userData);
         if (!session.userData.firstRun) {
             session.userData.firstRun = true;
             session.beginDialog('/GetStarted');
@@ -41,7 +40,6 @@ bot.use({
 //=========================================================
 
 bot.dialog('/', dialogs.default);
-bot.dialog('/addsession', dialogs.addsession)
 bot.dialog('/GetStarted', dialogs.getStarted)
 bot.dialog('/Menu', dialogs.menu);
 bot.dialog('/CreditCards', dialogs.creditCard.main);
