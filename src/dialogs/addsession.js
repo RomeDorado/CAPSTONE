@@ -13,6 +13,8 @@ module.exports =
             },
                 function (error, response, body) {
                     if (!error && response.statusCode == 200) {
+                        console.log(body);
+
                         session.userData.user == {};
                         session.userData.user.first_name = body.first_name;
                         session.userData.user.gender = body.gender;
