@@ -1,7 +1,7 @@
 const restify = require('restify');
 const builder = require('botbuilder');
 /**Dialogs*/
-const dialogs = require('./dialogs');
+const dialogs = require('./src/dialogs');
 
 //=========================================================
 // Bot Setup
