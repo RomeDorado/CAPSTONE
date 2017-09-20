@@ -38,7 +38,7 @@ bot.use({
 //=========================================================
 
 bot.dialog('/', dialogs.default);
-bot.dialog('/GetStarted', dialogs.getStarted)
+bot.dialog('/GetStarted', dialogs.getStarted);
 bot.dialog('/Menu', dialogs.menu);
 bot.dialog('/CreditCards', dialogs.creditCard.main);
 bot.dialog('/CreditCards/Rewards', dialogs.creditCard.rewards);
@@ -49,8 +49,16 @@ bot.dialog('/CreditCards/Mercury', dialogs.creditCard.mercury);
 bot.dialog('/GetDetails', dialogs.getDetails.main);
 bot.dialog('/GetDetails/Email', dialogs.getDetails.email);
 bot.dialog('/GetDetails/Loans', dialogs.getDetails.loans);
-bot.dialog('/Loans', dialogs.loans.main)
-bot.dialog('/Loans/Info', dialogs.loans.loanInfo)
+bot.dialog('/Loans', dialogs.loans.main);
+bot.dialog('/Loans/Info', dialogs.loans.loanInfo);
+bot.dialog('/UsageDeals', dialogs.usageDeals.main);
+bot.dialog('/UsageDeals/Dining', dialogs.usageDeals.dining);
+bot.dialog('/UsageDeals/Travel', dialogs.usageDeals.travel);
+bot.dialog('/UsageDeals/Online', dialogs.usageDeals.online);
+// bot.dialog('/UsageDeals/Installments', dialogs.usageDeals.main);
+// bot.dialog('/UsageDeals/Bill', dialogs.usageDeals.main);
+// bot.dialog('/UsageDeals/World', dialogs.usageDeals.main);
+
 
 //=========================================================
 // Server Setup

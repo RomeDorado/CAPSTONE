@@ -38,3 +38,27 @@ module.exports =
     return msg;
 }
 
+/**Get card name */
+module.exports.getName =  (card) => {
+    var names = []
+    card.forEach((key) => {
+        names.push(key.name);
+    });
+
+    return names;
+}
+
+/**get card choices */
+module.exports.choices = (card) => {
+    var choices = []
+    card.forEach((key) => {
+        key.button.forEach((key) => {
+            if(key.msg != undefined){
+                choices.push(key.msg);
+            }
+        })
+    })
+
+    return choices;
+}
+

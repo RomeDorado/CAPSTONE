@@ -6,23 +6,26 @@ const card = require('../helpers/cardBuilder');
 module.exports =
 [
     (session) => {
-        var cardName = ['ccl_card', 'usage_deals'];
-        var msg = card(session, consts.menus.card, cardName);
+        var cardName = card.getName(consts.card.menu);
+        var msg = card(session, consts.card.menu, cardName);
+
         session.send(consts.prompts.MENU);
-        builder.Prompts.choice(session, msg, consts.choices.MENU);
+        builder.Prompts.choice(session, msg, card.choices(consts.card.menu));
     },
     (session, results) => {
+        var choices = card.choices(consts.card.menu);
+
         switch(results.response.entity){
-            case consts.choices.MENU[0]:
+            case choices[0]:
                 session.replaceDialog('/CreditCards');
             break;
 
-            case consts.choices.MENU[1]:
+            case choices[1]:
                 session.replaceDialog('/Loans');
             break;
 
-            case consts.choices.MENU[3]:
-                console.log('Usage Deals');
+            case choices[2]:
+                session.replaceDialog('/UsageDeals');
             break;
         }
     }

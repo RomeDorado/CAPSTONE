@@ -5,30 +5,32 @@ const card = require('../helpers/cardBuilder');
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
     (session) => {
-        var cardName = ['citireward_card', 'citicashback_card', 'citipremiermiles_card', 'shellciti_card', 'mercurydrugciti_card'];
-        var msg = card(session, consts.menus.card, cardName);
+        var cardName = card.getName(consts.card.credit_card);
+        var msg = card(session, consts.card.credit_card, cardName);
 
-        builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD);
+        builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
     },
     (session, results) => {
+        var choices = card.choices(consts.card.credit_card);
+
         switch(results.response.entity){
-            case consts.choices.CREDIT_CARD[0]:
+            case choices[0]:
                 session.replaceDialog('/CreditCards/Rewards');
             break;
 
-            case consts.choices.CREDIT_CARD[1]:
+            case choices[2]:
                 session.replaceDialog('/CreditCards/CashBack');
             break;
 
-            case consts.choices.CREDIT_CARD[2]:
+            case choices[4]:
                 session.replaceDialog('/CreditCards/Premier');
             break;
 
-            case consts.choices.CREDIT_CARD[3]:
+            case choices[6]:
                 session.replaceDialog('/CreditCards/Shell');
             break;
 
-            case consts.choices.CREDIT_CARD[4]:
+            case choices[8]:
                 session.replaceDialog('/CreditCards/Mercury');
             break;
 
@@ -49,35 +51,36 @@ module.exports.rewards = [
     (session, results) => {
         switch(results.response.entity){
             case consts.choices.LEARN_REWARDS[0]:
-                var cardName = ['rewards_benefit_card']
-                var msg = card(session, consts.menus.card, cardName);
-
+                var cardName = card.getName(consts.card.rewards_benefit_card);
+                var msg = card(session, consts.card.rewards_benefit_card, cardName);
+        
                 session.send(consts.prompts.REWARD_BENEFITS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
 
             case consts.choices.LEARN_REWARDS[1]:
-                var cardName = ['rewards_eligibility_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
-
+                var cardName = card.getName(consts.card.rewards_eligibility_requirements_card);
+                var msg = card(session, consts.card.rewards_eligibility_requirements_card, cardName);
+        
                 session.send(consts.prompts.ELIGIBILITY);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
 
             case consts.choices.LEARN_REWARDS[2]:
-                var cardName = ['rewards_eligibility_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
-
+                var cardName = card.getName(consts.card.rewards_eligibility_requirements_card);
+                var msg = card(session, consts.card.rewards_eligibility_requirements_card, cardName);
+        
                 session.send(consts.prompts.REQUIREMENTS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button);
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
         }
 
         
     },
     (session, results) => {
-        console.log(results);
-        if(results.response.entity == consts.choices.CREDIT_CARD[6] || results.response.entity == consts.choices.CREDIT_CARD[0]){
+        var choices = card.choices(consts.card.credit_card);
+
+        if(results.response.entity == choices[choices.indexOf(results.response.entity)]){
             session.replaceDialog('/CreditCards/Rewards');
         }else{session.replaceDialog('/GetDetails');}
     }   
@@ -91,32 +94,52 @@ module.exports.cashBack = [
     (session, results) => {
         switch(results.response.entity){
             case consts.choices.LEARN_CASH[0]:
-                var cardName = ['cash_benefit_card']
-                var msg = card(session, consts.menus.card, cardName);
+                // var cardName = ['cash_benefit_card']
+                // var msg = card(session, consts.menus.card, cardName);
 
+                // session.send(consts.prompts.CASH_BENEFITS);
+                // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+
+                var cardName = card.getName(consts.card.cash_benefit_card);
+                var msg = card(session, consts.card.cash_benefit_card, cardName);
+        
                 session.send(consts.prompts.CASH_BENEFITS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
 
             case consts.choices.LEARN_CASH[1]:
-                var cardName = ['cash_eligibility_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
+                // var cardName = ['cash_eligibility_requirements_card']
+                // var msg = card(session, consts.menus.card, cardName);
 
+                // session.send(consts.prompts.ELIGIBILITY);
+                // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button);
+                
+                var cardName = card.getName(consts.card.cash_eligibility_requirements_card);
+                var msg = card(session, consts.card.cash_eligibility_requirements_card, cardName);
+        
                 session.send(consts.prompts.ELIGIBILITY);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
 
             case consts.choices.LEARN_CASH[2]:
-                var cardName = ['cash_eligibility_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
+                // var cardName = ['cash_eligibility_requirements_card']
+                // var msg = card(session, consts.menus.card, cardName);
 
+                // session.send(consts.prompts.REQUIREMENTS);
+                // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button);
+
+                var cardName = card.getName(consts.card.cash_eligibility_requirements_card);
+                var msg = card(session, consts.card.cash_eligibility_requirements_card, cardName);
+        
                 session.send(consts.prompts.REQUIREMENTS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button);
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
         }
     },
     (session, results) => {
-        if(results.response.entity == consts.choices.CREDIT_CARD[1]){
+        var choices = card.choices(consts.card.credit_card);
+        
+        if(results.response.entity == choices[choices.indexOf(results.response.entity)]){
             session.replaceDialog('/CreditCards/CashBack');
         }else{session.replaceDialog('/GetDetails');}
     }   
@@ -130,32 +153,37 @@ module.exports.premier = [
     (session, results) => {
         switch(results.response.entity){
             case consts.choices.LEARN_PREMIER[0]:
-                var cardName = ['premier_benefit_card']
-                var msg = card(session, consts.menus.card, cardName);
 
+                var cardName = card.getName(consts.card.premier_benefit_card);
+                var msg = card(session, consts.card.premier_benefit_card, cardName);
+        
                 session.send(consts.prompts.PREMIER_BENEFITS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
 
             case consts.choices.LEARN_PREMIER[1]:
-                var cardName = ['premier_eligibility_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
-
+                
+                var cardName = card.getName(consts.card.premier_eligibility_requirements_card);
+                var msg = card(session, consts.card.premier_eligibility_requirements_card, cardName);
+        
                 session.send(consts.prompts.ELIGIBILITY);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
 
             case consts.choices.LEARN_PREMIER[2]:
-                var cardName = ['premier_eligibility_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
 
+                var cardName = card.getName(consts.card.premier_eligibility_requirements_card);
+                var msg = card(session, consts.card.premier_eligibility_requirements_card, cardName);
+        
                 session.send(consts.prompts.REQUIREMENTS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button);
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));                
             break;
         }
     },
     (session, results) => {
-        if(results.response.entity == consts.choices.CREDIT_CARD[2]){
+        var choices = card.choices(consts.card.credit_card);
+        
+        if(results.response.entity == choices[choices.indexOf(results.response.entity)]){
             session.replaceDialog('/CreditCards/Premier');
         }else{session.replaceDialog('/GetDetails');}
     }     
@@ -168,33 +196,38 @@ module.exports.shell = [
     },
     (session, results) => {
         switch(results.response.entity){
-            case consts.choices.LEARN_SHELL[0]:
-                var cardName = ['shell_benefit_card']
-                var msg = card(session, consts.menus.card, cardName);
+            case consts.choices.LEARN_SHELL[0]: 
 
+                var cardName = card.getName(consts.card.shell_benefit_card);
+                var msg = card(session, consts.card.shell_benefit_card, cardName);
+        
                 session.send(consts.prompts.SHELL_BENEFITS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
 
             case consts.choices.LEARN_SHELL[1]:
-                var cardName = ['shell_eligibility_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
 
+                var cardName = card.getName(consts.card.shell_eligibility_requirements_card);
+                var msg = card(session, consts.card.shell_benefit_card, cardName);
+        
                 session.send(consts.prompts.ELIGIBILITY);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
 
             case consts.choices.LEARN_SHELL[2]:
-                var cardName = ['shell_eligibility_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
 
+                var cardName = card.getName(consts.card.shell_eligibility_requirements_card);
+                var msg = card(session, consts.card.shell_benefit_card, cardName);
+        
                 session.send(consts.prompts.REQUIREMENTS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button);
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
         }
     },
     (session, results) => {
-        if(results.response.entity == consts.choices.CREDIT_CARD[3]){
+        var choices = card.choices(consts.card.credit_card);
+        
+        if(results.response.entity == choices[choices.indexOf(results.response.entity)]){
             session.replaceDialog('/CreditCards/Shell');
         }else{session.replaceDialog('/GetDetails');}
     }     
@@ -208,32 +241,37 @@ module.exports.mercury = [
     (session, results) => {
         switch(results.response.entity){
             case consts.choices.LEARN_MD[0]:
-                var cardName = ['mercury_benefit_card']
-                var msg = card(session, consts.menus.card, cardName);
 
+                var cardName = card.getName(consts.card.mercury_benefit_card);
+                var msg = card(session, consts.card.mercury_benefit_card, cardName);
+        
                 session.send(consts.prompts.MD_BENEFITS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
 
             case consts.choices.LEARN_MD[1]:
-                var cardName = ['mercury_eligibility_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
 
+                var cardName = card.getName(consts.card.mercury_eligibility_requirements_card);
+                var msg = card(session, consts.card.mercury_eligibility_requirements_card, cardName);
+        
                 session.send(consts.prompts.ELIGIBILITY);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
 
             case consts.choices.LEARN_MD[2]:
-                var cardName = ['mercury_eligibility_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
 
+                var cardName = card.getName(consts.card.mercury_eligibility_requirements_card);
+                var msg = card(session, consts.card.mercury_eligibility_requirements_card, cardName);
+        
                 session.send(consts.prompts.REQUIREMENTS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button);
+                builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
             break;
         }
     },
     (session, results) => {
-        if(results.response.entity == consts.choices.CREDIT_CARD[4]){
+        var choices = card.choices(consts.card.credit_card);
+        
+        if(results.response.entity == choices[choices.indexOf(results.response.entity)]){
             session.replaceDialog('/CreditCards/Mercury');
         }else{session.replaceDialog('/GetDetails');}
     }      

@@ -6,23 +6,29 @@ const card = require('../helpers/cardBuilder');
 /**Parent Dialog - loans */
 module.exports.main = [
     (session) => {
-        var cardNames = ['loans_card']
-        var msg = card(session, consts.menus.card, cardNames);
+        // var cardNames = ['loans_card']
+        // var msg = card(session, consts.menus.card, cardNames);
         
+        // session.send(format(consts.prompts.LOAN_PROMPT, 'User'));
+        // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD);
+
+        var cardName = card.getName(consts.card.loans_card);
+        var msg = card(session, consts.card.loans_card, cardName);
+
         session.send(format(consts.prompts.LOAN_PROMPT, 'User'));
-        builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD);
+        builder.Prompts.choice(session, msg, card.choices(consts.card.loans_card));
     },
     (session, results) => {
+        var choices = card.choices(consts.card.loans_card);
+
         switch(results.response.entity){
-            case consts.choices.CREDIT_CARD[5]:
+            case choices[0]:
                 session.replaceDialog('/Loans/Info');
             break;
 
-            case consts.choices.CREDIT_CARD[6]:
+            case choices[1]:
                 session.replaceDialog('/GetDetails/Loans');
             break;
-
-
         }
     }
 ]
@@ -35,32 +41,52 @@ module.exports.loanInfo = [
     (session, results) => {
         switch(results.response.entity){
             case consts.choices.LEARN_LOANS[0]:
-                var cardName = ['loans_benefit_card']
-                var msg = card(session, consts.menus.card, cardName);
+                // var cardName = ['loans_benefit_card']
+                // var msg = card(session, consts.menus.card, cardName);
 
+                // session.send(consts.prompts.LOAN_BENEFITS);
+                // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+
+                var cardName = card.getName(consts.card.loans_benefit_card);
+                var msg = card(session, consts.card.loans_benefit_card, cardName);
+        
                 session.send(consts.prompts.LOAN_BENEFITS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.loans_benefit_card));
             break;
 
             case consts.choices.LEARN_LOANS[1]:
-                var cardName = ['loans_eligibility_card']
-                var msg = card(session, consts.menus.card, cardName);
+                // var cardName = ['loans_eligibility_card']
+                // var msg = card(session, consts.menus.card, cardName);
 
+                // session.send(consts.prompts.LOAN_ELIGIBITY);
+                // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+
+                var cardName = card.getName(consts.card.loans_eligibility_card);
+                var msg = card(session, consts.card.loans_eligibility_card, cardName);
+        
                 session.send(consts.prompts.LOAN_ELIGIBITY);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
+                builder.Prompts.choice(session, msg, card.choices(consts.card.loans_eligibility_card));
             break;
 
             case consts.choices.LEARN_LOANS[2]:
-                var cardName = ['loans_requirements_card']
-                var msg = card(session, consts.menus.card, cardName);
+                // var cardName = ['loans_requirements_card']
+                // var msg = card(session, consts.menus.card, cardName);
 
+                // session.send(consts.prompts.LOAN_REQUIREMENTS);
+                // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button);
+
+                var cardName = card.getName(consts.card.loans_requirements_card);
+                var msg = card(session, consts.card.loans_requirements_card, cardName);
+        
                 session.send(consts.prompts.LOAN_REQUIREMENTS);
-                builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button);
+                builder.Prompts.choice(session, msg, card.choices(consts.card.loans_requirements_card));
             break;
         }
     },
     (session, results) => {
-        if(results.response.entity == consts.choices.CREDIT_CARD[5] || results.response.entity == consts.choices.CREDIT_CARD[7]){
+        var choices = card.choices(consts.card.loans_card);
+        
+        if(results.response.entity == choices[choices.indexOf(results.response.entity)] || 'Back'){
             session.replaceDialog('/Loans/Info');
         }else{session.replaceDialog('/GetDetails/Loans');}
     }   
