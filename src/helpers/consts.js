@@ -71,7 +71,33 @@ exports.prompts = {
     - Shell fuel expenses
     - SLEX/NLEX toll load
     - ALL auto repairs, accessories, and services nationwide`,
-    CITI_MERCURY: `{0}, your Mercury Drug Citi card can give you up to 10% rebate on your Mercury Drug purchases and hospital bills.`
+    CITI_MERCURY: `{0}, your Mercury Drug Citi card can give you up to 10% rebate on your Mercury Drug purchases and hospital bills.`,
+    REQUIREMENTS_NOT_EMPLOYED: `Got it, {0}! Kindly prepare for the following, then we can proceed:
+    
+    - Other credit card (must be > 6 months)
+    - Valid government-issued IDs (e.g. passport, driver’s license)
+    - Proof of income (e.g. latest ITR, latest payslip)`,
+    REQUIREMENTS_EMPLOYED: `Great! Kindly be ready with the following for a quicker application experience:
+    
+    - Other credit card (if any)
+    - Valid government-issued IDs (e.g. passport, driver’s license)
+    - Proof of income (e.g. latest ITR, latest payslip)`,
+    REQUIREMENTS_SELF_EMPLOYED: `Just one last reminder, {0} – kindly prepare for the following:
+    
+    - Other credit card (if any)
+    - Valid government-issued IDs (e.g. passport, driver’s license)
+    - Proof of income: latest Audited Financial Statement (AFS); latest ITR duly stamped as received by BIR
+    
+    Note: If your assets are at least P15 million, please prepare both proofs of income.`,
+    INSTANT_APPROVAL: `Exciting! May we know if you are:
+    
+    - at least 21 years old
+    - Filipino resident with valid Philippine billing address
+    - with annual income of at least P180,000
+    - with valid landline or mobile phone number
+    - with valid TIN and SSS/GSIS number`,
+    INSTANT_APPROVAL_YES: `That’s good news, {0}! You can now proceed to your application.`,
+    INSTANT_APPROVAL_NO: `{0}, thank you for your interest in a Citi Credit Card. However, take note that the conditions above must be met for us to proceed with an application.`
 }
 
 exports.menus = {
@@ -134,7 +160,17 @@ exports.menus = {
             title: 'What do you want to know?',
             button:[
                 { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Get Instant Approval', title: 'Get Instant Approval' },
+                { msg: 'Instant Approval', title: 'Instant Approval' },
+                { msg: 'Back to Credit Cards', title: 'Back to Credit Cards' }
+            ]
+        }
+    ],
+    credit_card_1: [
+        {
+            name: 'credit_card_menu',
+            title: 'What do you want to know?',
+            button:[
+                { msg: 'Instant Approval', title: 'Instant Approval' },
                 { msg: 'Back to Credit Cards', title: 'Back to Credit Cards' }
             ]
         }
@@ -147,6 +183,65 @@ exports.menus = {
                 { msg: 'Employed', title: 'Employed' },
                 { msg: 'Self-Employed', title: 'Self-Employed' },
                 { msg: 'Not Employed', title: 'Not Employed' }
+            ]
+        }
+    ],
+    requirements_menu_1: [
+        {
+            name: 'requirements_menu_1',
+            title: 'Options',
+            button:[
+                { msg: 'Instant Approval', title: 'Instant Approval' },
+                { msg: 'Main Menu', title: 'Main Menu' },
+            ]
+        }
+    ],
+    requirements_menu_2: [
+        {
+            name: 'requirements_menu_2',
+            title: 'Options',
+            button:[
+                { msg: 'Credit Card Options', title: 'Credit Card Options' },
+                { msg: 'Main Menu', title: 'Main Menu' },
+            ]
+        }
+    ],
+    instant_approval: [
+        {
+            name: 'instant_approval_1',
+            title: 'Options',
+            button:[
+                { msg: 'Yes, I am', title: 'Yes, I am' },
+                { msg: `No, I'm not`, title: `No, I'm not` },
+            ]
+        }
+    ],
+    instant_approval_yes: [
+        {
+            name: 'instant_approval_yes',
+            title: 'Options',
+            button:[
+                { url: 'https://www.google.com', title: 'Apply Now!' },
+                { msg: `Back to Credit Cards`, title: `Back to Credit Cards` },
+            ]
+        }
+    ],
+    instant_approval_yes_1: [
+        {
+            name: 'instant_approval_yes_1',
+            title: 'Options',
+            button:[
+                { msg: 'Requirements', title: 'Requirements' },
+                { msg: `Back to Credit Cards`, title: `Back to Credit Cards` },
+            ]
+        }
+    ],
+    instant_approval_no: [
+        {
+            name: 'instant_approval_no',
+            title: 'Options',
+            button:[
+                { msg: 'Back to Main Menu', title: 'Main Menu' }
             ]
         }
     ]
@@ -358,9 +453,9 @@ exports.card = {
             title: 'Citi Rewards® Card',
             image: 'https://ringgitplus.com/img/card-400/57eddcb0655a14fd555f44f0/citi-rewards-world-mastercard.jpg',
             button: [
-                { msg: 'Card Benefits', title: 'Card Benefits' },
+                { msg: 'Card Benefits - Reward', title: 'Card Benefits' },
                 { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Get Instant Approval', title: 'Get Instant Approval' }
+                { msg: 'Instant Approval', title: 'Instant Approval' }
             ]
         },
         {
@@ -368,9 +463,9 @@ exports.card = {
             title: 'Citi Cash Back® Card',
             image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
             button: [
-                { msg: 'Card Benefits', title: 'Card Benefits' },
+                { msg: 'Card Benefits - Cashback', title: 'Card Benefits' },
                 { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Get Instant Approval', title: 'Get Instant Approval' }
+                { msg: 'Instant Approval', title: 'Instant Approval' }
             ]
         },
         {
@@ -378,9 +473,9 @@ exports.card = {
             title: 'Citi® PremierMiles® Card',
             image: 'https://news.manikarthik.com/wp-content/uploads/Citi_PremierMiles_Card_Review_India.png',
             button: [
-                { msg: 'Card Benefits', title: 'Card Benefits' },
+                { msg: 'Card Benefits - Premier', title: 'Card Benefits' },
                 { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Get Instant Approval', title: 'Get Instant Approval' }
+                { msg: 'Instant Approval', title: 'Instant Approval' }
             ]
         },
         {
@@ -388,9 +483,9 @@ exports.card = {
             title: 'Shell Citi® Card',
             image: 'https://ringgitplus.com/img/card-400/519489e2193821ed4a000083/shell-citi-gold-credit-card.jpg',
             button: [
-                { msg: 'Card Benefits', title: 'Card Benefits' },
+                { msg: 'Card Benefits - Shell', title: 'Card Benefits' },
                 { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Get Instant Approval', title: 'Get Instant Approval' }
+                { msg: 'Instant Approval', title: 'Instant Approval' }
             ]
         },
         {
@@ -398,9 +493,56 @@ exports.card = {
             title: 'Mercury Drug Citi® Card',
             image: 'https://www.reviewstream.com/images_items/hPxuFV8Qm.png',
             button: [
-                { msg: 'Card Benefits', title: 'Card Benefits' },
+                { msg: 'Card Benefits - Mercury', title: 'Card Benefits' },
                 { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Get Instant Approval', title: 'Get Instant Approval' }
+                { msg: 'Instant Approval', title: 'Instant Approval' }
+            ]
+        },
+    ],
+    credit_card_1: [
+        {
+            name: 'citireward_card',
+            title: 'Citi Rewards® Card',
+            image: 'https://ringgitplus.com/img/card-400/57eddcb0655a14fd555f44f0/citi-rewards-world-mastercard.jpg',
+            button: [
+                { msg: 'Card Benefits - Reward', title: 'Card Benefits' },
+                { msg: 'Instant Approval', title: 'Instant Approval' }
+            ]
+        },
+        {
+            name: 'citicashback_card',
+            title: 'Citi Cash Back® Card',
+            image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
+            button: [
+                { msg: 'Card Benefits - Cashback', title: 'Card Benefits' },
+                { msg: 'Instant Approval', title: 'Instant Approval' }
+            ]
+        },
+        {
+            name: 'citipremiermiles_card',
+            title: 'Citi® PremierMiles® Card',
+            image: 'https://news.manikarthik.com/wp-content/uploads/Citi_PremierMiles_Card_Review_India.png',
+            button: [
+                { msg: 'Card Benefits - Premier', title: 'Card Benefits' },
+                { msg: 'Instant Approval', title: 'Instant Approval' }
+            ]
+        },
+        {
+            name: 'shellciti_card',
+            title: 'Shell Citi® Card',
+            image: 'https://ringgitplus.com/img/card-400/519489e2193821ed4a000083/shell-citi-gold-credit-card.jpg',
+            button: [
+                { msg: 'Card Benefits - Shell', title: 'Card Benefits' },
+                { msg: 'Instant Approval', title: 'Instant Approval' }
+            ]
+        },
+        {
+            name: 'mercurydrugciti_card',
+            title: 'Mercury Drug Citi® Card',
+            image: 'https://www.reviewstream.com/images_items/hPxuFV8Qm.png',
+            button: [
+                { msg: 'Card Benefits - Mercury', title: 'Card Benefits' },
+                { msg: 'Instant Approval', title: 'Instant Approval' }
             ]
         },
     ],
