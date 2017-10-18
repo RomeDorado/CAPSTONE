@@ -255,8 +255,9 @@ function callSendAPI(messageData) {
 		method: 'POST',
 		json: messageData
 
-	}, function (error, response, body) {
+	}, function (error, request, response, body) {
 		if (!error && response.statusCode == 200) {
+            console.log(request + 'this is the request');
 			var recipientId = body.recipient_id;
 			var messageId = body.message_id;
 
