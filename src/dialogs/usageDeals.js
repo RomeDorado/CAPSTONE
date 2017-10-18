@@ -1,7 +1,6 @@
 const builder = require('botbuilder');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
-const quickReplies = require('botbuilder-quickreplies');
 const request = require('request');
 
 /**Parent Dialog - Credit Cards */
