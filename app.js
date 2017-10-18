@@ -70,6 +70,6 @@ const server = restify.createServer();
 server.post('/api/messages', connector.listen());
 
 /**Start listening on 3978 by default*/
-server.listen(process.env.port || process.env.PORT || 3978, () => {
+server.listen(process.env.port || process.env.PORT || 4001, () => {
     console.log('Restify listening to port: %s', server.url);
 });

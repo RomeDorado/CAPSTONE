@@ -263,16 +263,16 @@ exports.card = {
                 { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC680&scode=W0S11HP1&icid=PHCCA3VENCPCRCANC', title: 'Get Instant Approval' }
             ]
         },
-        {
-            name: 'citicashback_card',
-            title: 'Citi Cash Back® Card',
-            image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
-            button: [
-                { msg: 'Learn Cash', title: 'Learn More' },
-                { msg: 'Call Me', title: 'Call Me' },
-                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Get Instant Approval' }
-            ]
-        },
+        // {
+        //     name: 'citicashback_card',
+        //     title: 'Citi Cash Back® Card',
+        //     image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
+        //     button: [
+        //         { msg: 'Learn Cash', title: 'Learn More' },
+        //         { msg: 'Call Me', title: 'Call Me' },
+        //         { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Get Instant Approval' }
+        //     ]
+        // },
         {
             name: 'citipremiermiles_card',
             title: 'Citi® PremierMiles® Card',
@@ -305,20 +305,29 @@ exports.card = {
         },
     ],
     menu: [
+        // {
+        //     name: 'ccl_card',
+        //     title: 'Credit Cards & Loans',
+        //     image: 'https://d11zeux9tyyeep.cloudfront.net/product/868/image_citi_064.17_-_citi_rewards_visa_card_r1_2x_360.png',
+        //     button: [
+        //         { msg: 'Credit Cards', title: 'Credit Cards' },
+        //         { msg: 'Loans', title: 'Loans' }
+        //     ]
+        // },
+        // {
+        //     name: 'usage_deals',
+        //     title: 'Usage Deals',
+        //     image: 'https://www.citibank.com.sg/gcb/credit_cards/images/citi_clear_card/slide2.jpg',
+        //     button: [{ msg: 'Usage Deals', title: 'Usage Deals' }]
+        // }
         {
-            name: 'ccl_card',
-            title: 'Credit Cards & Loans',
-            image: 'https://d11zeux9tyyeep.cloudfront.net/product/868/image_citi_064.17_-_citi_rewards_visa_card_r1_2x_360.png',
+            name: 'menu_choice',
+            title: 'What can I do for you today?',
             button: [
                 { msg: 'Credit Cards', title: 'Credit Cards' },
-                { msg: 'Loans', title: 'Loans' }
+                { msg: 'Loans', title: 'Loans' },
+                { msg: 'Deals & Prices', title: 'Deals & Prices' }
             ]
-        },
-        {
-            name: 'usage_deals',
-            title: 'Usage Deals',
-            image: 'https://www.citibank.com.sg/gcb/credit_cards/images/citi_clear_card/slide2.jpg',
-            button: [{ msg: 'Usage Deals', title: 'Usage Deals' }]
         }
     ],
     usage_deals: [
