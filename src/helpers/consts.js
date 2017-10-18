@@ -17,6 +17,7 @@ exports.prompts = {
     GET_NUMBER: 'What is your mobile number?',
     GET_EMAIL: 'What is your email address?',
     GET_TIME: 'Please let us know the best time for us to call you :)',
+    LOVE_TO_DINE: 'Let’s find branches near your preferred area',
     GET_INCOME: 'Lastly, may we know your annual income range?',
     GET_DETAILS_DONE: 'Thank you, {0}! A customer service representative will be contacting you soon :)',
     GET_LOAN_CONFIRMATION: 'Do you have a credit card that you\'ve owned for at least 12 months?',

@@ -2,11 +2,8 @@ const builder = require('botbuilder');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const quickReplies = require('botbuilder-quickreplies');
-const connector = new builder.ChatConnector({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
-});
-const bot = new builder.UniversalBot(connector);
+const request = require('request');
+
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
     (session) => {
@@ -52,22 +49,9 @@ module.exports.main = [
 /**Dining dialog */
 module.exports.dining = [
     (session) => {
-        // Create a message with some text.
-        var message = new builder.Message(session).text('Some text');
-        quickReplies.LocationPrompt.create(bot);
-        // Add some quick replies.
-        message = quickReplies.AddQuickReplies(session, message, [
-        new quickReplies.LocationPrompt.beginDialog(session),
-        new quickReplies.QuickReplyText(session, 'This is my title', 'This is my message'),
-        new quickReplies.QuickReplyText(session, 'This is another title', 'This is other message', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Button_Icon_Blue.svg/768px-Button_Icon_Blue.svg.png') // with optional image
-        ]);
-
-        // Send the message.
-        session.send(message);
+        sendQuickReply();
     },
     (session, results) => {
-        var location = args.response.entity;
-        session.send(`Your location is : ${location.title}, Longitude: ${location.coordinates.long}, Latitude: ${location.coordinates.lat}`);
                 
     }
 ]
@@ -229,3 +213,64 @@ module.exports.mercury = [
         } else { session.replaceDialog('/GetDetails'); }
     }
 ]
+
+function sendQuickReply() {
+    var replies = [];
+    let reply =
+    {
+        "content_type": "text",
+        "title": "Send Location",
+        "payload": "Send Location",
+    }    
+    replies.push(reply);
+    let makati = {
+        "content_type": "text",
+        "title": "Makati City",
+        "payload": "Makati City",
+    }
+    replies.push(makati);
+    let quezon = {
+        "content_type": "text",
+        "title": "Quezon City",
+        "payload": "Quezon City",
+    }
+    replies.push(quezon);
+    
+	var messageData = {
+		recipient: {
+			id: session.message.sourceEvent.sender.id,
+		},
+		message: {
+			text: consts.prompts.LOVE_TO_DINE,			
+			quick_replies: replies
+		}
+	};
+
+	callSendAPI(messageData);
+}
+function callSendAPI(messageData) {
+	request({
+		uri: 'https://graph.facebook.com/v2.6/me/messages',
+		qs: {
+			access_token: config.FB_PAGE_TOKEN
+		},
+		method: 'POST',
+		json: messageData
+
+	}, function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+			var recipientId = body.recipient_id;
+			var messageId = body.message_id;
+
+			if (messageId) {
+				console.log("Successfully sent message with id %s to recipient %s",
+					messageId, recipientId);
+			} else {
+				console.log("Successfully called Send API for recipient %s",
+					recipientId);
+			}
+		} else {
+			console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
+		}
+	});
+}
