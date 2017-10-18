@@ -48,7 +48,7 @@ module.exports.main = [
 /**Dining dialog */
 module.exports.dining = [
     (session) => {
-        sendQuickReply();
+        sendQuickReply(session.message.sourceEvent.sender.id);
     },
     (session, results) => {
                 
@@ -213,7 +213,7 @@ module.exports.mercury = [
     }
 ]
 
-function sendQuickReply() {
+function sendQuickReply(id) {
     var replies = [];
     let reply =
     {
@@ -237,7 +237,7 @@ function sendQuickReply() {
     
 	var messageData = {
 		recipient: {
-			id: session.message.sourceEvent.sender.id,
+			id: id,
 		},
 		message: {
 			text: consts.prompts.LOVE_TO_DINE,			
