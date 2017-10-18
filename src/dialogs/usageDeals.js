@@ -2,7 +2,7 @@ const builder = require('botbuilder');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const request = require('request');
-const config = require('./config')
+const config = require('../../config')
 
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
