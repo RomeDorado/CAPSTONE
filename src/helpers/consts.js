@@ -82,6 +82,17 @@ exports.menus = {
             ]
         },
 
+    ],
+    menu: [
+        {
+            name: 'menu_choice',
+            title: 'What can I do for you today?',
+            button: [
+                { msg: 'Credit Cards', title: 'Credit Cards' },
+                { msg: 'Loans', title: 'Loans' },
+                { msg: 'Deals & Prices', title: 'Deals & Prices' }
+            ]
+        }
     ]
 }
 
@@ -263,16 +274,16 @@ exports.card = {
                 { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC680&scode=W0S11HP1&icid=PHCCA3VENCPCRCANC', title: 'Get Instant Approval' }
             ]
         },
-        // {
-        //     name: 'citicashback_card',
-        //     title: 'Citi Cash Back® Card',
-        //     image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
-        //     button: [
-        //         { msg: 'Learn Cash', title: 'Learn More' },
-        //         { msg: 'Call Me', title: 'Call Me' },
-        //         { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Get Instant Approval' }
-        //     ]
-        // },
+        {
+            name: 'citicashback_card',
+            title: 'Citi Cash Back® Card',
+            image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
+            button: [
+                { msg: 'Learn Cash', title: 'Learn More' },
+                { msg: 'Call Me', title: 'Call Me' },
+                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Get Instant Approval' }
+            ]
+        },
         {
             name: 'citipremiermiles_card',
             title: 'Citi® PremierMiles® Card',
@@ -283,51 +294,42 @@ exports.card = {
                 { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC720&scode=W0S11HP1&icid=PHCCANNENCPCRCANC', title: 'Get Instant Approval' }
             ]
         },
-        {
-            name: 'shellciti_card',
-            title: 'Shell Citi® Card',
-            image: 'https://ringgitplus.com/img/card-400/519489e2193821ed4a000083/shell-citi-gold-credit-card.jpg',
-            button: [
-                { msg: 'Learn Shell', title: 'Learn More' },
-                { msg: 'Call Me', title: 'Call Me' },
-                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC690&scode=W0S11HP1&icid=PHCCATEENCPCRCANC', title: 'Get Instant Approval' }
-            ]
-        },
-        {
-            name: 'mercurydrugciti_card',
-            title: 'Mercury Drug Citi® Card',
-            image: 'https://www.reviewstream.com/images_items/hPxuFV8Qm.png',
-            button: [
-                { msg: 'Learn Mercury', title: 'Learn More' },
-                { msg: 'Call Me', title: 'Call Me' },
-                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC620&scode=W0S11HP1&icid=PHCCA5HENCPCRCANC', title: 'Get Instant Approval' }
-            ]
-        },
-    ],
-    menu: [
         // {
-        //     name: 'ccl_card',
-        //     title: 'Credit Cards & Loans',
-        //     image: 'https://d11zeux9tyyeep.cloudfront.net/product/868/image_citi_064.17_-_citi_rewards_visa_card_r1_2x_360.png',
+        //     name: 'shellciti_card',
+        //     title: 'Shell Citi® Card',
+        //     image: 'https://ringgitplus.com/img/card-400/519489e2193821ed4a000083/shell-citi-gold-credit-card.jpg',
         //     button: [
-        //         { msg: 'Credit Cards', title: 'Credit Cards' },
-        //         { msg: 'Loans', title: 'Loans' }
+        //         { msg: 'Learn Shell', title: 'Learn More' },
+        //         { msg: 'Call Me', title: 'Call Me' },
+        //         { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC690&scode=W0S11HP1&icid=PHCCATEENCPCRCANC', title: 'Get Instant Approval' }
         //     ]
         // },
         // {
-        //     name: 'usage_deals',
-        //     title: 'Usage Deals',
-        //     image: 'https://www.citibank.com.sg/gcb/credit_cards/images/citi_clear_card/slide2.jpg',
-        //     button: [{ msg: 'Usage Deals', title: 'Usage Deals' }]
-        // }
+        //     name: 'mercurydrugciti_card',
+        //     title: 'Mercury Drug Citi® Card',
+        //     image: 'https://www.reviewstream.com/images_items/hPxuFV8Qm.png',
+        //     button: [
+        //         { msg: 'Learn Mercury', title: 'Learn More' },
+        //         { msg: 'Call Me', title: 'Call Me' },
+        //         { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC620&scode=W0S11HP1&icid=PHCCA5HENCPCRCANC', title: 'Get Instant Approval' }
+        //     ]
+        // },
+    ],
+    menu: [
         {
-            name: 'menu_choice',
-            title: 'What can I do for you today?',
+            name: 'ccl_card',
+            title: 'Credit Cards & Loans',
+            image: 'https://d11zeux9tyyeep.cloudfront.net/product/868/image_citi_064.17_-_citi_rewards_visa_card_r1_2x_360.png',
             button: [
                 { msg: 'Credit Cards', title: 'Credit Cards' },
-                { msg: 'Loans', title: 'Loans' },
-                { msg: 'Deals & Prices', title: 'Deals & Prices' }
+                { msg: 'Loans', title: 'Loans' }
             ]
+        },
+        {
+            name: 'usage_deals',
+            title: 'Usage Deals',
+            image: 'https://www.citibank.com.sg/gcb/credit_cards/images/citi_clear_card/slide2.jpg',
+            button: [{ msg: 'Usage Deals', title: 'Usage Deals' }]
         }
     ],
     usage_deals: [

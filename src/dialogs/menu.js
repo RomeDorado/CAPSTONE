@@ -6,11 +6,11 @@ const card = require('../helpers/cardBuilder');
 module.exports =
 [
     (session) => {
-        var cardName = card.getName(consts.card.menu);
-        var msg = card(session, consts.card.menu, cardName);
+        var cardName = card.getName(consts.menus.menu);
+        var msg = card(session, consts.menus.menu, cardName);
 
-        session.send(consts.prompts.MENU);
-        builder.Prompts.choice(session, msg, card.choices(consts.card.menu));
+        // session.send(consts.prompts.MENU);
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.menu));
     },
     (session, results) => {
         var choices = card.choices(consts.card.menu);
