@@ -2,6 +2,10 @@ const builder = require('botbuilder');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const quickReplies = require('botbuilder-quickreplies');
+const connector = new builder.ChatConnector({
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
+});
 const bot = new builder.UniversalBot(connector);
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
