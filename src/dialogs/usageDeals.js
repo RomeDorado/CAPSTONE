@@ -218,9 +218,7 @@ function sendQuickReply(id) {
     var replies = [];
     let reply =
     {
-        "content_type": "text",
-        "title": "Send Location",
-        "payload": "Send Location",
+        "content_type":"location",        
     }    
     replies.push(reply);
     let makati = {
