@@ -17,6 +17,7 @@ exports.prompts = {
     GET_NUMBER: 'What is your mobile number?',
     GET_EMAIL: 'What is your email address?',
     GET_TIME: 'Please let us know the best time for us to call you :)',
+    LOVE_TO_DINE: 'Let’s find branches near your preferred area',
     GET_INCOME: 'Lastly, may we know your annual income range?',
     GET_DETAILS_DONE: 'Thank you, {0}! A customer service representative will be contacting you soon :)',
     GET_LOAN_CONFIRMATION: 'Do you have a credit card that you\'ve owned for at least 12 months?',
@@ -25,9 +26,21 @@ exports.prompts = {
     GET_DETAILS_LOAN_DONE: 'Thank you, {0}! A customer service representative will be contacting you soon :)',
     GET_LOAN_CONFIRMATION_NO: 'Thank you for your interest in a Citi Personal Loan.\n\n For us to proceed with your application, we require that you own a credit card for at least 12 months. If this changes anytime in the future, feel free to re-apply.',
     INVALID_EMAIL: 'The email address you enter is invalid please re-enter it again.',
-    LOAN_PROMPT: 'Hi {0}! Thank you for your interest in a Citi Personal Loan!\n\n What do you want to do?',
-    USAGEDEALS_PROMPT: 'Unlock a world of privileges and promotions beyond compare with your Citi Card.',
-    DINING_PROMPT: 'Here are our dining deals!',
+    LOAN_PROMPT: 'Thank you for your interest in a Citi Personal Loan! 🙂',
+    LOAN_BENEFITS: `Benefits at a glance: 
+    - Approval in as fast as 24 hours 
+    - Flexible terms of 1 to 5 years 
+    - No collateral or guarantor needed 
+    - High loan amount of up to P2M (subject to approval)`,
+    BEFORE_PROCEED: 'Before we proceed, we’d like to ask if you meet the following:',
+    BEFORE_PROCEED_REQ: `- 25 to 60 years old 
+    - Filipino resident OR local resident foreigner with valid Philippine billing address 
+    - have annual income of at least P250,000 
+    - have a principal credit card of at least 12 months from other banks (6 months if Citi credit card)`,
+    USAGEDEALS_PROMPT: 'Which category would you want to explore?',
+    DEC_TEXT: `{0}, thank you for your interest in a Citi Personal Loan. Take note that we can only proceed with an application if you currently have an active credit card for at least 12 months.`,
+    ACC_TEXT: `Great! 🙂 Kindly prepare the following for a quicker application experience: - Valid governmentissued IDs (e.g. passport, driver’s license) - For employed: Latest ITR, BIR 2316, or payslip for the last 3 months - For self-employed: Latest ITR and latest Audited Financial Statements (AFS)`,
+    DINING_PROMPT: 'Let’s find branches near your preferred area! 🙂',
     TRAVEL_PROMPT: 'Here are our travel deals!',
     WIN_WHAT_YOU_DINE: 'Use your Citi credit card at any restaurant and get a chance to win back up to P5,000 of your bill. \n\nPromo is from June 16 to 30, 2017.',
     BONCHON_PROMPT: 'Get a free Bibimbowl of your preferred meat and flavor for a minimum spend of P1,500 at BonChon. \n\nValid from May 8 to October 31, 2017. \n\nPromo is offered at BonChon stores nationwide.',
@@ -94,9 +107,9 @@ exports.menus = {
             title: '',
             image: '',
             button: [
-                { msg: 'Learn Loans', title: 'Learn More' },
-                { msg: 'Call Me', title: 'Call Me' },
-                { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
+                { msg: 'Apply now', title: 'Apply now' },
+                { msg: 'Back to Main Menu', title: 'Back to Main Menu' },
+                // { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
             ]
         },
         {
@@ -137,7 +150,7 @@ exports.menus = {
             button: [
                 { msg: 'Credit Cards', title: 'Credit Cards' },
                 { msg: 'Loans', title: 'Loans' },
-                { msg: 'Deals & Prices', title: 'Deals & Prices' }
+                { msg: 'Deals & Promos', title: 'Deals & Promos' }
             ]
         }
     ],
@@ -241,9 +254,42 @@ exports.card = {
             title: '',
             image: '',
             button: [
-                { msg: 'Learn Loans', title: 'Learn More' },
-                { msg: 'Call Me', title: 'Call Me' },
-                { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
+                { msg: 'Apply now', title: 'Apply now' },
+                { msg: 'Back to Main Menu', title: 'Back to Main Menu' },
+                // { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
+            ]
+        }
+    ],
+    loans_req: [
+        {
+            name: 'loans_req',
+            title: '',
+            image: '',
+            button: [
+                { msg: 'Yes, I do.', title: 'Yes, I do.' },
+                { msg: 'No, I don\'t.', title: 'No, I don\'t.' },
+                // { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
+            ]
+        }
+    ],
+    loans_acc: [
+        {
+            name: 'loans_acc',
+            title: '',
+            image: '',
+            button: [
+                { url: 'http://cb-apply-page.herokuapp.com/index.html', title: 'Proceed to Apply' },
+                { msg: 'Main Menu', title: 'Main Menu' },                
+            ]
+        }
+    ],
+    loans_dec: [
+        {
+            name: 'loans_dec',
+            title: '',
+            image: '',
+            button: [
+                { msg: 'Back to Main Menu', title: 'Back to Main Menu' }                                
             ]
         }
     ],
@@ -520,18 +566,18 @@ exports.card = {
     usage_deals: [
         {
             name: 'dining_priv',
-            title: 'Citi Dining Privileges',
+            title: '#LovetoDine',
             image: '',
             button: [
-                { msg: 'Love2Dine', title: 'Love2Dine' }
+                { msg: '#LovetoDine', title: '#LovetoDine' }
             ]
         },
         {
             name: 'travel_priv',
-            title: 'Citi Travel Privileges',
+            title: '#LovetoTravel',
             image: '',
             button: [
-                { msg: 'Love2Travel', title: 'Love2Travel' }
+                { msg: '#LovetoTravel', title: '#LovetoTravel' }
             ]
         },
         {
@@ -539,17 +585,9 @@ exports.card = {
             title: 'Citi Online Deals',
             image: '',
             button: [
-                { msg: 'Love2Click', title: 'Love2Click' }
+                { msg: '#LovetoClick', title: '#LovetoClick' }
             ]
-        },
-        {
-            name: 'paylite_priv',
-            title: 'Citi 0% Installment Plans',
-            image: '',
-            button: [
-                { url: 'https://www.citibank.com.ph/landing_page/PayLite/index.htm?lid=PHENCBGPEHETLCitipayliteinstallmentPlan', title: 'PayLite' }
-            ]
-        },
+        },        
         // {
         //     name: 'onebill_priv',
         //     title: 'CITI One Bill',
@@ -570,11 +608,11 @@ exports.card = {
     usage_deals_dining : [
         {
             name: 'win_what_you_dine',
-            title: 'Win What You Dine',
+            title: '',
             text: '',
             image: '',
             button: [
-                { msg: 'Win What You Dine', title: 'Win What You Dine' }
+                { msg: 'Send location', title: 'Win What You Dine' }
             ]
         },
         {
@@ -776,7 +814,7 @@ exports.choices = {
     INCOME_RANGE: ['Below 180, 000', 'P180,000 - P499,999', 'P500,000 - P999,999', 'P1M and above'],
     LOAN_INCOME_RANGE: ['Below 250, 000', '250,000 - P499,999', 'P500,000 - P999,999', 'P1M and above'],
     BACK_TO_MENU: ['Back to main menu'],
-    USAGE_DEALS: ['Love2Dine', 'Love2Travel', 'Love2Click', 'Paylite', 'One Bill','Citi World Privileges']
+    USAGE_DEALS: ['Love2Dine', 'Love2Travel', '#LovetoClick']
 
 }
 

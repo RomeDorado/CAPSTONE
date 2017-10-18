@@ -1,6 +1,8 @@
 const builder = require('botbuilder');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
+const request = require('request');
+const config = require('../../config')
 
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
@@ -47,40 +49,10 @@ module.exports.main = [
 /**Dining dialog */
 module.exports.dining = [
     (session) => {
-        var cardName = card.getName(consts.card.usage_deals_dining)
-        var msg = card(session, consts.card.usage_deals_dining, cardName);
-
-        session.send(consts.prompts.DINING_PROMPT);
-        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_dining));
+        sendQuickReply(session.message.sourceEvent.sender.id);
     },
     (session, results) => {
-        var choices = card.choices(consts.card.usage_deals_dining);
-
-        switch (results.response.entity) {
-            case choices[0]:
-                var cardName = card.getName(consts.card.wwyd)
-                var msg = card(session, consts.card.wwyd, cardName);
-
-                session.send(consts.prompts.WIN_WHAT_YOU_DINE);
-                builder.Prompts.text(session, msg)
-            break;
-
-            case choices[1]:
-                var cardName = card.getName(consts.card.bonchon)
-                var msg = card(session, consts.card.bonchon, cardName);
-
-                session.send(consts.prompts.BONCHON_PROMPT);
-                builder.Prompts.text(session, msg)
-            break;
-
-            case choices[2]:
-                var cardName = card.getName(consts.card.peri)
-                var msg = card(session, consts.card.peri, cardName);
-
-                session.send(consts.prompts.PERI);
-                builder.Prompts.text(session, msg)
-            break;
-        }
+        console.log(JSON.stringify(results));
     }
 ]
 
@@ -241,3 +213,63 @@ module.exports.mercury = [
         } else { session.replaceDialog('/GetDetails'); }
     }
 ]
+
+function sendQuickReply(id) {
+    var replies = [];
+    let reply =
+    {
+        "content_type":"location",        
+    }    
+    replies.push(reply);
+    let makati = {
+        "content_type": "text",
+        "title": "Makati City",
+        "payload": "Makati City",
+    }
+    replies.push(makati);
+    let quezon = {
+        "content_type": "text",
+        "title": "Quezon City",
+        "payload": "Quezon City",
+    }
+    replies.push(quezon);
+    
+	var messageData = {
+		recipient: {
+			id: id,
+		},
+		message: {
+			text: consts.prompts.LOVE_TO_DINE,			
+			quick_replies: replies
+		}
+	};
+
+	callSendAPI(messageData);
+}
+function callSendAPI(messageData) {
+	request({
+		uri: 'https://graph.facebook.com/v2.6/me/messages',
+		qs: {
+			access_token: 'EAACADw8emg8BAG9kfpPLGLp3gPfwXcuCMqGiXG8tiIXTyzZAGtsu4BsZCoBFvOFmWzy6JqNA9qYklbHV4OT7ZB8zUEw938HmGtA5NbVRxZAPiucmQMij0SoGfMLAx6JM70RAGfV3ud1Xw6e2f3jeV4ZA4N1a5Y5ZAsDfcrVpYORHK0xsiSZAsjZA'
+		},
+		method: 'POST',
+		json: messageData
+
+	}, function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+			var recipientId = body.recipient_id;
+			var messageId = body.message_id;
+
+			if (messageId) {
+                console.log(response + "this is the response");
+				console.log("Successfully sent message with id %s to recipient %s",
+					messageId, recipientId);
+			} else {
+				console.log("Successfully called Send API for recipient %s",
+					recipientId);
+			}
+		} else {
+			console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
+		}
+	});
+}

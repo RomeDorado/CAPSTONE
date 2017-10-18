@@ -12,7 +12,7 @@
   "dependencies": {
     "botbuilder": "^3.11.0",
     "nodemon": "^1.11.0",
-    "request": "^2.81.0",
+    "request": "^2.83.0",
     "restify": "^5.0.0",
     "string-format": "^0.5.0"
   }
