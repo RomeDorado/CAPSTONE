@@ -1,6 +1,7 @@
 const builder = require('botbuilder');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
+const quickReplies = require('botbuilder-quickreplies');
 
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
@@ -47,40 +48,23 @@ module.exports.main = [
 /**Dining dialog */
 module.exports.dining = [
     (session) => {
-        var cardName = card.getName(consts.card.usage_deals_dining)
-        var msg = card(session, consts.card.usage_deals_dining, cardName);
+        // Create a message with some text.
+        var message = new builder.Message(session).text('Some text');
 
-        session.send(consts.prompts.DINING_PROMPT);
-        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_dining));
+        // Add some quick replies.
+        message = quickReplies.AddQuickReplies(session, message, [
+        new quickReplies.LocationPrompt.beginDialog(session),
+        new quickReplies.QuickReplyText(session, 'This is my title', 'This is my message'),
+        new quickReplies.QuickReplyText(session, 'This is another title', 'This is other message', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Button_Icon_Blue.svg/768px-Button_Icon_Blue.svg.png') // with optional image
+        ]);
+
+        // Send the message.
+        session.send(message);
     },
     (session, results) => {
-        var choices = card.choices(consts.card.usage_deals_dining);
-
-        switch (results.response.entity) {
-            case choices[0]:
-                var cardName = card.getName(consts.card.wwyd)
-                var msg = card(session, consts.card.wwyd, cardName);
-
-                session.send(consts.prompts.WIN_WHAT_YOU_DINE);
-                builder.Prompts.text(session, msg)
-            break;
-
-            case choices[1]:
-                var cardName = card.getName(consts.card.bonchon)
-                var msg = card(session, consts.card.bonchon, cardName);
-
-                session.send(consts.prompts.BONCHON_PROMPT);
-                builder.Prompts.text(session, msg)
-            break;
-
-            case choices[2]:
-                var cardName = card.getName(consts.card.peri)
-                var msg = card(session, consts.card.peri, cardName);
-
-                session.send(consts.prompts.PERI);
-                builder.Prompts.text(session, msg)
-            break;
-        }
+        var location = args.response.entity;
+        session.send(`Your location is : ${location.title}, Longitude: ${location.coordinates.long}, Latitude: ${location.coordinates.lat}`);
+                
     }
 ]
 

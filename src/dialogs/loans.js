@@ -92,12 +92,8 @@ module.exports.loanAccept = [
     (session, results) => {
         var choices = card.choices(consts.card.loans_acc);
 
-        switch(results.response.entity){
+        switch(results.response.entity){            
             case choices[0]:
-                session.replaceDialog('/Menu');
-            break;
-
-            case choices[1]:
                 session.replaceDialog('/Menu');
             break;
         }

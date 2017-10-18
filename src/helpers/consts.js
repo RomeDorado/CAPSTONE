@@ -36,10 +36,10 @@ exports.prompts = {
     - Filipino resident OR local resident foreigner with valid Philippine billing address 
     - have annual income of at least P250,000 
     - have a principal credit card of at least 12 months from other banks (6 months if Citi credit card)`,
-    USAGEDEALS_PROMPT: 'Unlock a world of privileges and promotions beyond compare with your Citi Card.',
+    USAGEDEALS_PROMPT: 'Which category would you want to explore?',
     DEC_TEXT: `{0}, thank you for your interest in a Citi Personal Loan. Take note that we can only proceed with an application if you currently have an active credit card for at least 12 months.`,
     ACC_TEXT: `Great! 🙂 Kindly prepare the following for a quicker application experience: - Valid governmentissued IDs (e.g. passport, driver’s license) - For employed: Latest ITR, BIR 2316, or payslip for the last 3 months - For self-employed: Latest ITR and latest Audited Financial Statements (AFS)`,
-    DINING_PROMPT: 'Here are our dining deals!',
+    DINING_PROMPT: 'Let’s find branches near your preferred area! 🙂',
     TRAVEL_PROMPT: 'Here are our travel deals!',
     WIN_WHAT_YOU_DINE: 'Use your Citi credit card at any restaurant and get a chance to win back up to P5,000 of your bill. \n\nPromo is from June 16 to 30, 2017.',
     BONCHON_PROMPT: 'Get a free Bibimbowl of your preferred meat and flavor for a minimum spend of P1,500 at BonChon. \n\nValid from May 8 to October 31, 2017. \n\nPromo is offered at BonChon stores nationwide.',
@@ -123,7 +123,7 @@ exports.menus = {
             button: [
                 { msg: 'Credit Cards', title: 'Credit Cards' },
                 { msg: 'Loans', title: 'Loans' },
-                { msg: 'Deals & Prices', title: 'Deals & Prices' }
+                { msg: 'Deals & Promos', title: 'Deals & Promos' }
             ]
         }
     ],
@@ -182,7 +182,7 @@ exports.card = {
             title: '',
             image: '',
             button: [
-                { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Proceed to Apply' },
+                { url: 'http://cb-apply-page.herokuapp.com/index.html', title: 'Proceed to Apply' },
                 { msg: 'Main Menu', title: 'Main Menu' },                
             ]
         }
@@ -423,18 +423,18 @@ exports.card = {
     usage_deals: [
         {
             name: 'dining_priv',
-            title: 'Citi Dining Privileges',
+            title: '#LovetoDine',
             image: '',
             button: [
-                { msg: 'Love2Dine', title: 'Love2Dine' }
+                { msg: '#LovetoDine', title: '#LovetoDine' }
             ]
         },
         {
             name: 'travel_priv',
-            title: 'Citi Travel Privileges',
+            title: '#LovetoTravel',
             image: '',
             button: [
-                { msg: 'Love2Travel', title: 'Love2Travel' }
+                { msg: '#LovetoTravel', title: '#LovetoTravel' }
             ]
         },
         {
@@ -442,17 +442,9 @@ exports.card = {
             title: 'Citi Online Deals',
             image: '',
             button: [
-                { msg: 'Love2Click', title: 'Love2Click' }
+                { msg: '#LovetoClick', title: '#LovetoClick' }
             ]
-        },
-        {
-            name: 'paylite_priv',
-            title: 'Citi 0% Installment Plans',
-            image: '',
-            button: [
-                { url: 'https://www.citibank.com.ph/landing_page/PayLite/index.htm?lid=PHENCBGPEHETLCitipayliteinstallmentPlan', title: 'PayLite' }
-            ]
-        },
+        },        
         // {
         //     name: 'onebill_priv',
         //     title: 'CITI One Bill',
@@ -473,11 +465,11 @@ exports.card = {
     usage_deals_dining : [
         {
             name: 'win_what_you_dine',
-            title: 'Win What You Dine',
+            title: '',
             text: '',
             image: '',
             button: [
-                { msg: 'Win What You Dine', title: 'Win What You Dine' }
+                { msg: 'Send location', title: 'Win What You Dine' }
             ]
         },
         {
@@ -679,7 +671,7 @@ exports.choices = {
     INCOME_RANGE: ['Below 180, 000', 'P180,000 - P499,999', 'P500,000 - P999,999', 'P1M and above'],
     LOAN_INCOME_RANGE: ['Below 250, 000', '250,000 - P499,999', 'P500,000 - P999,999', 'P1M and above'],
     BACK_TO_MENU: ['Back to main menu'],
-    USAGE_DEALS: ['Love2Dine', 'Love2Travel', 'Love2Click', 'Paylite', 'One Bill','Citi World Privileges']
+    USAGE_DEALS: ['Love2Dine', 'Love2Travel', '#LovetoClick']
 
 }
 
