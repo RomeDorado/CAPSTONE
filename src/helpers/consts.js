@@ -25,8 +25,20 @@ exports.prompts = {
     GET_DETAILS_LOAN_DONE: 'Thank you, {0}! A customer service representative will be contacting you soon :)',
     GET_LOAN_CONFIRMATION_NO: 'Thank you for your interest in a Citi Personal Loan.\n\n For us to proceed with your application, we require that you own a credit card for at least 12 months. If this changes anytime in the future, feel free to re-apply.',
     INVALID_EMAIL: 'The email address you enter is invalid please re-enter it again.',
-    LOAN_PROMPT: 'Hi {0}! Thank you for your interest in a Citi Personal Loan!\n\n What do you want to do?',
+    LOAN_PROMPT: 'Thank you for your interest in a Citi Personal Loan! 🙂',
+    LOAN_BENEFITS: `Benefits at a glance: 
+    - Approval in as fast as 24 hours 
+    - Flexible terms of 1 to 5 years 
+    - No collateral or guarantor needed 
+    - High loan amount of up to P2M (subject to approval)`,
+    BEFORE_PROCEED: 'Before we proceed, we’d like to ask if you meet the following:',
+    BEFORE_PROCEED_REQ: `- 25 to 60 years old 
+    - Filipino resident OR local resident foreigner with valid Philippine billing address 
+    - have annual income of at least P250,000 
+    - have a principal credit card of at least 12 months from other banks (6 months if Citi credit card)`,
     USAGEDEALS_PROMPT: 'Unlock a world of privileges and promotions beyond compare with your Citi Card.',
+    DEC_TEXT: `{0}, thank you for your interest in a Citi Personal Loan. Take note that we can only proceed with an application if you currently have an active credit card for at least 12 months.`,
+    ACC_TEXT: `Great! 🙂 Kindly prepare the following for a quicker application experience: - Valid governmentissued IDs (e.g. passport, driver’s license) - For employed: Latest ITR, BIR 2316, or payslip for the last 3 months - For self-employed: Latest ITR and latest Audited Financial Statements (AFS)`,
     DINING_PROMPT: 'Here are our dining deals!',
     TRAVEL_PROMPT: 'Here are our travel deals!',
     WIN_WHAT_YOU_DINE: 'Use your Citi credit card at any restaurant and get a chance to win back up to P5,000 of your bill. \n\nPromo is from June 16 to 30, 2017.',
@@ -47,9 +59,9 @@ exports.menus = {
             title: '',
             image: '',
             button: [
-                { msg: 'Learn Loans', title: 'Learn More' },
-                { msg: 'Call Me', title: 'Call Me' },
-                { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
+                { msg: 'Apply now', title: 'Apply now' },
+                { msg: 'Back to Main Menu', title: 'Back to Main Menu' },
+                // { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
             ]
         },
         {
@@ -103,9 +115,42 @@ exports.card = {
             title: '',
             image: '',
             button: [
-                { msg: 'Learn Loans', title: 'Learn More' },
-                { msg: 'Call Me', title: 'Call Me' },
-                { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
+                { msg: 'Apply now', title: 'Apply now' },
+                { msg: 'Back to Main Menu', title: 'Back to Main Menu' },
+                // { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
+            ]
+        }
+    ],
+    loans_req: [
+        {
+            name: 'loans_req',
+            title: '',
+            image: '',
+            button: [
+                { msg: 'Yes, I do.', title: 'Yes, I do.' },
+                { msg: 'No, I don\'t.', title: 'No, I don\'t.' },
+                // { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
+            ]
+        }
+    ],
+    loans_acc: [
+        {
+            name: 'loans_acc',
+            title: '',
+            image: '',
+            button: [
+                { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Proceed to Apply' },
+                { msg: 'Main Menu', title: 'Main Menu' },                
+            ]
+        }
+    ],
+    loans_dec: [
+        {
+            name: 'loans_dec',
+            title: '',
+            image: '',
+            button: [
+                { msg: 'Back to Main Menu', title: 'Back to Main Menu' }                                
             ]
         }
     ],

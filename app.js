@@ -51,6 +51,8 @@ bot.dialog('/GetDetails/Email', dialogs.getDetails.email);
 bot.dialog('/GetDetails/Loans', dialogs.getDetails.loans);
 bot.dialog('/Loans', dialogs.loans.main);
 bot.dialog('/Loans/Info', dialogs.loans.loanInfo);
+bot.dialog('/Loans/Decline', dialogs.loans.loanDecline);
+bot.dialog('/Loans/Accept', dialogs.loans.loanAccept);
 bot.dialog('/UsageDeals', dialogs.usageDeals.main);
 bot.dialog('/UsageDeals/Dining', dialogs.usageDeals.dining);
 bot.dialog('/UsageDeals/Travel', dialogs.usageDeals.travel);

@@ -13,9 +13,10 @@ module.exports.main = [
         // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD);
 
         var cardName = card.getName(consts.card.loans_card);
-        var msg = card(session, consts.card.loans_card, cardName);
-
-        session.send(format(consts.prompts.LOAN_PROMPT, 'User'));
+        var msg = card(session, consts.card.loans_card, cardName);        
+        
+        session.send(consts.prompts.LOAN_PROMPT);
+        session.send(consts.prompts.LOAN_BENEFITS);
         builder.Prompts.choice(session, msg, card.choices(consts.card.loans_card));
     },
     (session, results) => {
@@ -27,67 +28,78 @@ module.exports.main = [
             break;
 
             case choices[1]:
-                session.replaceDialog('/GetDetails/Loans');
+                session.replaceDialog('/Menu');
             break;
         }
     }
 ]
 
 /**Child Dialog - loans */
-module.exports.loanInfo = [
-    (session, results) => {
-        builder.Prompts.choice(session, consts.prompts.LEARN_PROMPT, consts.choices.LEARN_LOANS, consts.styles.button);
+module.exports.loanInfo = [    
+    (session) => {
+
+        var cardName = card.getName(consts.card.loans_req);
+        var msg = card(session, consts.card.loans_req, cardName);        
+        
+        session.send(consts.prompts.BEFORE_PROCEED);        
+        session.send(consts.prompts.BEFORE_PROCEED_REQ);
+        builder.Prompts.choice(session, msg, card.choices(consts.card.loans_req));
     },
     (session, results) => {
+        var choices = card.choices(consts.card.loans_req);
+
         switch(results.response.entity){
-            case consts.choices.LEARN_LOANS[0]:
-                // var cardName = ['loans_benefit_card']
-                // var msg = card(session, consts.menus.card, cardName);
-
-                // session.send(consts.prompts.LOAN_BENEFITS);
-                // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
-
-                var cardName = card.getName(consts.card.loans_benefit_card);
-                var msg = card(session, consts.card.loans_benefit_card, cardName);
-        
-                session.send(consts.prompts.LOAN_BENEFITS);
-                builder.Prompts.choice(session, msg, card.choices(consts.card.loans_benefit_card));
+            case choices[0]:
+                session.replaceDialog('/Loans/Accept');
             break;
 
-            case consts.choices.LEARN_LOANS[1]:
-                // var cardName = ['loans_eligibility_card']
-                // var msg = card(session, consts.menus.card, cardName);
-
-                // session.send(consts.prompts.LOAN_ELIGIBITY);
-                // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button); 
-
-                var cardName = card.getName(consts.card.loans_eligibility_card);
-                var msg = card(session, consts.card.loans_eligibility_card, cardName);
-        
-                session.send(consts.prompts.LOAN_ELIGIBITY);
-                builder.Prompts.choice(session, msg, card.choices(consts.card.loans_eligibility_card));
-            break;
-
-            case consts.choices.LEARN_LOANS[2]:
-                // var cardName = ['loans_requirements_card']
-                // var msg = card(session, consts.menus.card, cardName);
-
-                // session.send(consts.prompts.LOAN_REQUIREMENTS);
-                // builder.Prompts.choice(session, msg, consts.choices.CREDIT_CARD, consts.styles.button);
-
-                var cardName = card.getName(consts.card.loans_requirements_card);
-                var msg = card(session, consts.card.loans_requirements_card, cardName);
-        
-                session.send(consts.prompts.LOAN_REQUIREMENTS);
-                builder.Prompts.choice(session, msg, card.choices(consts.card.loans_requirements_card));
+            case choices[1]:
+                session.replaceDialog('/Loans/Decline');
             break;
         }
+    }   
+]
+
+module.exports.loanDecline = [
+    (session) => {
+
+        var cardName = card.getName(consts.card.loans_dec);
+        var msg = card(session, consts.card.loans_dec, cardName);        
+                        
+        session.send(format(consts.prompts.DEC_TEXT, session.message.user.name));
+        builder.Prompts.choice(session, msg, card.choices(consts.card.loans_dec));
     },
     (session, results) => {
-        var choices = card.choices(consts.card.loans_card);
+        var choices = card.choices(consts.card.loans_dec);
+
+        switch(results.response.entity){
+            case choices[0]:
+                session.replaceDialog('/Menu');
+            break;
+        }
+    }   
+]
+
+module.exports.loanAccept = [    
+    (session) => {
+
+        var cardName = card.getName(consts.card.loans_acc);
+        var msg = card(session, consts.card.loans_acc, cardName);        
         
-        if(results.response.entity == choices[choices.indexOf(results.response.entity)] || 'Back'){
-            session.replaceDialog('/Loans/Info');
-        }else{session.replaceDialog('/GetDetails/Loans');}
+        session.send(consts.prompts.ACC_TEXT);                
+        builder.Prompts.choice(session, msg, card.choices(consts.card.loans_acc));
+    },
+    (session, results) => {
+        var choices = card.choices(consts.card.loans_acc);
+
+        switch(results.response.entity){
+            case choices[0]:
+                session.replaceDialog('/Menu');
+            break;
+
+            case choices[1]:
+                session.replaceDialog('/Menu');
+            break;
+        }
     }   
 ]
