@@ -13,7 +13,7 @@ module.exports =
         builder.Prompts.choice(session, msg, card.choices(consts.menus.menu));
     },
     (session, results) => {
-        var choices = card.choices(consts.card.menu);
+        var choices = card.choices(consts.menus.menu);
 
         switch(results.response.entity){
             case choices[0]:

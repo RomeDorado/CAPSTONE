@@ -46,6 +46,7 @@ bot.dialog('/CreditCards/CashBack', dialogs.creditCard.cashBack);
 bot.dialog('/CreditCards/Premier', dialogs.creditCard.premier);
 bot.dialog('/CreditCards/Shell', dialogs.creditCard.shell);
 bot.dialog('/CreditCards/Mercury', dialogs.creditCard.mercury);
+bot.dialog('/CredirCards/Requirements', dialogs.creditCard.requirements);
 bot.dialog('/GetDetails', dialogs.getDetails.main);
 bot.dialog('/GetDetails/Email', dialogs.getDetails.email);
 bot.dialog('/GetDetails/Loans', dialogs.getDetails.loans);
