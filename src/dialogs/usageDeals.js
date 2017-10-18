@@ -2,7 +2,7 @@ const builder = require('botbuilder');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const quickReplies = require('botbuilder-quickreplies');
-
+const bot = new builder.UniversalBot(connector);
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
     (session) => {
@@ -50,7 +50,7 @@ module.exports.dining = [
     (session) => {
         // Create a message with some text.
         var message = new builder.Message(session).text('Some text');
-
+        quickReplies.LocationPrompt.create(bot);
         // Add some quick replies.
         message = quickReplies.AddQuickReplies(session, message, [
         new quickReplies.LocationPrompt.beginDialog(session),
