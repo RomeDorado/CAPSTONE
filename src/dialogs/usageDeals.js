@@ -52,7 +52,7 @@ module.exports.dining = [
         sendQuickReply(session.message.sourceEvent.sender.id);
     },
     (session, results) => {
-                
+        console.log(JSON.stringify(results));
     }
 ]
 
