@@ -49,7 +49,28 @@ exports.prompts = {
     PERI: 'Enjoy 25% off at Peri-Peri with a minimum spend of P2,000. \n\nAvailable on Mondays to Fridays, from May 1 to \n\nOctober 31, 2017 in participating branches.',
     LOVE2CLICK_PROMPT: 'Enjoy exclusive online deals and discounts from over 30 brands with your Citi credit card. \n\nPromo period from July 1 to September 30, 2017.',
     POWERMAC_PROMPT: 'For a minimum single-receipt transaction of P50,000 at 0% Citi PayLite up to 24 months. \n\nValid until Aug. 31, 2017.',
-    RUSTANS_PROMPT: 'Get a Rustan\'s GC worth P2,500 when you spend a minimum single-receipt transaction of P50,000 at 0% Citi PayLite up to 12 months. \n\nValid until Jan 31, 2018.' 
+    RUSTANS_PROMPT: 'Get a Rustan\'s GC worth P2,500 when you spend a minimum single-receipt transaction of P50,000 at 0% Citi PayLite up to 12 months. \n\nValid until Jan 31, 2018.',
+    CITI_REWARDS: `This is exciting, {0}! Did you know that your Citi Rewards card is the best-in-class rewards or points card?
+    
+    - Get never-expiring points at the lowest spend (P30 = 1 point)
+    - Get 3x points when you shop, dine, or book Cebu Pacific tickets
+    - Purchase from over 1,000 shops, cinemas, and restaurants nationwide using your points`,
+    CITI_CASHBACK: `{0}, get more from your Citi Cash Back card – the best-in-class rebates card:
+    
+    - Get the highest rebate out there, up to 6% on your supermarket expenses
+    - For your Meralco bills, get up to 2% rebate
+    - For all other purchases, get up to 0.20%`,
+    CITI_PREMIER: `Great choice, {0}! Did you know that your Citi PremierMiles card is the best-in-class travel card in the market?
+    
+    - Get never-expiring miles at the lowest spend (P30 = 1 mile)
+    - Enjoy free flights and hotel stays, with 24/7 Visa Signature Concierge service
+    - Access international airport lounges`,
+    CITI_SHELL: `{0}, your Shell Citi card can make things better for you. Get up to 5% rebate on the ff:
+    
+    - Shell fuel expenses
+    - SLEX/NLEX toll load
+    - ALL auto repairs, accessories, and services nationwide`,
+    CITI_MERCURY: `{0}, your Mercury Drug Citi card can give you up to 10% rebate on your Mercury Drug purchases and hospital bills.`
 }
 
 exports.menus = {
@@ -103,6 +124,28 @@ exports.menus = {
                 { msg: 'Credit Cards', title: 'Credit Cards' },
                 { msg: 'Loans', title: 'Loans' },
                 { msg: 'Deals & Prices', title: 'Deals & Prices' }
+            ]
+        }
+    ],
+    credit_card: [
+        {
+            name: 'credit_card_menu',
+            title: 'What do you want to know?',
+            button:[
+                { msg: 'Requirements', title: 'Requirements' },
+                { msg: 'Get Instant Approval', title: 'Get Instant Approval' },
+                { msg: 'Back to Credit Cards', title: 'Back to Credit Cards' }
+            ]
+        }
+    ],
+    requirements: [
+        {
+            name: 'requirements_menu',
+            title: 'Are you employed?',
+            button:[
+                { msg: 'Employed', title: 'Employed' },
+                { msg: 'Self-Employed', title: 'Self-Employed' },
+                { msg: 'Not Employed', title: 'Not Employed' }
             ]
         }
     ]
@@ -314,9 +357,9 @@ exports.card = {
             title: 'Citi Rewards® Card',
             image: 'https://ringgitplus.com/img/card-400/57eddcb0655a14fd555f44f0/citi-rewards-world-mastercard.jpg',
             button: [
-                { msg: 'Learn Rewards', title: 'Learn More' },
-                { msg: 'Call Me', title: 'Call Me' },
-                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC680&scode=W0S11HP1&icid=PHCCA3VENCPCRCANC', title: 'Get Instant Approval' }
+                { msg: 'Card Benefits', title: 'Card Benefits' },
+                { msg: 'Requirements', title: 'Requirements' },
+                { msg: 'Get Instant Approval', title: 'Get Instant Approval' }
             ]
         },
         {
@@ -324,9 +367,9 @@ exports.card = {
             title: 'Citi Cash Back® Card',
             image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
             button: [
-                { msg: 'Learn Cash', title: 'Learn More' },
-                { msg: 'Call Me', title: 'Call Me' },
-                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC600&scode=W0S11HP1&icid=PHCCAX2ENCPCRCANC', title: 'Get Instant Approval' }
+                { msg: 'Card Benefits', title: 'Card Benefits' },
+                { msg: 'Requirements', title: 'Requirements' },
+                { msg: 'Get Instant Approval', title: 'Get Instant Approval' }
             ]
         },
         {
@@ -334,31 +377,31 @@ exports.card = {
             title: 'Citi® PremierMiles® Card',
             image: 'https://news.manikarthik.com/wp-content/uploads/Citi_PremierMiles_Card_Review_India.png',
             button: [
-                { msg: 'Learn Premier', title: 'Learn More' },
-                { msg: 'Call Me', title: 'Call Me' },
-                { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC720&scode=W0S11HP1&icid=PHCCANNENCPCRCANC', title: 'Get Instant Approval' }
+                { msg: 'Card Benefits', title: 'Card Benefits' },
+                { msg: 'Requirements', title: 'Requirements' },
+                { msg: 'Get Instant Approval', title: 'Get Instant Approval' }
             ]
         },
-        // {
-        //     name: 'shellciti_card',
-        //     title: 'Shell Citi® Card',
-        //     image: 'https://ringgitplus.com/img/card-400/519489e2193821ed4a000083/shell-citi-gold-credit-card.jpg',
-        //     button: [
-        //         { msg: 'Learn Shell', title: 'Learn More' },
-        //         { msg: 'Call Me', title: 'Call Me' },
-        //         { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC690&scode=W0S11HP1&icid=PHCCATEENCPCRCANC', title: 'Get Instant Approval' }
-        //     ]
-        // },
-        // {
-        //     name: 'mercurydrugciti_card',
-        //     title: 'Mercury Drug Citi® Card',
-        //     image: 'https://www.reviewstream.com/images_items/hPxuFV8Qm.png',
-        //     button: [
-        //         { msg: 'Learn Mercury', title: 'Learn More' },
-        //         { msg: 'Call Me', title: 'Call Me' },
-        //         { url: 'https://www.citibank.com.ph/accope/index.html#accope?pcode=VC620&scode=W0S11HP1&icid=PHCCA5HENCPCRCANC', title: 'Get Instant Approval' }
-        //     ]
-        // },
+        {
+            name: 'shellciti_card',
+            title: 'Shell Citi® Card',
+            image: 'https://ringgitplus.com/img/card-400/519489e2193821ed4a000083/shell-citi-gold-credit-card.jpg',
+            button: [
+                { msg: 'Card Benefits', title: 'Card Benefits' },
+                { msg: 'Requirements', title: 'Requirements' },
+                { msg: 'Get Instant Approval', title: 'Get Instant Approval' }
+            ]
+        },
+        {
+            name: 'mercurydrugciti_card',
+            title: 'Mercury Drug Citi® Card',
+            image: 'https://www.reviewstream.com/images_items/hPxuFV8Qm.png',
+            button: [
+                { msg: 'Card Benefits', title: 'Card Benefits' },
+                { msg: 'Requirements', title: 'Requirements' },
+                { msg: 'Get Instant Approval', title: 'Get Instant Approval' }
+            ]
+        },
     ],
     menu: [
         {
