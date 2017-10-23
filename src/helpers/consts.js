@@ -151,6 +151,7 @@ exports.menus = {
     loan_denied: [
         {
             name: 'loan_denied',
+            title: 'Options',
             button: [
                 { msg: 'Back to Menu', title: "Back to Menu" }
             ]
@@ -316,6 +317,15 @@ exports.menus = {
             title: 'Options',
             button: [
                 { msg: 'Book Now', title: 'Book Now' },
+                { msg: 'Back', title: 'Back' }
+            ]
+        }
+    ],
+    usage_deals_1: [
+        {
+            name: 'usage_deals_1',
+            title: 'Options',
+            button: [
                 { msg: 'Back', title: 'Back' }
             ]
         }
@@ -787,9 +797,14 @@ exports.card = {
     ],
     usage_deals_travel_fairmont : [
         {
+<<<<<<< HEAD
             name: 'fairmont_know',            
             text: '',
             image: '',
+=======
+            name: 'fairmontknow',
+            title: 'Options',
+>>>>>>> 80593dfc2b82ac88012fd3cf239a1fcd21e05651
             button: [
                 { msg: 'Book Now - fairmont', title: 'Book Now' },
                 { msg: 'Back', title: 'Back' }

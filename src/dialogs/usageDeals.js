@@ -248,7 +248,7 @@ module.exports.travelMoreFairmont = [
         var msg = card(session, consts.card.usage_deals_travel_fairmont, cardName);
 
         session.send(consts.prompts.FAIRMONT_PROMPT);
-        builder.Prompts.choice(session, msg);
+        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_travel_fairmont));
     },
     (session,results) => {
         var choices = card.choices(consts.card.usage_deals_travel_fairmont);
@@ -272,7 +272,7 @@ module.exports.travelMoreEmirates = [
             var msg = card(session, consts.card.usage_deals_travel_emirates, cardName);
     
             session.send(consts.prompts.EMIRATES_PROMPT);
-            builder.Prompts.choice(session, msg);
+            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_travel_emirates));
         },
         (session,results) => {
             var choices = card.choices(consts.card.usage_deals_travel_emirates);
@@ -327,25 +327,27 @@ module.exports.online = [
             break;
 
             case choices[1]:
-                session.endDialog('This feature is coming soon');
-                var cardName = card.getName(consts.menus.loan_denied)
-                var msg = card(session, consts.menus.loan_denied, cardName);
+                session.send('This feature is coming soon');
+                var cardName = card.getName(consts.menus.usage_deals_1)
+                var msg = card(session, consts.menus.usage_deals_1, cardName);
 
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_denied));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals_1));
             break;
         }
     },
     (session, results) => {
         var choices = card.choices(consts.menus.usage_deals);
-        var choices1 = card.choices(consts.menus.loan_denied)
+        var choices1 = card.choices(consts.menus.usage_deals_1)
+        console.log(choices);
+        console.log(choices1);
 
         switch(results.response.entity){
             case choices[0]:
-                session.endDialog('This feature is coming soon');
-                var cardName = card.getName(consts.menus.loan_denied)
-                var msg = card(session, consts.menus.loan_denied, cardName);
+                session.send('This feature is coming soon');
+                var cardName = card.getName(consts.menus.usage_deals_1)
+                var msg = card(session, consts.menus.usage_deals_1, cardName);
 
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_denied));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals_1));
             break;
 
             case choices[1]:
@@ -358,7 +360,8 @@ module.exports.online = [
         }
     },
     (session, results) => {
-        var choices = card.choices(consts.menus.loan_denied);
+        var choices = card.choices(consts.menus.usage_deals_1);
+        console.log("Last dialog " + choices);
 
         switch(results.response.entity){
             case choices[0]:
