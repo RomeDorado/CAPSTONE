@@ -90,7 +90,15 @@ module.exports.dining = [
     
                 case choices[1]:
                     session.replaceDialog('/UsageDeals/DiningMapShakeys');
-                break;    
+                break;
+                
+                case choices[3]:
+                    session.replaceDialog('/UsageDeals/DiningMoreNanbantei');
+                break;
+
+                case choices[4]:
+                    session.replaceDialog('/UsageDeals/DiningMapNanbantei');
+                break;
 
                 //add more here
             }
@@ -133,6 +141,57 @@ module.exports.diningMapShakeys = [
         },
         (session, results) => {
             var choices = card.choices(consts.card.usage_deals_shakeys_map);
+    
+            switch (results.response.entity) {
+                case choices[0]:
+                session.send("This feature is coming soon");
+                //put back button here
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/UsageDeals');
+                break;    
+    
+            }
+        }  
+]
+
+module.exports.diningMoreNanbantei = [
+    (session) => {        
+        
+            var cardName = card.getName(consts.card.usage_deals_nanbantei);
+            var msg = card(session, consts.card.usage_deals_nanbantei, cardName);
+    
+            session.send(consts.prompts.NANBANTEI_PROMPT);
+            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_nanbantei));
+        },
+        (session, results) => {
+            var choices = card.choices(consts.card.usage_deals_nanbantei);
+    
+            switch (results.response.entity) {
+                case choices[0]:
+                session.send("This feature is coming soon");
+                //put back button here
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/UsageDeals');
+                break;    
+    
+            }
+        }
+]
+
+module.exports.diningMapNanbantei = [
+    (session) => {        
+        
+            var cardName = card.getName(consts.card.usage_deals_nanbantei_map);
+            var msg = card(session, consts.card.usage_deals_nanbantei_map, cardName);
+        
+            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_nanbantei_map));
+        },
+        (session, results) => {
+            var choices = card.choices(consts.card.usage_deals_nanbantei_map);
     
             switch (results.response.entity) {
                 case choices[0]:

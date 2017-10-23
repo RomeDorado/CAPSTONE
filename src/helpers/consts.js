@@ -62,6 +62,7 @@ exports.prompts = {
     SEND_LOCATION_PROMPT: 'Here are the best promo near you 🙂',
     TRAVEL_PROMPT: 'Here are our travel deals!',
     SHAKEYS_PROMPT: 'Great choice! Enjoy this treat from Shakey’s for a minimum bill of P1,500, for dine-in and take-out orders from Mondays to Fridays. This promo is valid until October 31, 2017 only. DTI FTEB 9532, S17.',
+    NANBANTEI_PROMPT: 'Great choice! Enjoy this treat from Nanbantei’s 25% off with your Citi credit card or Citibank Debit Mastercard. This is available from Mondays to Saturdays until October 15, 2017. DTI FTEB Permit No. 13003, Series of 2017.',
     WIN_WHAT_YOU_DINE: 'Use your Citi credit card at any restaurant and get a chance to win back up to P5,000 of your bill. \n\nPromo is from June 16 to 30, 2017.',
     BONCHON_PROMPT: 'Get a free Bibimbowl of your preferred meat and flavor for a minimum spend of P1,500 at BonChon. \n\nValid from May 8 to October 31, 2017. \n\nPromo is offered at BonChon stores nationwide.',
     PAL_PROMPT: 'Apply online and use your new Citi credit card for at least P20,000 within 60 days from receipt. \n\nValid until September 30, 2017. \n\nTerms and conditions apply.',
@@ -687,6 +688,18 @@ exports.card = {
             ]
         }
     ],
+    usage_deals_nanbantei : [ 
+        {
+            name: 'nanbanteideals',            
+            text: '',
+            image: '',
+            button: [
+                { url: 'http://cb-apply-page.herokuapp.com/nanbanteiterms.html', title: 'Terms' },
+                { msg: 'Make Reservations', title: 'Make Reservations' },
+                { msg: 'Back', title: 'Back' }
+            ]
+        }
+    ],
     usage_deals_shakeys_map : [
         {
             name: 'shakeysmap',            
@@ -694,6 +707,18 @@ exports.card = {
             image: '',
             button: [                
                 { url: 'https://www.google.com.ph/maps/dir/Citibank+Square,+Quezon+City,+NCR/Shakey%E2%80%99s+(Libis),+JW+Plaza+Building+E.+Rodriguez+Jr.+Avenue,+Bagumbayan,+Quezon+City,+1110+Metro+Manila/@14.6067782,121.076585,17z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x3397b7f7fcb682f1:0xc326fdcb75496c03!2m2!1d121.0790571!2d14.6072329!1m5!1m1!1s0x3397b7f804a298ab:0xcbee3dbcb9d0e51f!2m2!1d121.0787102!2d14.6063236', title: 'View Map' },
+                { msg: 'Make Reservation-shakeys', title: 'Back' },
+                { msg: 'Back', title: 'Back' }
+            ]
+        }
+    ],
+    usage_deals_nanbantei_map : [
+        {
+            name: 'nanbanteimap',            
+            text: '',
+            image: '',
+            button: [                
+                { url: 'https://www.google.com.ph/maps/dir/Citibank+Square,+Quezon+City,+NCR/Nanbantei+Yakitori+Bar,+Quezon+City,+NCR/@14.6079937,121.0776114,17z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x3397b7f7fcb682f1:0xc326fdcb75496c03!2m2!1d121.0790571!2d14.6072329!1m5!1m1!1s0x3397b81d0a82d39d:0x4dfc113570bcb1f6!2m2!1d121.0809385!2d14.6089273', title: 'View Map' },
                 { msg: 'Make Reservation-shakeys', title: 'Back' },
                 { msg: 'Back', title: 'Back' }
             ]

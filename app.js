@@ -76,6 +76,8 @@ bot.dialog('/UsageDeals/Travel', dialogs.usageDeals.travel);
 bot.dialog('/UsageDeals/Online', dialogs.usageDeals.online);
 bot.dialog('/UsageDeals/DiningMoreShakeys', dialogs.usageDeals.diningMoreShakeys);
 bot.dialog('/UsageDeals/DiningMapShakeys', dialogs.usageDeals.diningMapShakeys);
+bot.dialog('/UsageDeals/DiningMoreNanbantei', dialogs.usageDeals.diningMoreNanbantei);
+bot.dialog('/UsageDeals/DiningMapNanbantei', dialogs.usageDeals.diningMapNanbantei);
 // bot.dialog('/UsageDeals/Installments', dialogs.usageDeals.main);
 // bot.dialog('/UsageDeals/Bill', dialogs.usageDeals.main);
 // bot.dialog('/UsageDeals/World', dialogs.usageDeals.main);
