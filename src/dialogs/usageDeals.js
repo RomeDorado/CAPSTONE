@@ -307,7 +307,7 @@ function callSendAPI(messageData) {
 }
 
 function AddQuickReplies(session, message, quickReplys) {
-    if (session.message.source == 'facebook') {
+    if (session.message.source != 'facebook') {
         message.sourceEvent({
             facebook: {
                 quick_replies: quickReplys
