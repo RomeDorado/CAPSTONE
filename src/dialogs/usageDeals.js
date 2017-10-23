@@ -56,7 +56,7 @@ module.exports.main = [
 /**Child Dialog - Usage Deals */
 /**Dining dialog */
 module.exports.dining = [
-    function (bot){
+    function (session){
     
     var prompt = new builder.IntentDialog()
     .onBegin(function (session, args) {
