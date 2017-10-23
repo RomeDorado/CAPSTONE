@@ -11,7 +11,7 @@ const connector = new builder.ChatConnector({
 const bot = new builder.UniversalBot(connector);
 
 bot.use(quickReplies.QuickRepliesMiddleware);
-
+quickReplies.LocationPrompt.create(bot);
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
     (session) => {
@@ -56,7 +56,7 @@ module.exports.main = [
 /**Child Dialog - Usage Deals */
 /**Dining dialog */
 module.exports.dining = [
-    function (session, args, next) {
+    function (session, args, next) {        
         quickReplies.LocationPrompt.beginDialog(session);
     },
     function (session, args, next) {
