@@ -48,8 +48,11 @@ module.exports.main = [
 /**Child Dialog - Usage Deals */
 /**Dining dialog */
 module.exports.dining = [
+
+    
+
     (session) => {
-        let message = new builder.Message(session)
+        builder.Prompts.text(session, new builder.Message(session)
         .text("Send us your location now")
         .sourceEvent({
             facebook: {
@@ -59,8 +62,8 @@ module.exports.dining = [
                     }
                 ]
             }
-        })
-        session.send(message)
+        })        
+    )
     },
     (session, results) => {
         console.log(session.message.entities);
