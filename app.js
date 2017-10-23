@@ -2,6 +2,7 @@ const restify = require('restify');
 const builder = require('botbuilder');
 /**Dialogs*/
 const dialogs = require('./src/dialogs');
+const analyticsMiddleware = require("./mw");
 
 //=========================================================
 // Bot Setup
@@ -17,6 +18,11 @@ const bot = new builder.UniversalBot(connector);
 //=========================================================
 // Bots Middleware
 //=========================================================
+bot.use({
+        receive: function (session, next) {
+             analyticsMiddleware.logIncomingMessage(session, next);
+         }
+});
 bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
 bot.use(builder.Middleware.sendTyping());
 bot.use({
