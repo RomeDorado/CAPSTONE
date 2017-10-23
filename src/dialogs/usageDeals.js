@@ -221,30 +221,72 @@ module.exports.travel = [
         
         switch (results.response.entity) {
             case choices[0]:
-                var cardName = card.getName(consts.card.pal)
-                var msg = card(session, consts.card.pal, cardName);
-
-                session.send(consts.prompts.PAL_PROMPT);
-                builder.Prompts.text(session, msg)
+                session.replaceDialog('/UsageDeals/TravelMoreFairmont');
             break;
 
             case choices[1]:
-                var cardName = card.getName(consts.card.nike)
-                var msg = card(session, consts.card.nike, cardName);
-
-                session.send(consts.prompts.NIKE_PROMPT);
-                builder.Prompts.text(session, msg)
+            session.send(consts.prompts.FAIRMONT_RESERVATION);
             break;
-
+            
             case choices[2]:
-                var cardName = card.getName(consts.card.cathay)
-                var msg = card(session, consts.card.cathay, cardName);
-
-                session.send(consts.prompts.CATHAY_PROMPT);
-                builder.Prompts.text(session, msg)
+            session.replaceDialog('/UsageDeals/TravelMoreEmirates');
             break;
+            
+            case choices[3]:
+            session.send(consts.prompts.EMIRATES_RESERVATION);
+            break;
+
+
         }
     }
+]
+
+module.exports.travelMoreFairmont = [
+    (session) => {
+    
+        var cardName = card.getName(consts.card.usage_deals_travel_fairmont)
+        var msg = card(session, consts.usage_deals_travel_fairmont, cardName);
+
+        session.send(consts.prompts.FAIRMONT_PROMPT);
+        builder.Prompts.text(session, msg);
+    },
+    (session,results) => {
+        var choices = card.choices(consts.card.usage_deals_travel_fairmont);
+        
+        switch (results.response.entity) {
+            case choices[0]:
+                session.send(consts.prompts.FAIRMONT_RESERVATION);
+            break;
+            
+            case choices[1]:
+                session.replaceDialog('/UsageDeals');
+            break;
+        }   
+    }
+]
+
+module.exports.travelMoreEmirates = [
+    (session) => {
+        
+            var cardName = card.getName(consts.card.usage_deals_travel_emirates)
+            var msg = card(session, consts.usage_deals_travel_emirates, cardName);
+    
+            session.send(consts.prompts.EMIRATES_PROMPT);
+            builder.Prompts.text(session, msg);
+        },
+        (session,results) => {
+            var choices = card.choices(consts.card.usage_deals_travel_emirates);
+            
+            switch (results.response.entity) {
+                case choices[0]:
+                    session.send(consts.prompts.EMIRATES_RESERVATION);
+                break;
+                
+                case choices[1]:
+                    session.replaceDialog('/UsageDeals');
+                break;
+            }   
+        }   
 ]
 
 /**Online dialog */
