@@ -346,10 +346,6 @@ module.exports.online = [
 
                 builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_denied));
             break;
-
-            default:
-                session.replaceDialog('/Menu');
-            break;
         }
     },
     (session, results) => {
