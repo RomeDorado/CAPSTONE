@@ -2,16 +2,8 @@ const builder = require('botbuilder');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const request = require('request');
-const config = require('../../config');
-var quickReplies = require('botbuilder-quickreplies');
-const connector = new builder.ChatConnector({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
-});
-const bot = new builder.UniversalBot(connector);
+const config = require('../../config')
 
-bot.use(quickReplies.QuickRepliesMiddleware);
-quickReplies.LocationPrompt.create(bot);
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
     (session) => {
@@ -56,34 +48,11 @@ module.exports.main = [
 /**Child Dialog - Usage Deals */
 /**Dining dialog */
 module.exports.dining = [
-    function (session){
-    
-    var prompt = new builder.IntentDialog()
-    .onBegin(function (session, args) {
-        var message = new builder.Message(session).text('Please share your location...');
-        message = AddQuickReplies(session, message, [
-            new QuickReplyLocation()
-        ]);
-
-        session.send(message);
-    })
-    .matches(/(give up|quit|skip)/i, function (session) {
-        // Return 'false' to indicate they gave up
-        session.endDialogWithResult({ response: false });
-    })
-    .onDefault(function (session) {
-        if (session.message.sourceEvent.message && session.message.sourceEvent.message.attachments) {
-            var attachment = session.message.sourceEvent.message.attachments[0];
-            if (attachment.type == 'location') {
-                session.endDialogWithResult({ response: { entity: {
-                    title: attachment.title,
-                    coordinates: attachment.payload.coordinates
-                }}})
-            }
-                } else {
-                session.send("Sorry, try again.");
-            }
-        });
+    (session) => {
+        sendQuickReply(session.message.sourceEvent.sender.id);
+    },
+    (session, results) => {
+        console.log(JSON.stringify(results));
     }
 ]
 
@@ -304,22 +273,4 @@ function callSendAPI(messageData) {
 			console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
 		}
 	});
-}
-
-function AddQuickReplies(session, message, quickReplys) {
-    if (session.message.source != 'facebook') {
-        message.sourceEvent({
-            facebook: {
-                quick_replies: quickReplys
-            }
-        })
-    }
-
-    return message;
-}
-
-function QuickReplyLocation() {
-    return {
-        content_type:"location",
-    }
 }
