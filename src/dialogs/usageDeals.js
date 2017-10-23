@@ -61,11 +61,8 @@ module.exports.dining = [
             }
         })        
         )},
-    (session, results) => {
-        //console.log(session.message.entities);
-        //console.log(session.message.sourceEvent);
-        console.log(session);
-        console.log(results);
+    (session, results) => {        
+        
     }
 ]
 

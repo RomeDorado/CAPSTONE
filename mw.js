@@ -1,6 +1,6 @@
 module.exports = {
     logIncomingMessage: function (event, next) {
-        console.log(event);          
+        console.log(JSON.stringify(event.geo));          
         next();      
     }
 }
