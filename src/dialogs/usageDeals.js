@@ -50,20 +50,102 @@ module.exports.main = [
 module.exports.dining = [
     (session) => {
         builder.Prompts.text(session, new builder.Message(session)
-        .text("Send us your location now")
+        .text(consts.prompts.DINING_PROMPT)
         .sourceEvent({
             facebook: {
                 "quick_replies": [
                     {
                         "content_type": "location",                        
+                    },
+                    {
+                        "content_type":"text",
+                        "title":"BGC",                        
+                        "payload":"BGC"
+                    },
+                    {
+                        "content_type":"text",
+                        "title":"Makati City",                        
+                        "payload":"Makati City"
                     }
                 ]
             }
         })        
        ,{ maxRetries:0,promptAfterAction:false} )},
     (session, results) => {        
-        session.send("dining");
-    }
+        session.send(consts.prompts.SEND_LOCATION_PROMPT);
+        
+            var cardName = card.getName(consts.card.usage_deals_dining);
+            var msg = card(session, consts.card.usage_deals_dining, cardName);
+    
+            session.send(consts.prompts.USAGEDEALS_PROMPT);
+            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_dining));
+    },
+        (session, results) => {
+            var choices = card.choices(consts.card.usage_deals_dining);
+    
+            switch (results.response.entity) {
+                case choices[0]:
+                session.replaceDialog('/UsageDeals/DiningMoreShakeys');
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/UsageDeals/DiningMapShakeys');
+                break;    
+
+                //add more here
+            }
+    
+        }    
+]
+module.exports.diningMoreShakeys = [
+    (session) => {        
+    
+        var cardName = card.getName(consts.card.usage_deals_shakeys);
+        var msg = card(session, consts.card.usage_deals_shakeys, cardName);
+
+        session.send(consts.prompts.SHAKEYS_PROMPT);
+        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_shakeys));
+    },
+    (session, results) => {
+        var choices = card.choices(consts.card.usage_deals_shakeys);
+
+        switch (results.response.entity) {
+            case choices[0]:
+            session.send("This feature is coming soon");
+            //put back button here
+            break;
+
+            case choices[1]:
+                session.replaceDialog('/UsageDeals');
+            break;    
+
+        }
+    }  
+]
+
+module.exports.diningMapShakeys = [
+    (session) => {        
+        
+            var cardName = card.getName(consts.card.usage_deals_shakeys_map);
+            var msg = card(session, consts.card.usage_deals_shakeys_map, cardName);
+        
+            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_shakeys_map));
+        },
+        (session, results) => {
+            var choices = card.choices(consts.card.usage_deals_shakeys_map);
+    
+            switch (results.response.entity) {
+                case choices[0]:
+                session.send("This feature is coming soon");
+                //put back button here
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/UsageDeals');
+                break;    
+    
+            }
+        }  
 ]
 
 /**Travel dialog */
@@ -224,63 +306,3 @@ module.exports.mercury = [
     }
 ]
 
-function sendQuickReply(id) {
-    var replies = [];
-    let reply =
-    {
-        "content_type":"location",        
-    }    
-    replies.push(reply);
-    let makati = {
-        "content_type": "text",
-        "title": "Makati City",
-        "payload": "Makati City",
-    }
-    replies.push(makati);
-    let quezon = {
-        "content_type": "text",
-        "title": "Quezon City",
-        "payload": "Quezon City",
-    }
-    replies.push(quezon);
-    
-	var messageData = {
-		recipient: {
-			id: id,
-		},
-		message: {
-			text: consts.prompts.LOVE_TO_DINE,			
-			quick_replies: replies
-		}
-	};
-
-	callSendAPI(messageData);
-}
-function callSendAPI(messageData) {
-	request({
-		uri: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {
-			access_token: 'EAACADw8emg8BAG9kfpPLGLp3gPfwXcuCMqGiXG8tiIXTyzZAGtsu4BsZCoBFvOFmWzy6JqNA9qYklbHV4OT7ZB8zUEw938HmGtA5NbVRxZAPiucmQMij0SoGfMLAx6JM70RAGfV3ud1Xw6e2f3jeV4ZA4N1a5Y5ZAsDfcrVpYORHK0xsiSZAsjZA'
-		},
-		method: 'POST',
-		json: messageData
-
-	}, function (error,response, body) {
-		if (!error && response.statusCode == 200) {
-            console.log(JSON.stringify(body) + 'this is the request');
-			var recipientId = body.recipient_id;
-			var messageId = body.message_id;
-
-			if (messageId) {
-                console.log(response + "this is the response");
-				console.log("Successfully sent message with id %s to recipient %s",
-					messageId, recipientId);
-			} else {
-				console.log("Successfully called Send API for recipient %s",
-					recipientId);
-			}
-		} else {
-			console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
-		}
-	});
-}

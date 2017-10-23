@@ -40,8 +40,10 @@ exports.prompts = {
     USAGEDEALS_PROMPT: 'Which category would you want to explore?',
     DEC_TEXT: `{0}, thank you for your interest in a Citi Personal Loan. Take note that we can only proceed with an application if you currently have an active credit card for at least 12 months.`,
     ACC_TEXT: `Great! 🙂 Kindly prepare the following for a quicker application experience: - Valid governmentissued IDs (e.g. passport, driver’s license) - For employed: Latest ITR, BIR 2316, or payslip for the last 3 months - For self-employed: Latest ITR and latest Audited Financial Statements (AFS)`,
-    DINING_PROMPT: 'Let’s find branches near your preferred area! 🙂',
+    DINING_PROMPT: 'Let’s find branches near your preferred area! 🙂',    
+    SEND_LOCATION_PROMPT: 'Here are the best promo near you 🙂',
     TRAVEL_PROMPT: 'Here are our travel deals!',
+    SHAKEYS_PROMPT: 'Great choice! Enjoy this treat from Shakey’s for a minimum bill of P1,500, for dine-in and take-out orders from Mondays to Fridays. This promo is valid until October 31, 2017 only. DTI FTEB 9532, S17.',
     WIN_WHAT_YOU_DINE: 'Use your Citi credit card at any restaurant and get a chance to win back up to P5,000 of your bill. \n\nPromo is from June 16 to 30, 2017.',
     BONCHON_PROMPT: 'Get a free Bibimbowl of your preferred meat and flavor for a minimum spend of P1,500 at BonChon. \n\nValid from May 8 to October 31, 2017. \n\nPromo is offered at BonChon stores nationwide.',
     PAL_PROMPT: 'Apply online and use your new Citi credit card for at least P20,000 within 60 days from receipt. \n\nValid until September 30, 2017. \n\nTerms and conditions apply.',
@@ -605,32 +607,62 @@ exports.card = {
         //     ]
         // }
     ],
-    usage_deals_dining : [
+    usage_deals_dining : [        
         {
-            name: 'win_what_you_dine',
-            title: '',
+            name: 'shakeys',
+            title: 'Shakey\'s',
+            text: '30% off at Shakey\'s',
+            image: '',
+            button: [
+                { msg: 'Know More-shakeys', title: 'Know More' },
+                { msg: 'Map-shakeys', title: 'Map' },
+                { msg: 'Make Reservations-shakeys', title: 'Make Reservations' }
+            ]
+        },
+        {
+            name: 'nanbantei',
+            title: 'Nanbantei of Tokyo',
+            text: '25% off at Nanbantei of Tokyo',
+            image: '',
+            button: [
+                { msg: 'Know More-nanbantei', title: 'Know More' },
+                { msg: 'Map-nanbantei', title: 'Map' },
+                { msg: 'Make Reservations-nanbantei', title: 'Make Reservations' }
+            ]
+        }
+    ],
+    usage_deals_shakeys : [ 
+        {
+            name: 'shakeysdeals',            
             text: '',
             image: '',
             button: [
-                { msg: 'Send location', title: 'Win What You Dine' }
+                { url: 'http://cb-apply-page.herokuapp.com/shakeysterms.html', title: 'Terms' },
+                { msg: 'Make Reservations', title: 'Make Reservations' },
+                { msg: 'Back', title: 'Back' }
             ]
-        },
+        }
+    ],
+    usage_deals_shakeys_map : [
         {
-            name: 'bonchon',
-            title: 'BonChon',
-            text: 'Free Bibimbowl at BonChon',
+            name: 'shakeysmap',            
+            text: '',
             image: '',
-            button: [
-                { msg: 'BonChon', title: 'BonChon' }
+            button: [                
+                { url: 'https://www.google.com.ph/maps/dir/Citibank+Square,+Quezon+City,+NCR/Shakey%E2%80%99s+(Libis),+JW+Plaza+Building+E.+Rodriguez+Jr.+Avenue,+Bagumbayan,+Quezon+City,+1110+Metro+Manila/@14.6067782,121.076585,17z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x3397b7f7fcb682f1:0xc326fdcb75496c03!2m2!1d121.0790571!2d14.6072329!1m5!1m1!1s0x3397b7f804a298ab:0xcbee3dbcb9d0e51f!2m2!1d121.0787102!2d14.6063236', title: 'View Map' },
+                { msg: 'Make Reservation-shakeys', title: 'Back' },
+                { msg: 'Back', title: 'Back' }
             ]
-        },
+        }
+    ],
+    usage_deals_back:[
         {
-            name: 'periperi',
-            title: 'Peri-Peri',
-            text: '25% off at Peri-Peri',
-            image: '',
-            button: [
-                { msg: 'Peri-Peri', title: 'Peri-Peri' }
+        name: 'dealsback',            
+        text: '',
+        image: '',
+        button: [
+            
+                { msg: 'Back', title: 'Back' }   
             ]
         }
     ],
