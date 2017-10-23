@@ -60,9 +60,9 @@ module.exports.dining = [
                 ]
             }
         })        
-        )},
+       ,{ maxRetries:0,promptAfterAction:false} )},
     (session, results) => {        
-        
+        session.send("dining");
     }
 ]
 
