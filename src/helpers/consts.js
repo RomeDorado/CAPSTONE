@@ -16,6 +16,12 @@ exports.prompts = {
     GET_NAME: 'Please enter your full name',
     GET_NUMBER: 'What is your mobile number?',
     GET_EMAIL: 'What is your email address?',
+    FAIRMONT_RESERVATION: 'For reservations, call 555-9888.',
+    EMIRATES_PROMPT: 'Enjoy up to 55% off on Emirates flights to London, Barcelona, Athens and more with your Citi credit card. This promo is valid until October 1 to 15, 2017',
+    EMIRATES_RESERVATION: `-Go to www.emirates.ph/citibank, use Promo code: PHCITI1
+    -Call 858-5300 (press 1 after the prompt)
+    -Emirates Ticketing Office: 
+    18/F Pacific Star Bldg. Buendia cor. Makati Ave., Makati City`,
     GET_TIME: 'Please let us know the best time for us to call you :)',
     LOVE_TO_DINE: 'Let’s find branches near your preferred area',
     GET_INCOME: 'Lastly, may we know your annual income range?',
@@ -60,8 +66,10 @@ exports.prompts = {
     ACC_TEXT: `Great! 🙂 Kindly prepare the following for a quicker application experience: - Valid governmentissued IDs (e.g. passport, driver’s license) - For employed: Latest ITR, BIR 2316, or payslip for the last 3 months - For self-employed: Latest ITR and latest Audited Financial Statements (AFS)`,
     DINING_PROMPT: 'Let’s find branches near your preferred area! 🙂',    
     SEND_LOCATION_PROMPT: 'Here are the best promo near you 🙂',
+    TRAVEL_PROMPT: 'Here are the best promo for you 🙂',
     TRAVEL_PROMPT: 'Here are our travel deals!',
     SHAKEYS_PROMPT: 'Great choice! Enjoy this treat from Shakey’s for a minimum bill of P1,500, for dine-in and take-out orders from Mondays to Fridays. This promo is valid until October 31, 2017 only. DTI FTEB 9532, S17.',
+    FAIRMONT_PROMPT: 'Enjoy up to 50% off on rooms and Willow Stream massage treatments at Fairmont Makati with your Citi credit card or Citibank Debit Mastercard. This promo is valid from July 1 to September 30, 2017.',
     WIN_WHAT_YOU_DINE: 'Use your Citi credit card at any restaurant and get a chance to win back up to P5,000 of your bill. \n\nPromo is from June 16 to 30, 2017.',
     BONCHON_PROMPT: 'Get a free Bibimbowl of your preferred meat and flavor for a minimum spend of P1,500 at BonChon. \n\nValid from May 8 to October 31, 2017. \n\nPromo is offered at BonChon stores nationwide.',
     PAL_PROMPT: 'Apply online and use your new Citi credit card for at least P20,000 within 60 days from receipt. \n\nValid until September 30, 2017. \n\nTerms and conditions apply.',
@@ -712,30 +720,47 @@ exports.card = {
     ],
     usage_deals_travel : [
         {
-            name: 'pal',
-            title: 'Philippine Airlines',
-            text: 'Up to 50% off on PAL\'s Premium Economy Class.',
+            name: 'fairmont',
+            title: 'Fairmont',
+            text: 'Up to 50% off at Fairmont.',
             image: '',
             button: [
-                { msg: 'PAL', title: 'Select' }
+                { msg: 'Know More-fairmont', title: 'Know More' },
+                { msg: 'Book Now-fairmont', title: 'Book Now' }
             ]
         },
         {
-            name: 'nike',
-            title: 'Nike Stadium',
-            text: 'Free 6,000 Nike Stadium or Planet Sports eGift',
+            name: 'emirates',
+            title: 'Emirates',
+            text: 'Up to 50% off on Emirates flights',
             image: '',
             button: [
-                { msg: 'Nike', title: 'Select' }
+                { msg: 'Know More-emirates', title: 'Know More' },
+                { msg: 'Book Now-emirates', title: 'Book Now' }
             ]
-        },
+        }
+    ],
+    usage_deals_travel_fairmont : [
         {
-            name: 'cathay',
-            title: 'Cathay Pacific',
-            text: 'Cathay Pacific Private Sale',
+            name: 'fairmontknow',
+            title: '',
+            text: '',
             image: '',
             button: [
-                { msg: 'Cathay', title: 'Select' }
+                { msg: 'Book Now', title: 'Book Now' },
+                { msg: 'Back', title: 'Back' }
+            ]
+        }
+    ],
+    usage_deals_travel_emirates : [
+        {
+            name: 'emiratesknow',
+            title: '',
+            text: '',
+            image: '',
+            button: [
+                { msg: 'Book Now', title: 'Book Now' },
+                { msg: 'Back', title: 'Back' }
             ]
         }
     ],
