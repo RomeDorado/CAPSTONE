@@ -52,18 +52,32 @@ module.exports.dining = [
     
 
     (session) => {
-        builder.Prompts.text(session, new builder.Message(session)
-        .text("Send us your location now")
-        .sourceEvent({
-            facebook: {
-                "quick_replies": [
-                    {
-                        "content_type": "location",                        
-                    }
-                ]
-            }
-        })        
-    )
+        new builder.IntentDialog()
+        .onBegin(function (session, args) {
+            var message = new builder.Message(session).text('Please share your location...')
+            .sourceEvent({
+                facebook: {
+                    "quick_replies": [
+                        {
+                            "content_type": "location",                        
+                        }
+                    ]
+                }
+            })                    
+        })
+
+    //     builder.Prompts.text(session, new builder.Message(session)
+    //     .text("Send us your location now")
+    //     .sourceEvent({
+    //         facebook: {
+    //             "quick_replies": [
+    //                 {
+    //                     "content_type": "location",                        
+    //                 }
+    //             ]
+    //         }
+    //     })        
+    // )
     },
     (session, results) => {
         console.log(session.message.entities);
