@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "botbuilder": "^3.11.0",
+    "botbuilder-quickreplies": "^1.1.1",
     "nodemon": "^1.11.0",
     "request": "^2.83.0",
     "restify": "^5.0.0",

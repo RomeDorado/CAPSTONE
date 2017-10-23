@@ -49,10 +49,20 @@ module.exports.main = [
 /**Dining dialog */
 module.exports.dining = [
     (session) => {
-        sendQuickReply(session.message.sourceEvent.sender.id);
-    },
-    (session, results) => {
-        console.log(JSON.stringify(results));
+        builder.Prompts.text(session, new builder.Message(session)
+        .text("Send us your location now")
+        .sourceEvent({
+            facebook: {
+                "quick_replies": [
+                    {
+                        "content_type": "location",                        
+                    }
+                ]
+            }
+        })        
+       ,{ maxRetries:0,promptAfterAction:false} )},
+    (session, results) => {        
+        session.send("dining");
     }
 ]
 
@@ -255,8 +265,9 @@ function callSendAPI(messageData) {
 		method: 'POST',
 		json: messageData
 
-	}, function (error, response, body) {
+	}, function (error,response, body) {
 		if (!error && response.statusCode == 200) {
+            console.log(JSON.stringify(body) + 'this is the request');
 			var recipientId = body.recipient_id;
 			var messageId = body.message_id;
 
