@@ -67,7 +67,7 @@ exports.prompts = {
     DINING_PROMPT: 'Let’s find branches near your preferred area! 🙂',    
     SEND_LOCATION_PROMPT: 'Here are the best promo near you 🙂',
     TRAVEL_PROMPT: 'Here are the best promo for you 🙂',
-    TRAVEL_PROMPT: 'Here are our travel deals!',
+    // TRAVEL_PROMPT: 'Here are our travel deals!',
     SHAKEYS_PROMPT: 'Great choice! Enjoy this treat from Shakey’s for a minimum bill of P1,500, for dine-in and take-out orders from Mondays to Fridays. This promo is valid until October 31, 2017 only. DTI FTEB 9532, S17.',
     FAIRMONT_PROMPT: 'Enjoy up to 50% off on rooms and Willow Stream massage treatments at Fairmont Makati with your Citi credit card or Citibank Debit Mastercard. This promo is valid from July 1 to September 30, 2017.',
     NANBANTEI_PROMPT: 'Great choice! Enjoy this treat from Nanbantei’s 25% off with your Citi credit card or Citibank Debit Mastercard. This is available from Mondays to Saturdays until October 15, 2017. DTI FTEB Permit No. 13003, Series of 2017.',
@@ -816,7 +816,7 @@ exports.card = {
             text: 'P400 off on select attractions at Klook.',
             image: '',
             button: [
-                { msg: 'Know More', title: 'Know More' },
+                { msg: 'Know More - Klook', title: 'Know More' },
                 { msg: 'Book Now', title: 'Book Now' }
             ]
         },
@@ -826,7 +826,7 @@ exports.card = {
             text: 'Freebies at Octagon',
             image: '',
             button: [
-                { msg: 'Know More', title: 'Know More' },
+                { msg: 'Know More - Octagon', title: 'Know More' },
                 { msg: 'Book Now', title: 'Book Now' }
             ]
         },
@@ -836,7 +836,7 @@ exports.card = {
             text: 'Free P300 movie eVoucher',
             image: '',
             button: [
-                { msg: 'Know More', title: 'Know More' },
+                { msg: 'Know More - GMovies', title: 'Know More' },
                 { msg: 'Book Now', title: 'Book Now' }
             ]
         }
