@@ -732,7 +732,7 @@ exports.card = {
         {
             name: 'shakeysmap',            
             text: '',
-            image: '',
+            image: 'https://res.cloudinary.com/chatbotph/image/upload/v1508770555/shakeys_orldf1.jpg',
             button: [                
                 { url: 'https://www.google.com.ph/maps/dir/Citibank+Square,+Quezon+City,+NCR/Shakey%E2%80%99s+(Libis),+JW+Plaza+Building+E.+Rodriguez+Jr.+Avenue,+Bagumbayan,+Quezon+City,+1110+Metro+Manila/@14.6067782,121.076585,17z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x3397b7f7fcb682f1:0xc326fdcb75496c03!2m2!1d121.0790571!2d14.6072329!1m5!1m1!1s0x3397b7f804a298ab:0xcbee3dbcb9d0e51f!2m2!1d121.0787102!2d14.6063236', title: 'View Map' },
                 { msg: 'Make Reservation-shakeys', title: 'Make Reservation' },
@@ -744,7 +744,7 @@ exports.card = {
         {
             name: 'nanbanteimap',            
             text: '',
-            image: '',
+            image: 'https://res.cloudinary.com/chatbotph/image/upload/v1508770558/nanbantei_x6gda0.jpg',
             button: [                
                 { url: 'https://www.google.com.ph/maps/dir/Citibank+Square,+Quezon+City,+NCR/Nanbantei+Yakitori+Bar,+Quezon+City,+NCR/@14.6079937,121.0776114,17z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x3397b7f7fcb682f1:0xc326fdcb75496c03!2m2!1d121.0790571!2d14.6072329!1m5!1m1!1s0x3397b81d0a82d39d:0x4dfc113570bcb1f6!2m2!1d121.0809385!2d14.6089273', title: 'View Map' },
                 { msg: 'Make Reservation-nanbantei', title: 'Make Reservation' },
@@ -787,24 +787,23 @@ exports.card = {
     ],
     usage_deals_travel_fairmont : [
         {
-            name: 'fairmontknow',
-            title: '',
+            name: 'fairmont_know',            
             text: '',
             image: '',
             button: [
-                { msg: 'Book Now', title: 'Book Now' },
+                { msg: 'Book Now - fairmont', title: 'Book Now' },
                 { msg: 'Back', title: 'Back' }
             ]
         }
     ],
     usage_deals_travel_emirates : [
         {
-            name: 'emiratesknow',
+            name: 'emirates_know',
             title: '',
             text: '',
             image: '',
             button: [
-                { msg: 'Book Now', title: 'Book Now' },
+                { msg: 'Book Now - emirates', title: 'Book Now' },
                 { msg: 'Back', title: 'Back' }
             ]
         }

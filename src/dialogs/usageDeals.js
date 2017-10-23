@@ -245,10 +245,10 @@ module.exports.travelMoreFairmont = [
     (session) => {
     
         var cardName = card.getName(consts.card.usage_deals_travel_fairmont)
-        var msg = card(session, consts.usage_deals_travel_fairmont, cardName);
+        var msg = card(session, consts.card.usage_deals_travel_fairmont, cardName);
 
         session.send(consts.prompts.FAIRMONT_PROMPT);
-        builder.Prompts.text(session, msg);
+        builder.Prompts.choice(session, msg);
     },
     (session,results) => {
         var choices = card.choices(consts.card.usage_deals_travel_fairmont);
@@ -269,10 +269,10 @@ module.exports.travelMoreEmirates = [
     (session) => {
         
             var cardName = card.getName(consts.card.usage_deals_travel_emirates)
-            var msg = card(session, consts.usage_deals_travel_emirates, cardName);
+            var msg = card(session, consts.card.usage_deals_travel_emirates, cardName);
     
             session.send(consts.prompts.EMIRATES_PROMPT);
-            builder.Prompts.text(session, msg);
+            builder.Prompts.choice(session, msg);
         },
         (session,results) => {
             var choices = card.choices(consts.card.usage_deals_travel_emirates);
