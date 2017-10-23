@@ -21,11 +21,11 @@ module.exports.main = [
                 session.replaceDialog('/UsageDeals/Dining');
             break;
 
-            case consts.choices.USAGE_DEALS[1]:
+            case choices[1]:
                 session.replaceDialog('/UsageDeals/Travel');
             break;
 
-            case consts.choices.USAGE_DEALS[2]:
+            case choices[2]:
                 session.replaceDialog('/UsageDeals/Online');
             break;
 
@@ -303,27 +303,66 @@ module.exports.online = [
         
         switch (results.response.entity) {
             case choices[0]:
-                var cardName = card.getName(consts.card.love2click)
-                var msg = card(session, consts.card.love2click, cardName);
+                var cardName = card.getName(consts.menus.usage_deals)
+                var msg = card(session, consts.menus.usage_deals, cardName);
 
-                session.send(consts.prompts.LOVE2CLICK_PROMPT);
-                builder.Prompts.text(session, msg)
-            break;
-
-            case choices[1]:
-                var cardName = card.getName(consts.card.powermac)
-                var msg = card(session, consts.card.powermac, cardName);
-
-                session.send(consts.prompts.POWERMAC_PROMPT);
-                builder.Prompts.text(session, msg)
+                session.send(consts.prompts.KLOOK_PROMPT);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals));
             break;
 
             case choices[2]:
-                var cardName = card.getName(consts.card.rustan)
-                var msg = card(session, consts.card.rustan, cardName);
+                var cardName = card.getName(consts.menus.usage_deals)
+                var msg = card(session, consts.menus.usage_deals, cardName);
 
-                session.send(consts.prompts.RUSTANS_PROMPT);
-                builder.Prompts.text(session, msg)
+                session.send(consts.prompts.OCTAGON_PROMPT);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals));
+            break;
+
+            case choices[4]:
+                var cardName = card.getName(consts.menus.usage_deals)
+                var msg = card(session, consts.menus.usage_deals, cardName);
+
+                session.send(consts.prompts.GMOVIES_PROMPT);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals));
+            break;
+
+            case choices[1]:
+                session.endDialog('This feature is coming soon');
+                var cardName = card.getName(consts.menus.loan_denied)
+                var msg = card(session, consts.menus.loan_denied, cardName);
+
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_denied));
+            break;
+        }
+    },
+    (session, results) => {
+        var choices = card.choices(consts.menus.usage_deals);
+        var choices1 = card.choices(consts.menus.loan_denied)
+
+        switch(results.response.entity){
+            case choices[0]:
+                session.endDialog('This feature is coming soon');
+                var cardName = card.getName(consts.menus.loan_denied)
+                var msg = card(session, consts.menus.loan_denied, cardName);
+
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_denied));
+            break;
+
+            case choices[1]:
+                session.replaceDialog('/UsageDeals');
+            break;
+
+            case choices1[0]:
+                session.replaceDialog('/UsageDeals');
+            break;
+        }
+    },
+    (session, results) => {
+        var choices = card.choices(consts.menus.loan_denied);
+
+        switch(results.response.entity){
+            case choices[0]:
+                session.replaceDialog('/UsageDeals');
             break;
         }
     }

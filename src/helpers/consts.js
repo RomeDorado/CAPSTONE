@@ -67,7 +67,7 @@ exports.prompts = {
     DINING_PROMPT: 'Let’s find branches near your preferred area! 🙂',    
     SEND_LOCATION_PROMPT: 'Here are the best promo near you 🙂',
     TRAVEL_PROMPT: 'Here are the best promo for you 🙂',
-    TRAVEL_PROMPT: 'Here are our travel deals!',
+    // TRAVEL_PROMPT: 'Here are our travel deals!',
     SHAKEYS_PROMPT: 'Great choice! Enjoy this treat from Shakey’s for a minimum bill of P1,500, for dine-in and take-out orders from Mondays to Fridays. This promo is valid until October 31, 2017 only. DTI FTEB 9532, S17.',
     FAIRMONT_PROMPT: 'Enjoy up to 50% off on rooms and Willow Stream massage treatments at Fairmont Makati with your Citi credit card or Citibank Debit Mastercard. This promo is valid from July 1 to September 30, 2017.',
     NANBANTEI_PROMPT: 'Great choice! Enjoy this treat from Nanbantei’s 25% off with your Citi credit card or Citibank Debit Mastercard. This is available from Mondays to Saturdays until October 15, 2017. DTI FTEB Permit No. 13003, Series of 2017.',
@@ -126,7 +126,17 @@ exports.prompts = {
     - with valid landline or mobile phone number
     - with valid TIN and SSS/GSIS number`,
     INSTANT_APPROVAL_YES: `That’s good news, {0}! You can now proceed to your application.`,
-    INSTANT_APPROVAL_NO: `{0}, thank you for your interest in a Citi Credit Card. However, take note that the conditions above must be met for us to proceed with an application.`
+    INSTANT_APPROVAL_NO: `{0}, thank you for your interest in a Citi Credit Card. However, take note that the conditions above must be met for us to proceed with an application.`,
+    KLOOK_PROMPT: `Up to 75% off at Klook with your Citi Visa credit card. 
+    
+    - Get up to 75% off at Klook Travel with your Citi Visa credit card.
+    - Use promo code KLKVISA17 during check-out and pay using your Citi Visa credit card.
+    - Offer is from March 1, 2017 to December 31, 2017.`,
+    OCTAGON_PROMPT: `Get a Silvertec 8,000 mAh Powerbank when you spend a minimum single-receipt transaction of P25,000 at 0% Citi PayLite up to 12 months at Octagon from April 1 to July 31, 2017.`,
+    GMOVIES_PROMPT: `Free P300 movie eVoucher
+    
+    - Get a P300 movie eVoucher on your first Citi Mobile App log-in or when you enroll in e-Statements.
+    - Promo is valid until October 31, 2017.`,
 }
 
 exports.menus = {
@@ -297,6 +307,16 @@ exports.menus = {
             title: 'Options',
             button:[
                 { msg: 'Back to Main Menu', title: 'Main Menu' }
+            ]
+        }
+    ],
+    usage_deals: [
+        {
+            name: 'usage_deals',
+            title: 'Options',
+            button: [
+                { msg: 'Book Now', title: 'Book Now' },
+                { msg: 'Back', title: 'Back' }
             ]
         }
     ]
@@ -791,30 +811,33 @@ exports.card = {
     ],
     usage_deals_online : [
         {
-            name: 'love2click',
-            title: '#Love2Click',
-            text: 'The #Love2Click Online sale is back!',
+            name: 'klook',
+            title: 'Klook',
+            text: 'P400 off on select attractions at Klook.',
             image: '',
             button: [
-                { msg: 'love2click', title: 'Select' }
+                { msg: 'Know More - Klook', title: 'Know More' },
+                { msg: 'Book Now', title: 'Book Now' }
             ]
         },
         {
-            name: 'powermac',
-            title: 'Powermac',
-            text: 'Freebies at Powermac.',
+            name: 'ocatagon',
+            title: 'Octagon',
+            text: 'Freebies at Octagon',
             image: '',
             button: [
-                { msg: 'powermac', title: 'Select' }
+                { msg: 'Know More - Octagon', title: 'Know More' },
+                { msg: 'Book Now', title: 'Book Now' }
             ]
         },
         {
-            name: 'rustan',
-            title: 'Rustan\'s',
-            text: 'FREE Rustan\'s Gift Certificate worth P2500',
+            name: 'gmovies',
+            title: 'GMovies',
+            text: 'Free P300 movie eVoucher',
             image: '',
             button: [
-                { msg: 'rustans', title: 'Select' }
+                { msg: 'Know More - GMovies', title: 'Know More' },
+                { msg: 'Book Now', title: 'Book Now' }
             ]
         }
     ],
