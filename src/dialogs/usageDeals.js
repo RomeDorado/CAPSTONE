@@ -21,11 +21,11 @@ module.exports.main = [
                 session.replaceDialog('/UsageDeals/Dining');
             break;
 
-            case consts.choices.USAGE_DEALS[1]:
+            case choices[1]:
                 session.replaceDialog('/UsageDeals/Travel');
             break;
 
-            case consts.choices.USAGE_DEALS[2]:
+            case choices[2]:
                 session.replaceDialog('/UsageDeals/Online');
             break;
 
@@ -337,6 +337,7 @@ module.exports.online = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.usage_deals);
+        var choices1 = card.choices(consts.menus.loan_denied)
 
         switch(results.response.entity){
             case choices[0]:
@@ -346,6 +347,14 @@ module.exports.online = [
 
                 builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_denied));
             break;
+
+            case choices[1]:
+                session.replaceDialog('/UsageDeals');
+            break;
+
+            case choices1[0]:
+                session.replaceDialog('/UsageDeals');
+            break;
         }
     },
     (session, results) => {
@@ -353,7 +362,7 @@ module.exports.online = [
 
         switch(results.response.entity){
             case choices[0]:
-                session.replaceDialog('/Menu');
+                session.replaceDialog('/UsageDeals');
             break;
         }
     }
