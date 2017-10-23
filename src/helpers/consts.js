@@ -89,7 +89,7 @@ exports.prompts = {
     - Proof of income: latest Audited Financial Statement (AFS); latest ITR duly stamped as received by BIR
     
     Note: If your assets are at least P15 million, please prepare both proofs of income.`,
-    INSTANT_APPROVAL: `Exciting! May we know if you are:
+    INSTANT_APPROVAL: `Also, may we know if you are:
     
     - at least 21 years old
     - Filipino resident with valid Philippine billing address
@@ -159,8 +159,8 @@ exports.menus = {
             name: 'credit_card_menu',
             title: 'What do you want to know?',
             button:[
-                { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Instant Approval', title: 'Instant Approval' },
+                { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+                { msg: 'Eligibility & Docs', title: 'Eligibility & Docs' },
                 { msg: 'Back to Credit Cards', title: 'Back to Credit Cards' }
             ]
         }
@@ -170,7 +170,8 @@ exports.menus = {
             name: 'credit_card_menu',
             title: 'What do you want to know?',
             button:[
-                { msg: 'Instant Approval', title: 'Instant Approval' },
+                { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+                { msg: 'Eligibility & Docs', title: 'Eligibility & Docs' },
                 { msg: 'Back to Credit Cards', title: 'Back to Credit Cards' }
             ]
         }
@@ -211,8 +212,8 @@ exports.menus = {
             name: 'instant_approval_1',
             title: 'Options',
             button:[
-                { msg: 'Yes, I am', title: 'Yes, I am' },
-                { msg: `No, I'm not`, title: `No, I'm not` },
+                { msg: 'Yes', title: 'Yes' },
+                { msg: `No`, title: `No` },
             ]
         }
     ],
@@ -221,8 +222,8 @@ exports.menus = {
             name: 'instant_approval_yes',
             title: 'Options',
             button:[
-                { url: 'https://www.google.com', title: 'Apply Now!' },
-                { msg: `Back to Credit Cards`, title: `Back to Credit Cards` },
+                { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+                { msg: `Card Benefits`, title: `Card Benefits` },
             ]
         }
     ],
@@ -231,8 +232,7 @@ exports.menus = {
             name: 'instant_approval_yes_1',
             title: 'Options',
             button:[
-                { msg: 'Requirements', title: 'Requirements' },
-                { msg: `Back to Credit Cards`, title: `Back to Credit Cards` },
+                { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
             ]
         }
     ],
@@ -454,8 +454,8 @@ exports.card = {
             image: 'https://ringgitplus.com/img/card-400/57eddcb0655a14fd555f44f0/citi-rewards-world-mastercard.jpg',
             button: [
                 { msg: 'Card Benefits - Reward', title: 'Card Benefits' },
-                { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Instant Approval', title: 'Instant Approval' }
+                { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+                { msg: 'Reward', title: 'Eligibility & Docs' }
             ]
         },
         {
@@ -463,9 +463,9 @@ exports.card = {
             title: 'Citi Cash Back® Card',
             image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
             button: [
-                { msg: 'Card Benefits - Cashback', title: 'Card Benefits' },
-                { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Instant Approval', title: 'Instant Approval' }
+                { msg: 'Card Benefits - Cash', title: 'Card Benefits' },
+                { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+                { msg: 'Cash', title: 'Eligibility & Docs' }
             ]
         },
         {
@@ -474,8 +474,8 @@ exports.card = {
             image: 'https://news.manikarthik.com/wp-content/uploads/Citi_PremierMiles_Card_Review_India.png',
             button: [
                 { msg: 'Card Benefits - Premier', title: 'Card Benefits' },
-                { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Instant Approval', title: 'Instant Approval' }
+                { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+                { msg: 'Premier', title: 'Eligibility & Docs' }
             ]
         },
         {
@@ -484,8 +484,8 @@ exports.card = {
             image: 'https://ringgitplus.com/img/card-400/519489e2193821ed4a000083/shell-citi-gold-credit-card.jpg',
             button: [
                 { msg: 'Card Benefits - Shell', title: 'Card Benefits' },
-                { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Instant Approval', title: 'Instant Approval' }
+                { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+                { msg: 'Shell', title: 'Eligibility & Docs' }
             ]
         },
         {
@@ -494,8 +494,8 @@ exports.card = {
             image: 'https://www.reviewstream.com/images_items/hPxuFV8Qm.png',
             button: [
                 { msg: 'Card Benefits - Mercury', title: 'Card Benefits' },
-                { msg: 'Requirements', title: 'Requirements' },
-                { msg: 'Instant Approval', title: 'Instant Approval' }
+                { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+                { msg: 'Mercury', title: 'Eligibility & Docs' }
             ]
         },
     ],

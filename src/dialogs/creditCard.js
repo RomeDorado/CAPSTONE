@@ -22,28 +22,45 @@ module.exports.main = [
                 session.replaceDialog('/CreditCards/Rewards');
             break;
             
-            case choices[3]:
+            case choices[2]:
                 session.replaceDialog('/CreditCards/CashBack');
             break;
 
-            case choices[6]:
+            case choices[4]:
                 session.replaceDialog('/CreditCards/Premier');
             break;
 
-            case choices[9]:
+            case choices[6]:
                 session.replaceDialog('/CreditCards/Shell');
             break;
 
-            case choices[12]:
+            case choices[8]:
                 session.replaceDialog('/CreditCards/Mercury');
             break;
 
-            case choices[2]:
-                session.replaceDialog('/InstantApproval');
+            case choices[1]:
+                session.userData.card = results.response.entity;
+                session.replaceDialog('/CreditCards/Requirements');
             break;
 
-            case choices[1]:
-                session.replaceDialog('/Requirements');
+            case choices[3]:
+                session.userData.card = results.response.entity;
+                session.replaceDialog('/CreditCards/Requirements');
+            break;
+
+            case choices[5]:
+                session.userData.card = results.response.entity;
+                session.replaceDialog('/CreditCards/Requirements');
+            break;
+
+            case choices[7]:
+                session.userData.card = results.response.entity;
+                session.replaceDialog('/CreditCards/Requirements');
+            break;
+
+            case choices[9]:   
+                session.userData.card = results.response.entity;   
+                session.replaceDialog('/CreditCards/Requirements');
             break;
 
             default:
@@ -118,14 +135,10 @@ module.exports.rewards = [
 
         switch(results.response.entity){
             case choices[0]:
-                session.replaceDialog('/CreditCards/Requirements')
+                session.replaceDialog("/CreditCards/Requirements");
             break;
 
             case choices[1]:
-                session.replaceDialog("/InstantApproval");
-            break;
-
-            case choices[2]:
                 session.replaceDialog('/CreditCards');
             break;
             
@@ -162,7 +175,7 @@ module.exports.rewards_1 = [
         switch(results.response.entity){
 
             case choices[0]:
-                session.replaceDialog("/CreditCards/Requirements/InstantApproval");
+                session.replaceDialog("/Requirements");
             break;
 
             case choices[1]:
@@ -202,14 +215,10 @@ module.exports.cashBack = [
 
         switch(results.response.entity){
             case choices[0]:
-                session.replaceDialog('/CreditCards/Requirements')
+                session.replaceDialog("/CreditCards/Requirements");
             break;
 
             case choices[1]:
-                session.replaceDialog("/InstantApproval");
-            break;
-
-            case choices[2]:
                 session.replaceDialog('/CreditCards');
             break;
             
@@ -281,14 +290,10 @@ module.exports.premier = [
 
         switch(results.response.entity){
             case choices[0]:
-                session.replaceDialog('/CreditCards/Requirements')
+                session.replaceDialog("/CreditCards/Requirements");
             break;
 
             case choices[1]:
-                session.send("/InstantApproval");
-            break;
-
-            case choices[2]:
                 session.replaceDialog('/CreditCards');
             break;
             
@@ -360,14 +365,10 @@ module.exports.shell = [
 
         switch(results.response.entity){
             case choices[0]:
-                session.replaceDialog('/CreditCards/Requirements')
+                session.replaceDialog("/CreditCards/Requirements");
             break;
 
             case choices[1]:
-                session.send("/InstantApproval");
-            break;
-
-            case choices[2]:
                 session.replaceDialog('/CreditCards');
             break;
             
@@ -439,14 +440,10 @@ module.exports.mercury = [
 
         switch(results.response.entity){
             case choices[0]:
-                session.replaceDialog('/CreditCards/Requirements')
+                session.replaceDialog("/CreditCards/Requirements");
             break;
 
             case choices[1]:
-                session.send("/InstantApproval");
-            break;
-
-            case choices[2]:
                 session.replaceDialog('/CreditCards');
             break;
             
@@ -517,27 +514,30 @@ module.exports.requirements = [
 
         switch(results.response.entity){
             case choices[0]:
-                var cardName= card.getName(consts.menus.requirements_menu_1)
-                var msg = card(session, consts.menus.requirements_menu_1, cardName);
+                var cardName= card.getName(consts.menus.instant_approval)
+                var msg = card(session, consts.menus.instant_approval, cardName);
 
                 session.send(consts.prompts.REQUIREMENTS_EMPLOYED);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements_menu_1))
+                session.send(consts.prompts.INSTANT_APPROVAL);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
             break;
 
             case choices[1]:
-                var cardName= card.getName(consts.menus.requirements_menu_1)
-                var msg = card(session, consts.menus.requirements_menu_1, cardName);
+                var cardName= card.getName(consts.menus.instant_approval)
+                var msg = card(session, consts.menus.instant_approval, cardName);
 
                 session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, session.message.user.name));
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements_menu_1))
+                session.send(consts.prompts.INSTANT_APPROVAL);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
             break;
 
             case choices[2]:
-                var cardName= card.getName(consts.menus.requirements_menu_1)
-                var msg = card(session, consts.menus.requirements_menu_1, cardName);
+                var cardName= card.getName(consts.menus.instant_approval)
+                var msg = card(session, consts.menus.instant_approval, cardName);
 
                 session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED,session.message.user.name));
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements_menu_1))
+                session.send(consts.prompts.INSTANT_APPROVAL);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
             break;
             
             default:
@@ -546,18 +546,43 @@ module.exports.requirements = [
         }
     },
     (session, results) => {
-        var choices = card.choices(consts.menus.requirements_menu_1);
+        var choices = card.choices(consts.menus.instant_approval);
         
         switch(results.response.entity){
             case choices[0]:
-                session.replaceDialog('/CreditCards/Requirements/InstantApproval')
+                var cardName= card.getName(consts.menus.instant_approval_yes)
+                var msg = card(session, consts.menus.instant_approval_yes, cardName);
+
+                session.send(format(consts.prompts.INSTANT_APPROVAL_YES, session.message.user.name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes))
             break;
 
             case choices[1]:
-                session.replaceDialog('/Menu');
+                session.send(format(consts.prompts.INSTANT_APPROVAL_NO, session.message.user.name));
             break;
         }
-    }      
+    },
+    (session, results) => {
+        var choices = card.choices(consts.menus.instant_approval);
+        console.log(session.userData.card);
+            switch(session.userData.card){
+                case "Reward":
+                    session.replaceDialog('/CardOptions/Rewards')
+                break;
+
+                case "Cash":
+                    session.replaceDialog("/CardOptions/CashBack");
+                break;
+
+                case "Premier":
+                    session.replaceDialog("/CardOptions/Premier");
+                break;
+
+                case "Shell":
+                    session.replaceDialog("/CardOptions/Shell");
+                break;
+            }
+    }
 ]
 
 module.exports.requirements_1 = [
@@ -575,27 +600,30 @@ module.exports.requirements_1 = [
 
         switch(results.response.entity){
             case choices[0]:
-                var cardName= card.getName(consts.menus.requirements_menu_2)
-                var msg = card(session, consts.menus.requirements_menu_2, cardName);
+                var cardName= card.getName(consts.menus.instant_approval)
+                var msg = card(session, consts.menus.instant_approval, cardName);
 
                 session.send(consts.prompts.REQUIREMENTS_EMPLOYED);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements_menu_2))
+                session.send(consts.prompts.INSTANT_APPROVAL);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
             break;
 
             case choices[1]:
-                var cardName= card.getName(consts.menus.requirements_menu_2)
-                var msg = card(session, consts.menus.requirements_menu_2, cardName);
+                var cardName= card.getName(consts.menus.instant_approval)
+                var msg = card(session, consts.menus.instant_approval, cardName);
 
                 session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, session.message.user.name));
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements_menu_2))
+                session.send(consts.prompts.INSTANT_APPROVAL);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
             break;
 
             case choices[2]:
-                var cardName= card.getName(consts.menus.requirements_menu_2)
-                var msg = card(session, consts.menus.requirements_menu_2, cardName);
+                var cardName= card.getName(consts.menus.instant_approval)
+                var msg = card(session, consts.menus.instant_approval, cardName);
 
                 session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED,session.message.user.name));
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements_menu_2))
+                session.send(consts.prompts.INSTANT_APPROVAL);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
             break;
             
             default:
@@ -604,18 +632,22 @@ module.exports.requirements_1 = [
         }
     },
     (session, results) => {
-        var choices = card.choices(consts.menus.requirements_menu_2);
+        var choices = card.choices(consts.menus.instant_approval);
         
         switch(results.response.entity){
             case choices[0]:
-                session.replaceDialog('/CreditCards/Requirements/CardOptions')
+                var cardName= card.getName(consts.menus.instant_approval_yes_1)
+                var msg = card(session, consts.menus.instant_approval_yes_1, cardName);
+
+                session.send(format(consts.prompts.INSTANT_APPROVAL_YES, session.message.user.name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes_1))
             break;
 
             case choices[1]:
-                session.replaceDialog('/Menu');
+                session.send(format(consts.prompts.INSTANT_APPROVAL_NO, session.message.user.name));
             break;
         }
-    }   
+    }
 ]
 
 /**Instant Approval Dialogs */
