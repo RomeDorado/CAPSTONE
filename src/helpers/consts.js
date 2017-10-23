@@ -860,19 +860,7 @@ exports.card = {
                 { url: 'https://www.citibank.com.ph/gcb/creditcards/credit_cards.htm?icid=PHPRUGNENSCCPCAAN', title: 'Apply Now' }
             ]
         }
-    ],
-    bonchon: [
-        {
-            name: 'bonchon',
-            title: '',
-            text: '',
-            image: '',
-            button: [
-                { url: 'https://www.citibank.com.ph/gcb/promos/dining/bonchon.htm?icid=PHPRUL8ENSCCPCALM', title: 'Learn More' },
-                { url: 'https://www.citibank.com.ph/gcb/creditcards/credit-cards.htm?icid=PHPRU4YENSCCPCAAN', title: 'Apply Now' }
-            ]
-        }
-    ],
+    ],    
     peri: [
         {
             name: 'pal',
