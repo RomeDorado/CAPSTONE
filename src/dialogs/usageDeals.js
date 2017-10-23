@@ -2,7 +2,15 @@ const builder = require('botbuilder');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const request = require('request');
-const config = require('../../config')
+const config = require('../../config');
+var quickReplies = require('botbuilder-quickreplies');
+const connector = new builder.ChatConnector({
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
+});
+const bot = new builder.UniversalBot(connector);
+
+bot.use(quickReplys.QuickRepliesMiddleware);
 
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
@@ -48,11 +56,14 @@ module.exports.main = [
 /**Child Dialog - Usage Deals */
 /**Dining dialog */
 module.exports.dining = [
-    (session) => {
-        sendQuickReply(session.message.sourceEvent.sender.id);
+    function (session, args, next) {
+        quickReplies.LocationPrompt.beginDialog(session);
     },
-    (session, results) => {
-        console.log(JSON.stringify(results));
+    function (session, args, next) {
+        if (args.response) {
+            var location = args.response.entity;
+            session.send(`Your location is : ${location.title}, Longitude: ${location.coordinates.long}, Latitude: ${location.coordinates.lat}`);
+        }    
     }
 ]
 
