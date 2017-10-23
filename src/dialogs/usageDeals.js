@@ -56,14 +56,34 @@ module.exports.main = [
 /**Child Dialog - Usage Deals */
 /**Dining dialog */
 module.exports.dining = [
-    function (session, args, next) {        
-        quickReplies.LocationPrompt.beginDialog(session);
-    },
-    function (session, args, next) {
-        if (args.response) {
-            var location = args.response.entity;
-            session.send(`Your location is : ${location.title}, Longitude: ${location.coordinates.long}, Latitude: ${location.coordinates.lat}`);
-        }    
+    function (bot){
+    
+    var prompt = new builder.IntentDialog()
+    .onBegin(function (session, args) {
+        var message = new builder.Message(session).text('Please share your location...');
+        message = AddQuickReplies(session, message, [
+            new QuickReplyLocation()
+        ]);
+
+        session.send(message);
+    })
+    .matches(/(give up|quit|skip)/i, function (session) {
+        // Return 'false' to indicate they gave up
+        session.endDialogWithResult({ response: false });
+    })
+    .onDefault(function (session) {
+        if (session.message.sourceEvent.message && session.message.sourceEvent.message.attachments) {
+            var attachment = session.message.sourceEvent.message.attachments[0];
+            if (attachment.type == 'location') {
+                session.endDialogWithResult({ response: { entity: {
+                    title: attachment.title,
+                    coordinates: attachment.payload.coordinates
+                }}})
+            }
+                } else {
+                session.send("Sorry, try again.");
+            }
+        });
     }
 ]
 
@@ -284,4 +304,22 @@ function callSendAPI(messageData) {
 			console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
 		}
 	});
+}
+
+function AddQuickReplies(session, message, quickReplys) {
+    if (session.message.source == 'facebook') {
+        message.sourceEvent({
+            facebook: {
+                quick_replies: quickReplys
+            }
+        })
+    }
+
+    return message;
+}
+
+function QuickReplyLocation() {
+    return {
+        content_type:"location",
+    }
 }
