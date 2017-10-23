@@ -66,6 +66,7 @@ bot.dialog('/GetDetails', dialogs.getDetails.main);
 bot.dialog('/GetDetails/Email', dialogs.getDetails.email);
 bot.dialog('/GetDetails/Loans', dialogs.getDetails.loans);
 bot.dialog('/Loans', dialogs.loans.main);
+bot.dialog('/Loans/Requirements', dialogs.loans.loanRequirements);
 bot.dialog('/Loans/Info', dialogs.loans.loanInfo);
 bot.dialog('/Loans/Decline', dialogs.loans.loanDecline);
 bot.dialog('/Loans/Accept', dialogs.loans.loanAccept);

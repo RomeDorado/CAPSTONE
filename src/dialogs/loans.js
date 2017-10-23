@@ -24,7 +24,7 @@ module.exports.main = [
 
         switch(results.response.entity){
             case choices[0]:
-                session.replaceDialog('/Loans/Info');
+                session.replaceDialog('/Loans/Requirements');
             break;
 
             case choices[1]:
@@ -98,4 +98,76 @@ module.exports.loanAccept = [
             break;
         }
     }   
+]
+
+module.exports.loanRequirements = [
+    (session) => {
+        var cardName = card.getName(consts.menus.requirements_1);
+        var msg = card(session, consts.menus.requirements_1, cardName);        
+        
+        
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements_1));
+    },
+    (session, results) => {
+        var choices = card.choices(consts.menus.requirements_1);
+        console.log(choices);
+        console.log(results.response.entity);
+
+        switch(results.response.entity){
+
+            case choices[0]:
+                var cardName = card.getName(consts.menus.instant_approval);
+                var msg = card(session, consts.menus.instant_approval, cardName);
+                session.send(consts.prompts.LOAN_EMPLOYED);
+                session.send(consts.prompts.LOAN_ELIGIBITY);        
+                
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval));
+            break;
+
+            case choices[1]:
+                var cardName = card.getName(consts.menus.instant_approval);
+                var msg = card(session, consts.menus.instant_approval, cardName);
+                session.send(consts.prompts.LOAN_SELF_EMPLOYED);
+                session.send(consts.prompts.LOAN_ELIGIBITY);
+
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval));
+            break;
+            
+            default:
+                session.replaceDialog('/GetDetails');
+            break;
+        }
+    },
+    (session, results) => {
+        var choices = card.choices(consts.menus.instant_approval);
+        console.log(choices);
+        console.log(results.response.entity);
+
+        switch(results.response.entity){
+            case choices[0]:
+                session.send(format(consts.prompts.INSTANT_APPROVAL_YES), session.message.user.name);
+
+                var cardName = card.getName(consts.menus.loan_accepted);
+                var msg = card(session, consts.menus.loan_accepted, cardName);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_accepted));
+            break;
+
+            case choices[1]:
+                session.send(format(consts.prompts.INSTANT_APPROVAL_NO), session.message.user.name);
+            
+                var cardName = card.getName(consts.menus.loan_denied);
+                var msg = card(session, consts.menus.loan_denied, cardName);
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_denied));
+            break;
+        }
+    },
+    (session, results) => {
+        var choices = card.choices(consts.menus.loan_denied);
+
+        switch(results.response.entity){
+            case choices[0]:
+                session.replaceDialog('/Menu');
+            break;
+        }
+    }
 ]
