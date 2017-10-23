@@ -63,7 +63,7 @@ module.exports.dining = [
         session.send(message)
     },
     (session, results) => {
-        console.log(JSON.stringify(results));
+        console.log(session.message.entities);
     }
 ]
 
