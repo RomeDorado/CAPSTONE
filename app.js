@@ -76,13 +76,10 @@ bot.dialog('/UsageDeals/Travel', dialogs.usageDeals.travel);
 bot.dialog('/UsageDeals/Online', dialogs.usageDeals.online);
 bot.dialog('/UsageDeals/DiningMoreShakeys', dialogs.usageDeals.diningMoreShakeys);
 bot.dialog('/UsageDeals/DiningMapShakeys', dialogs.usageDeals.diningMapShakeys);
-<<<<<<< HEAD
 bot.dialog('/UsageDeals/TravelMoreFairmont', dialogs.usageDeals.travelMoreFairmont);
 bot.dialog('/UsageDeals/TravelMoreEmirates', dialogs.usageDeals.travelMoreEmirates);
-=======
 bot.dialog('/UsageDeals/DiningMoreNanbantei', dialogs.usageDeals.diningMoreNanbantei);
 bot.dialog('/UsageDeals/DiningMapNanbantei', dialogs.usageDeals.diningMapNanbantei);
->>>>>>> 851b22d52944b12e6bd5190d239d7d84eba0df61
 // bot.dialog('/UsageDeals/Installments', dialogs.usageDeals.main);
 // bot.dialog('/UsageDeals/Bill', dialogs.usageDeals.main);
 // bot.dialog('/UsageDeals/World', dialogs.usageDeals.main);

@@ -69,11 +69,8 @@ exports.prompts = {
     TRAVEL_PROMPT: 'Here are the best promo for you 🙂',
     TRAVEL_PROMPT: 'Here are our travel deals!',
     SHAKEYS_PROMPT: 'Great choice! Enjoy this treat from Shakey’s for a minimum bill of P1,500, for dine-in and take-out orders from Mondays to Fridays. This promo is valid until October 31, 2017 only. DTI FTEB 9532, S17.',
-<<<<<<< HEAD
     FAIRMONT_PROMPT: 'Enjoy up to 50% off on rooms and Willow Stream massage treatments at Fairmont Makati with your Citi credit card or Citibank Debit Mastercard. This promo is valid from July 1 to September 30, 2017.',
-=======
     NANBANTEI_PROMPT: 'Great choice! Enjoy this treat from Nanbantei’s 25% off with your Citi credit card or Citibank Debit Mastercard. This is available from Mondays to Saturdays until October 15, 2017. DTI FTEB Permit No. 13003, Series of 2017.',
->>>>>>> 851b22d52944b12e6bd5190d239d7d84eba0df61
     WIN_WHAT_YOU_DINE: 'Use your Citi credit card at any restaurant and get a chance to win back up to P5,000 of your bill. \n\nPromo is from June 16 to 30, 2017.',
     BONCHON_PROMPT: 'Get a free Bibimbowl of your preferred meat and flavor for a minimum spend of P1,500 at BonChon. \n\nValid from May 8 to October 31, 2017. \n\nPromo is offered at BonChon stores nationwide.',
     PAL_PROMPT: 'Apply online and use your new Citi credit card for at least P20,000 within 60 days from receipt. \n\nValid until September 30, 2017. \n\nTerms and conditions apply.',
