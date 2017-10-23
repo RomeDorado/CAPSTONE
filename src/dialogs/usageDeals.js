@@ -49,7 +49,18 @@ module.exports.main = [
 /**Dining dialog */
 module.exports.dining = [
     (session) => {
-        sendQuickReply(session.message.sourceEvent.sender.id);
+        let message = new builder.Message(session)
+        .text("Send us your location now")
+        .sourceEvent({
+            facebook: {
+                "quick_replies": [
+                    {
+                        "content_type": "location",                        
+                    }
+                ]
+            }
+        })
+        session.send(message)
     },
     (session, results) => {
         console.log(JSON.stringify(results));
