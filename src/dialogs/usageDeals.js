@@ -10,7 +10,7 @@ const connector = new builder.ChatConnector({
 });
 const bot = new builder.UniversalBot(connector);
 
-bot.use(quickReplys.QuickRepliesMiddleware);
+bot.use(quickReplies.QuickRepliesMiddleware);
 
 /**Parent Dialog - Credit Cards */
 module.exports.main = [
