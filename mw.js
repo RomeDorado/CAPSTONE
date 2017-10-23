@@ -1,5 +1,5 @@
 module.exports = {
     logIncomingMessage: function (event, next) {
-        console.log(session);                
+        console.log(event);                
     }
 }
