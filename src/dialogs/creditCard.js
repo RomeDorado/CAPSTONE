@@ -581,6 +581,10 @@ module.exports.requirements = [
                 case "Shell":
                     session.replaceDialog("/CardOptions/Shell");
                 break;
+
+                case "Mercury":
+                    session.replaceDialog("/CardOptions/Mercury");
+                break;
             }
     }
 ]
