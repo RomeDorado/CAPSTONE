@@ -179,7 +179,7 @@ loan_accepted: [
     {
         name: 'loan_accepted',
         button: [
-            { url: 'http://cb-apply-page.herokuapp.com/index.html', title: 'Apply Now' },
+            { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHLOAAAENLOANCAAN', title: 'Apply Now' },
         ]
     }
 ],
@@ -250,7 +250,7 @@ credit_card: [
         name: 'credit_card_menu',
         title: 'What do you want to know?',
         button:[
-            { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+            { url: 'https://www.citibank.com.ph/gcb/creditcards/credit-cards.htm?lid=PHENCBGCCMITLAllCreditCards', title: 'Instant Approval' },
             { msg: 'Eligibility & Docs', title: 'Eligibility & Docs' },
             { msg: 'Back', title: 'Back' }
         ]
@@ -261,7 +261,7 @@ credit_card_1: [
         name: 'credit_card_menu',
         title: 'What do you want to know?',
         button:[
-            { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+            { url: 'https://www.citibank.com.ph/gcb/creditcards/credit-cards.htm?lid=PHENCBGCCMITLAllCreditCards', title: 'Instant Approval' },
             { msg: 'Eligibility & Docs', title: 'Eligibility & Docs' },
             { msg: 'Back', title: 'Back' }
         ]
@@ -323,7 +323,7 @@ instant_approval_yes: [
         name: 'instant_approval_yes',
         title: 'Options',
         button:[
-            { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+            { url: 'https://www.citibank.com.ph/gcb/creditcards/credit-cards.htm?lid=PHENCBGCCMITLAllCreditCards', title: 'Instant Approval' },
             { msg: `Card Benefits`, title: `Card Benefits` },
         ]
     }
@@ -333,7 +333,7 @@ instant_approval_yes_1: [
         name: 'instant_approval_yes_1',
         title: 'Options',
         button:[
-            { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+            { url: 'https://www.citibank.com.ph/gcb/creditcards/credit-cards.htm?lid=PHENCBGCCMITLAllCreditCards', title: 'Instant Approval' },
         ]
     }
 ],
@@ -374,7 +374,7 @@ loans_card: [
         title: '',
         image: '',
         button: [
-            { url: 'http://cb-apply-page.herokuapp.com/index.html', title: 'Apply Now' },
+            { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHLOAAAENLOANCAAN', title: 'Apply Now' },
             { msg: 'Eligibility & Docs', title: 'Eligibility & Docs' },
             // { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHEPI2SENLHCAAN', title: 'Apply Now' }
         ]
@@ -398,7 +398,7 @@ loans_acc: [
         title: '',
         image: '',
         button: [
-            { url: 'http://cb-apply-page.herokuapp.com/index.html', title: 'Proceed to Apply' },
+            { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHLOAAAENLOANCAAN', title: 'Proceed to Apply' },
             { msg: 'Main Menu', title: 'Main Menu' },                
         ]
     }
@@ -574,7 +574,7 @@ credit_card: [
         image: 'https://ringgitplus.com/img/card-400/57eddcb0655a14fd555f44f0/citi-rewards-world-mastercard.jpg',
         button: [
             { msg: 'Card Benefits - Reward', title: 'Card Benefits' },
-            { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+            { url: 'https://www.citibank.com.ph/gcb/creditcards/credit-cards.htm?lid=PHENCBGCCMITLAllCreditCards', title: 'Instant Approval' },
             { msg: 'Reward', title: 'Eligibility & Docs' }
         ]
     },
@@ -584,7 +584,7 @@ credit_card: [
         image: 'https://cgblogassets.s3-ap-northeast-1.amazonaws.com/wp-content/uploads/sites/2/2016/04/19011407/Citi-Cash-Back-Card-300x189.png',
         button: [
             { msg: 'Card Benefits - Cash', title: 'Card Benefits' },
-            { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+            { url: 'https://www.citibank.com.ph/gcb/creditcards/credit-cards.htm?lid=PHENCBGCCMITLAllCreditCards', title: 'Instant Approval' },
             { msg: 'Cash', title: 'Eligibility & Docs' }
         ]
     },
@@ -594,7 +594,7 @@ credit_card: [
         image: 'https://news.manikarthik.com/wp-content/uploads/Citi_PremierMiles_Card_Review_India.png',
         button: [
             { msg: 'Card Benefits - Premier', title: 'Card Benefits' },
-            { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+            { url: 'https://www.citibank.com.ph/gcb/creditcards/credit-cards.htm?lid=PHENCBGCCMITLAllCreditCards', title: 'Instant Approval' },
             { msg: 'Premier', title: 'Eligibility & Docs' }
         ]
     },
@@ -604,7 +604,7 @@ credit_card: [
         image: 'https://ringgitplus.com/img/card-400/519489e2193821ed4a000083/shell-citi-gold-credit-card.jpg',
         button: [
             { msg: 'Card Benefits - Shell', title: 'Card Benefits' },
-            { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+            { url: 'https://www.citibank.com.ph/gcb/creditcards/credit-cards.htm?lid=PHENCBGCCMITLAllCreditCards', title: 'Instant Approval' },
             { msg: 'Shell', title: 'Eligibility & Docs' }
         ]
     },
@@ -614,7 +614,7 @@ credit_card: [
         image: 'https://www.reviewstream.com/images_items/hPxuFV8Qm.png',
         button: [
             { msg: 'Card Benefits - Mercury', title: 'Card Benefits' },
-            { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
+            { url: 'https://www.citibank.com.ph/gcb/creditcards/credit-cards.htm?lid=PHENCBGCCMITLAllCreditCards', title: 'Instant Approval' },
             { msg: 'Mercury', title: 'Eligibility & Docs' }
         ]
     },
