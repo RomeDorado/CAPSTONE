@@ -689,28 +689,31 @@ menu: [
 usage_deals: [
     {
         name: 'dining_priv',
-        title: '#LovetoDine',
+        title: 'Options',
         image: '',
         button: [
-            { msg: '#LovetoDine', title: '#LovetoDine' }
-        ]
-    },
-    {
-        name: 'travel_priv',
-        title: '#LovetoTravel',
-        image: '',
-        button: [
-            { msg: '#LovetoTravel', title: '#LovetoTravel' }
-        ]
-    },
-    {
-        name: 'online_priv',
-        title: 'Citi Online Deals',
-        image: '',
-        button: [
+            { msg: '#LovetoDine', title: '#LovetoDine' },
+            { msg: '#LovetoTravel', title: '#LovetoTravel' },
             { msg: '#LovetoClick', title: '#LovetoClick' }
+            
         ]
-    },        
+    },
+    // {
+    //     name: 'travel_priv',
+    //     title: '#LovetoTravel',
+    //     image: '',
+    //     button: [
+    //         { msg: '#LovetoTravel', title: '#LovetoTravel' }
+    //     ]
+    // },
+    // {
+    //     name: 'online_priv',
+    //     title: 'Citi Online Deals',
+    //     image: '',
+    //     button: [
+    //         { msg: '#LovetoClick', title: '#LovetoClick' }
+    //     ]
+    // },        
     // {
     //     name: 'onebill_priv',
     //     title: 'CITI One Bill',
