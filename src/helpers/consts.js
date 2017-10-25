@@ -144,7 +144,10 @@ GMOVIES_PROMPT: `Free P300 movie eVoucher
 - Promo is valid until October 31, 2017.`,
 CONFUSION_TRIGGER: `{0}, I’m really sorry as I cannot address what you typed as of now. Let me connect you with one of our agents for this.`,
 SHAKEYS_RESERVE: `You may want to call on +63 6554037 or +63 2 6554038`,
-NANBANTEI_RESERVE: `You may want to call on +63 2148632 or +63 2 0147521`
+NANBANTEI_RESERVE: `You may want to call on +63 2148632 or +63 2 0147521`,
+CREDIT_CARD_PROMPT: `Glad to know you’re interested about the best credit cards in the market!
+
+Which card are you looking for?`
 }
 
 exports.menus = {

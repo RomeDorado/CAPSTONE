@@ -208,9 +208,9 @@ module.exports.loanRequirements = [
                         }
                     });
                 
-                    var cardName = card.getName(consts.menus.loan_denied);
-                    var msg = card(session, consts.menus.loan_denied, cardName);
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_denied), { maxRetries:0,promptAfterAction:false});
+                    // var cardName = card.getName(consts.menus.loan_denied);
+                    // var msg = card(session, consts.menus.loan_denied, cardName);
+                    // builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_denied), { maxRetries:0,promptAfterAction:false});
                 break;
     
                 default:

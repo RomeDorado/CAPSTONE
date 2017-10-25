@@ -10,6 +10,7 @@ module.exports.main = [
         var cardName = card.getName(consts.card.credit_card);
         var msg = card(session, consts.card.credit_card, cardName);
 
+        session.send(consts.prompts.CREDIT_CARD_PROMPT);
         builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card), { maxRetries:0,promptAfterAction:false});
         console.log(msg);
     },
