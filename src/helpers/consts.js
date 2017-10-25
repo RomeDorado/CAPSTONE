@@ -217,7 +217,7 @@ credit_card: [
         button:[
             { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
             { msg: 'Eligibility & Docs', title: 'Eligibility & Docs' },
-            { msg: 'Back to Credit Cards', title: 'Back to Credit Cards' }
+            { msg: 'Back', title: 'Back' }
         ]
     }
 ],
@@ -228,7 +228,7 @@ credit_card_1: [
         button:[
             { url: 'http://cb-apply-page.herokuapp.com/cb.html', title: 'Instant Approval' },
             { msg: 'Eligibility & Docs', title: 'Eligibility & Docs' },
-            { msg: 'Back to Credit Cards', title: 'Back to Credit Cards' }
+            { msg: 'Back', title: 'Back' }
         ]
     }
 ],
