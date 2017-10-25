@@ -1,6 +1,6 @@
 const builder = require('botbuilder');
 exports.prompts = {
-GET_STARTED: 'Hi {0}! We offer a wide range on financial services like Credit Cards, Deposits, Loans, Investment options & Digital Banking. Join the Citibank Philippines family today!',
+GET_STARTED: 'Hi {0}! I’m glad that you dropped by Citi! How can I help you today?',
 MENU: 'What do you want to do?',
 LEARN_PROMPT: 'What would you like to know?',
 REWARD_BENEFITS: '*Earn never-expiring Rewards Points (P30 = 1 Point)\n\n *Get 3x Rewards Points when you shop, dine or book Cebu Pacific tickets\n\n *Use your Points to pay for your purchases at over 1,000 shops, cinemas and restaurants nationwide',
@@ -137,9 +137,19 @@ GMOVIES_PROMPT: `Free P300 movie eVoucher
 
 - Get a P300 movie eVoucher on your first Citi Mobile App log-in or when you enroll in e-Statements.
 - Promo is valid until October 31, 2017.`,
+CONFUSION_TRIGGER: `{0}, I’m really sorry as I cannot address what you typed as of now. Let me connect you with one of our agents for this.`
 }
 
 exports.menus = {
+confusion_trigger: [
+    {
+        name: 'confusion_trigger',
+        title: 'Options',
+        button: [
+            { msg: 'Connect', title: "Connect" }
+        ]
+    }
+],
 loan_accepted: [
     {
         name: 'loan_accepted',

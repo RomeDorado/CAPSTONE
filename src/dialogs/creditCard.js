@@ -10,65 +10,69 @@ module.exports.main = [
         var cardName = card.getName(consts.card.credit_card);
         var msg = card(session, consts.card.credit_card, cardName);
 
-        builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card));
+        builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card), { maxRetries:0,promptAfterAction:false});
         console.log(msg);
     },
     (session, results) => {
         var choices = card.choices(consts.card.credit_card);
         console.log(choices);
         console.log(results.response.entity);
-
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog('/CreditCards/Rewards');
-            break;
-            
-            case choices[2]:
-                session.replaceDialog('/CreditCards/CashBack');
-            break;
-
-            case choices[4]:
-                session.replaceDialog('/CreditCards/Premier');
-            break;
-
-            case choices[6]:
-                session.replaceDialog('/CreditCards/Shell');
-            break;
-
-            case choices[8]:
-                session.replaceDialog('/CreditCards/Mercury');
-            break;
-
-            case choices[1]:
-                session.userData.card = results.response.entity;
-                session.replaceDialog('/CreditCards/Requirements');
-            break;
-
-            case choices[3]:
-                session.userData.card = results.response.entity;
-                session.replaceDialog('/CreditCards/Requirements');
-            break;
-
-            case choices[5]:
-                session.userData.card = results.response.entity;
-                session.replaceDialog('/CreditCards/Requirements');
-            break;
-
-            case choices[7]:
-                session.userData.card = results.response.entity;
-                session.replaceDialog('/CreditCards/Requirements');
-            break;
-
-            case choices[9]:   
-                session.userData.card = results.response.entity;   
-                session.replaceDialog('/CreditCards/Requirements');
-            break;
-
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
-        }
         
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog('/CreditCards/Rewards');
+                break;
+                
+                case choices[2]:
+                    session.replaceDialog('/CreditCards/CashBack');
+                break;
+    
+                case choices[4]:
+                    session.replaceDialog('/CreditCards/Premier');
+                break;
+    
+                case choices[6]:
+                    session.replaceDialog('/CreditCards/Shell');
+                break;
+    
+                case choices[8]:
+                    session.replaceDialog('/CreditCards/Mercury');
+                break;
+    
+                case choices[1]:
+                    session.userData.card = results.response.entity;
+                    session.replaceDialog('/CreditCards/Requirements');
+                break;
+    
+                case choices[3]:
+                    session.userData.card = results.response.entity;
+                    session.replaceDialog('/CreditCards/Requirements');
+                break;
+    
+                case choices[5]:
+                    session.userData.card = results.response.entity;
+                    session.replaceDialog('/CreditCards/Requirements');
+                break;
+    
+                case choices[7]:
+                    session.userData.card = results.response.entity;
+                    session.replaceDialog('/CreditCards/Requirements');
+                break;
+    
+                case choices[9]:   
+                    session.userData.card = results.response.entity;   
+                    session.replaceDialog('/CreditCards/Requirements');
+                break;
+    
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
+        } 
     }
 ]
 
@@ -77,43 +81,50 @@ module.exports.main_1 = [
         var cardName = card.getName(consts.card.credit_card_1);
         var msg = card(session, consts.card.credit_card_1, cardName);
 
-        builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card_1));
+        builder.Prompts.choice(session, msg, card.choices(consts.card.credit_card_1), { maxRetries:0,promptAfterAction:false});
         console.log(msg);
     },
     (session, results) => {
         var choices = card.choices(consts.card.credit_card_1);
         console.log(choices);
         console.log(results.response.entity);
-
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog('/CardOptions/Rewards');
-            break;
+        
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
             
-            case choices[2]:
-                session.replaceDialog('/CardOptions/CashBack');
-            break;
-
-            case choices[4]:
-                session.replaceDialog('/CardOptions/Premier');
-            break;
-
-            case choices[6]:
-                session.replaceDialog('/CardOptions/Shell');
-            break;
-
-            case choices[8]:
-                session.replaceDialog('/CardOptions/Mercury');
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards/Requirements/InstantApproval');
-            break;
-
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog('/CardOptions/Rewards');
+                break;
+                
+                case choices[2]:
+                    session.replaceDialog('/CardOptions/CashBack');
+                break;
+    
+                case choices[4]:
+                    session.replaceDialog('/CardOptions/Premier');
+                break;
+    
+                case choices[6]:
+                    session.replaceDialog('/CardOptions/Shell');
+                break;
+    
+                case choices[8]:
+                    session.replaceDialog('/CardOptions/Mercury');
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards/Requirements/InstantApproval');
+                break;
+    
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
+        
         
     }
 ]
@@ -131,26 +142,33 @@ module.exports.rewards = [
                     session.send(format(consts.prompts.CITI_REWARDS, res.first_name));
                 }
             });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
         console.log(choices);
         console.log(results.response.entity);
-
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog("/CreditCards/Requirements");
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards');
-            break;
+        
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
             
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog("/CreditCards/Requirements");
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards');
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
+        
 
         
     },
@@ -174,29 +192,33 @@ module.exports.rewards_1 = [
                 session.send(format(consts.prompts.CITI_REWARDS, res.first_name));
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card_1);
         console.log(choices);
         console.log(results.response.entity);
-
-        switch(results.response.entity){
-
-            case choices[0]:
-                session.replaceDialog("/Requirements");
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards');
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
-        }
-
         
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            
+            switch(reply){
+    
+                case choices[0]:
+                    session.replaceDialog("/Requirements");
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards');
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
+        }
     },
     (session, results) => {
         var choices = card.choices(consts.card.credit_card);
@@ -219,26 +241,34 @@ module.exports.cashBack = [
                 session.send(format(consts.prompts.CITI_CASHBACK, res.first_name));
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
         console.log(choices);
         console.log(results.response.entity);
-
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog("/CreditCards/Requirements");
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards');
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        
+        if(results.response == null){
+            session.replaceDialog('/')
         }
+        else{
+            var reply = results.response.entity;
+            
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog("/CreditCards/Requirements");
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards');
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
+        }
+        
     },
     (session, results) => {
         var choices = card.choices(consts.card.credit_card);
@@ -260,25 +290,30 @@ module.exports.cashBack_1 = [
                 session.send(format(consts.prompts.CITI_CASHBACK, res.first_name));
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
         console.log(choices);
         console.log(results.response.entity);
-
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog("/CreditCards/Requirements/InstantApproval");
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards');
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        
+        if(results.response == null){
+            session.replaceDialog('/');
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog("/CreditCards/Requirements/InstantApproval");
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards');
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
     },
     (session, results) => {
@@ -302,25 +337,31 @@ module.exports.premier = [
                 session.send(format(consts.prompts.CITI_PREMIER, res.first_name));
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
         console.log(choices);
         console.log(results.response.entity);
-
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog("/CreditCards/Requirements");
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards');
-            break;
+        
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
             
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog("/CreditCards/Requirements");
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards');
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
     },
     (session, results) => {
@@ -343,25 +384,30 @@ module.exports.premier_1 = [
                 session.send(format(consts.prompts.CITI_PREMIER, res.first_name));
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card_1);
         console.log(choices);
         console.log(results.response.entity);
 
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog("/CreditCards/Requirements/InstantApproval");
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards');
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog("/CreditCards/Requirements/InstantApproval");
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards');
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
     },
     (session, results) => {
@@ -385,25 +431,30 @@ module.exports.shell = [
                 session.send(format(consts.prompts.CITI_SHELL, res.first_name));
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
         console.log(choices);
         console.log(results.response.entity);
 
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog("/CreditCards/Requirements");
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards');
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/');
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog("/CreditCards/Requirements");
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards');
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
     },
     (session, results) => {
@@ -426,25 +477,30 @@ module.exports.shell_1 = [
                 session.send(format(consts.prompts.CITI_SHELL, res.first_name));
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card_1);
         console.log(choices);
         console.log(results.response.entity);
 
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog("/CreditCards/Requirements/InstantApproval");
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards');
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/');
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog("/CreditCards/Requirements/InstantApproval");
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards');
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
     },
     (session, results) => {
@@ -468,25 +524,30 @@ module.exports.mercury = [
                 session.send(format(consts.prompts.CITI_MERCURY, res.first_name));
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
         console.log(choices);
         console.log(results.response.entity);
 
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog("/CreditCards/Requirements");
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards');
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog("/CreditCards/Requirements");
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards');
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
     },
     (session, results) => {
@@ -509,25 +570,30 @@ module.exports.mercury_1 = [
                 session.send(format(consts.prompts.CITI_MERCURY, res.first_name));
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card_1);
         console.log(choices);
         console.log(results.response.entity);
 
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog("/CreditCards/Requirements/InstantApproval");
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/CreditCards');
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog("/CreditCards/Requirements/InstantApproval");
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/CreditCards');
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
     },
     (session, results) => {
@@ -546,77 +612,91 @@ module.exports.requirements = [
         var cardName = card.getName(consts.menus.requirements);
         var msg = card(session, consts.menus.requirements, cardName);
 
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.requirements);
         console.log(choices);
         console.log(results.response.entity);
 
-        switch(results.response.entity){
-            case choices[0]:
-                var cardName= card.getName(consts.menus.instant_approval)
-                var msg = card(session, consts.menus.instant_approval, cardName);
-
-                session.send(consts.prompts.REQUIREMENTS_EMPLOYED);
-                session.send(consts.prompts.INSTANT_APPROVAL);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
-            break;
-
-            case choices[1]:
-                var cardName= card.getName(consts.menus.instant_approval)
-                var msg = card(session, consts.menus.instant_approval, cardName);
-
-                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                    if (!err) {
-                        session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, res.first_name));
-                    }
-                });
-                session.send(consts.prompts.INSTANT_APPROVAL);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
-            break;
-
-            case choices[2]:
-                var cardName= card.getName(consts.menus.instant_approval)
-                var msg = card(session, consts.menus.instant_approval, cardName);
-
-                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                    if (!err) {
-                        session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED, res.first_name));
-                    }
-                });
-                session.send(consts.prompts.INSTANT_APPROVAL);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    var cardName= card.getName(consts.menus.instant_approval)
+                    var msg = card(session, consts.menus.instant_approval, cardName);
+    
+                    session.send(consts.prompts.REQUIREMENTS_EMPLOYED);
+                    session.send(consts.prompts.INSTANT_APPROVAL);
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
+                break;
+    
+                case choices[1]:
+                    var cardName= card.getName(consts.menus.instant_approval)
+                    var msg = card(session, consts.menus.instant_approval, cardName);
+    
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, res.first_name));
+                        }
+                    });
+                    session.send(consts.prompts.INSTANT_APPROVAL);
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
+                break;
+    
+                case choices[2]:
+                    var cardName= card.getName(consts.menus.instant_approval)
+                    var msg = card(session, consts.menus.instant_approval, cardName);
+    
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED, res.first_name));
+                        }
+                    });
+                    session.send(consts.prompts.INSTANT_APPROVAL);
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
     },
     (session, results) => {
         var choices = card.choices(consts.menus.instant_approval);
-        
-        switch(results.response.entity){
-            case choices[0]:
-                var cardName= card.getName(consts.menus.instant_approval_yes)
-                var msg = card(session, consts.menus.instant_approval_yes, cardName);
 
-                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                    if (!err) {
-                        session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
-                    }
-                });
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes))
-            break;
-
-            case choices[1]:
-                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                    if (!err) {
-                        session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
-                    }
-                });
-            break;
+        if(results.response == null){
+            session.replaceDialog('/');
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    var cardName= card.getName(consts.menus.instant_approval_yes)
+                    var msg = card(session, consts.menus.instant_approval_yes, cardName);
+    
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
+                        }
+                    });
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes), { maxRetries:0,promptAfterAction:false})
+                break;
+    
+                case choices[1]:
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                        }
+                    });
+                break;
+    
+                default:
+                    session.replaceDialog('/')
+                break;
+            }
         }
     },
     (session, results) => {
@@ -642,6 +722,10 @@ module.exports.requirements = [
                 case "Mercury":
                     session.replaceDialog("/CardOptions/Mercury");
                 break;
+
+                default:
+                    session.replaceDialog('/')
+                break;
             }
     }
 ]
@@ -652,78 +736,109 @@ module.exports.requirements_1 = [
         var cardName = card.getName(consts.menus.requirements);
         var msg = card(session, consts.menus.requirements, cardName);
 
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.requirements), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.requirements);
         console.log(choices);
         console.log(results.response.entity);
 
-        switch(results.response.entity){
-            case choices[0]:
-                var cardName= card.getName(consts.menus.instant_approval)
-                var msg = card(session, consts.menus.instant_approval, cardName);
-
-                session.send(consts.prompts.REQUIREMENTS_EMPLOYED);
-                session.send(consts.prompts.INSTANT_APPROVAL);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
-            break;
-
-            case choices[1]:
-                var cardName= card.getName(consts.menus.instant_approval)
-                var msg = card(session, consts.menus.instant_approval, cardName);
-
-                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                    if (!err) {
-                        session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, res.first_name));
-                    }
-                });
-                session.send(consts.prompts.INSTANT_APPROVAL);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
-            break;
-
-            case choices[2]:
-                var cardName= card.getName(consts.menus.instant_approval)
-                var msg = card(session, consts.menus.instant_approval, cardName);
-
-                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                    if (!err) {
-                        session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED, res.first_name));
-                    }
-                });
-                session.send(consts.prompts.INSTANT_APPROVAL);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/');
         }
+        else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    var cardName= card.getName(consts.menus.instant_approval)
+                    var msg = card(session, consts.menus.instant_approval, cardName);
+    
+                    session.send(consts.prompts.REQUIREMENTS_EMPLOYED);
+                    session.send(consts.prompts.INSTANT_APPROVAL);
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
+                break;
+    
+                case choices[1]:
+                    var cardName= card.getName(consts.menus.instant_approval)
+                    var msg = card(session, consts.menus.instant_approval, cardName);
+    
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, res.first_name));
+                        }
+                    });
+                    session.send(consts.prompts.INSTANT_APPROVAL);
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
+                break;
+    
+                case choices[2]:
+                    var cardName= card.getName(consts.menus.instant_approval)
+                    var msg = card(session, consts.menus.instant_approval, cardName);
+    
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED, res.first_name));
+                        }
+                    });
+                    session.send(consts.prompts.INSTANT_APPROVAL);
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
+        }
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.instant_approval);
-        
-        switch(results.response.entity){
-            case choices[0]:
-                var cardName= card.getName(consts.menus.instant_approval_yes_1)
-                var msg = card(session, consts.menus.instant_approval_yes_1, cardName);
 
-                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                    if (!err) {
-                        session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
-                    }
-                });
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes_1))
-            break;
-
-            case choices[1]:
-                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                    if (!err) {
-                        session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
-                    }
-                });
-            break;
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    var cardName= card.getName(consts.menus.instant_approval_yes_1)
+                    var msg = card(session, consts.menus.instant_approval_yes_1, cardName);
+    
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
+                        }
+                    });
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes_1),{ maxRetries:0,promptAfterAction:false})
+                break;
+    
+                case choices[1]:
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                        }
+                    });
+                break;
+    
+                default:
+                    session.replaceDialog('/')
+                break;
+            }
         }
+    },
+    (session, results) => {
+        var choices = card.choices(consts.menus.instant_approval_yes_1);
+
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                default:
+                  session.replaceDialog('/')
+                break;
+            }
+        }
+        
     }
 ]
 
@@ -735,50 +850,63 @@ module.exports.instant_approval = [
         var msg = card(session, consts.menus.instant_approval, cardName);
 
         session.send(consts.prompts.INSTANT_APPROVAL)
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.instant_approval);
         console.log(choices);
         console.log(results.response.entity);
 
-        switch(results.response.entity){
-            case choices[0]:
-                var cardName= card.getName(consts.menus.instant_approval_yes)
-                var msg = card(session, consts.menus.instant_approval_yes, cardName);
-
-                session.send(format(consts.prompts.INSTANT_APPROVAL_YES));
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes))
-            break;
-
-            case choices[1]:
-                var cardName= card.getName(consts.menus.instant_approval_no)
-                var msg = card(session, consts.menus.instant_approval_no, cardName);
-
-                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                    if (!err) {
-                        session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
-                    }
-                });
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_no))
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/');
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    var cardName= card.getName(consts.menus.instant_approval_yes)
+                    var msg = card(session, consts.menus.instant_approval_yes, cardName);
+    
+                    session.send(format(consts.prompts.INSTANT_APPROVAL_YES));
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes), { maxRetries:0,promptAfterAction:false})
+                break;
+    
+                case choices[1]:
+                    var cardName= card.getName(consts.menus.instant_approval_no)
+                    var msg = card(session, consts.menus.instant_approval_no, cardName);
+    
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                        }
+                    });
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_no), { maxRetries:0,promptAfterAction:false})
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
     },
     (session, results) => {
-        switch(results.response.entity){
-            case "Back to Main Menu":
-                session.replaceDialog('/Menu');
-            break;
-
-            case "Back to Credit Cards":
-                session.replaceDialog('/CreditCards');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/');
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case "Back to Main Menu":
+                    session.replaceDialog('/Menu');
+                break;
+    
+                case "Back to Credit Cards":
+                    session.replaceDialog('/CreditCards');
+                break;
+    
+                default:
+                    session.replaceDialog('/')
+                break;
+            }
         }
-        
     }
 ]
 
@@ -789,53 +917,69 @@ module.exports.instant_approval_1 = [
         var msg = card(session, consts.menus.instant_approval, cardName);
 
         session.send(consts.prompts.INSTANT_APPROVAL)
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval));
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.instant_approval);
         console.log(choices);
         console.log(results.response.entity);
 
-        switch(results.response.entity){
-            case choices[0]:
-                var cardName= card.getName(consts.menus.instant_approval_yes_1)
-                var msg = card(session, consts.menus.instant_approval_yes_1, cardName);
-
-                session.send(format(consts.prompts.INSTANT_APPROVAL_YES));
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes_1))
-            break;
-
-            case choices[1]:
-                var cardName= card.getName(consts.menus.instant_approval_no)
-                var msg = card(session, consts.menus.instant_approval_no, cardName);
-
-                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                    if (!err) {
-                        session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
-                    }
-                });
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_no))
-            break;
-            
-            default:
-                session.replaceDialog('/GetDetails');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    var cardName= card.getName(consts.menus.instant_approval_yes_1)
+                    var msg = card(session, consts.menus.instant_approval_yes_1, cardName);
+    
+                    session.send(format(consts.prompts.INSTANT_APPROVAL_YES));
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes_1), { maxRetries:0,promptAfterAction:false})
+                break;
+    
+                case choices[1]:
+                    var cardName= card.getName(consts.menus.instant_approval_no)
+                    var msg = card(session, consts.menus.instant_approval_no, cardName);
+    
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                        }
+                    });
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_no), { maxRetries:0,promptAfterAction:false})
+                break;
+                
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
     },
     (session, results) => {
-        switch(results.response.entity){
-            case "Requirements":
-                session.replaceDialog('/CreditCards/Requirements');
-            break;
 
-            case "Back to Main Menu":
-                session.replaceDialog('/Menu');
-            break;
-
-            case "Back to Credit Cards":
-                session.replaceDialog('/CreditCards');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case "Requirements":
+                    session.replaceDialog('/CreditCards/Requirements');
+                break;
+    
+                case "Back to Main Menu":
+                    session.replaceDialog('/Menu');
+                break;
+    
+                case "Back to Credit Cards":
+                    session.replaceDialog('/CreditCards');
+                break;
+    
+                default:
+                    session.replaceDialog('/');
+                break;
+            }
         }
+        
         
     }
 ]

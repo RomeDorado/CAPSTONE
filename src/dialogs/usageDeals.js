@@ -11,37 +11,46 @@ module.exports.main = [
         var msg = card(session, consts.card.usage_deals, cardName);
 
         session.send(consts.prompts.USAGEDEALS_PROMPT);
-        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals));
+        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.card.usage_deals);
-
-        switch (results.response.entity) {
-            case choices[0]:
-                session.replaceDialog('/UsageDeals/Dining');
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/UsageDeals/Travel');
-            break;
-
-            case choices[2]:
-                session.replaceDialog('/UsageDeals/Online');
-            break;
-
-            // case consts.choices.USAGE_DEALS[3]:
-            //     session.replaceDialog('/UsageDeals/Installments');
-            // break;
-
-            // case consts.choices.CREDIT_CARD[4]:
-            //     session.replaceDialog('/UsageDeals/Bill');
-            // break;
-
-            // case consts.choices.CREDIT_CARD[6]:
-            //     session.replaceDialog('/UsageDeals/World');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/');
         }
-
+        else{
+            var reply = results.response.entity;
+            switch(reply) {
+                case choices[0]:
+                    session.replaceDialog('/UsageDeals/Dining');
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/UsageDeals/Travel');
+                break;
+    
+                case choices[2]:
+                    session.replaceDialog('/UsageDeals/Online');
+                break;
+    
+                default:
+                    session.replaceDialog('/')
+                break;
+    
+                // case consts.choices.USAGE_DEALS[3]:
+                //     session.replaceDialog('/UsageDeals/Installments');
+                // break;
+    
+                // case consts.choices.CREDIT_CARD[4]:
+                //     session.replaceDialog('/UsageDeals/Bill');
+                // break;
+    
+                // case consts.choices.CREDIT_CARD[6]:
+                //     session.replaceDialog('/UsageDeals/World');
+                // break;
+            }
+        }
+    
     }
 ]
 
@@ -78,29 +87,37 @@ module.exports.dining = [
             var msg = card(session, consts.card.usage_deals_dining, cardName);
     
             session.send(consts.prompts.USAGEDEALS_PROMPT);
-            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_dining));
+            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_dining), { maxRetries:0,promptAfterAction:false});
     },
         (session, results) => {
             var choices = card.choices(consts.card.usage_deals_dining);
+            if(results.response == null){
+                session.replaceDialog('/');
+            }else{
+                var reply = results.response.entity;
+                switch(reply) {
+                    case choices[0]:
+                    session.replaceDialog('/UsageDeals/DiningMoreShakeys');
+                    break;
+        
+                    case choices[1]:
+                        session.replaceDialog('/UsageDeals/DiningMapShakeys');
+                    break;
+                    
+                    case choices[3]:
+                        session.replaceDialog('/UsageDeals/DiningMoreNanbantei');
+                    break;
     
-            switch (results.response.entity) {
-                case choices[0]:
-                session.replaceDialog('/UsageDeals/DiningMoreShakeys');
-                break;
+                    case choices[4]:
+                        session.replaceDialog('/UsageDeals/DiningMapNanbantei');
+                    break;
     
-                case choices[1]:
-                    session.replaceDialog('/UsageDeals/DiningMapShakeys');
-                break;
-                
-                case choices[3]:
-                    session.replaceDialog('/UsageDeals/DiningMoreNanbantei');
-                break;
-
-                case choices[4]:
-                    session.replaceDialog('/UsageDeals/DiningMapNanbantei');
-                break;
-
-                //add more here
+                    default:
+                        session.replaceDialog('/')
+                    break;
+    
+                    //add more here
+                }
             }
     
         }    
@@ -112,22 +129,31 @@ module.exports.diningMoreShakeys = [
         var msg = card(session, consts.card.usage_deals_shakeys, cardName);
 
         session.send(consts.prompts.SHAKEYS_PROMPT);
-        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_shakeys));
+        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_shakeys), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.card.usage_deals_shakeys);
-
-        switch (results.response.entity) {
-            case choices[0]:
-            session.send("This feature is coming soon");
-            //put back button here
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/UsageDeals');
-            break;    
-
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply) {
+                case choices[0]:
+                session.send("This feature is coming soon");
+                //put back button here
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/UsageDeals/Dining');
+                break;
+                
+                default:
+                    session.replaceDialog('/')
+                break;
+    
+            }
         }
+       
     }  
 ]
 
@@ -137,21 +163,29 @@ module.exports.diningMapShakeys = [
             var cardName = card.getName(consts.card.usage_deals_shakeys_map);
             var msg = card(session, consts.card.usage_deals_shakeys_map, cardName);
         
-            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_shakeys_map));
+            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_shakeys_map), { maxRetries:0,promptAfterAction:false});
         },
         (session, results) => {
             var choices = card.choices(consts.card.usage_deals_shakeys_map);
+            if(results.response == null){
+                session.replaceDialog('/')
+            }else{
+                var reply = results.response.entity;
+                switch(reply) {
+                    case choices[0]:
+                    session.send("This feature is coming soon");
+                    //put back button here
+                    break;
+        
+                    case choices[1]:
+                        session.replaceDialog('/UsageDeals/Dining');
+                    break;    
     
-            switch (results.response.entity) {
-                case choices[0]:
-                session.send("This feature is coming soon");
-                //put back button here
-                break;
-    
-                case choices[1]:
-                    session.replaceDialog('/UsageDeals');
-                break;    
-    
+                    default:
+                        session.replaceDialog('/')
+                    break;
+        
+                }
             }
         }  
 ]
@@ -163,21 +197,29 @@ module.exports.diningMoreNanbantei = [
             var msg = card(session, consts.card.usage_deals_nanbantei, cardName);
     
             session.send(consts.prompts.NANBANTEI_PROMPT);
-            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_nanbantei));
+            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_nanbantei), { maxRetries:0,promptAfterAction:false});
         },
         (session, results) => {
             var choices = card.choices(consts.card.usage_deals_nanbantei);
+            if(results.response == null){
+                session.replaceDialog('/')
+            }else{
+                var reply = results.response.entity
+                switch(reply) {
+                    case choices[0]:
+                    session.send("This feature is coming soon");
+                    //put back button here
+                    break;
+        
+                    case choices[1]:
+                        session.replaceDialog('/UsageDeals/Dining');
+                    break;    
     
-            switch (results.response.entity) {
-                case choices[0]:
-                session.send("This feature is coming soon");
-                //put back button here
-                break;
-    
-                case choices[1]:
-                    session.replaceDialog('/UsageDeals');
-                break;    
-    
+                    default:
+                        session.replaceDialog('/')
+                    break;
+        
+                }
             }
         }
 ]
@@ -188,21 +230,29 @@ module.exports.diningMapNanbantei = [
             var cardName = card.getName(consts.card.usage_deals_nanbantei_map);
             var msg = card(session, consts.card.usage_deals_nanbantei_map, cardName);
         
-            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_nanbantei_map));
+            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_nanbantei_map), { maxRetries:0,promptAfterAction:false});
         },
         (session, results) => {
             var choices = card.choices(consts.card.usage_deals_nanbantei_map);
+            if(results.response == null){
+                session.replaceDialog('/')
+            }else{
+                var reply = results.response.entity;
+                switch(reply) {
+                    case choices[0]:
+                    session.send("This feature is coming soon");
+                    //put back button here
+                    break;
+        
+                    case choices[1]:
+                        session.replaceDialog('/UsageDeals/Dining');
+                    break;    
     
-            switch (results.response.entity) {
-                case choices[0]:
-                session.send("This feature is coming soon");
-                //put back button here
-                break;
-    
-                case choices[1]:
-                    session.replaceDialog('/UsageDeals');
-                break;    
-    
+                    default:
+                        session.replaceDialog('/')
+                    break;
+        
+                }
             }
         }  
 ]
@@ -214,29 +264,36 @@ module.exports.travel = [
         var msg = card(session, consts.card.usage_deals_travel, cardName);
 
         session.send(consts.prompts.TRAVEL_PROMPT);
-        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_travel));
+        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_travel), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.card.usage_deals_travel);
-        
-        switch (results.response.entity) {
-            case choices[0]:
-                session.replaceDialog('/UsageDeals/TravelMoreFairmont');
-            break;
-
-            case choices[1]:
-            session.send(consts.prompts.FAIRMONT_RESERVATION);
-            break;
-            
-            case choices[2]:
-            session.replaceDialog('/UsageDeals/TravelMoreEmirates');
-            break;
-            
-            case choices[3]:
-            session.send(consts.prompts.EMIRATES_RESERVATION);
-            break;
-
-
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply) {
+                case choices[0]:
+                    session.replaceDialog('/UsageDeals/TravelMoreFairmont');
+                break;
+    
+                case choices[1]:
+                session.send(consts.prompts.FAIRMONT_RESERVATION);
+                break;
+                
+                case choices[2]:
+                session.replaceDialog('/UsageDeals/TravelMoreEmirates');
+                break;
+                
+                case choices[3]:
+                session.send(consts.prompts.EMIRATES_RESERVATION);
+                break;
+    
+                default:
+                    session.replaceDialog('/')
+                break;
+    
+            }
         }
     }
 ]
@@ -248,20 +305,28 @@ module.exports.travelMoreFairmont = [
         var msg = card(session, consts.card.usage_deals_travel_fairmont, cardName);
 
         session.send(consts.prompts.FAIRMONT_PROMPT);
-        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_travel_fairmont));
+        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_travel_fairmont), { maxRetries:0,promptAfterAction:false});
     },
     (session,results) => {
         var choices = card.choices(consts.card.usage_deals_travel_fairmont);
-        
-        switch (results.response.entity) {
-            case choices[0]:
-                session.send(consts.prompts.FAIRMONT_RESERVATION);
-            break;
-            
-            case choices[1]:
-                session.replaceDialog('/UsageDeals/Travel');
-            break;
-        }   
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply) {
+                case choices[0]:
+                    session.send(consts.prompts.FAIRMONT_RESERVATION);
+                break;
+                
+                case choices[1]:
+                    session.replaceDialog('/UsageDeals/Travel');
+                break;
+    
+                default:
+                    session.replaceDialog('/');
+                break;
+            }  
+        } 
     }
 ]
 
@@ -272,20 +337,29 @@ module.exports.travelMoreEmirates = [
             var msg = card(session, consts.card.usage_deals_travel_emirates, cardName);
     
             session.send(consts.prompts.EMIRATES_PROMPT);
-            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_travel_emirates));
+            builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_travel_emirates), { maxRetries:0,promptAfterAction:false});
         },
         (session,results) => {
             var choices = card.choices(consts.card.usage_deals_travel_emirates);
+            if(results.response == null){
+                session.replaceDialog('/')
+            }else{
+                var reply = results.response.entity;
+                switch(reply) {
+                    case choices[0]:
+                        session.send(consts.prompts.EMIRATES_RESERVATION);
+                    break;
+                    
+                    case choices[1]:
+                        session.replaceDialog('/UsageDeals/Travel');
+                    break;
+    
+                    default:
+                        session.replaceDialog('/')
+                    break;
+                }   
+            }
             
-            switch (results.response.entity) {
-                case choices[0]:
-                    session.send(consts.prompts.EMIRATES_RESERVATION);
-                break;
-                
-                case choices[1]:
-                    session.replaceDialog('/UsageDeals/Travel');
-                break;
-            }   
         }   
 ]
 
@@ -296,77 +370,103 @@ module.exports.online = [
         var msg = card(session, consts.card.usage_deals_online, cardName);
 
         session.send(consts.prompts.TRAVEL_PROMPT);
-        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_online));
+        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_online), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.card.usage_deals_online);
-        
-        switch (results.response.entity) {
-            case choices[0]:
-                var cardName = card.getName(consts.menus.usage_deals)
-                var msg = card(session, consts.menus.usage_deals, cardName);
-
-                session.send(consts.prompts.KLOOK_PROMPT);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals));
-            break;
-
-            case choices[2]:
-                var cardName = card.getName(consts.menus.usage_deals)
-                var msg = card(session, consts.menus.usage_deals, cardName);
-
-                session.send(consts.prompts.OCTAGON_PROMPT);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals));
-            break;
-
-            case choices[4]:
-                var cardName = card.getName(consts.menus.usage_deals)
-                var msg = card(session, consts.menus.usage_deals, cardName);
-
-                session.send(consts.prompts.GMOVIES_PROMPT);
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals));
-            break;
-
-            case choices[1]:
-                session.send('This feature is coming soon');
-                var cardName = card.getName(consts.menus.usage_deals_1)
-                var msg = card(session, consts.menus.usage_deals_1, cardName);
-
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals_1));
-            break;
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else {
+            var reply = results.response.entity;
+            switch(reply) {
+                case choices[0]:
+                    var cardName = card.getName(consts.menus.usage_deals)
+                    var msg = card(session, consts.menus.usage_deals, cardName);
+    
+                    session.send(consts.prompts.KLOOK_PROMPT);
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals), { maxRetries:0,promptAfterAction:false});
+                break;
+    
+                case choices[2]:
+                    var cardName = card.getName(consts.menus.usage_deals)
+                    var msg = card(session, consts.menus.usage_deals, cardName);
+    
+                    session.send(consts.prompts.OCTAGON_PROMPT);
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals), { maxRetries:0,promptAfterAction:false});
+                break;
+    
+                case choices[4]:
+                    var cardName = card.getName(consts.menus.usage_deals)
+                    var msg = card(session, consts.menus.usage_deals, cardName);
+    
+                    session.send(consts.prompts.GMOVIES_PROMPT);
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals), { maxRetries:0,promptAfterAction:false});
+                break;
+    
+                case choices[1]:
+                    session.send('This feature is coming soon');
+                    var cardName = card.getName(consts.menus.usage_deals_1)
+                    var msg = card(session, consts.menus.usage_deals_1, cardName);
+    
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals_1), { maxRetries:0,promptAfterAction:false});
+                break;
+    
+                default:
+                    session.replaceDialog('/')
+                break;
+            }
         }
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.usage_deals);
         var choices1 = card.choices(consts.menus.usage_deals_1)
         console.log(choices);
         console.log(choices1);
-
-        switch(results.response.entity){
-            case choices[0]:
-                session.send('This feature is coming soon');
-                var cardName = card.getName(consts.menus.usage_deals_1)
-                var msg = card(session, consts.menus.usage_deals_1, cardName);
-
-                builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals_1));
-            break;
-
-            case choices[1]:
-                session.replaceDialog('/UsageDeals/Online');
-            break;
-
-            case choices1[0]:
-                session.replaceDialog('/UsageDeals/Online');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/');
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    session.send('This feature is coming soon');
+                    var cardName = card.getName(consts.menus.usage_deals_1)
+                    var msg = card(session, consts.menus.usage_deals_1, cardName);
+    
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals_1), { maxRetries:0,promptAfterAction:false});
+                break;
+    
+                case choices[1]:
+                    session.replaceDialog('/UsageDeals/Online');
+                break;
+    
+                case choices1[0]:
+                    session.replaceDialog('/UsageDeals/Online');
+                break;
+    
+                default:
+                    session.replaceDialog('/')
+                break;
+            }
         }
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.usage_deals_1);
         console.log("Last dialog " + choices);
-
-        switch(results.response.entity){
-            case choices[0]:
-                session.replaceDialog('/UsageDeals/Online');
-            break;
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    session.replaceDialog('/UsageDeals/Online');
+                break;
+    
+                default:
+                    session.replaceDialog('/')
+                break;
+            }
         }
     }
 ]
@@ -377,7 +477,8 @@ module.exports.shell = [
         builder.Prompts.choice(session, consts.prompts.LEARN_PROMPT, consts.choices.LEARN_SHELL, consts.styles.button);
     },
     (session, results) => {
-        switch (results.response.entity) {
+        var reply = results.response.entity;
+        switch(reply) {
             case consts.choices.LEARN_SHELL[0]:
                 var cardName = ['shell_benefit_card']
                 var msg = card(session, consts.menus.card, cardName);
@@ -416,7 +517,8 @@ module.exports.mercury = [
         builder.Prompts.choice(session, consts.prompts.LEARN_PROMPT, consts.choices.LEARN_MD, consts.styles.button);
     },
     (session, results) => {
-        switch (results.response.entity) {
+        var reply = results.response.entity;
+        switch(reply) {
             case consts.choices.LEARN_MD[0]:
                 var cardName = ['mercury_benefit_card']
                 var msg = card(session, consts.menus.card, cardName);
