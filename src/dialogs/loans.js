@@ -86,9 +86,10 @@ module.exports.loanDecline = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
             if (!err) {
                 session.send(format(consts.prompts.DEC_TEXT, res.first_name));
+                builder.Prompts.choice(session, msg, card.choices(consts.card.loans_dec), { maxRetries:0,promptAfterAction:false});
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.card.loans_dec), { maxRetries:0,promptAfterAction:false});
+        
     },
     (session, results) => {
         var choices = card.choices(consts.card.loans_dec);
@@ -190,15 +191,17 @@ module.exports.loanRequirements = [
             var reply = results.response.entity;
             switch(reply){
                 case choices[0]:
+                    var cardName = card.getName(consts.menus.loan_accepted);
+                    var msg = card(session, consts.menus.loan_accepted, cardName);
+                    
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_accepted), { maxRetries:0,promptAfterAction:false});
                         }
                     });
     
-                    var cardName = card.getName(consts.menus.loan_accepted);
-                    var msg = card(session, consts.menus.loan_accepted, cardName);
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_accepted), { maxRetries:0,promptAfterAction:false});
+                    
                 break;
     
                 case choices[1]:

@@ -141,9 +141,9 @@ module.exports.rewards = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                 if (!err) {
                     session.send(format(consts.prompts.CITI_REWARDS, res.first_name));
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
                 }
             });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
@@ -191,9 +191,10 @@ module.exports.rewards_1 = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
             if (!err) {
                 session.send(format(consts.prompts.CITI_REWARDS, res.first_name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card_1);
@@ -240,9 +241,10 @@ module.exports.cashBack = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
             if (!err) {
                 session.send(format(consts.prompts.CITI_CASHBACK, res.first_name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
@@ -289,9 +291,10 @@ module.exports.cashBack_1 = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
             if (!err) {
                 session.send(format(consts.prompts.CITI_CASHBACK, res.first_name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
@@ -336,9 +339,10 @@ module.exports.premier = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
             if (!err) {
                 session.send(format(consts.prompts.CITI_PREMIER, res.first_name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
@@ -383,9 +387,10 @@ module.exports.premier_1 = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
             if (!err) {
                 session.send(format(consts.prompts.CITI_PREMIER, res.first_name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card_1);
@@ -430,9 +435,10 @@ module.exports.shell = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
             if (!err) {
                 session.send(format(consts.prompts.CITI_SHELL, res.first_name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
@@ -476,9 +482,10 @@ module.exports.shell_1 = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
             if (!err) {
                 session.send(format(consts.prompts.CITI_SHELL, res.first_name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card_1);
@@ -523,9 +530,10 @@ module.exports.mercury = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
             if (!err) {
                 session.send(format(consts.prompts.CITI_MERCURY, res.first_name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card), { maxRetries:0,promptAfterAction:false});
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card);
@@ -569,9 +577,10 @@ module.exports.mercury_1 = [
         api.userProfile(session.message.user.id, 'first_name', (err, res) => {
             if (!err) {
                 session.send(format(consts.prompts.CITI_MERCURY, res.first_name));
+                builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
             }
         });
-        builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1), { maxRetries:0,promptAfterAction:false});
+        
     },
     (session, results) => {
         var choices = card.choices(consts.menus.credit_card_1);
@@ -641,10 +650,11 @@ module.exports.requirements = [
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, res.first_name));
+                            session.send(consts.prompts.INSTANT_APPROVAL);
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
                         }
                     });
-                    session.send(consts.prompts.INSTANT_APPROVAL);
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
+                    
                 break;
     
                 case choices[2]:
@@ -654,10 +664,11 @@ module.exports.requirements = [
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED, res.first_name));
+                            session.send(consts.prompts.INSTANT_APPROVAL);
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
                         }
                     });
-                    session.send(consts.prompts.INSTANT_APPROVAL);
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
+                    
                 break;
                 
                 default:
@@ -681,9 +692,10 @@ module.exports.requirements = [
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes), { maxRetries:0,promptAfterAction:false})
                         }
                     });
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes), { maxRetries:0,promptAfterAction:false})
+                    
                 break;
     
                 case choices[1]:
@@ -766,10 +778,11 @@ module.exports.requirements_1 = [
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, res.first_name));
+                            session.send(consts.prompts.INSTANT_APPROVAL);
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
                         }
                     });
-                    session.send(consts.prompts.INSTANT_APPROVAL);
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
+                    
                 break;
     
                 case choices[2]:
@@ -779,10 +792,11 @@ module.exports.requirements_1 = [
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED, res.first_name));
+                            session.send(consts.prompts.INSTANT_APPROVAL);
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
                         }
                     });
-                    session.send(consts.prompts.INSTANT_APPROVAL);
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false})
+                    
                 break;
                 
                 default:
@@ -807,9 +821,10 @@ module.exports.requirements_1 = [
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes_1),{ maxRetries:0,promptAfterAction:false})
                         }
                     });
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes_1),{ maxRetries:0,promptAfterAction:false})
+                    
                 break;
     
                 case choices[1]:
@@ -878,9 +893,10 @@ module.exports.instant_approval = [
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_no), { maxRetries:0,promptAfterAction:false})
                         }
                     });
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_no), { maxRetries:0,promptAfterAction:false})
+                    
                 break;
                 
                 default:
@@ -945,9 +961,10 @@ module.exports.instant_approval_1 = [
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_no), { maxRetries:0,promptAfterAction:false})
                         }
                     });
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_no), { maxRetries:0,promptAfterAction:false})
+                    
                 break;
                 
                 default:
