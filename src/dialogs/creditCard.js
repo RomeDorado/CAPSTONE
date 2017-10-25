@@ -741,6 +741,26 @@ module.exports.requirements = [
                     session.replaceDialog("/CardOptions/Mercury");
                 break;
 
+                case 'Card Benefits - Reward':
+                    session.replaceDialog('/CardOptions/Rewards');
+                break;
+
+                case 'Card Benefits - Cash':
+                    session.replaceDialog('/CardOptions/CashBack');
+                break;
+
+                case 'Card Benefits - Premier':
+                    session.replaceDialog('/CardOptions/Premier');
+                break;
+
+                case 'Card Benefits - Shell':
+                    session.replaceDialog('/CardOptions/Shell');
+                break;
+
+                case 'Card Benefits - Mercury':
+                session.replaceDialog('/CardOptions/Mercury');
+                break;
+
                 default:
                     session.replaceDialog('/')
                 break;
