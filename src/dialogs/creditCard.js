@@ -25,22 +25,27 @@ module.exports.main = [
             var reply = results.response.entity;
             switch(reply){
                 case choices[0]:
+                    session.userData.card = results.response.entity;
                     session.replaceDialog('/CreditCards/Rewards');
                 break;
                 
                 case choices[2]:
+                    session.userData.card = results.response.entity;
                     session.replaceDialog('/CreditCards/CashBack');
                 break;
     
                 case choices[4]:
+                    session.userData.card = results.response.entity;
                     session.replaceDialog('/CreditCards/Premier');
                 break;
     
                 case choices[6]:
+                    session.userData.card = results.response.entity;
                     session.replaceDialog('/CreditCards/Shell');
                 break;
     
                 case choices[8]:
+                    session.userData.card = results.response.entity;
                     session.replaceDialog('/CreditCards/Mercury');
                 break;
     
