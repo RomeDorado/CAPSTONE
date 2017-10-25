@@ -103,6 +103,10 @@ module.exports.dining = [
                     case choices[1]:
                         session.replaceDialog('/UsageDeals/DiningMapShakeys');
                     break;
+
+                    case choices[2]:
+                        session.replaceDialog('/UsageDeals/ReserveShakeys');
+                    break;
                     
                     case choices[3]:
                         session.replaceDialog('/UsageDeals/DiningMoreNanbantei');
@@ -110,6 +114,10 @@ module.exports.dining = [
     
                     case choices[4]:
                         session.replaceDialog('/UsageDeals/DiningMapNanbantei');
+                    break;
+
+                    case choices[5]:
+                        session.replaceDialog('/UsageDeals/ReserveNanbantei')
                     break;
     
                     default:
@@ -139,8 +147,7 @@ module.exports.diningMoreShakeys = [
             var reply = results.response.entity;
             switch(reply) {
                 case choices[0]:
-                session.send("This feature is coming soon");
-                //put back button here
+                    session.replaceDialog('/UsageDeals/ReserveShakeys');
                 break;
     
                 case choices[1]:
@@ -173,8 +180,7 @@ module.exports.diningMapShakeys = [
                 var reply = results.response.entity;
                 switch(reply) {
                     case choices[0]:
-                    session.send("This feature is coming soon");
-                    //put back button here
+                        session.replaceDialog('/UsageDeals/ReserveShakeys')
                     break;
         
                     case choices[1]:
@@ -188,6 +194,16 @@ module.exports.diningMapShakeys = [
                 }
             }
         }  
+]
+
+module.exports.diningReserveShakeys = [
+    (session) => {
+        var cardName = card.getName(consts.menus.shakeys_reserve);
+        var msg = card(session, consts.menus.shakeys_reserve, cardName);
+
+        session.send(consts.prompts.SHAKEYS_RESERVE)        
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.shakeys_reserve), { maxRetries:0,promptAfterAction:false});
+    }
 ]
 
 module.exports.diningMoreNanbantei = [
@@ -207,8 +223,7 @@ module.exports.diningMoreNanbantei = [
                 var reply = results.response.entity
                 switch(reply) {
                     case choices[0]:
-                    session.send("This feature is coming soon");
-                    //put back button here
+                        session.replaceDialog('/UsageDeals/ReserveNanbantei');
                     break;
         
                     case choices[1]:
@@ -240,8 +255,7 @@ module.exports.diningMapNanbantei = [
                 var reply = results.response.entity;
                 switch(reply) {
                     case choices[0]:
-                    session.send("This feature is coming soon");
-                    //put back button here
+                        session.replaceDialog('/UsageDeals/ReserveNanbantei');
                     break;
         
                     case choices[1]:
@@ -255,6 +269,16 @@ module.exports.diningMapNanbantei = [
                 }
             }
         }  
+]
+
+module.exports.diningReserveNanbantei = [
+    (session) => {
+        var cardName = card.getName(consts.menus.nanbantei_reserve);
+        var msg = card(session, consts.menus.nanbantei_reserve, cardName);
+
+        session.send(consts.prompts.NANBANTEI_RESERVE)        
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.nanbantei_reserve), { maxRetries:0,promptAfterAction:false});
+    }
 ]
 
 /**Travel dialog */
@@ -346,11 +370,11 @@ module.exports.travelMoreEmirates = [
             }else{
                 var reply = results.response.entity;
                 switch(reply) {
-                    case choices[0]:
-                        session.send(consts.prompts.EMIRATES_RESERVATION);
-                    break;
+                    // case choices[0]:
+                    //     session.send(consts.prompts.EMIRATES_RESERVATION);
+                    // break;
                     
-                    case choices[1]:
+                    case choices[0]:
                         session.replaceDialog('/UsageDeals/Travel');
                     break;
     
@@ -391,7 +415,7 @@ module.exports.online = [
                     var cardName = card.getName(consts.menus.usage_deals)
                     var msg = card(session, consts.menus.usage_deals, cardName);
     
-                    session.send(consts.prompts.OCTAGON_PROMPT);
+                    session.send(consts.prompts.FLYTPACK_PROMPT);
                     builder.Prompts.choice(session, msg, card.choices(consts.menus.usage_deals), { maxRetries:0,promptAfterAction:false});
                 break;
     

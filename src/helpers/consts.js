@@ -17,7 +17,7 @@ GET_NAME: 'Please enter your full name',
 GET_NUMBER: 'What is your mobile number?',
 GET_EMAIL: 'What is your email address?',
 FAIRMONT_RESERVATION: 'For reservations, call 555-9888.',
-EMIRATES_PROMPT: 'Enjoy up to 55% off on Emirates flights to London, Barcelona, Athens and more with your Citi credit card. This promo is valid until October 1 to 15, 2017',
+EMIRATES_PROMPT: 'Enjoy Up to 40% off on all-in, round trip PAL fares.',
 EMIRATES_RESERVATION: `-Go to www.emirates.ph/citibank, use Promo code: PHCITI1
 -Call 858-5300 (press 1 after the prompt)
 -Emirates Ticketing Office: 
@@ -132,15 +132,40 @@ KLOOK_PROMPT: `Up to 75% off at Klook with your Citi Visa credit card.
 - Get up to 75% off at Klook Travel with your Citi Visa credit card.
 - Use promo code KLKVISA17 during check-out and pay using your Citi Visa credit card.
 - Offer is from March 1, 2017 to December 31, 2017.`,
-OCTAGON_PROMPT: `Get a Silvertec 8,000 mAh Powerbank when you spend a minimum single-receipt transaction of P25,000 at 0% Citi PayLite up to 12 months at Octagon from April 1 to July 31, 2017.`,
+FLYTPACK_PROMPT: `Your Flytpack has the following features:
+
+- Wifi router rental at affordable prices
+- Unlimited Wi-Fi access everywhere
+- Connect multiple devices at the same time
+`,
 GMOVIES_PROMPT: `Free P300 movie eVoucher
 
 - Get a P300 movie eVoucher on your first Citi Mobile App log-in or when you enroll in e-Statements.
 - Promo is valid until October 31, 2017.`,
-CONFUSION_TRIGGER: `{0}, I’m really sorry as I cannot address what you typed as of now. Let me connect you with one of our agents for this.`
+CONFUSION_TRIGGER: `{0}, I’m really sorry as I cannot address what you typed as of now. Let me connect you with one of our agents for this.`,
+SHAKEYS_RESERVE: `You may want to call on +63 6554037 or +63 2 6554038`,
+NANBANTEI_RESERVE: `You may want to call on +63 2148632 or +63 2 0147521`
 }
 
 exports.menus = {
+shakeys_reserve: [
+    {
+        name: 'shakeys_reserve',
+        title: 'Options',
+        button: [
+            { url: 'https://www.citibank.com.ph/gcb/promos/dining/shakey.htm?icid=PHDNU21ENYHUICALM', title:'Terms' }
+        ]
+    }
+],
+nanbantei_reserve: [
+    {
+        name: 'shakeys_reserve',
+        title: 'Options',
+        button: [
+            { url: 'https://www.citibank.com.ph/gcb/promos/dining/featured-restaurants.htm?lid=PHENCBLGICATLNanbanteioftokyoSCCP', title: 'Terms' }
+        ]
+    }
+],
 confusion_trigger: [
     {
         name: 'confusion_trigger',
@@ -730,7 +755,7 @@ usage_deals_shakeys : [
         text: '',
         image: '',
         button: [
-            { url: 'http://cb-apply-page.herokuapp.com/shakeysterms.html', title: 'Terms' },
+            { url: 'https://www.citibank.com.ph/gcb/promos/dining/shakey.htm?icid=PHDNU21ENYHUICALM', title: 'Terms' },
             { msg: 'Make Reservations', title: 'Make Reservations' },
             { msg: 'Back', title: 'Back' }
         ]
@@ -795,13 +820,13 @@ usage_deals_travel : [
         ]
     },
     {
-        name: 'emirates',
-        title: 'Emirates',
-        text: 'Up to 50% off on Emirates flights',
-        image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818493/emirates_fwthsy.png',
+        name: 'pal',
+        title: 'Philippine Airlines',
+        text: 'Up to 40% off on all-in, round trip PAL fares.',
+        image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508912077/pal_ntstwk.jpg',
         button: [
             { msg: 'Know More-emirates', title: 'Know More' },
-            { msg: 'Book Now-emirates', title: 'Book Now' }
+            { url: 'https://www.philippineairlines.com/en/ph/home', title: 'Book Now' }
         ]
     }
 ],
@@ -822,7 +847,7 @@ usage_deals_travel_emirates : [
         text: '',
         image: '',
         button: [
-            { msg: 'Book Now - emirates', title: 'Book Now' },
+            { url: 'https://www.philippineairlines.com/en/ph/home', title: 'Book Now' },
             { msg: 'Back', title: 'Back' }
         ]
     }
@@ -835,17 +860,17 @@ usage_deals_online : [
         image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818493/klook_uafufr.png',
         button: [
             { msg: 'Know More - Klook', title: 'Know More' },
-            { msg: 'Book Now', title: 'Book Now' }
+            { url: 'https://www.klook.com/', title: 'Book Now' }
         ]
     },
     {
-        name: 'ocatagon',
-        title: 'Octagon',
-        text: 'Freebies at Octagon',
-        image: 'https://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818497/octagon_t7aby4.png',
+        name: 'flytpack',
+        title: 'Flytpack',
+        text: '12% off + P1,000 off travel WIFI rental fees',
+        image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508911798/flytpack_pmzq2a.png',
         button: [
-            { msg: 'Know More - Octagon', title: 'Know More' },
-            { msg: 'Book Now', title: 'Book Now' }
+            { msg: 'Know More - Flytpack', title: 'Know More' },
+            { url: 'https://flytpack.com/wifi', title: 'Book Now' }
         ]
     },
     {
@@ -855,7 +880,7 @@ usage_deals_online : [
         image: 'https://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818496/gmovies_vfvwee.png',
         button: [
             { msg: 'Know More - GMovies', title: 'Know More' },
-            { msg: 'Book Now', title: 'Book Now' }
+            { url: 'bit.ly/GMoviesIOS', title: 'Book Now' }
         ]
     }
 ],
