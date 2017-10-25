@@ -240,7 +240,7 @@ card: [
 menu: [
     {
         name: 'menu_choice',
-        title: 'What can I do for you today?',
+        title: 'Options',
         button: [
             { msg: 'Credit Cards', title: 'Credit Cards' },
             { msg: 'Loans', title: 'Loans' },
