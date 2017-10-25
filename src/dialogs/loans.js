@@ -2,6 +2,7 @@ const builder = require('botbuilder');
 const format = require('string-format');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
+const api = require('../helpers/apiRequest');
 
 /**Parent Dialog - loans */
 module.exports.main = [
