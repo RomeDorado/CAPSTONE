@@ -125,7 +125,11 @@ module.exports.rewards = [
         var cardName = card.getName(consts.menus.credit_card);
         var msg = card(session, consts.menus.credit_card, cardName);
 
-        session.send(format(consts.prompts.CITI_REWARDS, session.message.user.name));
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                if (!err) {
+                    session.send(format(consts.prompts.CITI_REWARDS, res.first_name));
+                }
+            });
         builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card));
     },
     (session, results) => {
@@ -164,7 +168,11 @@ module.exports.rewards_1 = [
         var cardName = card.getName(consts.menus.credit_card_1);
         var msg = card(session, consts.menus.credit_card_1, cardName);
 
-        session.send(format(consts.prompts.CITI_REWARDS, session.message.user.name));
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+            if (!err) {
+                session.send(format(consts.prompts.CITI_REWARDS, res.first_name));
+            }
+        });
         builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1));
     },
     (session, results) => {
@@ -205,7 +213,11 @@ module.exports.cashBack = [
         var cardName = card.getName(consts.menus.credit_card);
         var msg = card(session, consts.menus.credit_card, cardName);
 
-        session.send(format(consts.prompts.CITI_CASHBACK, session.message.user.name));
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+            if (!err) {
+                session.send(format(consts.prompts.CITI_CASHBACK, res.first_name));
+            }
+        });
         builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card));
     },
     (session, results) => {
@@ -242,7 +254,11 @@ module.exports.cashBack_1 = [
         var cardName = card.getName(consts.menus.credit_card_1);
         var msg = card(session, consts.menus.credit_card_1, cardName);
 
-        session.send(format(consts.prompts.CITI_CASHBACK, session.message.user.name));
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+            if (!err) {
+                session.send(format(consts.prompts.CITI_CASHBACK, res.first_name));
+            }
+        });
         builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1));
     },
     (session, results) => {
@@ -280,7 +296,11 @@ module.exports.premier = [
         var cardName = card.getName(consts.menus.credit_card);
         var msg = card(session, consts.menus.credit_card, cardName);
 
-        session.send(format(consts.prompts.CITI_PREMIER, session.message.user.name));
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+            if (!err) {
+                session.send(format(consts.prompts.CITI_PREMIER, res.first_name));
+            }
+        });
         builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card));
     },
     (session, results) => {
@@ -317,7 +337,11 @@ module.exports.premier_1 = [
         var cardName = card.getName(consts.menus.credit_card_1);
         var msg = card(session, consts.menus.credit_card_1, cardName);
 
-        session.send(format(consts.prompts.CITI_PREMIER, session.message.user.name));
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+            if (!err) {
+                session.send(format(consts.prompts.CITI_PREMIER, res.first_name));
+            }
+        });
         builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1));
     },
     (session, results) => {
@@ -355,7 +379,11 @@ module.exports.shell = [
         var cardName = card.getName(consts.menus.credit_card);
         var msg = card(session, consts.menus.credit_card, cardName);
 
-        session.send(format(consts.prompts.CITI_SHELL, session.message.user.name));
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+            if (!err) {
+                session.send(format(consts.prompts.CITI_SHELL, res.first_name));
+            }
+        });
         builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card));
     },
     (session, results) => {
@@ -392,7 +420,11 @@ module.exports.shell_1 = [
         var cardName = card.getName(consts.menus.credit_card_1);
         var msg = card(session, consts.menus.credit_card_1, cardName);
 
-        session.send(format(consts.prompts.CITI_SHELL, session.message.user.name));
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+            if (!err) {
+                session.send(format(consts.prompts.CITI_SHELL, res.first_name));
+            }
+        });
         builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1));
     },
     (session, results) => {
@@ -430,7 +462,11 @@ module.exports.mercury = [
         var cardName = card.getName(consts.menus.credit_card);
         var msg = card(session, consts.menus.credit_card, cardName);
 
-        session.send(format(consts.prompts.CITI_MERCURY, session.message.user.name));
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+            if (!err) {
+                session.send(format(consts.prompts.CITI_MERCURY, res.first_name));
+            }
+        });
         builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card));
     },
     (session, results) => {
@@ -467,7 +503,11 @@ module.exports.mercury_1 = [
         var cardName = card.getName(consts.menus.credit_card_1);
         var msg = card(session, consts.menus.credit_card_1, cardName);
 
-        session.send(format(consts.prompts.CITI_MERCURY, session.message.user.name));
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+            if (!err) {
+                session.send(format(consts.prompts.CITI_MERCURY, res.first_name));
+            }
+        });
         builder.Prompts.choice(session, msg, card.choices(consts.menus.credit_card_1));
     },
     (session, results) => {
@@ -526,7 +566,11 @@ module.exports.requirements = [
                 var cardName= card.getName(consts.menus.instant_approval)
                 var msg = card(session, consts.menus.instant_approval, cardName);
 
-                session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, session.message.user.name));
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, res.first_name));
+                    }
+                });
                 session.send(consts.prompts.INSTANT_APPROVAL);
                 builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
             break;
@@ -535,7 +579,11 @@ module.exports.requirements = [
                 var cardName= card.getName(consts.menus.instant_approval)
                 var msg = card(session, consts.menus.instant_approval, cardName);
 
-                session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED,session.message.user.name));
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED, res.first_name));
+                    }
+                });
                 session.send(consts.prompts.INSTANT_APPROVAL);
                 builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
             break;
@@ -553,12 +601,20 @@ module.exports.requirements = [
                 var cardName= card.getName(consts.menus.instant_approval_yes)
                 var msg = card(session, consts.menus.instant_approval_yes, cardName);
 
-                session.send(format(consts.prompts.INSTANT_APPROVAL_YES, session.message.user.name));
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
+                    }
+                });
                 builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes))
             break;
 
             case choices[1]:
-                session.send(format(consts.prompts.INSTANT_APPROVAL_NO, session.message.user.name));
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                    }
+                });
             break;
         }
     },
@@ -616,7 +672,11 @@ module.exports.requirements_1 = [
                 var cardName= card.getName(consts.menus.instant_approval)
                 var msg = card(session, consts.menus.instant_approval, cardName);
 
-                session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, session.message.user.name));
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.REQUIREMENTS_SELF_EMPLOYED, res.first_name));
+                    }
+                });
                 session.send(consts.prompts.INSTANT_APPROVAL);
                 builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
             break;
@@ -625,7 +685,11 @@ module.exports.requirements_1 = [
                 var cardName= card.getName(consts.menus.instant_approval)
                 var msg = card(session, consts.menus.instant_approval, cardName);
 
-                session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED,session.message.user.name));
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.REQUIREMENTS_NOT_EMPLOYED, res.first_name));
+                    }
+                });
                 session.send(consts.prompts.INSTANT_APPROVAL);
                 builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval))
             break;
@@ -643,12 +707,20 @@ module.exports.requirements_1 = [
                 var cardName= card.getName(consts.menus.instant_approval_yes_1)
                 var msg = card(session, consts.menus.instant_approval_yes_1, cardName);
 
-                session.send(format(consts.prompts.INSTANT_APPROVAL_YES, session.message.user.name));
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
+                    }
+                });
                 builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_yes_1))
             break;
 
             case choices[1]:
-                session.send(format(consts.prompts.INSTANT_APPROVAL_NO, session.message.user.name));
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                    }
+                });
             break;
         }
     }
@@ -682,7 +754,11 @@ module.exports.instant_approval = [
                 var cardName= card.getName(consts.menus.instant_approval_no)
                 var msg = card(session, consts.menus.instant_approval_no, cardName);
 
-                session.send(format(consts.prompts.INSTANT_APPROVAL_NO, session.message.user.name));
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                    }
+                });
                 builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_no))
             break;
             
@@ -732,7 +808,11 @@ module.exports.instant_approval_1 = [
                 var cardName= card.getName(consts.menus.instant_approval_no)
                 var msg = card(session, consts.menus.instant_approval_no, cardName);
 
-                session.send(format(consts.prompts.INSTANT_APPROVAL_NO, session.message.user.name));
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                    }
+                });
                 builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval_no))
             break;
             

@@ -65,8 +65,12 @@ module.exports.loanDecline = [
 
         var cardName = card.getName(consts.card.loans_dec);
         var msg = card(session, consts.card.loans_dec, cardName);        
-                        
-        session.send(format(consts.prompts.DEC_TEXT, session.message.user.name));
+        
+        api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+            if (!err) {
+                session.send(format(consts.prompts.DEC_TEXT, res.first_name));
+            }
+        });
         builder.Prompts.choice(session, msg, card.choices(consts.card.loans_dec));
     },
     (session, results) => {
@@ -145,7 +149,11 @@ module.exports.loanRequirements = [
 
         switch(results.response.entity){
             case choices[0]:
-                session.send(format(consts.prompts.INSTANT_APPROVAL_YES), session.message.user.name);
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
+                    }
+                });
 
                 var cardName = card.getName(consts.menus.loan_accepted);
                 var msg = card(session, consts.menus.loan_accepted, cardName);
@@ -153,7 +161,11 @@ module.exports.loanRequirements = [
             break;
 
             case choices[1]:
-                session.send(format(consts.prompts.INSTANT_APPROVAL_NO), session.message.user.name);
+                api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                    if (!err) {
+                        session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
+                    }
+                });
             
                 var cardName = card.getName(consts.menus.loan_denied);
                 var msg = card(session, consts.menus.loan_denied, cardName);
