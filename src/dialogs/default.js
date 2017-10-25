@@ -25,6 +25,11 @@ module.exports =
         }else{
             var reply = results.response.entity;
             switch(reply){
+                case choices[0]:
+                    session.send('You are now connected with our agent');
+                    session.send('Demo Over');
+                break;
+
                 default:
                     session.replaceDialog('/');
                 break;
