@@ -259,7 +259,7 @@ module.exports.travelMoreFairmont = [
             break;
             
             case choices[1]:
-                session.replaceDialog('/UsageDeals');
+                session.replaceDialog('/UsageDeals/Travel');
             break;
         }   
     }
@@ -283,7 +283,7 @@ module.exports.travelMoreEmirates = [
                 break;
                 
                 case choices[1]:
-                    session.replaceDialog('/UsageDeals');
+                    session.replaceDialog('/UsageDeals/Travel');
                 break;
             }   
         }   
@@ -351,11 +351,11 @@ module.exports.online = [
             break;
 
             case choices[1]:
-                session.replaceDialog('/UsageDeals');
+                session.replaceDialog('/UsageDeals/Online');
             break;
 
             case choices1[0]:
-                session.replaceDialog('/UsageDeals');
+                session.replaceDialog('/UsageDeals/Online');
             break;
         }
     },
@@ -365,7 +365,7 @@ module.exports.online = [
 
         switch(results.response.entity){
             case choices[0]:
-                session.replaceDialog('/UsageDeals');
+                session.replaceDialog('/UsageDeals/Online');
             break;
         }
     }
