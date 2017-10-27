@@ -393,6 +393,7 @@ module.exports.online = [
         var cardName = card.getName(consts.card.usage_deals_online)
         var msg = card(session, consts.card.usage_deals_online, cardName);
 
+        //For the online
         session.send(consts.prompts.TRAVEL_PROMPT);
         builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_online), { maxRetries:0,promptAfterAction:false});
     },
