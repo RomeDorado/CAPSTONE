@@ -863,7 +863,7 @@ online_deals : [
         name: 'klook',
         title: 'Klook',
         text: 'P400 off on select attractions at Klook.',
-        // image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818493/klook_uafufr.png',
+        image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818493/klook_uafufr.png',
         button: [
             { msg: 'Know More - Klook', title: 'Know More' },
             { url: 'https://www.klook.com/', title: 'Book Now' }
@@ -873,7 +873,7 @@ online_deals : [
         name: 'flytpack',
         title: 'Flytpack',
         text: '12% off + P1,000 off travel WIFI rental fees',
-        // image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508911798/flytpack_pmzq2a.png',
+        image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508911798/flytpack_pmzq2a.png',
         button: [
             { msg: 'Know More - Flytpack', title: 'Know More' },
             { url: 'https://flytpack.com/wifi', title: 'Book Now' }
@@ -883,7 +883,7 @@ online_deals : [
         name: 'gmovies',
         title: 'GMovies',
         text: 'Free P300 movie eVoucher',
-        // image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818496/gmovies_vfvwee.png',
+        image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818496/gmovies_vfvwee.png',
         button: [
             { msg: 'Know More - GMovies', title: 'Know More' },
             { url: 'https://www.google.com', title: 'Book Now' }
