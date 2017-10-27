@@ -390,12 +390,12 @@ module.exports.travelMoreEmirates = [
 /**Online dialog */
 module.exports.online = [
     (session) => {
-        var cardName = card.getName(consts.card.online_deals)
-        var msg = card(session, consts.card.online_deals, cardName);
+        var cardName = card.getName(consts.card.usage_deals_travel)
+        var msg = card(session, consts.card.usage_deals_travel, cardName);
 
         //For the online
         session.send(consts.prompts.TRAVEL_PROMPT);
-        builder.Prompts.choice(session, msg, card.choices(consts.card.online_deals), { maxRetries:0,promptAfterAction:false});
+        builder.Prompts.choice(session, msg, card.choices(consts.card.usage_deals_travel), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
         var choices = card.choices(consts.card.online_deals);
