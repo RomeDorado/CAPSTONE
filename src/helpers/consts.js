@@ -883,7 +883,7 @@ online_deals : [
         name: 'gmovies',
         title: 'GMovies',
         text: 'Free P300 movie eVoucher',
-        image: 'https://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818496/gmovies_vfvwee.png',
+        image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818496/gmovies_vfvwee.png',
         button: [
             { msg: 'Know More - GMovies', title: 'Know More' },
             { url: 'bit.ly/GMoviesIOS', title: 'Book Now' }
