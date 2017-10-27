@@ -73,7 +73,7 @@ bot.dialog('/Loans/Accept', dialogs.loans.loanAccept);
 bot.dialog('/UsageDeals', dialogs.usageDeals.main);
 bot.dialog('/UsageDeals/Dining', dialogs.usageDeals.dining);
 bot.dialog('/UsageDeals/Travel', dialogs.usageDeals.travel);
-bot.dialog('/UsageDeals/Online', dialogs.usageDeals.online);
+bot.dialog('/UsageDeals/Online', dialogs.usageDeals.online).triggerAction({matches:/online/i});;
 bot.dialog('/UsageDeals/DiningMoreShakeys', dialogs.usageDeals.diningMoreShakeys);
 bot.dialog('/UsageDeals/DiningMapShakeys', dialogs.usageDeals.diningMapShakeys);
 bot.dialog('/UsageDeals/ReserveShakeys', dialogs.usageDeals.diningReserveShakeys);
