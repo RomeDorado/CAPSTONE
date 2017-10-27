@@ -858,7 +858,7 @@ usage_deals_travel_emirates : [
         ]
     }
 ],
-usage_deals_online : [
+online_deals : [
     {
         name: 'klook',
         title: 'Klook',
