@@ -886,7 +886,7 @@ online_deals : [
         // image: 'http://res.cloudinary.com/chatbotph/image/upload/c_scale,h_250/v1508818496/gmovies_vfvwee.png',
         button: [
             { msg: 'Know More - GMovies', title: 'Know More' },
-            { url: 'bit.ly/GMoviesIOS', title: 'Book Now' }
+            { url: 'https://www.google.com', title: 'Book Now' }
         ]
     }
 ],
