@@ -9,11 +9,8 @@
   },
   "author": "bench@chatbot.ph",
   "license": "ISC",
-  "engines": {
-    "node": "8.0"
-  },
   "dependencies": {
-    "botbuilder": "^3.12.0",
+    "botbuilder": "^3.11.0",
     "botbuilder-quickreplies": "^1.1.1",
     "nodemon": "^1.11.0",
     "request": "^2.83.0",
