@@ -44,13 +44,7 @@ LOAN_EMPLOYED: `Great! Kindly prepare the following for a quicker application ex
 - Valid government-issued IDs (e.g. passport, driver’s license)
 - Latest ITR, BIR 2316, or payslip for the last 3 months
 `,
-LOAN_ELIGIBITY: `Before we proceed, we’d like to ask if you meet the following:
-
-- 25 to 60 years old
-- Filipino resident OR local resident foreigner with valid Philippine billing address
-- have annual income of at least P250,000
-- have a principal credit card of at least 12 months from other banks (6 months if Citi credit card)
-`,
+LOAN_ANNUAL: `Also, may we know if your annual income is at least P250,000, and you are a principal cardholder for at least 12 months?`,
 LOAN_SELF_EMPLOYED: `Great! Kindly prepare the following for a quicker application experience:
 
 - Valid government-issued IDs (e.g. passport, driver’s license)
@@ -62,7 +56,7 @@ BEFORE_PROCEED_REQ: `- 25 to 60 years old
 - have annual income of at least P250,000 
 - have a principal credit card of at least 12 months from other banks (6 months if Citi credit card)`,
 USAGEDEALS_PROMPT: 'Which category would you want to explore?',
-DEC_TEXT: `{0}, thank you for your interest in a Citi Personal Loan. Take note that we can only proceed with an application if you currently have an active credit card for at least 12 months.`,
+DEC_TEXT: `{0}, thank you for your interest in a Citi Personal Loan. However, we cannot proceed with your application at this time. :(`,
 ACC_TEXT: `Great! 🙂 Kindly prepare the following for a quicker application experience: - Valid governmentissued IDs (e.g. passport, driver’s license) - For employed: Latest ITR, BIR 2316, or payslip for the last 3 months - For self-employed: Latest ITR and latest Audited Financial Statements (AFS)`,
 DINING_PROMPT: 'Let’s find branches near your preferred area! 🙂',    
 SEND_LOCATION_PROMPT: 'Here are the best promo near you 🙂',
@@ -126,7 +120,9 @@ INSTANT_APPROVAL: `Also, may we know if you are:
 - with valid landline or mobile phone number
 - with valid TIN and SSS/GSIS number`,
 INSTANT_APPROVAL_YES: `That’s good news, {0}! You can now proceed to your application.`,
-INSTANT_APPROVAL_NO: `{0}, thank you for your interest in a Citi Credit Card. However, take note that the conditions above must be met for us to proceed with an application.`,
+INSTANT_APPROVAL_NO: `Great! Kindly prepare the following for a quicker application experience:
+- Valid government-issued IDs (e.g. passport, driver’s license)
+- Latest ITR and latest Audited Financial Statements (AFS)`,
 KLOOK_PROMPT: `Up to 75% off at Klook with your Citi Visa credit card. 
 
 - Get up to 75% off at Klook Travel with your Citi Visa credit card.
@@ -181,8 +177,9 @@ confusion_trigger: [
 loan_accepted: [
     {
         name: 'loan_accepted',
-        button: [
-            { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHLOAAAENLOANCAAN', title: 'Apply Now' },
+        title: 'Proceed',
+        button: [            
+            { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHLOAAAENLOANCAAN', title: "Apply now" }
         ]
     }
 ],
@@ -374,7 +371,7 @@ exports.card = {
 loans_card: [
     {
         name: 'loans_card',
-        title: '',
+        title: 'OPTIONS',
         image: '',
         button: [
             { url: 'https://www.citibank.com.ph/global_docs/1click/personal-loans-apply-now/index.htm?s=D2CBBAU1&icid=PHLOAAAENLOANCAAN', title: 'Apply Now' },

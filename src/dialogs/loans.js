@@ -161,18 +161,13 @@ module.exports.loanRequirements = [
                     var cardName = card.getName(consts.menus.instant_approval);
                     var msg = card(session, consts.menus.instant_approval, cardName);
                     session.send(consts.prompts.LOAN_EMPLOYED);
-                    session.send(consts.prompts.LOAN_ELIGIBITY);        
+                    session.send(consts.prompts.LOAN_ANNUAL);        
                     
                     builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false});
                 break;
     
                 case choices[1]:
-                    var cardName = card.getName(consts.menus.instant_approval);
-                    var msg = card(session, consts.menus.instant_approval, cardName);
-                    session.send(consts.prompts.LOAN_SELF_EMPLOYED);
-                    session.send(consts.prompts.LOAN_ELIGIBITY);
-    
-                    builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false});
+                    session.replaceDialog('/Loans/selfEmployed')
                 break;
                 
                 default:
@@ -205,11 +200,8 @@ module.exports.loanRequirements = [
                 break;
     
                 case choices[1]:
-                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                        if (!err) {
-                            session.send(format(consts.prompts.INSTANT_APPROVAL_NO, res.first_name));
-                        }
-                    });
+                
+                    session.replaceDialog("/Loans/Decline")
                 
                     // var cardName = card.getName(consts.menus.loan_denied);
                     // var msg = card(session, consts.menus.loan_denied, cardName);
@@ -224,14 +216,18 @@ module.exports.loanRequirements = [
         
     },
     (session, results) => {
-        var choices = card.choices(consts.menus.loan_denied);
+        var choices = card.choices(consts.menus.loan_accepted);
         if(results.response == null){
             session.replaceDialog('/')
         }else{
             var reply = results.response.entity;
             switch(reply){
                 case choices[0]:
-                    session.replaceDialog('/Menu');
+                    session.send('Feature coming soon');
+                break;
+
+                case choices[1]:
+                    session.send('Feature coming soon');
                 break;
     
                 default:
@@ -242,3 +238,55 @@ module.exports.loanRequirements = [
         
     }
 ]
+
+module.exports.selfEmployed = [
+    (session) => {
+
+        var cardName = card.getName(consts.menus.instant_approval);
+        var msg = card(session, consts.menus.instant_approval, cardName);
+        session.send(consts.prompts.LOAN_SELF_EMPLOYED);
+        session.send(consts.prompts.LOAN_ANNUAL);    
+
+        builder.Prompts.choice(session, msg, card.choices(consts.menus.instant_approval), { maxRetries:0,promptAfterAction:false});
+    },
+    (session, results) => {
+        var choices = card.choices(consts.menus.instant_approval);
+        console.log(choices);
+        console.log(results.response.entity);
+        if(results.response == null){
+            session.replaceDialog('/')
+        }else{
+            var reply = results.response.entity;
+            switch(reply){
+                case choices[0]:
+                    var cardName = card.getName(consts.menus.loan_accepted);
+                    var msg = card(session, consts.menus.loan_accepted, cardName);
+                    
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.INSTANT_APPROVAL_YES, res.first_name));
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_accepted), { maxRetries:0,promptAfterAction:false});
+                        }
+                    });
+    
+                    
+                break;
+    
+                case choices[1]:
+                
+                    session.replaceDialog("/Loans/Decline")
+                
+                    // var cardName = card.getName(consts.menus.loan_denied);
+                    // var msg = card(session, consts.menus.loan_denied, cardName);
+                    // builder.Prompts.choice(session, msg, card.choices(consts.menus.loan_denied), { maxRetries:0,promptAfterAction:false});
+                break;
+    
+                default:
+                    session.replaceDialog('/')
+                break;
+            }
+        }
+        
+    }
+]
+
