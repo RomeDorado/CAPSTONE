@@ -1,17 +1,18 @@
 {
-  "name": "citibank-bot",
+  "name": "IICS-bot",
   "version": "1.0.0",
-  "description": "citibank bot",
+  "description": "IICS bot",
   "main": "app.js",
   "scripts": {
     "start": "node app",
     "console": "nodemon src/console.js"
   },
-  "author": "bench@chatbot.ph",
+  "author": "HATAWMASINO",
   "license": "ISC",
   "dependencies": {
     "botbuilder": "^3.11.0",
     "botbuilder-quickreplies": "^1.1.1",
+    "node-wit": "^4.3.0",
     "nodemon": "^1.11.0",
     "request": "^2.83.0",
     "restify": "^5.0.0",

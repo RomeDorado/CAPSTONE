@@ -8,8 +8,7 @@ module.exports =
     (session) => {
         var cardName = card.getName(consts.menus.menu);
         var msg = card(session, consts.menus.menu, cardName);
-
-        // session.send(consts.prompts.MENU);
+        
         builder.Prompts.choice(session, msg, card.choices(consts.menus.menu), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
@@ -20,16 +19,12 @@ module.exports =
             var reply = results.response.entity;
             switch(reply){
                 case choices[0]:
-                    session.replaceDialog('/CreditCards');
+                    session.replaceDialog('/About');
                 break;
     
                 case choices[1]:
-                    session.replaceDialog('/Loans');
-                break;
-    
-                case choices[2]:
-                    session.replaceDialog('/UsageDeals');
-                break;
+                    session.replaceDialog('/Annoucements');
+                break;                   
     
                 default:
                     session.replaceDialog('/')
