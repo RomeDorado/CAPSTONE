@@ -12,8 +12,8 @@ module.exports = [
     },
     (session, results, callback) => {
         var department = results.response.entity;        
-        console.log(session.address.user.id)
-        console.log(session.addess.user.name)
+        console.log(session.message.user.name)
+        console.log(session.message.address.user.id)
         // usersession.createUserIfUnique(session, department)
 
 
