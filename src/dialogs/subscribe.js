@@ -12,9 +12,8 @@ module.exports = [
     },
     (session, results, callback) => {
         var department = results.response.entity;        
-        console.log(session.message.user.name)
-        console.log(session.message.address.user.id)
-        // usersession.createUserIfUnique(session, department)
+        
+        usersession.createUserIfUnique(session, department)
 
 
         session.send(consts.prompts.SUBSCRIBED);
@@ -22,3 +21,4 @@ module.exports = [
         session.replaceDialog('/Menu');
     }
 ]
+
