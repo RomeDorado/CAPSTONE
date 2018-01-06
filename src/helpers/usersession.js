@@ -15,14 +15,7 @@ exports.newMessageFromBot = function (params){
                 fb_id: params.fb_id,
                 message_type: params.message_body.message_type,
                 message: params.message_body.message     
-        },
-        body: 
-        {   
-            app_dtl: {
-                app_name: 'National Bookstore', 
-                app_code: 'nationalbookstore'
-            }
-        },
+        },       
         json: true  
         };
 
