@@ -12,7 +12,7 @@ module.exports = [
     },
     (session, results, callback) => {
         var department = results.response.entity;        
-        console.log(session)
+        console.log(session.user.name)
         // usersession.createUserIfUnique(session, department)
 
 
