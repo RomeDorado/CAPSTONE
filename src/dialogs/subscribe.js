@@ -12,8 +12,8 @@ module.exports = [
     },
     (session, results, callback) => {
         var department = results.response.entity;        
-        
-        usersession.createUserIfUnique(session, department)
+        console.log(session)
+        // usersession.createUserIfUnique(session, department)
 
 
         session.send(consts.prompts.SUBSCRIBED);
