@@ -1,5 +1,6 @@
 const restify = require('restify');
 const builder = require('botbuilder');
+const usersession = require('./src/helpers/usersession');
 /**Dialogs*/
 const dialogs = require('./src/dialogs');
 
@@ -19,6 +20,37 @@ const bot = new builder.UniversalBot(connector);
 //=========================================================
 bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
 bot.use(builder.Middleware.sendTyping());
+// Middleware for logging
+
+// bot.use({
+//     receive: function (event, next) {
+//         logUserConversation(event, "inbound");
+//         next();
+//     },
+//     send: function (event, next) {
+//         logUserConversation(event, "outbound");
+//         next();
+//     }
+// });
+
+//Update session upon receive/send
+// const logUserConversation = (event, type) => {
+//     if (event.type == "message" && event.text) {
+//         var params = {};
+//             params = {
+//                 fb_id: event.address.user.id,
+//                 message_body: {
+//                     message: event.text,
+//                     message_type: type,
+//                 }
+//             };
+//         console.log("intercept is working");
+//         if (type === "inbound") {
+//             usersession.createUserIfUnique(event);
+//         }
+        // usersession.newMessageFromBot(params);
+    // }
+// }
 //=========================================================
 // Bot's Dialogs
 //=========================================================
