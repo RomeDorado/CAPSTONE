@@ -36,7 +36,7 @@ module.exports =
                             builder.Prompts.choice(session, msg, card.choices(consts.menus.second_menu), { maxRetries:0,promptAfterAction:false});
                         }
                     });
-                    throw new Error(error);
+                    
                 }else{
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
@@ -47,6 +47,7 @@ module.exports =
                             builder.Prompts.choice(session, msg, card.choices(consts.menus.first_menu), { maxRetries:0,promptAfterAction:false});
                         }
                     });
+                    throw new Error(error);
                 }                                    
             });
 
