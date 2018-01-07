@@ -25,9 +25,9 @@ module.exports =
                 json: true  
                 };
         
-                request(options, function (error, response, body) {
-                    console.log(body);
-                if (!error) {
+                request(options, function (error, response, body) {                    
+                if (error) throw new Error(error);
+                if(body.d == "Resource not found"){
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.GET_STARTED, res.first_name));
@@ -48,7 +48,7 @@ module.exports =
                             builder.Prompts.choice(session, msg, card.choices(consts.menus.first_menu), { maxRetries:0,promptAfterAction:false});
                         }
                     });
-                    throw new Error(error);
+                    
                 }                                    
             });
 
