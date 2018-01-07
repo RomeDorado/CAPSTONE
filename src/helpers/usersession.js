@@ -39,7 +39,8 @@ exports.createUserIfUnique = function (event, dep){
                 client: "iics",                
                 user_name: event.message.user.name,
                 fb_id: event.message.address.user.id,                             
-                department: dep
+                department: dep,
+                subscription: true
         },
         json: true
         };

@@ -48,6 +48,7 @@ module.exports.unsubconfirm = [
                 var reply = results.response.entity;
                 switch(reply){
                     case "Proceed":
+                        unsub();
                         session.send(consts.prompts.UNSUBSCRIBE_CONFIRMED);
                         session.send(consts.prompts.NOW_DONE);
                         session.replaceDialog('/Menu');
@@ -60,3 +61,25 @@ module.exports.unsubconfirm = [
             }
     }
 ]
+
+function unsub(){
+    var options = {
+        method: 'DELETE',
+        url: 'https://iics-usersessions.herokuapp.com/api/bot/user/deleteuser',
+        headers: 
+        {
+            'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs:{
+                client: "iics",                            
+                fb_id: event.message.address.user.id,                                         
+        },
+        json: true
+        };
+
+        request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+
+    });
+}
