@@ -27,18 +27,8 @@ module.exports =
         
                 request(options, function (error, response, body) {                    
                 if (error) throw new Error(error);
+                console.log(body)
                 if(body.d == "Resource not found"){
-                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                        if (!err) {
-                            session.send(format(consts.prompts.GET_STARTED, res.first_name));
-        
-                            var cardName = card.getName(consts.menus.second_menu);
-                            var msg = card(session, consts.menus.second_menu, cardName);                    
-                            builder.Prompts.choice(session, msg, card.choices(consts.menus.second_menu), { maxRetries:0,promptAfterAction:false});
-                        }
-                    });
-                    
-                }else{
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.GET_STARTED, res.first_name));
@@ -49,6 +39,18 @@ module.exports =
                         }
                     });
                     
+                    
+                }else{
+                    
+                    api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                        if (!err) {
+                            session.send(format(consts.prompts.GET_STARTED, res.first_name));
+        
+                            var cardName = card.getName(consts.menus.second_menu);
+                            var msg = card(session, consts.menus.second_menu, cardName);                    
+                            builder.Prompts.choice(session, msg, card.choices(consts.menus.second_menu), { maxRetries:0,promptAfterAction:false});
+                        }
+                    });
                 }                                    
             });
 
