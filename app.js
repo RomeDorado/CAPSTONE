@@ -38,7 +38,7 @@ bot.use(builder.Middleware.sendTyping());
 //     if (event.type == "message" && event.text) {
 //         var params = {};
 //             params = {
-//                 fb_id: event.address.user.id,
+//                 fb_id: event.message.address.user.id,
 //                 message_body: {
 //                     message: event.text,
 //                     message_type: type,

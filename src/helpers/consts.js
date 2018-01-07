@@ -25,6 +25,17 @@ first_menu: [
         ]
     }
 ],
+second_menu: [
+    {
+        name: 'menu_choice',
+        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        title: 'IICS Chatbot',
+        button: [
+            { msg: 'Main menu', title: 'Main menu' },
+            { msg: 'Unsubscribe', title: 'Unsubscribe' }            
+        ]
+    }
+],
 
 menu: [
     {
