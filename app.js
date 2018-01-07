@@ -57,7 +57,7 @@ bot.use(builder.Middleware.sendTyping());
 
 bot.dialog('/', dialogs.default);
 bot.dialog('/GetStarted', dialogs.getStarted).triggerAction({matches:/^started|get started|start over|get started|hi|hello|Get_Started/i});
-bot.dialog('/Unsub', dialogs.unsub.main);
+bot.dialog('/Unsub', dialogs.unsub.main).triggerAction({matches:/Unsubscribe/i});;
 bot.dialog('/UnsubConfirm', dialogs.unsub.unsubconfirm);
 bot.dialog('/Menu', dialogs.menu).triggerAction({matches:/^menu|main menu|Main menu/i});
 bot.dialog('/Subscribe', dialogs.subscribe);

@@ -41,20 +41,19 @@ module.exports.unsubconfirm = [
     (session) => {        
         builder.Prompts.choice(session, consts.prompts.UNSUBSCRIBE, consts.choices.UNSUBSCRIBE, consts.styles.button);
     },
-    (session, results) => {        
-        var choices = consts.choices.UNSUBSCRIBE;
+    (session, results) => {                
             if(results.response == null){
                 session.replaceDialog('/')
             }else{
                 var reply = results.response.entity;
                 switch(reply){
-                    case choices["Proceed"]:
+                    case "Proceed":
                         session.send(consts.prompts.UNSUBSCRIBE_CONFIRMED);
                         session.send(consts.prompts.NOW_DONE);
                         session.replaceDialog('/Menu');
                     break;
 
-                    case choices["Back to Main Menu"]:
+                    case "Back to Main Menu":
                     session.replaceDialog('/Menu');
                     break;
                 }
