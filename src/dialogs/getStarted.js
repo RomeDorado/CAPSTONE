@@ -26,6 +26,7 @@ module.exports =
                 };
         
                 request(options, function (error, response, body) {
+                    console.log(body);
                 if (!error) {
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
