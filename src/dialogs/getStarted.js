@@ -3,7 +3,7 @@ const format = require('string-format');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const api = require('../helpers/apiRequest');
-
+const request = require('request');
 
 
 module.exports =
