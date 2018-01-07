@@ -28,7 +28,7 @@ module.exports =
                 request(options, function (error, response, body) {                    
                 if (error) throw new Error(error);
                 console.log(body)
-                if(body.d == "Resource not found"){
+                if(body.d == "Resource not found."){
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
                             session.send(format(consts.prompts.GET_STARTED, res.first_name));
