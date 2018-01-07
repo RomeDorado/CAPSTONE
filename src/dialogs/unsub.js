@@ -64,8 +64,8 @@ module.exports.unsubconfirm = [
 
 function unsub(){
     var options = {
-        method: 'DELETE',
-        url: 'https://iics-usersessions.herokuapp.com/api/bot/user/deleteuser',
+        method: 'PUT',
+        url: 'https://iics-usersessions.herokuapp.com/api/bot/user/unsub',
         headers: 
         {
             'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
