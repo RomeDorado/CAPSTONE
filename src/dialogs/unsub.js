@@ -48,7 +48,7 @@ module.exports.unsubconfirm = [
                 var reply = results.response.entity;
                 switch(reply){
                     case "Proceed":
-                        unsub();
+                        unsub(session.message.address.user.id);
                         session.send(consts.prompts.UNSUBSCRIBE_CONFIRMED);
                         session.send(consts.prompts.NOW_DONE);
                         session.replaceDialog('/Menu');
@@ -62,7 +62,7 @@ module.exports.unsubconfirm = [
     }
 ]
 
-function unsub(){
+function unsub(fb_id){
     var options = {
         method: 'PUT',
         url: 'https://iics-usersessions.herokuapp.com/api/bot/user/unsub',
@@ -73,7 +73,7 @@ function unsub(){
         },
         qs:{
                 client: "iics",                            
-                fb_id: event.message.address.user.id,                                         
+                fb_id: fb_id 
         },
         json: true
         };
