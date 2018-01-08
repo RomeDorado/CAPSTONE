@@ -13,6 +13,7 @@ module.exports = [
     (session, results, callback) => {
 
         var now = moment();
+        console.log(session.message);
         var user = session.message.address.sender.id;
         var name = session.message.user.name;
         var time = now.tz('Asia/Taipei').format();
