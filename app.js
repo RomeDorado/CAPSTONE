@@ -61,6 +61,8 @@ bot.dialog('/Unsub', dialogs.unsub.main).triggerAction({matches:/Unsubscribe/i})
 bot.dialog('/UnsubConfirm', dialogs.unsub.unsubconfirm);
 bot.dialog('/Menu', dialogs.menu).triggerAction({matches:/^menu|main menu|Main menu/i});
 bot.dialog('/Subscribe', dialogs.subscribe);
+bot.dialog('/Confusion', dialogs.confusion);
+bot.dialog('/Ticket', dialogs.ticket);
 
 //=========================================================
 // Server Setup

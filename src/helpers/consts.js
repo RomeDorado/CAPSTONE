@@ -16,7 +16,7 @@ first_menu: [
         title: 'IICS Chatbot',
         button: [
             { msg: 'Main menu', title: 'Main menu' },
-            { msg: 'Subscribe', title: 'Subscribe' }            
+            { msg: 'Subscribe', title: 'Subscribe' }
         ]
     }
 ],
@@ -27,7 +27,7 @@ second_menu: [
         title: 'IICS Chatbot',
         button: [
             { msg: 'Main menu', title: 'Main menu' },
-            { msg: 'Unsubscribe', title: 'Unsubscribe' }            
+            { msg: 'Unsubscribe', title: 'Unsubscribe' }
         ]
     }
 ],
@@ -39,7 +39,7 @@ menu: [
         title: 'About IICS',
         text: 'Learn more about IICS',
         button: [
-            { msg: 'About IICS', title: 'About IICS' }            
+            { msg: 'About IICS', title: 'About IICS' }
         ]
     },
     {
@@ -48,17 +48,28 @@ menu: [
         title: 'Announcements',
         text: 'Know the recent announcements',
         button: [
-            { msg: 'About IICS', title: 'About IICS' }            
+            { msg: 'About IICS', title: 'About IICS' }
         ]
     }
-    
+
+],
+default_menu:[
+    {
+        name: 'default_choice',
+        title: 'Sorry I did not get ',
+        text:'You can contact the admin by:',
+        button: [
+            { msg: 'Send Ticket', title: 'Send Ticket' },
+            { msg: 'Livechat', title: 'Livechat' }
+        ]
+    }
 ]
 }
 
 
 exports.choices = {
-SUBSCRIBE: ['IT', 'IS', 'CS'],    
-UNSUBSCRIBE: ['Proceed', 'Back to Main Menu'],    
+SUBSCRIBE: ['IT', 'IS', 'CS'],
+UNSUBSCRIBE: ['Proceed', 'Back to Main Menu'],
 GET_STARTED: ['Let\'s get started', 'Quit']
 
 }
