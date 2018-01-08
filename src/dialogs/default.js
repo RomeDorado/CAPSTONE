@@ -3,7 +3,7 @@ const format = require('string-format');
 const api = require('../helpers/apiRequest');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
-
+const WIT_TOKEN = "OAC2GWS2OVEXUJV5TUQX5FIDJ2F466EH"
 module.exports = 
 [
     (session, args, next) => {
@@ -99,20 +99,19 @@ function getWitIntents(intent, inquiry_type, emotion_type, session){
             }
         break;
 
-        case "get_inquiry":
-            switch(inquiry_type){
-                case 'about':
+        
+                case 'get_about':
                     //about iics
                 break;
 
-                case 'help':
+                case 'get_help':
                 //trigger tix or live chat
                 break;
 
                 default:
                 //do you want to send a tix
                 break;
-            }
+        
         break;
 
         default:
