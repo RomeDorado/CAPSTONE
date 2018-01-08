@@ -10,7 +10,7 @@
   "author": "HATAWMASINO",
   "license": "ISC",
   "dependencies": {
-    "botbuilder": "^3.11.0",
+    "botbuilder": "^3.13.1",
     "botbuilder-quickreplies": "^1.1.1",
     "node-wit": "^4.3.0",
     "nodemon": "^1.11.0",
