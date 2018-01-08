@@ -112,11 +112,6 @@ function getWitIntents(intent, inquiry_type, emotion_type, session){
                 //do you want to send a tix
                 break;
         
-        break;
-
-        default:
-        //do you want to send a tix
-        break;
-
+        break;        
     }
 }
