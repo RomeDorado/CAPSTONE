@@ -5,10 +5,10 @@ const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const WIT_TOKEN = "OAC2GWS2OVEXUJV5TUQX5FIDJ2F466EH"
 const {Wit, log} = require('node-wit');
-module.exports = 
+module.exports =
 [
     (session, args, next) => {
-        
+
   console.log(session.message.user.name);
   var entity = args || session.message.text;
   const client = new Wit({accessToken: WIT_TOKEN});
@@ -23,21 +23,21 @@ module.exports =
                 }else{
                     var intent = entities.intent[0].value;
                 }
-                
+
 
                 if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
                 if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
                 getWitIntents(intent, inquiry_type, emotion_type, session);
-            
+
         })
         .catch(console.error)
-  
+
     }
 ]
 
 
 
-function getWitIntents(intent, inquiry_type, emotion_type, session){        
+function getWitIntents(intent, inquiry_type, emotion_type, session){
     switch(intent){
 
         case 'get_greetings':
@@ -75,7 +75,7 @@ function getWitIntents(intent, inquiry_type, emotion_type, session){
             let replyprof = randomprof[Math.floor(Math.random() * randomprof.length)];
             session.send(replyprof);
         break;
-        
+
         case 'get_apology':
             let randomapo = ['Don\'t worry about it!',
                               'No worries!',
@@ -100,7 +100,7 @@ function getWitIntents(intent, inquiry_type, emotion_type, session){
             }
         break;
 
-        
+
                 case 'get_about':
                     //about iics
                 break;
@@ -111,8 +111,9 @@ function getWitIntents(intent, inquiry_type, emotion_type, session){
 
                 default:
                 //do you want to send a tix
+                session.replaceDialog('/Confusion');
                 break;
-        
-        break;        
+
+        break;
     }
 }
