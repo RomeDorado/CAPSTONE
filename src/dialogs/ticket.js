@@ -14,7 +14,7 @@ module.exports = [
 
         var now = moment();
         console.log(session.message);
-        var user = session.message.address.sender.id;
+        var user = session.message.sourceEvent.sender.id;
         var name = session.message.user.name;
         var time = now.tz('Asia/Taipei').format();
 
