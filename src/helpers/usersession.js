@@ -25,7 +25,10 @@ exports.newMessageFromBot = function (params){
     });
 }
 
-exports.createUserIfUnique = function (event, dep){
+exports.createUserIfUnique = function (event, dep, docuAccess){
+    if(docuAccess == (null || undefined)){
+        docuAccess = false;
+    }
     console.log("reached createUser in bot");
     var options = {
         method: 'POST',
@@ -40,7 +43,8 @@ exports.createUserIfUnique = function (event, dep){
                 user_name: event.message.user.name,
                 fb_id: event.message.address.user.id,                             
                 department: dep,
-                subscription: true
+                subscription: true,
+                docuAccess: docuAccess
         },
         json: true
         };

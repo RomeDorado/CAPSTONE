@@ -51,6 +51,20 @@ module.exports.userProfile =
         !err ? callback(null, JSON.parse(body)) : callback(err, body); 
     })
 }
+
+/** MAILBOX */
+module.exports.mailBoxLayer = 
+(email, callback) => {
+    var options = {
+        url: `https://apilayer.net/api/check?access_key=${process.env.MAIL_API}&email=${email}}`,
+        method: 'GET'
+    }
+
+    request(options, (err, httpRes, body) => {
+        !err ? callback(null, JSON.parse(body)) : callback(err, body); 
+    })
+}
+h
 /**END */
 
 

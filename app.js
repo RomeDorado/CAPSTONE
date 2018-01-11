@@ -64,7 +64,7 @@ bot.dialog('/Subscribe', dialogs.subscribe);
 bot.dialog('/Confusion', dialogs.confusion);
 bot.dialog('/Ticket', dialogs.ticket);
 bot.dialog('/Replies', dialogs.replies);
-
+bot.dialog('/DocumentStatus', dialogs.docuStatus);
 //=========================================================
 // Server Setup
 //=========================================================

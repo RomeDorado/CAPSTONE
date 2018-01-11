@@ -101,7 +101,9 @@ function getWitIntents(intent, inquiry_type, emotion_type, session){
             }
         break;
 
-
+                case 'get_document_status':
+                    session.replaceDialog('/DocumentStatus')
+                break;
                 case 'get_about':
                     //about iics
                 break;

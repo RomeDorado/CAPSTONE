@@ -6,7 +6,10 @@ SUBSCRIBED: 'Great! You are now subscribed to receive announcements from the IIC
 NOW_DONE: 'Now that\'s done, how can I be of assistance?',
 UNSUBSCRIBE: 'Are you sure you want to unsubscribe? Doing so will prevent you from receiving announcements',
 UNSUBSCRIBE_CONFIRMED: 'You are now unsubscribed',
-ENTER_INQUIRY: 'Please enter your inquiry:'
+ENTER_INQUIRY: 'Please enter your inquiry:',
+DOCU_FIRST: `It seems like it's your first time accessing this feature, for security purposes, please enter your ICS myGbiz account.`,
+DOCU_SECOND: `Please enter your ICS myGbiz account.`,
+INVALID_EMAIL: `Sorry there is something wrong with validating your myGbiz account. The account you entered doesn't exist. Do you want to enter again?`
 }
 
 exports.menus = {
@@ -62,6 +65,17 @@ default_menu:[
         button: [
             { msg: 'Send Ticket', title: 'Send Ticket' },
             { msg: 'Livechat', title: 'Livechat' }
+        ]
+    }
+],
+
+enter_email = [
+    {
+        name: 'enter_email',
+        title: 'OPTIONS',        
+        button: [
+            { msg: 'Enter again', title: 'Enter again' },
+            { msg: 'Back to Main Menu', title: 'Back to Main Menu' }
         ]
     }
 ]
