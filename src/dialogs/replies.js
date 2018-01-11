@@ -11,7 +11,7 @@ module.exports = [
         var replies = [];
 
         var options = { method: 'GET',
-        url: 'http://iics-response-service/api/response/intents',
+        url: 'http://iics-response-service.herokuapp.com/api/response/intents',
         qs: { 
             client: 'iics', 
             intent: args.intent 

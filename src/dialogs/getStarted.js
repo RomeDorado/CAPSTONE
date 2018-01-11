@@ -27,7 +27,7 @@ module.exports =
         
                 request(options, function (error, response, body) {                    
                 if (error) throw new Error(error);
-                console.log(body)
+                console.log(body)//user sesh log
                 if(body.d == "Resource not found." || body.d.subscription == false){
                     api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                         if (!err) {
