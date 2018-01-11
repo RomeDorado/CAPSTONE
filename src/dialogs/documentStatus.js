@@ -23,7 +23,7 @@ module.exports = [
                 if (!err) {
                     if(res.smtp_check){
                         var documentAccess = true;
-                        usersession.createUserIfUnique(session, documentAccess)
+                        usersession.createUserIfUnique(session, undefined, documentAccess)
                     }else{
                         session.send(consts.prompts.INVALID_EMAIL);
                         var cardName = card.getName(consts.menus.enter_email);

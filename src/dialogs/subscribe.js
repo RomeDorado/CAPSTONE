@@ -13,7 +13,8 @@ module.exports = [
     (session, results, callback) => {
         var department = results.response.entity;        
         
-        usersession.createUserIfUnique(session, department)
+        var docuAccess = false;
+        usersession.createUserIfUnique(session, department, docuAccess);
 
 
         session.send(consts.prompts.SUBSCRIBED);
