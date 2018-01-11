@@ -41,11 +41,12 @@ function getWitIntents(intent, inquiry_type, emotion_type, session){
     switch(intent){
 
         case 'get_greetings':
-            let random = [ 'Hey! Welcome to IICS Bot! How may I help you?',
-                                'Heeyy!! What can I do for you today?',
-                              'Sup! What can I do for you today?'];
-            let reply = random[Math.floor(Math.random() * random.length)];
-            session.send(reply);
+            // let random = [ 'Hey! Welcome to IICS Bot! How may I help you?',
+            //                     'Heeyy!! What can I do for you today?',
+            //                   'Sup! What can I do for you today?'];
+            // let reply = random[Math.floor(Math.random() * random.length)];
+            // session.send(reply);
+            session.replaceDialog('/Replies', {intent: intent});
         break;
 
         case 'get_menu':

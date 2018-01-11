@@ -5,3 +5,5 @@ exports.subscribe = require('./subscribe');
 exports.unsub = require('./unsub');
 exports.confusion = require('./confusion');
 exports.ticket = require('./ticket');
+exports.replies = require('./replies');
+

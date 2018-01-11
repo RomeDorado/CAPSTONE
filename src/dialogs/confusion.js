@@ -7,8 +7,7 @@ const request = require('request');
 
 
 module.exports = [
-    (session) => {
-        // session.send(format(consts.prompts.GET_STARTED, res.first_name));
+    (session) => {        
 
         var cardName = card.getName(consts.menus.default_menu);
         var msg = card(session, consts.menus.default_menu, cardName);

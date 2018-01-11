@@ -63,6 +63,7 @@ bot.dialog('/Menu', dialogs.menu).triggerAction({matches:/^menu|main menu|Main m
 bot.dialog('/Subscribe', dialogs.subscribe);
 bot.dialog('/Confusion', dialogs.confusion);
 bot.dialog('/Ticket', dialogs.ticket);
+bot.dialog('/Replies', dialogs.replies);
 
 //=========================================================
 // Server Setup

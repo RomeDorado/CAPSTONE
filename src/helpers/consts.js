@@ -5,7 +5,8 @@ DEPARTMENT: 'Which department you are in?',
 SUBSCRIBED: 'Great! You are now subscribed to receive announcements from the IICS office and your deparment',
 NOW_DONE: 'Now that\'s done, how can I be of assistance?',
 UNSUBSCRIBE: 'Are you sure you want to unsubscribe? Doing so will prevent you from receiving announcements',
-UNSUBSCRIBE_CONFIRMED: 'You are now unsubscribed'
+UNSUBSCRIBE_CONFIRMED: 'You are now unsubscribed',
+ENTER_INQUIRY: 'Please enter your inquiry:'
 }
 
 exports.menus = {
