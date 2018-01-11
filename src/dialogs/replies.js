@@ -13,16 +13,17 @@ module.exports = [
         qs: { 
             client: 'iics', 
             intent: "get_greetings" 
+        },
+        headers: { 
+         'content-type': 'application/json' 
         }
     };
       
       request(options, function (error, response, body) {
         if (error) throw new Error(error);
-        var replies = body;
-        console.log(body);
-        console.log(body.data);
-        // var random = replies[Math.floor(Math.random() * replies.length)];
-        // session.send(random);
+        var replies = body.data;        
+        var random = replies[Math.floor(Math.random() * replies.length)];
+        session.send(random);
 
       });
 

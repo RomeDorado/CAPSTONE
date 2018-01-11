@@ -21,9 +21,8 @@ module.exports = [
 
         var domain = email.split("@");
 
-        if(domain[1] == "ust-ics.mygbiz.com"){
-            console.log(email);
-            api.mailBoxLayer("2014069496@ust-ics.mygbiz.com", (err, res) => {
+        if(domain[1] == "ust-ics.mygbiz.com"){            
+            api.mailBoxLayer(email, (err, res) => {
                 console.log(res, " res ");
                 if (!err) {
                     if(res.smtp_check){

@@ -56,7 +56,7 @@ module.exports.userProfile =
 module.exports.mailBoxLayer = 
 (email, callback) => {
     var options = {
-        url: `https://apilayer.net/api/check?access_key=${process.env.MAIL_API}&email=${email}}`,
+        url: `https://apilayer.net/api/check?access_key=${process.env.MAIL_API}&email=${email}`,
         method: 'GET'
     }
 
