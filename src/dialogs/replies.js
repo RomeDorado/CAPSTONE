@@ -18,8 +18,9 @@ module.exports = [
       
       request(options, function (error, response, body) {
         if (error) throw new Error(error);
-        
-        var random = body.data[Math.floor(Math.random() * body.data.length)];
+        var replies = body.data;
+        console.log(replies);
+        var random = replies[Math.floor(Math.random() * replieslength)];
         session.send(random);
 
       });
