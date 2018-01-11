@@ -7,10 +7,8 @@ const request = require('request');
 const usersession = require('../helpers/usersession');
 
 module.exports = [
-    (session, args) => {
-        console.log(args)
-            console.log(args.reprompt)
-        if (args && !args.reprompt){
+    (session, args) => {        
+        if (args == undefined){
             console.log(args)
             console.log(args.reprompt)
             builder.Prompts.text(session, consts.prompts.DOCU_FIRST);        
