@@ -23,6 +23,7 @@ module.exports = [
 
         if(domain[1] == "ust-ics.mygbiz.com"){
             api.mailBoxLayer(email, (err, res) => {
+                console.log(res, " res ");
                 if (!err) {
                     if(res.smtp_check){
                         var documentAccess = true;
@@ -37,6 +38,7 @@ module.exports = [
 
             });
         }else{
+            console.log("wrong email format")
             session.send(consts.prompts.INVALID_EMAIL);
             var cardName = card.getName(consts.menus.enter_email);
             var msg = card(session, consts.menus.enter_email, cardName);                    
