@@ -23,21 +23,21 @@ module.exports = [
 
         if(domain[1] == "ust-ics.mygbiz.com"){
             console.log(email);
-            // api.mailBoxLayer(email, (err, res) => {
-            //     console.log(res, " res ");
-            //     if (!err) {
-            //         if(res.smtp_check){
-            //             var documentAccess = true;
-            //             usersession.createUserIfUnique(session, undefined, documentAccess)
-            //         }else{
-            //             session.send(consts.prompts.INVALID_EMAIL);
-            //             var cardName = card.getName(consts.menus.enter_email);
-            //             var msg = card(session, consts.menus.enter_email, cardName);                    
-            //             builder.Prompts.choice(session, msg, card.choices(consts.menus.enter_email), { maxRetries:0,promptAfterAction:false});
-            //         }
-            //     }
+            api.mailBoxLayer("2014069496@ust-ics.mygbiz.com", (err, res) => {
+                console.log(res, " res ");
+                if (!err) {
+                    if(res.smtp_check){
+                        var documentAccess = true;
+                        usersession.createUserIfUnique(session, undefined, documentAccess)
+                    }else{
+                        session.send(consts.prompts.INVALID_EMAIL);
+                        var cardName = card.getName(consts.menus.enter_email);
+                        var msg = card(session, consts.menus.enter_email, cardName);                    
+                        builder.Prompts.choice(session, msg, card.choices(consts.menus.enter_email), { maxRetries:0,promptAfterAction:false});
+                    }
+                }
 
-            // });
+            });
         }else{
             console.log("wrong email format")
             session.send(consts.prompts.INVALID_EMAIL);
