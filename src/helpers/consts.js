@@ -68,8 +68,7 @@ default_menu:[
         ]
     }
 ],
-
-enter_email = [
+enter_email: [
     {
         name: 'enter_email',
         title: 'OPTIONS',        
