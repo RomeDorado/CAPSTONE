@@ -46,7 +46,7 @@ function getWitIntents(intent, inquiry_type, emotion_type, session){
             //                   'Sup! What can I do for you today?'];
             // let reply = random[Math.floor(Math.random() * random.length)];
             // session.send(reply);
-            session.replaceDialog('/Replies', {intent: intent});
+            session.replaceDialog('/Replies', intent);
         break;
 
         case 'get_menu':
