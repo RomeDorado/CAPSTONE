@@ -8,6 +8,8 @@ const usersession = require('../helpers/usersession');
 
 module.exports = [
     (session, args) => {
+        console.log(args)
+            console.log(args.reprompt)
         if (args && !args.reprompt){
             console.log(args)
             console.log(args.reprompt)
