@@ -20,7 +20,7 @@ module.exports = [
         if (error) throw new Error(error);
         var replies = body;
         console.log(body);
-        console.log(body.data);
+        console.log(body.data[0]);
         // var random = replies[Math.floor(Math.random() * replies.length)];
         // session.send(random);
 
