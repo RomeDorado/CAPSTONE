@@ -14,7 +14,7 @@ module.exports = [
         url: 'http://iics-response-service.herokuapp.com/api/response/intents',
         qs: { 
             client: 'iics', 
-            intent: args.intent 
+            intent: args 
         }
     };
       
