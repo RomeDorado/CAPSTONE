@@ -15,8 +15,9 @@ module.exports = [
             intent: "get_greetings" 
         },
         headers: { 
-         'content-type': 'Application/json' 
-        }
+         'Content-type': 'Application/json' 
+        },
+        json: true
     };
       
       request(options, function (error, response, body) {
