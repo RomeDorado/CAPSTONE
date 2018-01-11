@@ -15,13 +15,13 @@ module.exports = [
             intent: "get_greetings" 
         },
         headers: { 
-         'content-type': 'application/json' 
+         'content-type': 'Application/json' 
         }
     };
       
       request(options, function (error, response, body) {
         if (error) throw new Error(error);
-        var replies = body.data;        
+        var replies = response.body.data;        
         var random = replies[Math.floor(Math.random() * replies.length)];
         session.send(random);
 
