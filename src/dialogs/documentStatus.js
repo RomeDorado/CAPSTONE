@@ -8,10 +8,15 @@ const usersession = require('../helpers/usersession');
 
 module.exports = [
     (session, args) => {
-        if (args && !args.reprompt) 
-        builder.Prompts.text(session, consts.prompts.DOCU_FIRST);        
-        else
+        if (args && !args.reprompt){
+            console.log(args)
+            console.log(args.reprompt)
+            builder.Prompts.text(session, consts.prompts.DOCU_FIRST);        
+        }
+        
+        else {
         builder.Prompts.text(session, consts.prompts.DOCU_SECOND);
+        }
     },
     (session, results) => {
         var email = results.response;
