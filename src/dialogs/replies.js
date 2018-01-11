@@ -7,9 +7,7 @@ const request = require('request');
 
 module.exports = [
     (session, args) => {
-
-        var replies = [];
-
+        
         var options = { method: 'GET',
         url: 'http://iics-response-service.herokuapp.com/api/response/intents',
         qs: { 
@@ -20,13 +18,12 @@ module.exports = [
       
       request(options, function (error, response, body) {
         if (error) throw new Error(error);
-        console.log(body)
-        for(var x = 0; x < body.length; x++){    
-            replies.push(body[x].reply);               
-        }
+        
+        var random = body.data[Math.floor(Math.random() * body.data.length)];
+        session.send(random);
+
       });
+
       
-      var random = replies[Math.floor(Math.random() * replies.length)];
-      session.send(random);
     }
 ]
