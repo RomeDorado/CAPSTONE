@@ -20,12 +20,12 @@ module.exports = [
       
       request(options, function (error, response, body) {
         if (error) throw new Error(error);
-      
+        console.log(body)
         for(var x = 0; x < body.length; x++){    
             replies.push(body[x].reply);               
         }
       });
-
+      
       var random = replies[Math.floor(Math.random() * replies.length)];
       session.send(random);
     }
