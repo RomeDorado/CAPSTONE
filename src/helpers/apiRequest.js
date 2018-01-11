@@ -61,6 +61,8 @@ module.exports.mailBoxLayer =
     }
 
     request(options, (err, httpRes, body) => {
+        console.log(body);
+        if(err) console.log(err);        
         !err ? callback(null, JSON.parse(body)) : callback(err, body); 
     })
 }
