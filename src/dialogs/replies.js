@@ -24,7 +24,7 @@ module.exports = [
         if (error) throw new Error(error);
         var replies = response.body.data;        
         var random = replies[Math.floor(Math.random() * replies.length)];
-        session.send(random);
+        session.endDialog(random);
 
       });
 

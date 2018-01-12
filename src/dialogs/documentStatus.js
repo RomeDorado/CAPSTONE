@@ -25,9 +25,9 @@ module.exports = [
             api.mailBoxLayer(email, (err, res) => {
                 console.log(res, " res ");
                 if (!err) {
-                    if(res.smtp_check){
-                        var documentAccess = true;
-                        usersession.createUserIfUnique(session, undefined, documentAccess)
+                    if(res.smtp_check){                        
+                        usersession.updateAccess(session)
+                        session.endDialog(consts.prompts.VERIFIED_EMAIL);
                     }else{
                         session.send(consts.prompts.INVALID_EMAIL);
                         var cardName = card.getName(consts.menus.enter_email);

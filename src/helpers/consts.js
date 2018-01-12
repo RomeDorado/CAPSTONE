@@ -9,7 +9,8 @@ UNSUBSCRIBE_CONFIRMED: 'You are now unsubscribed',
 ENTER_INQUIRY: 'Please enter your inquiry:',
 DOCU_FIRST: `It seems like it's your first time accessing this feature, for security purposes, please enter your ICS myGbiz account.`,
 DOCU_SECOND: `Please enter your ICS myGbiz account.`,
-INVALID_EMAIL: `Sorry there is something wrong with validating your myGbiz account. The account you entered doesn't exist. Do you want to enter again?`
+INVALID_EMAIL: `Sorry there is something wrong with validating your myGbiz account. The account you entered doesn't exist. Do you want to enter again?`,
+VERIFIED_EMAIL: 'Email verified! You can now ask questions regarding faculty schedule'
 }
 
 exports.menus = {
