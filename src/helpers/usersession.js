@@ -41,6 +41,7 @@ exports.createUserIfUnique = function (event, dep){
                 fb_id: event.message.address.user.id,                             
                 department: dep,
                 subscription: true,                
+                facAccess: false
         },
         json: true
         };
@@ -63,8 +64,7 @@ exports.updateAccess = function (event){
         },
         qs:{
                 client: "iics",                                
-                fb_id: event.message.address.user.id,                                             
-                subscription: true,                
+                fb_id: event.message.address.user.id,                                                                        
         },
         json: true
         };

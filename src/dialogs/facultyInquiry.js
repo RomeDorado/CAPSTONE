@@ -9,11 +9,11 @@ const usersession = require('../helpers/usersession');
 module.exports = [
     (session, args) => {        
         if (args == undefined){            
-            builder.Prompts.text(session, consts.prompts.DOCU_FIRST);        
+            builder.Prompts.text(session, consts.prompts.FACULTY_FIRST);        
         }
         
         else {
-        builder.Prompts.text(session, consts.prompts.DOCU_SECOND);
+        builder.Prompts.text(session, consts.prompts.FACULTY_SECOND);
         }
     },
     (session, results) => {
@@ -53,7 +53,7 @@ module.exports = [
                 var reply = results.response.entity;
                 switch(reply){
                     case choices[0]:
-                        session.replaceDialog('/DocumentStatus', { reprompt: true });
+                        session.replaceDialog('/FacultyInquiry', { reprompt: true });
                     break;
 
                     case choices[1]:

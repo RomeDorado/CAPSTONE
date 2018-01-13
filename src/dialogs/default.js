@@ -3,34 +3,43 @@ const format = require('string-format');
 const api = require('../helpers/apiRequest');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
-const WIT_TOKEN = "OAC2GWS2OVEXUJV5TUQX5FIDJ2F466EH"
-const {Wit, log} = require('node-wit');
+// const WIT_TOKEN = "OAC2GWS2OVEXUJV5TUQX5FIDJ2F466EH"
+// const {Wit, log} = require('node-wit');
 module.exports =
 [
     (session, args, next) => {
 
   console.log(session.message.user.name);
-  var entity = args || session.message.text;
-  const client = new Wit({accessToken: WIT_TOKEN});
+//   var entity = args || session.message.text;
+//   const client = new Wit({accessToken: WIT_TOKEN});
 
-        client.message(entity, {})
-        .then((data) => {
-            var results = data;
-            var entities = results.entities;
-                console.log(JSON.stringify(entities));
-                if(entities.intent == (null || undefined)){
-                    //send tix?
-                }else{
-                    var intent = entities.intent[0].value;
-                }
+//         client.message(entity, {})
+//         .then((data) => {
+//             var results = data;
+//             var entities = results.entities;
+//                 console.log(JSON.stringify(entities));
+//                 if(entities.intent == (null || undefined)){
+//                     //send tix?
+//                 }else{
+//                     var intent = entities.intent[0].value;
+//                 }
 
 
-                if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
-                if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
+//                 if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
+//                 if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
+
+let entities = ('nlp' in session.message.sourceEvent.message) ? session.message.sourceEvent.message.nlp.entities : undefined;
+
+        //If NLP is Entities present
+        if(entities !== undefined){
+            var intent = Object.keys(entities).length != 0 && !(Object.keys(entities).length > 1) ? entities[Object.keys(entities)][0].value : 'default';
+        } else {
+            var intent = 'default';
+        }
                 getWitIntents(intent, inquiry_type, emotion_type, session);
 
-        })
-        .catch(console.error)
+    //     })
+    //     .catch(console.error)
 
     }
 ]
@@ -101,8 +110,13 @@ function getWitIntents(intent, inquiry_type, emotion_type, session){
             }
         break;
 
+                case 'get_faculty_inquiry':
+                    session.replaceDialog('/CheckAcess');
+                    // session.replaceDialog('/FacultyInquiry')
+                break;
+
                 case 'get_document_status':
-                    session.replaceDialog('/DocumentStatus')
+                    //dialog docu
                 break;
                 case 'get_about':
                     //about iics
@@ -110,6 +124,10 @@ function getWitIntents(intent, inquiry_type, emotion_type, session){
 
                 case 'get_help':
                 //trigger tix or live chat
+                break;
+
+                case 'default':
+                session.replaceDialog('/Confusion');
                 break;
 
                 default:
