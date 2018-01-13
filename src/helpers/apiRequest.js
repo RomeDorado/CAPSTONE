@@ -67,32 +67,7 @@ module.exports.mailBoxLayer =
     })
 }
 
-/** CHECK ACCESS */
 
-module.exports.checkAccess = 
-(fb_id, callback) => {
-    var options = {
-        method: 'GET',
-        url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
-        headers: 
-        {
-            'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
-            'content-type': 'application/json' 
-        },
-        qs:{
-                client: "iics",                
-                fb_id: fb_id                            
-        },       
-        json: true  
-        };
-
-        request(options, function (err, response, body) {
-            console.log(body);
-            if(err) console.log(err);        
-            !err ? callback(null, body) : callback(err, body); 
-
-    });
-}
 
 /**END */
 
