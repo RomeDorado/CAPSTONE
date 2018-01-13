@@ -23,7 +23,7 @@ module.exports = [
       
       request(options, function (error, response, body) {
         if (error) throw new Error(error);
-        if(response.body.d.facAccess){
+        if(!response.body.d.facAccess){
             session.replaceDialog('/FacultyInquiry');
         }else{
             // session.replaceDialog('/FacultyAnswers');
