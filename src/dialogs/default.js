@@ -3,45 +3,22 @@ const format = require('string-format');
 const api = require('../helpers/apiRequest');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
-// const WIT_TOKEN = "OAC2GWS2OVEXUJV5TUQX5FIDJ2F466EH"
-// const {Wit, log} = require('node-wit');
+
 module.exports =
 [
     (session, args, next) => {
 
   console.log(session.message.user.name);
-//   var entity = args || session.message.text;
-//   const client = new Wit({accessToken: WIT_TOKEN});
-
-//         client.message(entity, {})
-//         .then((data) => {
-//             var results = data;
-//             var entities = results.entities;
-//                 console.log(JSON.stringify(entities));
-//                 if(entities.intent == (null || undefined)){
-//                     //send tix?
-//                 }else{
-//                     var intent = entities.intent[0].value;
-//                 }
-
-
-//                 if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
-//                 if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
 
 let entities = ('nlp' in session.message.sourceEvent.message) ? session.message.sourceEvent.message.nlp.entities : undefined;
-
-        //If NLP is Entities present
-        console.log(entities)
+console.log(entities)
+        //If NLP is Entities present        
         if(entities !== undefined){
             var intent = Object.keys(entities).length != 0 && !(Object.keys(entities).length > 1) ? entities[Object.keys(entities)][0].value : 'default';
         } else {
             var intent = 'default';
         }
-                getWitIntents(intent, session);
-
-    //     })
-    //     .catch(console.error)
-
+                getWitIntents(intent, session);  
     }
 ]
 
@@ -50,12 +27,7 @@ let entities = ('nlp' in session.message.sourceEvent.message) ? session.message.
 function getWitIntents(intent, session){
     switch(intent){
 
-        case 'get_greetings':
-            // let random = [ 'Hey! Welcome to IICS Bot! How may I help you?',
-            //                     'Heeyy!! What can I do for you today?',
-            //                   'Sup! What can I do for you today?'];
-            // let reply = random[Math.floor(Math.random() * random.length)];
-            // session.send(reply);
+        case 'get_greetings':           
             session.replaceDialog('/Replies', intent);
         break;
 
