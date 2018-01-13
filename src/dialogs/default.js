@@ -36,7 +36,7 @@ let entities = ('nlp' in session.message.sourceEvent.message) ? session.message.
         } else {
             var intent = 'default';
         }
-                getWitIntents(intent, inquiry_type, emotion_type, session);
+                getWitIntents(intent, session);
 
     //     })
     //     .catch(console.error)
@@ -46,7 +46,7 @@ let entities = ('nlp' in session.message.sourceEvent.message) ? session.message.
 
 
 
-function getWitIntents(intent, inquiry_type, emotion_type, session){
+function getWitIntents(intent, session){
     switch(intent){
 
         case 'get_greetings':
