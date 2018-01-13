@@ -16,7 +16,7 @@ module.exports = [
             },
             qs:{
                     client: "iics",                
-                    fb_id: fb_id                            
+                    fb_id: session.message.sourceEvent.sender.id                            
             },       
             json: true  
             };
