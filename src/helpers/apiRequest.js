@@ -86,7 +86,7 @@ module.exports.checkAccess =
         json: true  
         };
 
-        request(options, function (error, response, body) {
+        request(options, function (err, response, body) {
             console.log(body);
             if(err) console.log(err);        
             !err ? callback(null, JSON.parse(body)) : callback(err, body); 
