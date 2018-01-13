@@ -9,11 +9,11 @@ const usersession = require('../helpers/usersession');
 module.exports = [
     (session, args) => {        
         if (args == undefined){            
-            builder.Prompts.text(session, consts.prompts.FACULTY_FIRST);        
+            builder.Prompts.text(session, consts.prompts.FACULTY_FIRST, { maxRetries:0,promptAfterAction:false});        
         }
         
         else {
-        builder.Prompts.text(session, consts.prompts.FACULTY_SECOND);
+        builder.Prompts.text(session, consts.prompts.FACULTY_SECOND, { maxRetries:0,promptAfterAction:false});
         }
     },
     (session, results) => {
