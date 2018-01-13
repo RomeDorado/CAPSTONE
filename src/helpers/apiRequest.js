@@ -89,7 +89,7 @@ module.exports.checkAccess =
         request(options, function (err, response, body) {
             console.log(body);
             if(err) console.log(err);        
-            !err ? callback(null, JSON.parse(body)) : callback(err, body); 
+            !err ? callback(null, body) : callback(err, body); 
 
     });
 }
