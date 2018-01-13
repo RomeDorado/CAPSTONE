@@ -15,6 +15,7 @@ console.log(entities)
         //If NLP is Entities present        
         if(entities !== undefined){
             var intent = Object.keys(entities).length != 0 && !(Object.keys(entities).length > 1) ? entities[Object.keys(entities)][0].value : 'default';
+            console.log(intent);
         } else {
             var intent = 'default';
         }
