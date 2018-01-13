@@ -69,7 +69,7 @@ module.exports.mailBoxLayer =
 
 /** CHECK ACCESS */
 
-moduele.exports.checkAccess = 
+module.exports.checkAccess = 
 (fb_id, callback) => {
     var options = {
         method: 'GET',
