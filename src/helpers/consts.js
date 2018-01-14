@@ -11,9 +11,12 @@ FACULTY_FIRST: `It seems like it's your first time accessing this feature, for s
 FACULTY_SECOND: `Please enter your ICS myGbiz account.`,
 INVALID_EMAIL: `Sorry there is something wrong with validating your myGbiz account. The account you entered doesn't exist. Do you want to enter again?`,
 VERIFIED_EMAIL: 'Email verified! You can now ask questions regarding faculty schedule',
-DEPARTMENT_ANNOUNCEMENTS: 'No announcements yet from your department',
+NO_DEPARTMENT_ANNOUNCEMENTS: 'No announcements yet from your department',
 GENERAL_ANNOUNCEMENTS: 'No announcements yet from the IICS office',
-CHECK_DOCUMENT: 'Please enter the tracking code for your document'
+CHECK_DOCUMENT: 'Please enter the tracking code for your document',
+DEPARTMENT_ANNOUNCEMENTS: `Date sent: {0}
+
+{1}`
 }
 
 exports.menus = {

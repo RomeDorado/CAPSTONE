@@ -57,10 +57,11 @@ module.exports.department = [
             }else{                        
                 for(var x = 0; x < body.d.length; x++){
                     var date = new Date(body.d[x].datetime).toDateString()
-                    var message = `Date sent: ${date}
-                    
-                    ${body.d[x].announcements}`;                    
-                    session.send(message);
+                    // var message = `Date sent: ${date}
+
+                    // ${body.d[x].announcements}`;                    
+                    session.send(format(consts.prompts.GET_STARTED, date, body.d[x].announcements));
+                    // session.send(message);
                 }
             }
         });
