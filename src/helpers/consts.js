@@ -71,7 +71,7 @@ default_menu:[
         title: 'Contact us',
         // text:'You can contact the admin by:',
         button: [
-            { msg: 'Send Ticket', title: 'Send an inquiry ticket' },
+            { msg: 'Send Ticket', title: 'Send a ticket' },
             { msg: 'Livechat', title: 'Chat with us now' }
         ]
     }
