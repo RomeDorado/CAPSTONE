@@ -69,7 +69,7 @@ module.exports.department = [
 ]
 
 
-module.exports.general [
+module.exports.general = [
     (session) => {
         var options = {
             method: 'GET',
