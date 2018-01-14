@@ -14,7 +14,7 @@ VERIFIED_EMAIL: 'Email verified! You can now ask questions regarding faculty sch
 NO_DEPARTMENT_ANNOUNCEMENTS: 'No announcements yet from your department',
 GENERAL_ANNOUNCEMENTS: 'No announcements yet from the IICS office',
 CHECK_DOCUMENT: 'Please enter the tracking code for your document',
-DEPARTMENT_ANNOUNCEMENTS: `Date sent: {0}
+DEPARTMENT_ANNOUNCEMENTS: `Date announced: {0}
 \n
 \n
 {1}`
@@ -68,11 +68,11 @@ menu: [
 default_menu:[
     {
         name: 'default_choice',
-        title: 'Sorry I did not get ',
-        text:'You can contact the admin by:',
+        title: 'Contact us',
+        // text:'You can contact the admin by:',
         button: [
-            { msg: 'Send Ticket', title: 'Send Ticket' },
-            { msg: 'Livechat', title: 'Livechat' }
+            { msg: 'Send Ticket', title: 'Send an inquiry ticket' },
+            { msg: 'Livechat', title: 'Chat with us now' }
         ]
     }
 ],
