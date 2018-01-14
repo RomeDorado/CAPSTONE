@@ -20,7 +20,7 @@ module.exports.main = [
             var reply = results.response.entity;
             switch(reply){
                 case choices[0]:
-                    session.replaceDialog('/genAnnouncement')
+                    session.replaceDialog('/genAnnouncements')
                 break;
 
                 case choices[1]:
