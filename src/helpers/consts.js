@@ -15,7 +15,8 @@ NO_DEPARTMENT_ANNOUNCEMENTS: 'No announcements yet from your department',
 GENERAL_ANNOUNCEMENTS: 'No announcements yet from the IICS office',
 CHECK_DOCUMENT: 'Please enter the tracking code for your document',
 DEPARTMENT_ANNOUNCEMENTS: `Date sent: {0}
-
+\n
+\n
 {1}`
 }
 
