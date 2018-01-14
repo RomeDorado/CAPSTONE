@@ -24,7 +24,7 @@ module.exports.main = [
                 break;
 
                 case choices[1]:
-                    session.replaceDialog('/depAnnouncement')
+                    session.replaceDialog('/depAnnouncements')
                 break;
             }
         }
