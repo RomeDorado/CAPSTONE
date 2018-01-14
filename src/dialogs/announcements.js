@@ -60,7 +60,7 @@ module.exports.department = [
                     var message = `Date sent: ${date}
                     
                     ${body.d[x].announcements}`;                    
-                    session.endDialog(message);
+                    session.send(message);
                 }
             }
         });
