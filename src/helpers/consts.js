@@ -56,7 +56,7 @@ menu: [
         title: 'Announcements',
         text: 'Know the recent announcements',
         button: [
-            { msg: 'About IICS', title: 'About IICS' }
+            { msg: 'Announcements', title: 'Announcements' }
         ]
     }
 
