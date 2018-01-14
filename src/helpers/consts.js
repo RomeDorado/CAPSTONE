@@ -10,7 +10,8 @@ ENTER_INQUIRY: 'Please enter your inquiry:',
 FACULTY_FIRST: `It seems like it's your first time accessing this feature, for security purposes, please enter your ICS myGbiz account.`,
 FACULTY_SECOND: `Please enter your ICS myGbiz account.`,
 INVALID_EMAIL: `Sorry there is something wrong with validating your myGbiz account. The account you entered doesn't exist. Do you want to enter again?`,
-VERIFIED_EMAIL: 'Email verified! You can now ask questions regarding faculty schedule'
+VERIFIED_EMAIL: 'Email verified! You can now ask questions regarding faculty schedule',
+CHECK_DOCUMENT: 'Please enter the tracking code for your document'
 }
 
 exports.menus = {
@@ -72,7 +73,7 @@ default_menu:[
 enter_email: [
     {
         name: 'enter_email',
-        title: 'OPTIONS',        
+        title: 'OPTIONS',
         button: [
             { msg: 'Enter again', title: 'Enter again' },
             { msg: 'Back to Main Menu', title: 'Back to Main Menu' }
