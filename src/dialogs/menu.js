@@ -24,8 +24,8 @@ module.exports =
                 break;
     
                 case choices[1]:
-                    // session.replaceDialog('/Annoucements');
-                    session.send("Walang pasok bukas");
+                    session.replaceDialog('/Announcements');
+                    // session.send("Walang pasok bukas");
                 break;                   
     
                 default:

@@ -8,3 +8,4 @@ exports.ticket = require('./ticket');
 exports.replies = require('./replies');
 exports.checkAccess = require('./checkAccess');
 exports.facInq = require('./facultyInquiry');
+exports.announcements = require('./announcements');

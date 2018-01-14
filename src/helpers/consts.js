@@ -10,7 +10,9 @@ ENTER_INQUIRY: 'Please enter your inquiry:',
 FACULTY_FIRST: `It seems like it's your first time accessing this feature, for security purposes, please enter your ICS myGbiz account.`,
 FACULTY_SECOND: `Please enter your ICS myGbiz account.`,
 INVALID_EMAIL: `Sorry there is something wrong with validating your myGbiz account. The account you entered doesn't exist. Do you want to enter again?`,
-VERIFIED_EMAIL: 'Email verified! You can now ask questions regarding faculty schedule'
+VERIFIED_EMAIL: 'Email verified! You can now ask questions regarding faculty schedule',
+DEPARTMENT_ANNOUNCEMENTS: 'No announcements yet from your department',
+GENERAL_ANNOUNCEMENTS: 'No announcements yet from the IICS office'
 }
 
 exports.menus = {
@@ -76,6 +78,24 @@ enter_email: [
         button: [
             { msg: 'Enter again', title: 'Enter again' },
             { msg: 'Back to Main Menu', title: 'Back to Main Menu' }
+        ]
+    }
+],
+announcements_menu: [
+    {
+        name: 'general_announcements',
+        title: 'General Annoncements',        
+        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        button: [
+            { msg: 'General-announcement', title: 'General' }            
+        ]
+    },
+    {
+        name: 'dep_announcements',
+        title: 'Department',        
+        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        button: [
+            { msg: 'Department-announcement', title: 'Deparment' }            
         ]
     }
 ]

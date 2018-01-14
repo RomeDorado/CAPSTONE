@@ -66,6 +66,9 @@ bot.dialog('/Ticket', dialogs.ticket);
 bot.dialog('/Replies', dialogs.replies);
 bot.dialog('/CheckAccess', dialogs.checkAccess);
 bot.dialog('/FacultyInquiry', dialogs.facInq);
+bot.dialog('/Announcements', dialogs.announcements.main);
+bot.dialog('/depAnnouncements', dialogs.announcements.department);
+bot.dialog('/genAnnouncements', dialogs.announcements.general);
 //=========================================================
 // Server Setup
 //=========================================================
