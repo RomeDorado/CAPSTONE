@@ -7,13 +7,13 @@ const request = require('request');
 const usersession = require('../helpers/usersession');
 
 module.exports = [
-    (session, args) => {        
-        if (args == undefined){            
-            builder.Prompts.text(session, consts.prompts.FACULTY_FIRST, { maxRetries:0,promptAfterAction:false});        
+    (session, args) => {
+        if (args == undefined){
+            builder.Prompts.text(session, consts.prompts.FACULTY_FIRST, { maxRetries:0,promptAfterAction:false});
         }
-        
+
         else {
-        builder.Prompts.text(session, consts.prompts.FACULTY_SECOND, { maxRetries:0,promptAfterAction:false});
+            builder.Prompts.text(session, consts.prompts.FACULTY_SECOND, { maxRetries:0,promptAfterAction:false});
         }
     },
     (session, results) => {
@@ -21,17 +21,17 @@ module.exports = [
 
         var domain = email.split("@");
 
-        if(domain[1] == "ust-ics.mygbiz.com"){            
+        if(domain[1] == "ust-ics.mygbiz.com"){
             api.mailBoxLayer(email, (err, res) => {
                 console.log(res, " res ");
                 if (!err) {
-                    if(res.smtp_check){                        
+                    if(res.smtp_check){
                         usersession.updateAccess(session)
                         session.endDialog(consts.prompts.VERIFIED_EMAIL);
                     }else{
                         session.send(consts.prompts.INVALID_EMAIL);
                         var cardName = card.getName(consts.menus.enter_email);
-                        var msg = card(session, consts.menus.enter_email, cardName);                    
+                        var msg = card(session, consts.menus.enter_email, cardName);
                         builder.Prompts.choice(session, msg, card.choices(consts.menus.enter_email), { maxRetries:0,promptAfterAction:false});
                     }
                 }
@@ -41,7 +41,7 @@ module.exports = [
             console.log("wrong email format")
             session.send(consts.prompts.INVALID_EMAIL);
             var cardName = card.getName(consts.menus.enter_email);
-            var msg = card(session, consts.menus.enter_email, cardName);                    
+            var msg = card(session, consts.menus.enter_email, cardName);
             builder.Prompts.choice(session, msg, card.choices(consts.menus.enter_email), { maxRetries:0,promptAfterAction:false});
         }
     },
