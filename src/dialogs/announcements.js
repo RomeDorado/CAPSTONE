@@ -60,7 +60,7 @@ module.exports.department = [
                     // var message = `Date sent: ${date}
 
                     // ${body.d[x].announcements}`;                    
-                    session.send(format(consts.prompts.GET_STARTED, date, body.d[x].announcements));
+                    session.send(format(consts.prompts.DEPARTMENT_ANNOUNCEMENTS, date, body.d[x].announcements));
                     // session.send(message);
                 }
             }
