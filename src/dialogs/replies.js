@@ -12,7 +12,7 @@ module.exports = [
         url: 'http://iics-response-service.herokuapp.com/api/response/intents',
         qs: { 
             client: 'iics', 
-            intent: "get_greetings" 
+            intent: "args" 
         },
         headers: { 
          'Content-type': 'Application/json' 

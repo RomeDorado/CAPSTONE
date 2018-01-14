@@ -83,3 +83,8 @@ server.post('/api/messages', connector.listen());
 server.listen(process.env.port || process.env.PORT || 4001, () => {
     console.log('Restify listening to port: %s', server.url);
 });
+
+var http = require("http");
+setInterval(function () {
+    http.get(process.env.heroku);
+}, 300000);
