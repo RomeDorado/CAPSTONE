@@ -8,32 +8,37 @@ const {Wit, log} = require('node-wit');
 module.exports =
 [
     (session, args, next) => {
+        
+        api.checkUser(session, (err, res) => {
+            if(!res.d.onSupport){      
 
-  console.log(session.message.user.name);
-  var entity = args || session.message.text;
-  const client = new Wit({accessToken: WIT_TOKEN});
+                console.log(session.message.user.name);
+                var entity = args || session.message.text;
+                const client = new Wit({accessToken: WIT_TOKEN});
 
-        client.message(entity, {})
-        .then((data) => {
-            var results = data;
-            var entities = results.entities;
-                console.log(JSON.stringify(entities));
-                if(entities.intent == (null || undefined)){
-                    //send tix?
-                }else{
-                    var intent = entities.intent[0].value;
-                }
+                    client.message(entity, {})
+                    .then((data) => {
+                        var results = data;
+                        var entities = results.entities;
+                            console.log(JSON.stringify(entities));
+                            if(entities.intent == (null || undefined)){
+                                //send tix?
+                                }else{
+                                    var intent = entities.intent[0].value;
+                                }
 
-                console.log(intent);
-                if(('professor' in entities)){var professor = entities.professor[0].value;}
-                if(('time' in entities)){var time = entities.time[0].value;}
-                // if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
-                // if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
-                getWitIntents(intent, professor, time, session);
+                            console.log(intent);
+                            if(('professor' in entities)){var professor = entities.professor[0].value;}
+                            if(('time' in entities)){var time = entities.time[0].value;}
+                                // if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
+                                // if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
+                            getWitIntents(intent, professor, time, session);
 
-        })
-        .catch(console.error)
+                    })
+                    .catch(console.error)
+            }
 
+        });
     }
 ]
 

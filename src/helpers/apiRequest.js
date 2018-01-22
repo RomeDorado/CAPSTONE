@@ -67,6 +67,30 @@ module.exports.mailBoxLayer =
     })
 }
 
+//Check if user is in DB
+
+module.exports.checkUser = 
+(session, callback)  => {
+    var options = {
+        method: 'GET',
+        url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
+        headers: 
+        {
+            'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs:{
+                client: "iics",                
+                fb_id: session.message.address.user.id,                           
+        },       
+        json: true  
+        };
+
+        request(options, function (error, response, body) {                    
+        if (error) throw new Error(error);
+        !err ? callback(null, JSON.parse(body)) : callback(err, body); 
+        });
+}
 
 
 /**END */

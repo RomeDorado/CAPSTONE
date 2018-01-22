@@ -17,7 +17,8 @@ CHECK_DOCUMENT: 'Please enter the tracking code for your document',
 DEPARTMENT_ANNOUNCEMENTS: `Date announced: {0}
 \n
 \n
-{1}`
+{1}`,
+LIVE_CHAT_WAIT: 'Please wait as I connect you to an IICS office personnel'
 }
 
 exports.menus = {

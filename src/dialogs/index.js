@@ -10,3 +10,4 @@ exports.checkAccess = require('./checkAccess');
 exports.facInq = require('./facultyInquiry');
 exports.announcements = require('./announcements');
 exports.checkDocu = require('./checkDocu');
+exports.livechat = require('./livechat');

@@ -3,6 +3,7 @@ const builder = require('botbuilder');
 const usersession = require('./src/helpers/usersession');
 /**Dialogs*/
 const dialogs = require('./src/dialogs');
+const api = require('./src/helpers/apiRequest')
 
 //=========================================================
 // Bot Setup
@@ -22,35 +23,38 @@ bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i
 bot.use(builder.Middleware.sendTyping());
 // Middleware for logging
 
-// bot.use({
-//     receive: function (event, next) {
-//         logUserConversation(event, "inbound");
-//         next();
-//     },
-//     send: function (event, next) {
-//         logUserConversation(event, "outbound");
-//         next();
-//     }
-// });
+bot.use({    
+    receive: function (event, next) {
+        logUserConversation(event, "inbound");
+        next();
+    },
+    send: function (event, next) {
+        logUserConversation(event, "outbound");
+        next();
+    }
+});
 
 //Update session upon receive/send
-// const logUserConversation = (event, type) => {
-//     if (event.type == "message" && event.text) {
-//         var params = {};
-//             params = {
-//                 fb_id: event.message.address.user.id,
-//                 message_body: {
-//                     message: event.text,
-//                     message_type: type,
-//                 }
-//             };
-//         console.log("intercept is working");
-//         if (type === "inbound") {
-//             usersession.createUserIfUnique(event);
-//         }
-        // usersession.newMessageFromBot(params);
-    // }
-// }
+const logUserConversation = (event, type) => {
+    api.checkUser(session, (err, res) => {
+        if(res.d.onSupport == true){
+                    
+            if (event.type == "message" && event.text) {
+                var params = {};
+                    params = {
+                        fb_id: event.message.address.user.id,
+                        message_body: {
+                            message: event.text,
+                            message_type: type,
+                        }
+                    };
+                console.log("intercept is working");                
+                usersession.newMessageFromBot(params);
+            }
+        }
+    });
+}
+
 //=========================================================
 // Bot's Dialogs
 //=========================================================
@@ -70,6 +74,7 @@ bot.dialog('/Announcements', dialogs.announcements.main).triggerAction({matches:
 bot.dialog('/depAnnouncements', dialogs.announcements.department).triggerAction({matches:/Department-announcement/i});
 bot.dialog('/genAnnouncements', dialogs.announcements.general).triggerAction({matches:/General-announcement/i});
 bot.dialog('/Documents', dialogs.checkDocu);
+bot.dialog('/Livechat', dialogs.livechat);
 //=========================================================
 // Server Setup
 //=========================================================
