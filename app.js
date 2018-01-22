@@ -74,7 +74,7 @@ bot.dialog('/Announcements', dialogs.announcements.main).triggerAction({matches:
 bot.dialog('/depAnnouncements', dialogs.announcements.department).triggerAction({matches:/Department-announcement/i});
 bot.dialog('/genAnnouncements', dialogs.announcements.general).triggerAction({matches:/General-announcement/i});
 bot.dialog('/Documents', dialogs.checkDocu);
-bot.dialog('/Livechat', dialogs.livechat);
+bot.dialog('/Livechat', dialogs.livechat).triggerAction({matches:/livechat/i});
 //=========================================================
 // Server Setup
 //=========================================================
