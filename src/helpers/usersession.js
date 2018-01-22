@@ -115,3 +115,26 @@ exports.createUserLiveChat = function (event, dep){
 
     });
 }
+
+module.exports.livechat = function (event){
+
+    var options = {
+        method: 'PUT',
+        url: 'https://iics-usersessions.herokuapp.com/api/bot/user/updateuser',
+        headers: 
+        {
+            'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs:{
+                client: "iics",                            
+                fb_id: event.message.address.user.id,                                             
+        },
+        json: true
+        };
+
+        request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+
+    });
+}
