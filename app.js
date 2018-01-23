@@ -35,8 +35,7 @@ bot.use(builder.Middleware.sendTyping());
 // Middleware for logging
 
 //Update session upon receive/send
-const logUserConversation = (event, type) => {      
-    console.log(event.type, "event type") 
+function logUserConversation (event, type) {
         if (event.type == "message" && event.text) {
             var params = {};
                 params = {
