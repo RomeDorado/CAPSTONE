@@ -39,7 +39,7 @@ async function logUserConversation (event, type) {
     console.log("log conver")
             if (event.type == "message" && event.text) {                
                 console.log("inside if");
-                console.log(event.message);
+                console.log(event);
                 var params = {
                         fb_id: event.message.address.user.id,
                         message_body: {
