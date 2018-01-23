@@ -14,10 +14,7 @@ VERIFIED_EMAIL: 'Email verified! You can now ask questions regarding faculty sch
 NO_DEPARTMENT_ANNOUNCEMENTS: 'No announcements yet from your department',
 GENERAL_ANNOUNCEMENTS: 'No announcements yet from the IICS office',
 CHECK_DOCUMENT: 'Please enter the tracking code for your document',
-DEPARTMENT_ANNOUNCEMENTS: `Date announced: {0}
-\n
-\n
-{1}`,
+DEPARTMENT_ANNOUNCEMENTS: `Date announced: {0}`,
 LIVE_CHAT_WAIT: 'Please wait as I connect you to an IICS office personnel'
 }
 
