@@ -71,10 +71,10 @@ module.exports.mailBoxLayer =
 
 module.exports.checkUser = 
 (session, callback)  => {
-    if(session.message){
-        var fbid = session.message.address.user.id
+    if(session.message == undefined){
+        var fbid = session;        
     }else{
-        var fbid = session;
+        var fbid = session.message.address.user.id
     }
     var options = {
         method: 'GET',
