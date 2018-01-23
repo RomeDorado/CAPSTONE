@@ -35,10 +35,8 @@ bot.use({
 });
 
 //Update session upon receive/send
-async function logUserConversation (event, type) {
-    console.log("log conver")
-            if (event.type == "message" && event.text) {                
-                console.log("inside if");
+async function logUserConversation (event, type) {    
+            if (event.type == "message" && event.text) {                                
                 console.log(event);
                 var params = {
                         fb_id: event.address.user.id,
@@ -46,8 +44,7 @@ async function logUserConversation (event, type) {
                             message: event.text,
                             message_type: type,
                         }
-                    };
-                console.log("params");  
+                    };                
                 console.log("intercept is working");                
                 usersession.newMessageFromBot(params);
             }        
