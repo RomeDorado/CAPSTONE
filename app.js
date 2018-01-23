@@ -22,8 +22,7 @@ const bot = new builder.UniversalBot(connector);
 bot.use(builder.Middleware.dialogVersion({     
     version: 1.0, resetCommand: /^reset/i }),
 {
-    receive: function (event, next) {
-        console.log("i was here")
+    receive: function (event, next) {        
         logUserConversation(event, "inbound");
         next();
     },
@@ -36,7 +35,8 @@ bot.use(builder.Middleware.sendTyping());
 // Middleware for logging
 
 //Update session upon receive/send
-const logUserConversation = (event, type) => {                                
+const logUserConversation = (event, type) => {      
+    console.log(event.type, "event type") 
         if (event.type == "message" && event.text) {
             var params = {};
                 params = {
