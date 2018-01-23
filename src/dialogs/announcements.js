@@ -57,11 +57,9 @@ module.exports.department = [
             }else{                        
                 for(var x = 0; x < body.d.length; x++){
                     var date = new Date(body.d[x].datetime).toDateString()
-                    // var message = `Date sent: ${date}
-
-                    // ${body.d[x].announcements}`;                                        
+                                       
                     session.send(format(consts.prompts.DEPARTMENT_ANNOUNCEMENTS, date, body.d[x].announcements));
-                    if(body.d[x].image != "null" || body.d[x].image != "undefined" ){
+                    if(body.d[x].image != "undefined" ){
                         console.log(body.d[x].image, "image")
                     //     var img = new builder.Message(session)
                     //     .addAttachment({
