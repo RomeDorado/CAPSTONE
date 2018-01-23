@@ -37,7 +37,7 @@ bot.use({
 //Update session upon receive/send
 const logUserConversation = (event, type) => {
     api.checkUser(session, (err, res) => {
-        console.log(res)
+        console.log(res, "res")
         if(res.d.onSupport == true){
                     
             console.log("naglog");
