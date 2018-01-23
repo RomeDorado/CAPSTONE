@@ -41,7 +41,7 @@ async function logUserConversation (event, type) {
                 console.log("inside if");
                 console.log(event);
                 var params = {
-                        fb_id: event.message.address.user.id,
+                        fb_id: event.address.user.id,
                         message_body: {
                             message: event.text,
                             message_type: type,
