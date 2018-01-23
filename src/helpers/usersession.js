@@ -2,10 +2,10 @@ var request = require('request');
 const moment = require('moment-timezone');
 
 exports.newMessageFromBot = function (params){
-    console.log("reached newMessage in bot");
+
     var options = {
-        method: 'PUT',
-        url: 'https://iics-usersessions.herokuapp.com/api/bot/session/updatesessionbot',
+        method: 'GET',
+        url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
         headers: 
         {
             'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -13,17 +13,42 @@ exports.newMessageFromBot = function (params){
         },
         qs:{
                 client: "iics",                
-                fb_id: params.fb_id,
-                message_type: params.message_body.message_type,
-                message: params.message_body.message     
+                fb_id: session.message.address.user.id,                           
         },       
         json: true  
         };
 
-        request(options, function (error, response, body) {
+        request(options, function (error, response, body) {                    
         if (error) throw new Error(error);
+        console.log(body, "checkuser")
+        
+        if(response.body.d.onSupport){
 
-    });
+
+            console.log("reached newMessage in bot");
+            var options = {
+                method: 'PUT',
+                url: 'https://iics-usersessions.herokuapp.com/api/bot/session/updatesessionbot',
+                headers: 
+                {
+                    'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+                    'content-type': 'application/json' 
+                },
+                qs:{
+                        client: "iics",                
+                        fb_id: params.fb_id,
+                        message_type: params.message_body.message_type,
+                        message: params.message_body.message     
+                },       
+                json: true  
+                };
+
+                request(options, function (error, response, body) {
+                if (error) throw new Error(error);
+
+            });
+        }
+    }); //end first req
 }
 
 exports.createUserIfUnique = function (event, dep){ 
