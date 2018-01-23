@@ -36,8 +36,7 @@ bot.use({
 
 //Update session upon receive/send
 const logUserConversation = (event, type) => {
-            if (event.type == "message" && event.text) {
-                console.log("asdasdasdasdas")
+            if (event.type == "message") {                
                 var params = {};
                     params = {
                         fb_id: event.message.address.user.id,
