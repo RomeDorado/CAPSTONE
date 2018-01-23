@@ -53,7 +53,8 @@ const logUserConversation = (event, type) => {
             };
     
             request(options, function (error, response, body) {                    
-            if (error) throw new Error(error);                
+            if (error) throw new Error(error);          
+            console.log(body)      
                 if(response.body.d.onSupport == true){
                             
                     console.log("naglog");
