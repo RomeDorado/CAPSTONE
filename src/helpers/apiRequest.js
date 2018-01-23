@@ -71,11 +71,6 @@ module.exports.mailBoxLayer =
 
 module.exports.checkUser = 
 (session, callback)  => {
-    if(session.message == undefined){
-        var fbid = session;        
-    }else{
-        var fbid = session.message.address.user.id
-    }
     var options = {
         method: 'GET',
         url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
@@ -86,7 +81,7 @@ module.exports.checkUser =
         },
         qs:{
                 client: "iics",                
-                fb_id: fbid,                           
+                fb_id: session.message.address.user.id,                           
         },       
         json: true  
         };
