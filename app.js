@@ -27,7 +27,7 @@ bot.use(builder.Middleware.sendTyping());
 bot.use({
     receive: function (event, next) {
         logUserConversation(event, "inbound");
-        next();
+        
     },
     send: function (event, next) {
         logUserConversation(event, "outbound");
@@ -73,6 +73,7 @@ const logUserConversation = (event, type) => {
                     }
         }
     });    
+    next();
 }
 
 //=========================================================
