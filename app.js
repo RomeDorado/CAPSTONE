@@ -25,7 +25,7 @@ bot.use(builder.Middleware.sendTyping());
 
 bot.use({    
     receive: function (event, next) {
-        logUserConversation(event, "inbound");
+        await logUserConversation(event, "inbound");
         next();
     },
     send: function (event, next) {
@@ -35,7 +35,7 @@ bot.use({
 });
 
 //Update session upon receive/send
-const logUserConversation = (event, type) => {
+async function logUserConversation (event, type) {
     console.log("log conver")
             if (event.type == "message" && event.text) {                
                 console.log("inside if");
