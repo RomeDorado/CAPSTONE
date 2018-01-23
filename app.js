@@ -36,23 +36,39 @@ bot.use({
 
 //Update session upon receive/send
 const logUserConversation = (event, type) => {
-    api.checkUser(event, function (err, res) {
-        console.log(res, "res")
-        if(res.d.onSupport == true){
-                    
-            console.log("naglog");
-            if (event.type == "message" && event.text) {
-                var params = {};
-                    params = {
-                        fb_id: event.message.address.user.id,
-                        message_body: {
-                            message: event.text,
-                            message_type: type,
-                        }
-                    };
-                console.log("intercept is working");                
-                usersession.newMessageFromBot(params);
-            }
+    // api.checkUser(event, function (err, res) {
+        var options = {
+            method: 'GET',
+            url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
+            headers: 
+            {
+                'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+                'content-type': 'application/json' 
+            },
+            qs:{
+                    client: "iics",                
+                    fb_id: event.message.address.user.id,                           
+            },       
+            json: true  
+            };
+    
+            request(options, function (error, response, body) {                    
+            if (error) throw new Error(error);                
+                if(response.body.d.onSupport == true){
+                            
+                    console.log("naglog");
+                    if (event.type == "message" && event.text) {
+                        var params = {};
+                            params = {
+                                fb_id: event.message.address.user.id,
+                                message_body: {
+                                    message: event.text,
+                                    message_type: type,
+                                }
+                            };
+                        console.log("intercept is working");                
+                        usersession.newMessageFromBot(params);
+                    }
         }
     });
 }
