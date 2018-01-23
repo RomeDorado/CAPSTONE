@@ -52,6 +52,7 @@ const logUserConversation = (event, type, next) => {
             },       
             json: true  
             };
+            console.log(options, "options")
     
             request(options, function (error, response, body) {               
             if (error) throw new Error(error);          
