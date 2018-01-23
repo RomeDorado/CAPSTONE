@@ -39,8 +39,7 @@ const logUserConversation = (event, type) => {
     console.log("log conver")
             if (event.type == "message" && event.text) {                
                 console.log("inside if");
-                var params = {};
-                    params = {
+                var params = {
                         fb_id: event.message.address.user.id,
                         message_body: {
                             message: event.text,
