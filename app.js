@@ -23,7 +23,7 @@ bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i
 bot.use(builder.Middleware.sendTyping());
 // Middleware for logging
 
-bot.use({    
+bot.use({
     receive: function (event, next) {
         logUserConversation(event, "inbound");
         next();
@@ -36,7 +36,7 @@ bot.use({
 
 //Update session upon receive/send
 const logUserConversation = (event, type) => {
-    api.checkUser(session, (err, res) => {
+    api.checkUser(event, function (err, res) {
         console.log(res, "res")
         if(res.d.onSupport == true){
                     
