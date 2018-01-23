@@ -4,7 +4,6 @@ const usersession = require('./src/helpers/usersession');
 /**Dialogs*/
 const dialogs = require('./src/dialogs');
 const api = require('./src/helpers/apiRequest')
-const request = require('request');
 
 //=========================================================
 // Bot Setup
@@ -24,10 +23,10 @@ bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i
 bot.use(builder.Middleware.sendTyping());
 // Middleware for logging
 
-bot.use({
+bot.use({    
     receive: function (event, next) {
         logUserConversation(event, "inbound");
-        
+        next();
     },
     send: function (event, next) {
         logUserConversation(event, "outbound");
@@ -36,45 +35,19 @@ bot.use({
 });
 
 //Update session upon receive/send
-const logUserConversation = (event, type, next) => {
-    // api.checkUser(event, function (err, res) {
-        var options = {
-            method: 'GET',
-            url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
-            headers: 
-            {
-                'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
-                'content-type': 'application/json' 
-            },
-            qs:{
-                    client: "iics",                
-                    fb_id: event.message.address.user.id,                           
-            },       
-            json: true  
+const logUserConversation = (event, type) => {                                
+        if (event.type == "message" && event.text) {
+            var params = {};
+                params = {
+                    fb_id: event.message.address.user.id,
+                    message_body: {
+                    message: event.text,
+                    message_type: type,
+                }
             };
-            console.log(options, "options")
-    
-            request(options, function (error, response, body) {               
-            if (error) throw new Error(error);          
-            console.log(body)      
-                if(response.body.d.onSupport == true){
-                            
-                    console.log("naglog");
-                    if (event.type == "message" && event.text) {
-                        var params = {};
-                            params = {
-                                fb_id: event.message.address.user.id,
-                                message_body: {
-                                    message: event.text,
-                                    message_type: type,
-                                }
-                            };
-                        console.log("intercept is working");                
-                        usersession.newMessageFromBot(params);
-                    }
-        }
-    });    
-    next();
+            console.log("intercept is working");                
+            usersession.newMessageFromBot(params);
+        }    
 }
 
 //=========================================================
