@@ -4,7 +4,7 @@ const api = require('./apiRequest')
 
 exports.newMessageFromBot = function (params){
     console.log("new message from bot")
-    api.checkUser(params.fbid, (err, res) => {    
+    api.checkUserMW(params.fbid, (err, res) => {    
         if(res.d.onSupport){
             console.log("reached newMessage in bot");
             var options = {

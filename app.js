@@ -24,18 +24,18 @@ bot.use(builder.Middleware.sendTyping());
 // Middleware for logging
 
 bot.use({    
-    receive: async function (session, next) {
-        await logUserConversation(session, "inbound");
+    receive: async function (event, next) {
+        await logUserConversation(event, "inbound");
         next();
     },
     send: function (event, next) {
-        logUserConversation(event, "outbound");
+        await logUserConversation(event, "outbound");
         next();
     }
 });
 
 //Update session upon receive/send
-async function logUserConversation (event, type) {    
+async function logUserConversation (event, type) {
             if (event.type == "message" && event.text) {                                
                 console.log(event);
                 var params = {
