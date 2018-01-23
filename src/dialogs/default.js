@@ -10,7 +10,7 @@ module.exports =
     (session, args, next) => {
         
         api.checkUser(session, (err, res) => {
-            if(!res.d.onSupport){      
+            if(!res.d.onSupport){
 
                 console.log(session.message.user.name);
                 var entity = args || session.message.text;
@@ -36,6 +36,8 @@ module.exports =
 
                     })
                     .catch(console.error)
+            }else{
+                session.endConversation();
             }
 
         });
