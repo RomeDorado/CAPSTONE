@@ -24,7 +24,7 @@ bot.use(builder.Middleware.sendTyping());
 // Middleware for logging
 
 bot.use({    
-    receive: function (event, next) {
+    receive: async function (event, next) {
         await logUserConversation(event, "inbound");
         next();
     },
