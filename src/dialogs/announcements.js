@@ -62,12 +62,13 @@ module.exports.department = [
                     // ${body.d[x].announcements}`;                                        
                     session.send(format(consts.prompts.DEPARTMENT_ANNOUNCEMENTS, date, body.d[x].announcements));
                     if(body.d[x].image != (null || undefined)){
-                        var img = new builder.Message(session)
-                        .addAttachment({
-                            contentURL: body.d[x].image,
-                            contentType: 'image/jpg',                            
-                        });                    
-                    session.send(img);
+                        console.log(body.d[x].image, "image")
+                    //     var img = new builder.Message(session)
+                    //     .addAttachment({
+                    //         contentURL: body.d[x].image,
+                    //         contentType: 'image/jpg',                            
+                    //     });                    
+                    // session.send(img);
                     }                    
                 }
             }
