@@ -19,11 +19,9 @@ const bot = new builder.UniversalBot(connector);
 //=========================================================
 // Bots Middleware
 //=========================================================
-bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
-bot.use(builder.Middleware.sendTyping());
-// Middleware for logging
-
-bot.use({    
+bot.use(builder.Middleware.dialogVersion({     
+    version: 1.0, resetCommand: /^reset/i }),
+{
     receive: function (event, next) {
         logUserConversation(event, "inbound");
         next();
@@ -33,6 +31,8 @@ bot.use({
         next();
     }
 });
+bot.use(builder.Middleware.sendTyping());
+// Middleware for logging
 
 //Update session upon receive/send
 const logUserConversation = (event, type) => {                                
