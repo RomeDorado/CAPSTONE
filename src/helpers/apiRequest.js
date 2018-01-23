@@ -71,7 +71,7 @@ module.exports.mailBoxLayer =
 
 module.exports.checkUser = 
 (session, callback)  => {
-    if(session.message.address.user.id){
+    if(session.message){
         var fbid = session.message.address.user.id
     }else{
         var fbid = session;
