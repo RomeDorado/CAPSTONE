@@ -59,8 +59,18 @@ module.exports.department = [
                     var date = new Date(body.d[x].datetime).toDateString()
                     // var message = `Date sent: ${date}
 
-                    // ${body.d[x].announcements}`;                    
+                    // ${body.d[x].announcements}`;                                        
                     session.send(format(consts.prompts.DEPARTMENT_ANNOUNCEMENTS, date, body.d[x].announcements));
+                    if(body.d[x].image != (null || undefined)){
+                        var msg = new builder.Message(session)
+                        .addAttachment({
+                            contentUrl: body.d[x].image,
+                            contentType: 'image/jpg',
+                            name: 'sample.jpg'
+                        });
+
+                    session.send(msg);
+                    }
                     // session.send(message);
                 }
             }

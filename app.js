@@ -36,7 +36,7 @@ bot.use({
 
 //Update session upon receive/send
 async function logUserConversation (event, type) {
-            if (event.type == "message" && event.text) {                                
+            if (event.type == "message" && event.text) {
                 console.log(event);
                 var params = {
                         fb_id: event.address.user.id,

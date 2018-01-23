@@ -112,7 +112,7 @@ module.exports.checkUserMW =
 
         request(options, function (error, response, body) {                    
         if (error) throw new Error(error);
-        console.log(body, "checkuser MW")
+        // console.log(body, "checkuser MW")
         callback(null, body);
         });
 }
