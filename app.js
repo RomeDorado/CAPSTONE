@@ -19,10 +19,12 @@ const bot = new builder.UniversalBot(connector);
 //=========================================================
 // Bots Middleware
 //=========================================================
-bot.use(builder.Middleware.dialogVersion({     
-    version: 1.0, resetCommand: /^reset/i }),
-{
-    receive: function (event, next) {        
+bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
+bot.use(builder.Middleware.sendTyping());
+// Middleware for logging
+
+bot.use({    
+    receive: function (event, next) {
         logUserConversation(event, "inbound");
         next();
     },
@@ -31,23 +33,22 @@ bot.use(builder.Middleware.dialogVersion({
         next();
     }
 });
-bot.use(builder.Middleware.sendTyping());
-// Middleware for logging
 
 //Update session upon receive/send
-function logUserConversation (event, type) {
-        if (event.type == "message" && event.text) {
-            var params = {};
-                params = {
-                    fb_id: event.message.address.user.id,
-                    message_body: {
-                    message: event.text,
-                    message_type: type,
-                }
-            };
-            console.log("intercept is working");                
-            usersession.newMessageFromBot(params);
-        }    
+const logUserConversation = (event, type) => {
+            if (event.type == "message" && event.text) {
+                console.log("asdasdasdasdas")
+                var params = {};
+                    params = {
+                        fb_id: event.message.address.user.id,
+                        message_body: {
+                            message: event.text,
+                            message_type: type,
+                        }
+                    };
+                console.log("intercept is working");                
+                usersession.newMessageFromBot(params);
+            }        
 }
 
 //=========================================================
