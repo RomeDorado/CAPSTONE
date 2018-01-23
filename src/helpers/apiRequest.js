@@ -89,7 +89,7 @@ module.exports.checkUser =
         request(options, function (error, response, body) {                    
         if (error) throw new Error(error);
         console.log(body, "checkuser")
-        !error ? callback(null, body) : callback(err, body); 
+        !error ? callback(null, JSON.parse(body)) : callback(err, body); 
         });
 }
 
