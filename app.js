@@ -52,7 +52,7 @@ const logUserConversation = (event, type) => {
             json: true  
             };
     
-            request(options, function (error, response, body) {                    
+            request(options, function (error, response, body) {               
             if (error) throw new Error(error);          
             console.log(body)      
                 if(response.body.d.onSupport == true){
@@ -72,6 +72,7 @@ const logUserConversation = (event, type) => {
                     }
         }
     });
+    next();
 }
 
 //=========================================================
