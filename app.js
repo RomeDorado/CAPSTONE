@@ -36,7 +36,7 @@ bot.use({
 });
 
 //Update session upon receive/send
-const logUserConversation = (event, type) => {
+const logUserConversation = (event, type, next) => {
     // api.checkUser(event, function (err, res) {
         var options = {
             method: 'GET',
