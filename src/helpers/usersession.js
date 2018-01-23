@@ -3,6 +3,7 @@ const moment = require('moment-timezone');
 const api = require('./apiRequest')
 
 exports.newMessageFromBot = function (params){
+    console.log("new message from bot")
     api.checkUser(session, (err, res) => {    
         if(res.d.onSupport){
             console.log("reached newMessage in bot");
