@@ -28,7 +28,7 @@ bot.use({
         await logUserConversation(event, "inbound");
         next();
     },
-    send: function (event, next) {
+    send: async function (event, next) {
         await logUserConversation(event, "outbound");
         next();
     }
