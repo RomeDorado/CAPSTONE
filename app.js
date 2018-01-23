@@ -4,6 +4,7 @@ const usersession = require('./src/helpers/usersession');
 /**Dialogs*/
 const dialogs = require('./src/dialogs');
 const api = require('./src/helpers/apiRequest')
+const request = require('request');
 
 //=========================================================
 // Bot Setup
@@ -71,8 +72,7 @@ const logUserConversation = (event, type) => {
                         usersession.newMessageFromBot(params);
                     }
         }
-    });
-    next();
+    });    
 }
 
 //=========================================================
