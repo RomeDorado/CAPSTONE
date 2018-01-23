@@ -70,7 +70,12 @@ module.exports.mailBoxLayer =
 //Check if user is in DB
 
 module.exports.checkUser = 
-(fbid, callback)  => {
+(session, callback)  => {
+    if(session.message.address.user.id){
+        var fbid = session.message.address.user.id
+    }else{
+        var fbid = session;
+    }
     var options = {
         method: 'GET',
         url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
