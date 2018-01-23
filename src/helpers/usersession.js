@@ -1,30 +1,10 @@
 var request = require('request');
 const moment = require('moment-timezone');
+const api = require('./apiRequest')
 
 exports.newMessageFromBot = function (params){
-
-    var options = {
-        method: 'GET',
-        url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
-        headers: 
-        {
-            'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
-            'content-type': 'application/json' 
-        },
-        qs:{
-                client: "iics",                
-                fb_id: session.message.address.user.id,                           
-        },       
-        json: true  
-        };
-
-        request(options, function (error, response, body) {                    
-        if (error) throw new Error(error);
-        console.log(body, "checkuser")
-        
-        if(response.body.d.onSupport){
-
-
+    api.checkUser(session, (err, res) => {    
+        if(res.d.onSupport){
             console.log("reached newMessage in bot");
             var options = {
                 method: 'PUT',
