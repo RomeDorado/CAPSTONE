@@ -23,6 +23,7 @@ bot.use(builder.Middleware.dialogVersion({
     version: 1.0, resetCommand: /^reset/i }),
 {
     receive: function (event, next) {
+        console.log("i was here")
         logUserConversation(event, "inbound");
         next();
     },
