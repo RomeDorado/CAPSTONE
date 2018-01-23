@@ -46,6 +46,7 @@ const logUserConversation = (event, type) => {
                             message_type: type,
                         }
                     };
+                console.log("params");  
                 console.log("intercept is working");                
                 usersession.newMessageFromBot(params);
             }        
