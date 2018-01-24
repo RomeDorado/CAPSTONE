@@ -62,12 +62,12 @@ module.exports.department = [
                     session.send(body.d[x].announcements);
                     if(body.d[x].image != 'undefined' ){
                         console.log(body.d[x].image, "image")
-                    //     var img = new builder.Message(session)
-                    //     .addAttachment({
-                    //         contentURL: body.d[x].image,
-                    //         contentType: 'image/jpg',                            
-                    //     });                    
-                    // session.send(img);
+                        var img = new builder.Message(session)
+                        .addAttachment({
+                            contentURL: body.d[x].image,
+                            contentType: 'image/jpg',                            
+                        });                    
+                    session.send(img);
                     }                    
                 }
             }
