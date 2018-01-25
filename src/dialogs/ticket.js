@@ -17,7 +17,7 @@ module.exports = [
         var user = session.message.sourceEvent.sender.id;
         var name = session.message.user.name;
         var time = now.tz('Asia/Taipei').format();
-
+        
         var options = {
             method: 'Post',
             url: 'https://iics-ticketing-api.herokuapp.com/api/tickets',
@@ -38,6 +38,9 @@ module.exports = [
 
         request(options, function (error, response, body) {
             if (error) console.log(error);
-        });;
+        });
+
+        session.endConversation();
+        
     }
 ]
