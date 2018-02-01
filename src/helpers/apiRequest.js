@@ -142,7 +142,7 @@ module.exports.checkAdmin =
 
         request(options, function (error, response, body) {                    
         if (error) throw new Error(error);        
-        // callback(null, body);
+        console.log(body, "check admin")
         });
 }
 
