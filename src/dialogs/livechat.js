@@ -13,6 +13,7 @@ module.exports = [
             if(res.d == "Resource not found."){
                 usersession.createUserLiveChat(session, null);
             }
+            api.checkAdmin(session);
             usersession.livechat(session);
             session.endConversation(consts.prompts.LIVE_CHAT_WAIT);
         });

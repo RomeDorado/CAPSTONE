@@ -1,5 +1,6 @@
 const request = require('request');
 const format = require('string-format');
+const moment = require('moment-timezone');
 
 /**CARDS API */
 module.exports = 
@@ -114,6 +115,34 @@ module.exports.checkUserMW =
         if (error) throw new Error(error);
         // console.log(body, "checkuser MW")
         callback(null, body);
+        });
+}
+
+module.exports.checkAdmin = 
+(session)  => {
+    var now = moment();        
+    var time = now.tz('Asia/Taipei').format();
+
+    var options = {
+        method: 'POST',
+        url: 'https://iics-usersessions.herokuapp.com/api/bot/startLive',
+        headers: 
+        {
+            'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs:{
+                client: "iics",                
+                id: session.message.address.user.id, 
+                access: false,
+                timestamp: time                          
+        },       
+        json: true  
+        };
+
+        request(options, function (error, response, body) {                    
+        if (error) throw new Error(error);        
+        // callback(null, body);
         });
 }
 

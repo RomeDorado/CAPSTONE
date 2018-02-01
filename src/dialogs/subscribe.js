@@ -11,6 +11,7 @@ module.exports = [
         builder.Prompts.choice(session, consts.prompts.DEPARTMENT, consts.choices.SUBSCRIBE, consts.styles.button);
     },
     (session, results, callback) => {
+        console.log(results.response)
         var department = results.response.entity;        
         
         var docuAccess = false;

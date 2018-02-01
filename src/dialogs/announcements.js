@@ -53,7 +53,9 @@ module.exports.department = [
 
             var index = 0;
             if (typeof body.d[index] == 'undefined'){
-                session.endDialog(consts.prompts.DEPARTMENT_ANNOUNCEMENTS);
+                session.endDialog(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);
+            // } else if (){
+            
             }else{                        
                 for(var x = 0; x < body.d.length; x++){
                     var date = new Date(body.d[x].datetime).toDateString()
@@ -98,14 +100,22 @@ module.exports.general = [
             if (error) throw new Error(error);
             var index = 0;
             if (typeof body.d[index] == 'undefined'){
-                session.endDialog(consts.prompts.GENERAL_ANNOUNCEMENTS);
+                session.endDialog(consts.prompts.NO_GENERAL_ANNOUNCEMENTS);
             }else{
                 for(var x = 0; x < body.d.length; x++){
                     var date = new Date(body.d[x].datetime).toDateString()
-                    var message = `Date sent: ${date}
-                    
-                    ${body.d[x].announcements}`;                    
-                    session.endDialog(message);
+                                       
+                    session.send(format(consts.prompts.GENERAL_ANNOUNCEMENTS, date));
+                    session.send(body.d[x].announcements);
+                    if(body.d[x].image != 'undefined' ){
+                        console.log(body.d[x].image, "image")
+                        var img = new builder.Message(session)
+                        .addAttachment({
+                            contentURL: body.d[x].image,
+                            contentType: 'image/jpg',                            
+                        });                    
+                    session.send(img);
+                    }                    
                 }
             }
         });

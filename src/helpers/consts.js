@@ -12,9 +12,10 @@ FACULTY_SECOND: `Please enter your ICS myGbiz account.`,
 INVALID_EMAIL: `Sorry there is something wrong with validating your myGbiz account. The account you entered doesn't exist. Do you want to enter again?`,
 VERIFIED_EMAIL: 'Email verified! You can now ask questions regarding faculty schedule',
 NO_DEPARTMENT_ANNOUNCEMENTS: 'No announcements yet from your department',
-GENERAL_ANNOUNCEMENTS: 'No announcements yet from the IICS office',
+NO_GENERAL_ANNOUNCEMENTS: 'No announcements yet from the IICS office',
 CHECK_DOCUMENT: 'Please enter the tracking code for your document',
 DEPARTMENT_ANNOUNCEMENTS: `Date announced: {0}`,
+GENERAL_ANNOUNCEMENTS: `Date announced: {0}`,
 LIVE_CHAT_WAIT: 'Please wait as I connect you to an IICS office personnel'
 }
 
