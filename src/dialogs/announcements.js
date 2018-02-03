@@ -128,6 +128,7 @@ module.exports.general = [
                     session.send(img);
                     }                    
                 }
+                session.endConversation();
             }
         });
     }
