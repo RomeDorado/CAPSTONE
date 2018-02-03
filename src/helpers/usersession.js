@@ -1,6 +1,8 @@
 var request = require('request');
 const moment = require('moment-timezone');
 const api = require('./apiRequest')
+var now = moment();        
+var time = now.tz('Asia/Taipei').format();
 
 exports.newMessageFromBot = function (params){
     console.log("new message from bot")
@@ -88,8 +90,7 @@ exports.updateAccess = function (event){
 
 
 exports.createUserLiveChat = function (event, dep){
-    var now = moment();        
-    var time = now.tz('Asia/Taipei').format();
+    
 
     if(dep == null){
         dep = "unset";
