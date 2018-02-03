@@ -67,6 +67,7 @@ bot.dialog('/CheckAccess', dialogs.checkAccess);
 bot.dialog('/FacultyInquiry', dialogs.facInq);
 bot.dialog('/Announcements', dialogs.announcements.main).triggerAction({matches:/Announcements/i});
 bot.dialog('/depAnnouncements', dialogs.announcements.department).triggerAction({matches:/Department-announcement/i});
+bot.dialog('/noDepAnnouncements', dialogs.announcements.noDepartment).triggerAction({matches:/Select-department-announcement/i});
 bot.dialog('/genAnnouncements', dialogs.announcements.general).triggerAction({matches:/General-announcement/i});
 bot.dialog('/Documents', dialogs.checkDocu);
 bot.dialog('/Livechat', dialogs.livechat).triggerAction({matches:/livechat/i});

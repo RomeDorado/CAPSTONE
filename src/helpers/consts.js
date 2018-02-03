@@ -2,6 +2,7 @@ const builder = require('botbuilder');
 exports.prompts = {
 GET_STARTED: 'Hi {0}!, I\'m IICS bot! I\'m here to assist you as much as I can on student and faculty related matters. Click the menu button below to start or click the subscribe button for latest news and announcements!',
 DEPARTMENT: 'Which department you are in?',
+NO_DEPARTMENT: 'I still don\'nt know which department you belong to 🤔 please tell me your deparment so that I can pull up ',
 SUBSCRIBED: 'Great! You are now subscribed to receive announcements from the IICS office and your deparment',
 NOW_DONE: 'Now that\'s done, how can I be of assistance?',
 UNSUBSCRIBE: 'Are you sure you want to unsubscribe? Doing so will prevent you from receiving announcements',

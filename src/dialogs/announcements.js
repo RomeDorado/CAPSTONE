@@ -4,6 +4,7 @@ const api = require('../helpers/apiRequest');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const request = require('request');
+const usersession = require('../helpers/usersession');
 
 
 module.exports.main = [
@@ -33,48 +34,52 @@ module.exports.main = [
 
 module.exports.department = [
     (session) => {
-        var options = {
-            method: 'GET',
-            url: 'https://iics-blast-service.herokuapp.com/api/cms/blast/getDepAnnouncements',
-            headers: 
-            {
-                'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
-                'content-type': 'application/json' 
-            },
-            qs:{
-                    client: "iics",                
-                    fb_id: session.message.address.user.id,                           
-            },       
-            json: true  
-            };
-    
-            request(options, function (error, response, body) {               
-            if (error) throw new Error(error);
-
-            var index = 0;
-            if (typeof body.d[index] == 'undefined'){
-                session.endDialog(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);
-            // } else if (){
-            
-            }else{                        
-                for(var x = 0; x < body.d.length; x++){
-                    var date = new Date(body.d[x].datetime).toDateString()
-                                       
-                    session.send(format(consts.prompts.DEPARTMENT_ANNOUNCEMENTS, date));
-                    session.send(body.d[x].announcements);
-                    if(body.d[x].image != 'undefined' ){
-                        console.log(body.d[x].image, "image")
-                        var img = new builder.Message(session)
-                        .addAttachment({
-                            contentURL: body.d[x].image,
-                            contentType: 'image/jpg',                            
-                        });                    
-                    session.send(img);
-                    }                    
-                }
+        api.checkUser(session, (err, res) => {
+            if(res.d.department == "unset"){
+                session.replaceDialog('/noDepAnnouncements');
             }
-        });
+            var options = {
+                method: 'GET',
+                url: 'https://iics-blast-service.herokuapp.com/api/cms/blast/getDepAnnouncements',
+                headers: 
+                {
+                    'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+                    'content-type': 'application/json' 
+                },
+                qs:{
+                        client: "iics",                
+                        fb_id: session.message.address.user.id,                           
+                },       
+                json: true  
+                };
         
+                request(options, function (error, response, body) {               
+                if (error) throw new Error(error);
+
+                var index = 0;
+                if (typeof body.d[index] == 'undefined'){
+                    session.endDialog(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);
+                // } else if (){
+                
+                }else{                        
+                    for(var x = 0; x < body.d.length; x++){
+                        var date = new Date(body.d[x].datetime).toDateString()
+                                        
+                        session.send(format(consts.prompts.DEPARTMENT_ANNOUNCEMENTS, date));
+                        session.send(body.d[x].announcements);
+                        if(body.d[x].image != 'undefined' ){
+                            console.log(body.d[x].image, "image")
+                            var img = new builder.Message(session)
+                            .addAttachment({
+                                contentURL: body.d[x].image,
+                                contentType: 'image/jpg',                            
+                            });                    
+                        session.send(img);
+                        }                    
+                    }
+                }
+            });
+        });
     }
 ]
 
@@ -119,5 +124,17 @@ module.exports.general = [
                 }
             }
         });
+    }
+]
+
+module.exports.noDepartment = [
+    (session) => {
+        builder.Prompts.choice(session, consts.prompts.NO_DEPARTMENT, consts.choices.SUBSCRIBE, consts.styles.button);
+
+    },
+    (session,results) => {
+        var dep = results.response.entity;
+        usersession.createUserNoSub(session, dep);
+        session.replaceDialog('/depAnnouncements')
     }
 ]
