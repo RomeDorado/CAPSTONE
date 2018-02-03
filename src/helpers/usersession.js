@@ -65,7 +65,7 @@ exports.createUserIfUnique = function (event, dep){
     });
 }
 
-exports.createUserNoSub = function (event, dep){ 
+exports.createUserNoSub = async function (event, dep){
     // if(dep == null){
     //     dep = "unset";
     // }

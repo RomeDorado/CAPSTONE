@@ -138,9 +138,9 @@ module.exports.noDepartment = [
         builder.Prompts.choice(session, consts.prompts.NO_DEPARTMENT, consts.choices.SUBSCRIBE, consts.styles.button);
 
     },
-    (session,results) => {
+    async (session,results) => {
         var dep = results.response.entity;
-        usersession.createUserNoSub(session, dep);        
+        await usersession.createUserNoSub(session, dep);        
         session.replaceDialog('/depAnnouncements')
     }
 ]
