@@ -17,7 +17,8 @@ NO_GENERAL_ANNOUNCEMENTS: 'No announcements yet from the IICS office',
 CHECK_DOCUMENT: 'Please enter the tracking code for your document',
 DEPARTMENT_ANNOUNCEMENTS: `Date announced: {0}`,
 GENERAL_ANNOUNCEMENTS: `Date announced: {0}`,
-LIVE_CHAT_WAIT: 'Please wait as I connect you to an IICS office personnel'
+LIVE_CHAT_WAIT: 'Please wait as I connect you to an IICS office personnel',
+NEW_DEPARTMENT: 'Here are the announcements from your department'
 }
 
 exports.menus = {

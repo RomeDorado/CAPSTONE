@@ -38,7 +38,10 @@ module.exports.department = [
             if(res.d.department == "unset"){
                 session.replaceDialog('/noDepAnnouncements');
             }
-        });
+            else{
+
+            
+        
             var options = {
                 method: 'GET',
                 url: 'https://iics-blast-service.herokuapp.com/api/cms/blast/getDepAnnouncements',
@@ -62,7 +65,8 @@ module.exports.department = [
                     session.endDialog(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);
                 // } else if (){
                 
-                }else{                        
+                }else{      
+                    session.send(consts.prompts.NEW_DEPARTMENT);                  
                     for(var x = 0; x < body.d.length; x++){
                         var date = new Date(body.d[x].datetime).toDateString()
                                         
@@ -79,7 +83,9 @@ module.exports.department = [
                         }                    
                     }
                 }
-            });        
+            });  
+        }//end else
+        });      
     }
 ]
 
@@ -106,7 +112,7 @@ module.exports.general = [
             var index = 0;
             if (typeof body.d[index] == 'undefined'){
                 session.endDialog(consts.prompts.NO_GENERAL_ANNOUNCEMENTS);
-            }else{
+            }else{            
                 for(var x = 0; x < body.d.length; x++){
                     var date = new Date(body.d[x].datetime).toDateString()
                                        
@@ -134,7 +140,7 @@ module.exports.noDepartment = [
     },
     (session,results) => {
         var dep = results.response.entity;
-        usersession.createUserNoSub(session, dep);
+        usersession.createUserNoSub(session, dep);        
         session.replaceDialog('/depAnnouncements')
     }
 ]
