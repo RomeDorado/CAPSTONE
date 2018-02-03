@@ -14,7 +14,7 @@ module.exports = [
                 usersession.createUserLiveChat(session, null);
             }
             api.checkAdmin(session);            
-            await session.endConversation(consts.prompts.LIVE_CHAT_WAIT);
+            session.endConversation(consts.prompts.LIVE_CHAT_WAIT);
             usersession.livechat(session);
         });
         
