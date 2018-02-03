@@ -66,6 +66,7 @@ exports.createUserIfUnique = function (event, dep){
 }
 
 exports.createUserNoSub = async function (event, dep){
+    return new Promise((resolve, reject) => {
     // if(dep == null){
     //     dep = "unset";
     // }
@@ -91,8 +92,9 @@ exports.createUserNoSub = async function (event, dep){
         };
 
         request(options, function (error, response, body) {
-        if (error) throw new Error(error);
-
+        if (error) reject(error);;
+        resolve(response);
+        });
     });
 }
 
