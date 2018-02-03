@@ -62,8 +62,7 @@ module.exports.department = [
 
                 var index = 0;
                 if (typeof body.d[index] == 'undefined'){
-                    session.endDialog(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);
-                // } else if (){
+                    session.endDialog(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);                
                 
                 }else{      
                     session.send(consts.prompts.NEW_DEPARTMENT);                  
@@ -82,6 +81,7 @@ module.exports.department = [
                         session.send(img);
                         }                    
                     }
+                    session.endConversation();
                 }
             });  
         }//end else
