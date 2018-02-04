@@ -120,9 +120,8 @@ module.exports.checkUserMW =
 
 module.exports.checkAdmin = 
 async (session)  => {
-    var now = moment().add(5, 'minutes').startOf('minute');  
-    var time = now;
-console.log(time);
+    var time = moment().add(5, 'minutes').startOf('minute');  
+    // var time = now;
     var options = {
         method: 'POST',
         url: 'https://iics-usersessions.herokuapp.com/api/bot/startLive',
@@ -131,8 +130,10 @@ console.log(time);
             'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
             'content-type': 'application/json' 
         },
-        qs:{
-                client: "iics",                
+        qr: {
+            client: "iics"
+        },
+        body:{                              
                 id: session.message.address.user.id, 
                 access: false,
                 timestamp: time                          
