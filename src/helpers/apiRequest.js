@@ -119,7 +119,7 @@ module.exports.checkUserMW =
 }
 
 module.exports.checkAdmin = 
-(session)  => {
+async (session)  => {
     var now = moment().add(5, 'minutes').startOf('minute');  
     var time = now;
 

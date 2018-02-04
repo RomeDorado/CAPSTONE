@@ -9,11 +9,11 @@ const usersession = require('../helpers/usersession');
 
 module.exports = [
     async (session) => {
-        api.checkUser(session, (err, res) => {
+        api.checkUser(session, async (err, res) => {
             if(res.d == "Resource not found."){
                 usersession.createUserLiveChat(session, null);
             }
-            api.checkAdmin(session);            
+            await api.checkAdmin(session);            
             session.endConversation(consts.prompts.LIVE_CHAT_WAIT);
             usersession.livechat(session);
         });
