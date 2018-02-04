@@ -134,6 +134,7 @@ async (session)  => {
             client: "iics"
         },
         body:{                              
+                client: "iics",
                 id: session.message.address.user.id, 
                 access: false,
                 timestamp: time                          
