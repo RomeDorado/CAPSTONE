@@ -1,6 +1,6 @@
 const request = require('request');
 const format = require('string-format');
-const moment = require('moment-timezone');
+const moment = require('moment');
 
 /**CARDS API */
 module.exports = 
@@ -120,8 +120,8 @@ module.exports.checkUserMW =
 
 module.exports.checkAdmin = 
 (session)  => {
-    var now = moment();        
-    var time = now.tz('Asia/Taipei').format();
+    var now = moment().add(5, 'minutes').startOf('minute');  
+    var time = now;
 
     var options = {
         method: 'POST',

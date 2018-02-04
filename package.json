@@ -12,6 +12,7 @@
   "dependencies": {
     "botbuilder": "^3.13.1",
     "botbuilder-quickreplies": "^1.1.1",
+    "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
     "node-wit": "^4.3.0",
     "nodemon": "^1.11.0",
