@@ -122,7 +122,7 @@ module.exports.checkAdmin =
 async (session)  => {
     var now = moment().add(5, 'minutes').startOf('minute');  
     var time = now;
-
+console.log(time);
     var options = {
         method: 'POST',
         url: 'https://iics-usersessions.herokuapp.com/api/bot/startLive',
