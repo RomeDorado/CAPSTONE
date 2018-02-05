@@ -111,6 +111,7 @@ module.exports.general = [
             request(options, function (error, response, body) {                  
             if (error) throw new Error(error);
             var index = 0;
+            console.log(body.d)
             if (typeof body.d[index] == 'undefined'){
                 session.endDialog(consts.prompts.NO_GENERAL_ANNOUNCEMENTS);
             }else{            
