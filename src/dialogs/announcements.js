@@ -61,7 +61,8 @@ module.exports.department = [
                 if (error) throw new Error(error);
 
                 var index = 0;
-                if (typeof body.d[index] == 'undefined'){
+                // if (typeof body.d[index] == 'undefined'){
+                if (body.d == []){
                     session.endDialog(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);                
                 
                 }else{      
@@ -112,7 +113,8 @@ module.exports.general = [
             if (error) throw new Error(error);
             var index = 0;
             console.log(body.d)
-            if (typeof body.d[index] == 'undefined'){
+            // if (typeof body.d[index] == 'undefined'){
+            if (body.d == []){
                 session.endDialog(consts.prompts.NO_GENERAL_ANNOUNCEMENTS);
             }else{            
                 for(var x = 0; x < body.d.length; x++){
