@@ -116,7 +116,7 @@ module.exports.general = [
             console.log(body.d)
             // if (typeof body.d[index] == 'undefined'){
             if (!body.d[0]){
-                session.endDialog(consts.prompts.NO_GENERAL_ANNOUNCEMENTS);
+                session.endConversation(consts.prompts.NO_GENERAL_ANNOUNCEMENTS);
             }else{            
                 for(var x = 0; x < body.d.length; x++){
                     var date = new Date(body.d[x].datetime).toDateString()
