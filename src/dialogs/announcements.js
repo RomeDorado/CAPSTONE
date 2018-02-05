@@ -64,7 +64,7 @@ module.exports.department = [
                 // if (typeof body.d[index] == 'undefined'){
                 if (!body.d[0]){
                     console.log("null ang body")
-                    session.endDialog(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);                
+                    session.endConversation(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);                
                 
                 }else{      
                     session.send(consts.prompts.NEW_DEPARTMENT);                  
