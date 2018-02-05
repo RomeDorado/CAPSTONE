@@ -81,11 +81,12 @@ module.exports.department = [
                         session.send(img);
                         }                    
                     }
-                    session.endConversation();
+                    
                 }
             });  
         }//end else
         });      
+        session.endConversation();
     }
 ]
 
