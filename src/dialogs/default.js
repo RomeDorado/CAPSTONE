@@ -13,9 +13,9 @@ module.exports =
             var answer = session.message.text;
             var ans = answer.split("_");
             if(ans[0] == "😄"){
-
+                session.replaceDialog("/Rating", ans[1]);
             }else if(ans[0] == "😒"){
-
+                session.replaceDialog("/Rating/Sad", ans[1]);
             }else{
                     if(!res.d.onSupport){                
                         console.log(session.message.user.name);
