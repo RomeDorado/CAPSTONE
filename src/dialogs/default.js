@@ -11,7 +11,7 @@ module.exports =
         
         api.checkUser(session, (err, res) => {
             if(!res.d.onSupport){      
-
+                console.log(session.message.text)
                 console.log(session.message.user.name);
                 var entity = args || session.message.text;
                 const client = new Wit({accessToken: WIT_TOKEN});
@@ -125,6 +125,9 @@ function getWitIntents(intent, professor, time, session){
                 //trigger tix or live chat
                 break;
 
+                case '😄':
+                session.send("happy ako");
+                break;
                 default:
                 //do you want to send a tix
                 session.replaceDialog('/Confusion');
