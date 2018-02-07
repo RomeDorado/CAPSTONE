@@ -9,6 +9,12 @@ const usersession = require('../helpers/usersession');
 
 module.exports.happy = [
     async (session, args) => {
+        var answer = args.split("/");
+
+        if(answer[0] == "😒"){
+            session.replaceDialog("/Rating/Sad", answer[1]);
+        }
+        else{        
 
         var options = {
             method: 'PUT',
@@ -20,7 +26,7 @@ module.exports.happy = [
             },
             qs: {
                 client: "iics",
-                username: args,
+                username: answer[1],
                 rating: "happy"
             },              
             json: true  
@@ -29,7 +35,8 @@ module.exports.happy = [
             request(options, function (error, response, body) {                    
             if (error) throw new Error(error);        
             console.log(body, "check admin")
-            });                
+            });                        
+        }
     }
 ]
 

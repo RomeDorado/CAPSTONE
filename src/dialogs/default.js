@@ -8,45 +8,43 @@ const {Wit, log} = require('node-wit');
 module.exports =
 [
     (session, args, next) => {
+        var answer = session.message.text
+        if(answer.includes("/")){
+            session.replaceDialog("/Rating", answer);
+        }else{
         
-        api.checkUser(session, (err, res) => {
-            var answer = session.message.text;
-            // var ans = answer.split("_");
-            // if(ans[0] == "😄"){
-            //     session.replaceDialog("/Rating", ans[1]);
-            // }else if(ans[0] == "😒"){
-            //     session.replaceDialog("/Rating/Sad", ans[1]);
-            // }else{
-                    if(!res.d.onSupport){                
-                        console.log(session.message.user.name);
-                        var entity = args || session.message.text;
-                        const client = new Wit({accessToken: WIT_TOKEN});
+            api.checkUser(session, (err, res) => {
+                if(!res.d.onSupport){      
 
-                            client.message(entity, {})
-                            .then((data) => {
-                                var results = data;
-                                var entities = results.entities;
-                                    console.log(JSON.stringify(entities));
-                                    if(entities.intent == (null || undefined)){
-                                        //send tix?
-                                        }else{
-                                            var intent = entities.intent[0].value;
-                                        }
+                    console.log(session.message.user.name);
+                    var entity = args || session.message.text;
+                    const client = new Wit({accessToken: WIT_TOKEN});
 
-                                    console.log(intent);
-                                    if(('professor' in entities)){var professor = entities.professor[0].value;}
-                                    if(('time' in entities)){var time = entities.time[0].value;}
-                                        // if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
-                                        // if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
-                                    getWitIntents(intent, professor, time, session);
+                        client.message(entity, {})
+                        .then((data) => {
+                            var results = data;
+                            var entities = results.entities;
+                                console.log(JSON.stringify(entities));
+                                if(entities.intent == (null || undefined)){
+                                    //send tix?
+                                    }else{
+                                        var intent = entities.intent[0].value;
+                                    }
 
-                            })
-                            .catch(console.error)
-                    }
-                // }
+                                console.log(intent);
+                                if(('professor' in entities)){var professor = entities.professor[0].value;}
+                                if(('time' in entities)){var time = entities.time[0].value;}
+                                    // if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
+                                    // if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
+                                getWitIntents(intent, professor, time, session);
+
+                        })
+                        .catch(console.error)
+                }
 
             });
         }
+    }
 ]
 
 
@@ -132,9 +130,6 @@ function getWitIntents(intent, professor, time, session){
                 //trigger tix or live chat
                 break;
 
-                case '😄':
-                session.send("happy ako");
-                break;
                 default:
                 //do you want to send a tix
                 session.replaceDialog('/Confusion');
