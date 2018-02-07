@@ -34,7 +34,7 @@ module.exports.happy = [
     
             request(options, function (error, response, body) {                    
             if (error) throw new Error(error);        
-            console.log(body, "check admin")
+            session.endConversation(consts.prompts.AFTER_RATING)
             });                        
         }
     }
