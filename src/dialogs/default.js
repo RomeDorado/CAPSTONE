@@ -52,12 +52,7 @@ module.exports =
 function getWitIntents(intent, professor, time, session){
     switch(intent){
 
-        case 'get_greetings':
-            // let random = [ 'Hey! Welcome to IICS Bot! How may I help you?',
-            //                     'Heeyy!! What can I do for you today?',
-            //                   'Sup! What can I do for you today?'];
-            // let reply = random[Math.floor(Math.random() * random.length)];
-            // session.send(reply);
+        case 'get_greetings':            
             session.replaceDialog('/Replies', intent);
         break;
 
