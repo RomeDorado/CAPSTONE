@@ -65,6 +65,10 @@ function getWitIntents(intent, professor, time, session){
             session.beginDialog('/mainMenu');
         break;
 
+        case 'get_inquiry_cs_about':
+            session.replaceDialog('/Replies', intent);
+        break;
+
         case 'get_farewell':
             session.send(' Just hit me up whenever you need me :)');
         break;
@@ -113,27 +117,28 @@ function getWitIntents(intent, professor, time, session){
             }
         break;
 
-                case 'get_faculty_inquiry':
-                    session.replaceDialog('/CheckAccess');
-                    // session.replaceDialog('/FacultyInquiry')
-                break;
+        case 'get_faculty_inquiry':
+            session.replaceDialog('/CheckAccess');
+            // session.replaceDialog('/FacultyInquiry')
+        break;
 
-                case 'get_document_status':
-                    //dialog docu
-                    session.replaceDialog('/Documents');
-                break;
-                case 'get_about':
-                    //about iics
-                break;
+        case 'get_document_status':
+            //dialog docu
+            session.replaceDialog('/Documents');
+        break;
+        
+        case 'get_about':
+            //about iics
+        break;
 
-                case 'get_help':
-                //trigger tix or live chat
-                break;
+        case 'get_help':
+        //trigger tix or live chat
+        break;
 
-                default:
-                //do you want to send a tix
-                session.replaceDialog('/Confusion');
-                break;
+        default:
+        //do you want to send a tix
+        session.replaceDialog('/Confusion');
+        break;
 
         break;
     }
