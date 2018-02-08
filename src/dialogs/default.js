@@ -65,7 +65,7 @@ function getWitIntents(intent, professor, time, session){
             session.beginDialog('/mainMenu');
         break;
 
-        case 'get_inquiry_cs_about':
+        case 'get_inquiry_cs_about_general':
             session.replaceDialog('/Replies', intent);
         break;
 
