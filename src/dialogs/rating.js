@@ -17,8 +17,8 @@ module.exports.happy = [
         else{        
 
         var options = {
-            method: 'PUT',
-            url: 'https://iics-user-service.herokuapp.com/api/rating',
+            method: 'PUT',            
+            url: 'https://iics-ticketing-api.herokuapp.com/api/rating',
             headers: 
             {
                 'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -26,9 +26,11 @@ module.exports.happy = [
             },
             qs: {
                 client: "iics",
-                username: answer[1],
-                rating: "happy"
             },              
+            body:{
+                id: answer[1],
+                rating: "Happy"
+            },
             json: true  
             };
     
@@ -44,8 +46,8 @@ module.exports.sad = [
     async (session, args) => {
 
         var options = {
-            method: 'PUT',
-            url: 'https://iics-user-service.herokuapp.com/api/rating',
+            method: 'PUT',            
+            url: 'https://iics-ticketing-api.herokuapp.com/api/rating',
             headers: 
             {
                 'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -53,9 +55,11 @@ module.exports.sad = [
             },
             qs: {
                 client: "iics",
-                username: args,
-                rating: "sad"
             },              
+            body:{
+                id: answer[1],
+                rating: "Sad"
+            },
             json: true  
             };
     
