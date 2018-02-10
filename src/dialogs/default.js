@@ -154,7 +154,11 @@ function getWitIntents(intent, professor, time, session){
 
         case 'get_inquiry_iics_supportstaff':
         session.replaceDialog('/Replies', intent);
-        break;        
+        break;   
+        
+        case 'get_inquiry_iics_contact':
+        session.replaceDialog('/Replies', intent);
+        break;         
 
         case 'get_farewell':
             session.send(' Just hit me up whenever you need me :)');
