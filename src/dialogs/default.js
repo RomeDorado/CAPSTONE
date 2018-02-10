@@ -65,13 +65,37 @@ function getWitIntents(intent, professor, time, session){
             session.beginDialog('/mainMenu');
         break;
 
-        case 'get_inquiry_cs_about_general':
+        case 'get_inquiry_it_about_general':
             session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_it_about_general':
+        case 'get_inquiry_it_about_chair':
         session.replaceDialog('/Replies', intent);
         break;
+
+        case 'get_inquiry_it_about_netsec':
+            session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_it_about_webdev':
+        session.replaceDialog('/Replies', intent);
+        break;        
+
+        case 'get_inquiry_it_about_robotics':
+            session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_cs_about_general':
+        session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_cs_about_chair':
+            session.replaceDialog('/Replies', intent);
+        break;
+
+        case '':
+        session.replaceDialog('/Replies', intent);
+        break;            
 
         case 'get_farewell':
             session.send(' Just hit me up whenever you need me :)');
