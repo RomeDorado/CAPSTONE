@@ -88,9 +88,73 @@ function getWitIntents(intent, professor, time, session){
             session.replaceDialog('/Replies', intent);
         break;
 
-        case '':
+        case 'get_inquiry_cs_about_corecs':
         session.replaceDialog('/Replies', intent);
-        break;            
+        break;
+
+        case 'get_inquiry_cs_about_gamedev':
+        session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_cs_about_datasci':
+        session.replaceDialog('/Replies', intent);
+        break;        
+        
+        case 'get_inquiry_is_about_general':
+        session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_is_about_chair':
+        session.replaceDialog('/Replies', intent);
+        break;     
+        
+        case 'get_inquiry_is_about_ba':
+        session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_is_about_sm':
+        session.replaceDialog('/Replies', intent);
+        break;
+        
+        case 'get_inquiry_iics_about_general':
+        session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_iics_about_history':
+        session.replaceDialog('/Replies', intent);
+        break;
+        
+        case 'get_inquiry_iics_about_vision':
+        session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_iics_about_mission':
+        session.replaceDialog('/Replies', intent);
+        break;
+        
+        case 'get_inquiry_administrators':
+        session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_iics_director':
+        session.replaceDialog('/Replies', intent);
+        break;
+        
+        case 'get_inquiry_iics_regent':
+        session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_iics_secretary':
+        session.replaceDialog('/Replies', intent);
+        break;
+        
+        case 'get_inquiry_iics_chairpersons':
+        session.replaceDialog('/Replies', intent);
+        break;
+
+        case 'get_inquiry_iics_supportstaff':
+        session.replaceDialog('/Replies', intent);
+        break;        
 
         case 'get_farewell':
             session.send(' Just hit me up whenever you need me :)');
