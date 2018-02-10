@@ -34,7 +34,7 @@ module.exports.happy = [
             json: true  
             };
     
-            request(options, function (error, response, body) {                    
+            request(options, function (error, response, body) {                   
             if (error) throw new Error(error);        
             session.endConversation(consts.prompts.AFTER_RATING)
             });                        
@@ -65,7 +65,7 @@ module.exports.sad = [
     
             request(options, function (error, response, body) {                    
             if (error) throw new Error(error);        
-            console.log(body, "check admin")
+            session.endConversation(consts.prompts.AFTER_RATING)
             });                
     }
 ]
