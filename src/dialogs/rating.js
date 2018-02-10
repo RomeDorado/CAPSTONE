@@ -57,7 +57,7 @@ module.exports.sad = [
                 client: "iics",
             },              
             body:{
-                id: answer[1],
+                id: args,
                 rating: "Sad"
             },
             json: true  
