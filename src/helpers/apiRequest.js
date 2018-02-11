@@ -150,6 +150,7 @@ async (session)  => {
 
 module.exports.createProfanity = 
 async (session, name)  => {
+    var time = moment().add(8, 'hours');
     var option = {
         
         method: 'POST',
