@@ -182,6 +182,13 @@ function getWitIntents(intent, professor, time, session){
                           'Ey dude, that\'s not cool!'];
             let replyprof = randomprof[Math.floor(Math.random() * randomprof.length)];
             session.send(replyprof);
+
+            api.userProfile(session.message.user.id, 'first_name', (err, res) => {
+                if (!err) {
+                        api.createProfanity(session, name);            
+                }
+            });
+
         break;
 
         case 'get_apology':
