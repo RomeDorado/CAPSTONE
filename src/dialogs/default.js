@@ -183,11 +183,7 @@ function getWitIntents(intent, professor, time, session){
             let replyprof = randomprof[Math.floor(Math.random() * randomprof.length)];
             session.send(replyprof);
 
-            api.userProfile(session.message.user.id, 'first_name', (err, res) => {
-                if (!err) {
-                        api.createProfanity(session, res.first_name);            
-                }
-            });
+            session.replaceDialog("/Profanity");
 
         break;
 

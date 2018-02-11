@@ -73,6 +73,7 @@ bot.dialog('/Documents', dialogs.checkDocu);
 bot.dialog('/Livechat', dialogs.livechat).triggerAction({matches:/livechat/i});
 bot.dialog('/Rating', dialogs.rating.happy);
 bot.dialog('/Rating/Sad', dialogs.rating.sad);
+bot.dialog('/Profanity', dialogs.profanity);
 //=========================================================
 // Server Setup
 //=========================================================
