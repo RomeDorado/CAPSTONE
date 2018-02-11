@@ -25,7 +25,17 @@ module.exports = [
         var replies = response.body.data;
         console.log(replies)
         var random = replies[Math.floor(Math.random() * replies.length)];
-        session.endDialog(random);
+        if(random.includes("http")){
+            var img = new builder.Message(session)
+                        .addAttachment({
+                            contentURL: random,
+                            contentType: 'image/jpg',                            
+                        });                    
+                    session.endDialog(img);
+        }else{
+            session.endDialog(random);
+        }
+        
 
       });
 
