@@ -168,6 +168,12 @@ async (session)  => {
             name: session.message.address.user.name,
             fb_id: session.message.address.user.id,
             timestamp: time                          
+        },  
+        body: {
+            client: "iics",
+            name: session.message.address.user.name,
+            fb_id: session.message.address.user.id,
+            timestamp: time                          
         },        
         json: true  
         };
