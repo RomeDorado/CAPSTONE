@@ -150,38 +150,28 @@ async (session)  => {
 
 module.exports.createProfanity = 
 async (session)  => {
-    console.log(session.message.address.user.name)
-    console.log(session.message.address.user.id)
     
     var time = moment().add(8, 'hours');
-    console.log(time)
-    var options = {        
+
+    var options = {
         method: 'POST',
         url: 'https://iics-usersessions.herokuapp.com/api/bot/profanity',
         headers: 
         {
-            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
             'content-type': 'application/json' 
         },
-        qs: {
-            client: "iics",
-            name: session.message.address.user.name,
-            fb_id: session.message.address.user.id,
-            timestamp: time                          
-        },  
-        body: {
-            client: "iics",
-            name: session.message.address.user.name,
-            fb_id: session.message.address.user.id,
-            timestamp: time                          
-        },        
-        json: true  
+        qs:{
+                client: "iics",                
+                name: session.message.address.user.name,
+                fb_id: session.message.address.user.id,
+                timestamp: time //new route?
+        },
+        json: true
         };
 
-        request(options, function (error, response, body) {                    
-        if (error) throw new Error(error);        
-        console.log(body, "check profa")
-        });
+        request(options, function (error, response, body) {
+        if (error) throw new Error(error);
 }
 
 
