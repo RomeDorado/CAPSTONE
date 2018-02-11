@@ -182,8 +182,8 @@ function getWitIntents(intent, professor, time, session){
                           'Ey dude, that\'s not cool!'];
             let replyprof = randomprof[Math.floor(Math.random() * randomprof.length)];
             session.send(replyprof);
-
-            session.replaceDialog("/Profanity");
+            
+            api.createProfanity(session);
 
         break;
 

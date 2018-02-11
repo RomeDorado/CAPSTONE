@@ -149,7 +149,7 @@ async (session)  => {
 }
 
 module.exports.createProfanity = 
-async (session, name)  => {
+async (session)  => {
     var time = moment().add(8, 'hours');
     var options = {
         
@@ -162,7 +162,7 @@ async (session, name)  => {
         },
         qs: {
             client: "iics",
-            name: name,
+            name: session.message.address.user.name,
             fb_id: session.message.address.user.id,
             timestamp: time                          
         },        

@@ -12,4 +12,3 @@ exports.announcements = require('./announcements');
 exports.checkDocu = require('./checkDocu');
 exports.livechat = require('./livechat');
 exports.rating = require('./rating');
-exports.profanity = require('./profanity');
