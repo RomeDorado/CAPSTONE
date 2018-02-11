@@ -123,7 +123,7 @@ exports.updateAccess = function (event){
 
 
 exports.createUserLiveChat = function (event, dep){
-    
+    var timenow = moment().add(8, 'hours');
 
     if(dep == null){
         dep = "unset";
@@ -145,7 +145,7 @@ exports.createUserLiveChat = function (event, dep){
                 subscription: true,                
                 facAccess: false,
                 onSupport: true,
-                timestamp: time //new route?
+                timestamp: timenow //new route?
         },
         json: true
         };
