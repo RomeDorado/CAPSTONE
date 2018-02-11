@@ -185,7 +185,7 @@ function getWitIntents(intent, professor, time, session){
 
             api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                 if (!err) {
-                        api.createProfanity(session, name);            
+                        api.createProfanity(session, res.first_name);            
                 }
             });
 
