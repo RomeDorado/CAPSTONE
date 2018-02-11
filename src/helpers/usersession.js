@@ -2,7 +2,7 @@ var request = require('request');
 const moment = require('moment-timezone');
 const api = require('./apiRequest')
 var now = moment();        
-var time = now.tz('Asia/Taipei').format();
+var time =  moment().add(5, 'minutes').startOf('minute');  
 
 exports.newMessageFromBot = function (params){
     console.log("new message from bot")
@@ -48,7 +48,8 @@ exports.createUserIfUnique = function (event, dep){
             'content-type': 'application/json' 
         },
         qs:{
-                client: "iics",                
+                client: "iics", 
+                timestamp: time,               
                 user_name: event.message.user.name,
                 fb_id: event.message.address.user.id,                             
                 department: dep,
@@ -69,7 +70,7 @@ exports.createUserNoSub = async function (event, dep){
     return new Promise((resolve, reject) => {
     // if(dep == null){
     //     dep = "unset";
-    // }
+    // }    
     console.log("reached createUser in bot");
     var options = {
         method: 'POST',
@@ -81,6 +82,7 @@ exports.createUserNoSub = async function (event, dep){
         },
         qs:{
                 client: "iics",                
+                timestamp: time,
                 user_name: event.message.user.name,
                 fb_id: event.message.address.user.id,                             
                 department: dep,
