@@ -152,7 +152,9 @@ module.exports.createProfanity =
 async (session)  => {
     console.log(session.message.address.user.name)
     console.log(session.message.address.user.id)
+    
     var time = moment().add(8, 'hours');
+    console.log(time)
     var options = {        
         method: 'POST',
         url: 'https://iics-usersessions.herokuapp.com/api/bot/profanity',
