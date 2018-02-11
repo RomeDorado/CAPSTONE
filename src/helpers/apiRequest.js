@@ -160,7 +160,7 @@ async (session, name)  => {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
             'content-type': 'application/json' 
         },
-        qr: {
+        qs: {
             client: "iics",
             name: name,
             fb_id: session.message.address.user.id,
