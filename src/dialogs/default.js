@@ -176,6 +176,18 @@ function getWitIntents(intent, professor, time, session){
         session.replaceDialog('/Replies', intent);
         break;  
 
+        case 'get_inquiry_iics_shifter':
+        session.replaceDialog('/Replies', intent);
+        break; 
+        
+        case 'get_inquiry_iics_transferee':
+        session.replaceDialog('/Replies', intent);
+        break;         
+
+        case 'get_inquiry_iics_seconddegree':
+        session.replaceDialog('/Replies', intent);
+        break; 
+
         case 'get_farewell':
             session.send(' Just hit me up whenever you need me :)');
         break;
