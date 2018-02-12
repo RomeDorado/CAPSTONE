@@ -77,7 +77,7 @@ module.exports.checkUser =
         url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
         headers: 
         {
-            'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
             'content-type': 'application/json' 
         },
         qs:{
@@ -101,7 +101,7 @@ module.exports.checkUserMW =
         url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
         headers: 
         {
-            'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
             'content-type': 'application/json' 
         },
         qs:{
@@ -127,7 +127,7 @@ async (session)  => {
         url: 'https://iics-usersessions.herokuapp.com/api/bot/startLive',
         headers: 
         {
-            'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
             'content-type': 'application/json' 
         },
         qr: {
@@ -145,6 +145,37 @@ async (session)  => {
         request(options, function (error, response, body) {                    
         if (error) throw new Error(error);        
         console.log(body, "check admin")
+        });
+}
+
+module.exports.createProfanity = 
+async (session)  => {
+    
+    var time = moment().add(8, 'hours');
+
+    var options = {
+        method: 'POST',
+        url: 'https://iics-usersessions.herokuapp.com/api/bot/profanity',
+        headers: 
+        {
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qr: {
+            client: "iics"
+        },
+        body:{
+                client: "iics",                
+                name: session.message.address.user.name,
+                fb_id: session.message.address.user.id,
+                timestamp: time //new route?
+        },
+        json: true
+        };
+
+        request(options, async function (error, response, body) {
+        if (error) throw new Error(error);
+        console.log(response)
         });
 }
 

@@ -15,7 +15,7 @@ module.exports =
                 url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
                 headers: 
                 {
-                    'authorization-token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+                    'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
                     'content-type': 'application/json' 
                 },
                 qs:{

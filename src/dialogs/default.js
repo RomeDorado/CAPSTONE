@@ -180,12 +180,16 @@ function getWitIntents(intent, professor, time, session){
         break;
 
         case 'get_profanity':
+        api.createProfanity(session);
             let randomprof = ['Hey! Sorry for whatever prompted you to say that. To make your experience better, why not party with us at IICS BOT? :)',
                               '💩💩💩',
                             'Duuuuude!',
                           'Ey dude, that\'s not cool!'];
             let replyprof = randomprof[Math.floor(Math.random() * randomprof.length)];
             session.send(replyprof);
+            
+            
+
         break;
 
         case 'get_apology':
