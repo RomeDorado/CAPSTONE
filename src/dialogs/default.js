@@ -168,7 +168,7 @@ function getWitIntents(intent, professor, time, session){
         session.replaceDialog('/Replies', intent);
         break; 
 
-        case 'get_inquiry_IT_tuition':
+        case 'get_inquiry_IS_tuition':
         session.replaceDialog('/Replies', intent);
         break;        
 
@@ -186,7 +186,11 @@ function getWitIntents(intent, professor, time, session){
 
         case 'get_inquiry_IICS_seconddegree':
         session.replaceDialog('/Replies', intent);
-        break; 
+        break;
+
+        case 'get_inquiry_IICS_enrollment':
+        session.replaceDialog('/Replies', intent);
+        break;
 
         case 'get_farewell':
             session.send(' Just hit me up whenever you need me :)');
