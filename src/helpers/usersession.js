@@ -53,7 +53,7 @@ exports.createUserIfUnique = function (event, dep){
                 fb_id: event.message.address.user.id,                             
                 department: dep,
                 subscription: true,                
-                facAccess: false,
+                facAccess: true,//because subscribed and verified
                 onSupport: false
         },
         json: true
@@ -142,7 +142,7 @@ exports.createUserLiveChat = function (event, dep){
                 user_name: event.message.user.name,
                 fb_id: event.message.address.user.id,                             
                 department: dep,
-                subscription: true,                
+                subscription: false,
                 facAccess: false,
                 onSupport: true,
                 timestamp: time //new route?

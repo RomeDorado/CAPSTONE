@@ -49,7 +49,7 @@ module.exports.userProfile =
     }
 
     request(options, (err, httpRes, body) => {
-        !err ? callback(null, JSON.parse(body)) : callback(err, body); 
+        !err ? callback(null, JSON.parse(body)) : callback(err, body);
     })
 }
 
@@ -179,7 +179,34 @@ async (session)  => {
         });
 }
 
+module.exports.checkEmail = 
+async (session, email, callback)  => {
+    console.log("im here")
+    console.log(email)
+    var options = {
+        method: 'GET',
+        url: 'https://iics-user-service.herokuapp.com/api/access',
+        headers: 
+        {
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs: {
+            client: "iics",
+            email: email
+        },
+        body:{                              
+                client: "iics",
+                email: email                      
+        },       
+        json: true  
+        };
 
+        request(options, (error, response, body) => {   
+        if (error) throw new Error(error);    
+        callback (null, body);        
+        });
+}
 /**END */
 
 
