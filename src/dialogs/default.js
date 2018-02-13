@@ -140,7 +140,7 @@ function getWitIntents(intent, professor, time, session){
         session.replaceDialog('/Replies', intent);
         break;
         
-        case 'get_inquiry_iics_regent':
+        case 'get_inquiry_IICS_regent':
         session.replaceDialog('/Replies', intent);
         break;
 
