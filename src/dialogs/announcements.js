@@ -66,7 +66,7 @@ module.exports.department = [
                     console.log("null ang body")
                     session.endConversation(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);                
                 
-                }else{      
+                }else{
                     session.send(consts.prompts.NEW_DEPARTMENT);                  
                     for(var x = 0; x < body.d.length; x++){
                         var date = new Date(body.d[x].datetime).toDateString()
@@ -140,13 +140,51 @@ module.exports.general = [
 ]
 
 module.exports.noDepartment = [
-    (session) => {
-        builder.Prompts.choice(session, consts.prompts.NO_DEPARTMENT, consts.choices.SUBSCRIBE, consts.styles.button);
-
-    },
+    (session, args) => {
+        if (args == undefined){
+            builder.Prompts.text(session, consts.prompts.NO_DEPARTMENT, { maxRetries:0,promptAfterAction:false});
+        }
+        else {
+            builder.Prompts.text(session, consts.prompts.DEPARTMENT_SECOND, { maxRetries:0,promptAfterAction:false});
+        }
+    },    
     async (session,results) => {
-        var dep = results.response.entity;
-        await usersession.createUserNoSub(session, dep);        
-        session.replaceDialog('/depAnnouncements')
+        var email = results.response;
+
+        var domain = email.split("@");
+
+        if(domain[1] == "ust-ics.mygbiz.com" || (email.includes("iics") && domain[1] == "ust.edu.ph")){
+            api.checkEmail(session, email, (err, res)=> {    
+                if(res.success){
+                    var department = res.data[0].Department;
+                    var stringDep = "";                    
+                    var nameAllCaps = res.data[0].First_Name + " " + res.data[0].Last_Name
+                    var nameConvert = nameAllCaps.toLowerCase();
+                    var name = nameConvert.replace(/(^|\s)[a-z]/g,function(f){return f.toUpperCase();});
+                    if(department == "IT") stringDep = "Information Technology Department"
+                    if(department == "CS") stringDep = "Computer Science Department"
+                    if(department == "IS") stringDep = "Information Systems Department"
+                    // await usersession.createUserNoSub(session, dep);      
+                        usersession.createUserNoSub(session, department);      
+                        session.endDialog(format(consts.prompts.VERIFIED_EMAIL_ANNOUNCEMENT, name, stringDep)); 
+                        session.replaceDialog('/depAnnouncements')                                           
+                    
+                }else{
+                    console.log("wrong email format")
+                    session.send(consts.prompts.INVALID_EMAIL);
+                    var cardName = card.getName(consts.menus.enter_email);
+                    var msg = card(session, consts.menus.enter_email, cardName);
+                    builder.Prompts.choice(session, msg, card.choices(consts.menus.enter_email), { maxRetries:0,promptAfterAction:false});
+                }            
+            });
+
+
+        }else{
+            console.log("wrong email format")
+            session.send(consts.prompts.INVALID_EMAIL);
+            var cardName = card.getName(consts.menus.enter_email);
+            var msg = card(session, consts.menus.enter_email, cardName);
+            builder.Prompts.choice(session, msg, card.choices(consts.menus.enter_email), { maxRetries:0,promptAfterAction:false});
+        }
     }
 ]
