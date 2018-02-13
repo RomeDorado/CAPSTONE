@@ -60,83 +60,83 @@ function getWitIntents(intent, professor, time, session){
             session.beginDialog('/mainMenu');
         break;
 
-        case 'get_inquiry_it_about_general':
+        case 'get_inquiry_IT_about_general':
             session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_it_about_chair':
+        case 'get_inquiry_IT_about_chair':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_it_about_netsec':
+        case 'get_inquiry_IT_about_netsec':
             session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_it_about_webdev':
+        case 'get_inquiry_IT_about_webdev':
         session.replaceDialog('/Replies', intent);
         break;        
 
-        case 'get_inquiry_it_about_robotics':
+        case 'get_inquiry_IT_about_robotics':
             session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_cs_about_general':
+        case 'get_inquiry_CS_about_general':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_cs_about_chair':
+        case 'get_inquiry_CS_about_chair':
             session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_cs_about_corecs':
+        case 'get_inquiry_CS_about_corecs':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_cs_about_gamedev':
+        case 'get_inquiry_CS_about_gamedev':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_cs_about_datasci':
+        case 'get_inquiry_CS_about_datasci':
         session.replaceDialog('/Replies', intent);
         break;        
         
-        case 'get_inquiry_is_about_general':
+        case 'get_inquiry_IS_about_general':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_is_about_chair':
+        case 'get_inquiry_IS_about_chair':
         session.replaceDialog('/Replies', intent);
         break;     
         
-        case 'get_inquiry_is_about_ba':
+        case 'get_inquiry_IS_about_ba':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_is_about_sm':
+        case 'get_inquiry_IS_about_sm':
         session.replaceDialog('/Replies', intent);
         break;
         
-        case 'get_inquiry_iics_about_general':
+        case 'get_inquiry_IICS_about_general':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_iics_about_history':
+        case 'get_inquiry_IICS_about_history':
         session.replaceDialog('/Replies', intent);
         break;
         
-        case 'get_inquiry_iics_about_vision':
+        case 'get_inquiry_IICS_about_vision':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_iics_about_mission':
+        case 'get_inquiry_IICS_about_mission':
         session.replaceDialog('/Replies', intent);
         break;
         
-        case 'get_inquiry_iics_administrators':
+        case 'get_inquiry_IICS_administrators':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_iics_director':
+        case 'get_inquiry_IICS_director':
         session.replaceDialog('/Replies', intent);
         break;
         
@@ -144,47 +144,47 @@ function getWitIntents(intent, professor, time, session){
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_iics_secretary':
+        case 'get_inquiry_IICS_secretary':
         session.replaceDialog('/Replies', intent);
         break;
         
-        case 'get_inquiry_iics_chairpersons':
+        case 'get_inquiry_IICS_chairpersons':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_iics_supportstaff':
+        case 'get_inquiry_IICS_supportstaff':
         session.replaceDialog('/Replies', intent);
         break;   
         
-        case 'get_inquiry_iics_contact':
+        case 'get_inquiry_IICS_contact':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_iics_location':
+        case 'get_inquiry_IICS_location':
         session.replaceDialog('/Replies', intent);
         break;
 
-        case 'get_inquiry_it_tuition':
+        case 'get_inquiry_IT_tuition':
         session.replaceDialog('/Replies', intent);
         break; 
 
-        case 'get_inquiry_is_tuition':
+        case 'get_inquiry_IT_tuition':
         session.replaceDialog('/Replies', intent);
         break;        
 
-        case 'get_inquiry_cs_tuition':
+        case 'get_inquiry_CS_tuition':
         session.replaceDialog('/Replies', intent);
         break;  
 
-        case 'get_inquiry_iics_shifter':
+        case 'get_inquiry_IICS_shifter':
         session.replaceDialog('/Replies', intent);
         break; 
         
-        case 'get_inquiry_iics_transferee':
+        case 'get_inquiry_IICS_transferee':
         session.replaceDialog('/Replies', intent);
         break;         
 
-        case 'get_inquiry_iics_seconddegree':
+        case 'get_inquiry_IICS_seconddegree':
         session.replaceDialog('/Replies', intent);
         break; 
 
