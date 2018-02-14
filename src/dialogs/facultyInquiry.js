@@ -5,7 +5,6 @@ const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const request = require('request');
 const usersession = require('../helpers/usersession');
-const format = require('string-format');
 
 module.exports = [
     (session, args) => {
