@@ -25,7 +25,7 @@ module.exports = [
         var replies = response.body.data;
         console.log(replies)
         var random = replies[Math.floor(Math.random() * replies.length)];
-        if(random && random.includes("http")){
+        if(random && random.includes("cloudinary")){
             var img = new builder.Message(session)
                         .addAttachment({
                             contentURL: random,
