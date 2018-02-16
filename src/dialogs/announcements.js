@@ -10,7 +10,8 @@ const usersession = require('../helpers/usersession');
 module.exports.main = [
     (session) => {
         var cardName = card.getName(consts.menus.announcements_menu);
-        var msg = card(session, consts.menus.announcements_menu, cardName);                    
+        var msg = card(session, consts.menus.announcements_menu, cardName);    
+        session.send("Please select from these categories:");
         builder.Prompts.choice(session, msg, card.choices(consts.menus.announcements_menu), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {

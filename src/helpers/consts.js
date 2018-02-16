@@ -21,7 +21,18 @@ DEPARTMENT_ANNOUNCEMENTS: `Date announced: {0}`,
 GENERAL_ANNOUNCEMENTS: `Date announced: {0}`,
 LIVE_CHAT_WAIT: 'Please wait as I connect you to an IICS office personnel',
 NEW_DEPARTMENT: 'Here are the announcements from your department',
-AFTER_RATING: 'Thank you for response!'
+AFTER_RATING: 'Thank you for response!',
+ABOUT_IICS: 'The University of Santo Tomas Institute of Information and Computing Sciences, or \"UST-IICS\", is the computing and information technology school of the University of Santo Tomas, the oldest and the largest Catholic university in Manila, Philippines.',
+ABOUT_IICS_2: 'The Institute of Information and Computing Sciences was formally established in 2014, with its separation as an independent academic unit from the Faculty of Engineering. Its programs trace their histories to the College of Science (for Computer Science), College of Commerce and Business Administration (for Information Systems), and the Faculty of Engineering (for Information Technology).<br/><br/>Asst. Prof. Alex A. Santos was the inaugural Director, while Rev. Fr. Hermel O. Pama, O.P., PhD was the first Regent.',
+VISION_IICS: 'The Institute of Information and Computing Sciences envisions itself as a premier and innovative institution in Information Technology Education and research in the Asia-Pacific Region.',
+MISSION_IICS: 'The Institute of Information and Computing Sciences of the University of Santo Tomas, under the inspiration of its model, Saint Thomas Aquinas, and its patron, Saint Vincent Ferrer, declares its commitment to the pursuit of truth and the formation of technically competent ITE professionals endowed with a strong commitment to lifelong learning, social responsibility and a desire for leadership in the spirit of service in their respective fields of specialization.',
+ADMIN_IICS: 'The Administration of the Institute of Information and Computing Sciences are as follows:<br/><br/>Asst. Prof. Jerralyn T. Padua<br/>Acting Director<br/><br/>Rev. Fr. Hermel O. Pama, O.P., PhD<br/>Regent<br/><br/>Asst. Prof. Mylene J. Domingo, MIT<br/>Institute Secretary',
+CHAIR_IICS: 'The chairpersons of IICS are<br/><br/>Asst. Prof. Jose L. Seño, MS (Computer Science)<br/><br/>Asst. Prof. Maricel A. Balais, MIT (Information Systems)<br/><br/>Asst. Prof. Mike C. Victorio, MA (Information Technology)',
+STAFF_IICS: 'The Support Staff of IICS are<br/><br/>KHO, Madonna<br/>GARCIA, Aristotle B.<br/>LAFE, Alfred James<br/>NACAR, Danilo I.',
+COURSES_IICS: 'Here are the courses offered by IICS: ',
+CS_IICS: 'Students under this program are highly trained for software and system development. The program’s main focus is to expose the students to different approaches and styles in developing programs whether they are procedural or the object oriented type of system approach.<br/><br/>Starting Academic Year 2018-2019 (August 2018), the BS Computer Science program will offer three professional elective tracks for students:<br/>1. Core Computer Science<br/>2. Game Development',
+IT_IICS: 'Under Bachelor of Science in Information Technology, the students are trained to be well versed in the practical and technical know-how of installing/setting-up of computers and computer networks. Special skills taught include troubleshooting and repairing of hardware components.<br/><br/>The Department of Information Technology of the Institute of Information and Computing Sciences has identified three (3) professional elective tracks for BS Information Technology students. They are as follows:<br/>1. Network and Security<br/>2. Web and Mobile App Development<br/>3. Robotics',
+IS_IICS: 'The Department of Information Systems of the Institute of Information and Computing Sciences has identified two (2) professional elective tracks for BS Information Systems students. They are as follows:<br/>1. Business Analytics<br/>2. System Management',
 }
 
 exports.menus = {
@@ -55,7 +66,7 @@ menu: [
         title: 'About IICS',
         text: 'Learn more about IICS',
         button: [
-            { msg: 'About IICS', title: 'About IICS' }
+            { msg: 'About_IICS', title: 'About IICS' }
         ]
     },
     {
@@ -69,6 +80,74 @@ menu: [
     }
 
 ],
+
+about: [
+    {
+        name: 'about_choice',
+        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        title: 'What is IICS?',
+        // text: 'Learn more about IICS',
+        button: [
+            { msg: 'What_is_iics', title: 'What is IICS?' }
+        ]
+    },
+    {
+        name: 'vision_choice',
+        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        title: 'Vision',
+        // text: 'Know the recent announcements',
+        button: [
+            { msg: 'iics_vision', title: 'Vision' }
+        ]
+    },
+    {
+        name: 'mission_choice',
+        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        title: 'Mission',
+        // text: 'Learn more about IICS',
+        button: [
+            { msg: 'iics_mission', title: 'Mission' }
+        ]
+    },
+    {
+        name: 'administration_choice',
+        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        title: 'Administrators',
+        // text: 'Know the recent announcements',
+        button: [
+            { msg: 'iics_admin', title: 'Administrators' }
+        ]
+    },
+    {
+        name: 'chairpersons_choice',
+        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        title: 'Chairpersons',
+        // text: 'Learn more about IICS',
+        button: [
+            { msg: 'iics_chair', title: 'Chairpersons' }
+        ]
+    },
+    {
+        name: 'staff_choice',
+        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        title: 'Staffs',
+        // text: 'Know the recent announcements',
+        button: [
+            { msg: 'iics_staff', title: 'Staffs' }
+        ]
+    },
+    {
+        name: 'courses_choice',
+        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        title: 'Courses Offered',
+        // text: 'Know the recent announcements',
+        button: [
+            { msg: 'courses_offered', title: 'Courses Offered' }
+        ]
+    }
+
+],
+
 default_menu:[
     {
         name: 'default_choice',
@@ -90,6 +169,44 @@ enter_email: [
         ]
     }
 ],
+
+back_menu: [
+    {
+        name: 'back_menu',
+        title: 'OPTIONS',
+        button: [            
+            { msg: 'Back to Main Menu', title: 'Back to Main Menu' }
+        ]
+    }
+],
+
+courses_menu: [
+    {
+        name: 'cs_choice',
+        title: 'Computer Science',
+        text: 'Know more about CS',
+        button: [            
+            { msg: 'iics_CS', title: 'Computer Science' }
+        ]
+    },
+    {
+        name: 'it_choice',
+        title: 'Information Technology',
+        text: 'Know more about IT',
+        button: [            
+            { msg: 'iics_IT', title: 'Information Technology' }
+        ]
+    },
+    {
+        name: 'is_choice',
+        title: 'Information Systems',
+        text: 'Know more about CS',
+        button: [            
+            { msg: 'iics_IS', title: 'Information Systems' }
+        ]
+    }
+],
+
 announcements_menu: [
     {
         name: 'general_announcements',

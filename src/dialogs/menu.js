@@ -19,13 +19,11 @@ module.exports =
             var reply = results.response.entity;
             switch(reply){
                 case choices[0]:
-                    // session.replaceDialog('/About');
-                    session.send("Long live IICS");
+                    session.replaceDialog('/About');                    
                 break;
     
                 case choices[1]:
-                    session.replaceDialog('/Announcements');
-                    // session.send("Walang pasok bukas");
+                    session.replaceDialog('/Announcements');                    
                 break;                   
     
                 default:
