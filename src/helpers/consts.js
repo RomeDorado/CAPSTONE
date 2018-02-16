@@ -85,7 +85,7 @@ menu: [//START HERE
 about: [
     {
         name: 'about_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794761/iics_cztkgc.jpg',
         title: 'What is IICS?',
         // text: 'Learn more about IICS',
         button: [
@@ -94,7 +94,7 @@ about: [
     },
     {
         name: 'vision_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794762/vision_oggw9y.jpg',
         title: 'Vision',
         // text: 'Know the recent announcements',
         button: [
@@ -103,7 +103,7 @@ about: [
     },
     {
         name: 'mission_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794761/mission_xagdrx.jpg',
         title: 'Mission',
         // text: 'Learn more about IICS',
         button: [
@@ -112,7 +112,7 @@ about: [
     },
     {
         name: 'administration_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794762/admin_rqlihw.jpg',
         title: 'Administrators',
         // text: 'Know the recent announcements',
         button: [
@@ -121,7 +121,7 @@ about: [
     },
     {
         name: 'chairpersons_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794761/chair_npbrjw.jpg',
         title: 'Chairpersons',
         // text: 'Learn more about IICS',
         button: [
@@ -130,7 +130,7 @@ about: [
     },
     {
         name: 'staff_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794761/staff_uwvcts.jpg',
         title: 'Staffs',
         // text: 'Know the recent announcements',
         button: [
@@ -139,7 +139,7 @@ about: [
     },
     {
         name: 'courses_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794762/courses_f0rbcz.jpg',
         title: 'Courses Offered',
         // text: 'Know the recent announcements',
         button: [
@@ -147,7 +147,7 @@ about: [
         ]
     }
 
-],//hanggang dito lang JAMES
+],
 
 default_menu:[
     {
