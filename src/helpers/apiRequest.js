@@ -207,6 +207,30 @@ async (session, email, callback)  => {
         callback (null, body);        
         });
 }
+
+module.exports.getDocuStatus = 
+async (code, callback)  => {
+    var options = {
+        method: 'GET',
+        url: 'https://document-service-api.herokuapp.com/api/getStatus',
+        headers: 
+        {
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs: {
+            refNo: code,          
+        },        
+        json: true  
+        };
+
+        request(options, (error, response, body) => {   
+            if (error) throw new Error(error);    
+            callback (null, body);        
+            });
+
+
+}
 /**END */
 
 

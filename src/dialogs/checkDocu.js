@@ -11,7 +11,10 @@ module.exports = [
     (session) => {
         builder.Prompts.text(session, consts.prompts.CHECK_DOCUMENT, { maxRetries:0,promptAfterAction:false});
     },
-    (session, results, callback) => {
-        console.log(results.reponse);
+    (session, results) => {
+        var code = results.response;
+        api.getDocuStatus(code, (err, res) => {
+            // session.send(consts.prompts.STATUS_DOCU);
+        })
     }
 ]
