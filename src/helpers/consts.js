@@ -1,16 +1,16 @@
 const builder = require('botbuilder');
 exports.prompts = {
 GET_STARTED: 'Hi {0}!, I\'m IICS bot! I\'m here to assist you as much as I can on student and faculty related matters. Click the menu button below to start or click the subscribe button for latest news and announcements!',
-DEPARTMENT: 'Kindly enter your UST or Gbiz email for verification: ',
-DEPARTMENT_SECOND: 'Please enter again your UST or Gbiz email for verification: ',
-NO_DEPARTMENT: 'I don\'nt know which department you belong to 🤔 please tell me your deparment so you can view announcements ',//////////////
+DEPARTMENT: 'Kindly enter your UST or ICS-MyGBiz email for verification: ',
+DEPARTMENT_SECOND: 'Please enter again your UST or ICS-MyGBiz email for verification: ',
+NO_DEPARTMENT: 'I don\'nt seem to know which department you belong to 🤔 please tell me your department so you can view announcements ',//////////////
 SUBSCRIBED: 'Welcome, {0}! You are now subscribed to receive announcements from the {1} 🙂',
 NOW_DONE: 'Now that\'s done, how can I be of assistance?',
 UNSUBSCRIBE: 'Are you sure you want to unsubscribe? Doing so will prevent you from receiving announcements',
 UNSUBSCRIBE_CONFIRMED: 'You are now unsubscribed',
 ENTER_INQUIRY: 'Please enter your inquiry:',
-FACULTY_FIRST: `It seems like it's your first time accessing this feature, for security purposes, please enter your ICS myGbiz account.`,
-FACULTY_SECOND: `Please enter your ICS myGbiz account.`,
+FACULTY_FIRST: `It seems like it's your first time accessing this feature, for security purposes, please enter your ICS MyGBiz account.`,
+FACULTY_SECOND: `Please enter your ICS-MyGBiz account.`,
 INVALID_EMAIL: `Sorry there is something wrong with validating the email you entered. Kindly check if you mistyped anything. Do you want to enter again?`,
 VERIFIED_EMAIL: 'Hello {0} from {1}!, you can now ask questions regarding faculty schedule 🙂',
 VERIFIED_EMAIL_ANNOUNCEMENT: 'Hello {0}!, you can now view announcements from the {1} 🙂',
