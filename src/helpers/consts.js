@@ -131,10 +131,10 @@ about: [
     {
         name: 'staff_choice',
         image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794761/staff_uwvcts.jpg',
-        title: 'Staffs',
+        title: 'Staff',
         // text: 'Know the recent announcements',
         button: [
-            { msg: 'iics_staff', title: 'Staffs' }
+            { msg: 'iics_staff', title: 'Staff' }
         ]
     },
     {
