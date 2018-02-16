@@ -73,6 +73,18 @@ bot.dialog('/Documents', dialogs.checkDocu);
 bot.dialog('/Livechat', dialogs.livechat).triggerAction({matches:/livechat/i});
 bot.dialog('/Rating', dialogs.rating.happy);
 bot.dialog('/Rating/Sad', dialogs.rating.sad);
+bot.dialog('/About', dialogs.about.main).triggerAction({matches:/About_IICS/i});
+bot.dialog('/About/IICS', dialogs.about.about).triggerAction({matches:/What_is_iics/i});
+bot.dialog('/About/Vision', dialogs.about.vision).triggerAction({matches:/iics_vision/i});
+bot.dialog('/About/Mission', dialogs.about.mission).triggerAction({matches:/iics_mission/i});
+bot.dialog('/About/Administrators', dialogs.about.admin).triggerAction({matches:/iics_admin/i});
+bot.dialog('/About/Chairpersons', dialogs.about.chair).triggerAction({matches:/iics_chair/i});
+bot.dialog('/About/Staffs', dialogs.about.staff).triggerAction({matches:/iics_staff/i});
+bot.dialog('/About/Courses', dialogs.about.courses).triggerAction({matches:/courses_offered/i});
+bot.dialog('/About/Courses/CS', dialogs.about.CS).triggerAction({matches:/iics_CS/i});
+bot.dialog('/About/Courses/IT', dialogs.about.IT).triggerAction({matches:/iics_IT/i});
+bot.dialog('/About/Courses/IS', dialogs.about.IS).triggerAction({matches:/iics_IS/i});
+
 //=========================================================
 // Server Setup
 //=========================================================
