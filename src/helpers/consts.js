@@ -212,7 +212,7 @@ announcements_menu: [
     {
         name: 'general_announcements',
         title: 'General Annoncements',        
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135975/general_otscgo.jpg',
         button: [
             { msg: 'General-announcement', title: 'General' }            
         ]
@@ -220,7 +220,7 @@ announcements_menu: [
     {
         name: 'dep_announcements',
         title: 'Department',        
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135975/dept_xvvhet.jpg',
         button: [
             { msg: 'Department-announcement', title: 'Deparment' }            
         ]
