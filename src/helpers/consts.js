@@ -40,7 +40,7 @@ exports.menus = {
 first_menu: [
     {
         name: 'menu_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135362/menu_t44kww.jpg',
         title: 'IICS Chatbot',
         button: [
             { msg: 'Main menu', title: 'Main menu' },
@@ -51,7 +51,7 @@ first_menu: [
 second_menu: [
     {
         name: 'menu_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135362/menu_t44kww.jpg',
         title: 'IICS Chatbot',
         button: [
             { msg: 'Main menu', title: 'Main menu' },
@@ -63,7 +63,7 @@ second_menu: [
 menu: [//START HERE
     {
         name: 'menu_about_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135362/learnmore_mdvvyd.jpg',
         title: 'About IICS',
         text: 'Learn more about IICS',
         button: [
@@ -72,7 +72,7 @@ menu: [//START HERE
     },
     {
         name: 'menu_annoucement_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135363/announcements_d6sl1u.jpg',
         title: 'Announcements',
         text: 'Know the recent announcements',
         button: [
