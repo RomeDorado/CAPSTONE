@@ -185,7 +185,7 @@ courses_menu: [
     {
         name: 'cs_choice',
         title: 'Computer Science',
-        text: 'Know more about CS',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519314164/CS_ioqkcq.jpg',
         button: [            
             { msg: 'iics_CS', title: 'Computer Science' }
         ]
@@ -193,7 +193,7 @@ courses_menu: [
     {
         name: 'it_choice',
         title: 'Information Technology',
-        text: 'Know more about IT',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519314164/IT_wjo8cv.jpg',
         button: [            
             { msg: 'iics_IT', title: 'Information Technology' }
         ]
@@ -201,7 +201,7 @@ courses_menu: [
     {
         name: 'is_choice',
         title: 'Information Systems',
-        text: 'Know more about CS',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519314164/IS_ivhqyn.jpg',
         button: [            
             { msg: 'iics_IS', title: 'Information Systems' }
         ]
@@ -222,7 +222,7 @@ announcements_menu: [
         title: 'Department',        
         image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135975/dept_xvvhet.jpg',
         button: [
-            { msg: 'Department-announcement', title: 'Deparment' }            
+            { msg: 'Department-announcement', title: 'Department' }
         ]
     }
 ]
