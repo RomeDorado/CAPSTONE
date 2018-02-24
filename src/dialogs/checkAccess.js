@@ -5,7 +5,7 @@ const api = require('../helpers/apiRequest');
 const request = require('request');
 
 module.exports = [
-    (session) => {
+    (session, args) => {
         var options = {
             method: 'GET',
             url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
@@ -26,7 +26,16 @@ module.exports = [
         if(!response.body.d.facAccess){
             session.replaceDialog('/FacultyInquiry');
         }else{
-            // session.replaceDialog('/FacultyAnswers');
+            switch(args.intent){
+                case 'get_next_class':
+                    session.replaceDialog('/NextClass');
+                break;
+
+                case 'get_faculty_room':
+                    session.replaceDialog('/NextClass');
+                break;
+            }            
+            
         }
 
       });
