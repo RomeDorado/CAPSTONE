@@ -1,16 +1,16 @@
 const builder = require('botbuilder');
 exports.prompts = {
 GET_STARTED: 'Hi {0}!, I\'m IICS bot! I\'m here to assist you as much as I can on student and faculty related matters. Click the menu button below to start or click the subscribe button for latest news and announcements!',
-DEPARTMENT: 'Kindly enter your UST or Gbiz email for verification: ',
-DEPARTMENT_SECOND: 'Please enter again your UST or Gbiz email for verification: ',
-NO_DEPARTMENT: 'I don\'nt know which department you belong to 🤔 please tell me your deparment so you can view announcements ',//////////////
+DEPARTMENT: 'Kindly enter your UST or ICS-MyGBiz email for verification: ',
+DEPARTMENT_SECOND: 'Please enter again your UST or ICS-MyGBiz email for verification: ',
+NO_DEPARTMENT: 'I don\'nt seem to know which department you belong to 🤔 please tell me your department so you can view announcements ',//////////////
 SUBSCRIBED: 'Welcome, {0}! You are now subscribed to receive announcements from the {1} 🙂',
 NOW_DONE: 'Now that\'s done, how can I be of assistance?',
 UNSUBSCRIBE: 'Are you sure you want to unsubscribe? Doing so will prevent you from receiving announcements',
 UNSUBSCRIBE_CONFIRMED: 'You are now unsubscribed',
 ENTER_INQUIRY: 'Please enter your inquiry:',
-FACULTY_FIRST: `It seems like it's your first time accessing this feature, for security purposes, please enter your ICS myGbiz account.`,
-FACULTY_SECOND: `Please enter your ICS myGbiz account.`,
+FACULTY_FIRST: `It seems like it's your first time accessing this feature, for security purposes, please enter your ICS MyGBiz account.`,
+FACULTY_SECOND: `Please enter your ICS-MyGBiz account.`,
 INVALID_EMAIL: `Sorry there is something wrong with validating the email you entered. Kindly check if you mistyped anything. Do you want to enter again?`,
 VERIFIED_EMAIL: 'Hello {0} from {1}!, you can now ask questions regarding faculty schedule 🙂',
 VERIFIED_EMAIL_ANNOUNCEMENT: 'Hello {0}!, you can now view announcements from the {1} 🙂',
@@ -40,7 +40,7 @@ exports.menus = {
 first_menu: [
     {
         name: 'menu_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135362/menu_t44kww.jpg',
         title: 'IICS Chatbot',
         button: [
             { msg: 'Main menu', title: 'Main menu' },
@@ -51,7 +51,7 @@ first_menu: [
 second_menu: [
     {
         name: 'menu_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135362/menu_t44kww.jpg',
         title: 'IICS Chatbot',
         button: [
             { msg: 'Main menu', title: 'Main menu' },
@@ -63,7 +63,7 @@ second_menu: [
 menu: [//START HERE
     {
         name: 'menu_about_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135362/learnmore_mdvvyd.jpg',
         title: 'About IICS',
         text: 'Learn more about IICS',
         button: [
@@ -72,7 +72,7 @@ menu: [//START HERE
     },
     {
         name: 'menu_annoucement_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135363/announcements_d6sl1u.jpg',
         title: 'Announcements',
         text: 'Know the recent announcements',
         button: [
@@ -85,7 +85,7 @@ menu: [//START HERE
 about: [
     {
         name: 'about_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794761/iics_cztkgc.jpg',
         title: 'What is IICS?',
         // text: 'Learn more about IICS',
         button: [
@@ -94,7 +94,7 @@ about: [
     },
     {
         name: 'vision_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794762/vision_oggw9y.jpg',
         title: 'Vision',
         // text: 'Know the recent announcements',
         button: [
@@ -103,7 +103,7 @@ about: [
     },
     {
         name: 'mission_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794761/mission_xagdrx.jpg',
         title: 'Mission',
         // text: 'Learn more about IICS',
         button: [
@@ -112,7 +112,7 @@ about: [
     },
     {
         name: 'administration_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794762/admin_rqlihw.jpg',
         title: 'Administrators',
         // text: 'Know the recent announcements',
         button: [
@@ -121,7 +121,7 @@ about: [
     },
     {
         name: 'chairpersons_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794761/chair_npbrjw.jpg',
         title: 'Chairpersons',
         // text: 'Learn more about IICS',
         button: [
@@ -130,16 +130,16 @@ about: [
     },
     {
         name: 'staff_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
-        title: 'Staffs',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794761/staff_uwvcts.jpg',
+        title: 'Staff',
         // text: 'Know the recent announcements',
         button: [
-            { msg: 'iics_staff', title: 'Staffs' }
+            { msg: 'iics_staff', title: 'Staff' }
         ]
     },
     {
         name: 'courses_choice',
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1518794762/courses_f0rbcz.jpg',
         title: 'Courses Offered',
         // text: 'Know the recent announcements',
         button: [
@@ -147,7 +147,7 @@ about: [
         ]
     }
 
-],//hanggang dito lang JAMES
+],
 
 default_menu:[
     {
@@ -185,7 +185,7 @@ courses_menu: [
     {
         name: 'cs_choice',
         title: 'Computer Science',
-        text: 'Know more about CS',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519314164/CS_ioqkcq.jpg',
         button: [            
             { msg: 'iics_CS', title: 'Computer Science' }
         ]
@@ -193,7 +193,7 @@ courses_menu: [
     {
         name: 'it_choice',
         title: 'Information Technology',
-        text: 'Know more about IT',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519314164/IT_wjo8cv.jpg',
         button: [            
             { msg: 'iics_IT', title: 'Information Technology' }
         ]
@@ -201,7 +201,7 @@ courses_menu: [
     {
         name: 'is_choice',
         title: 'Information Systems',
-        text: 'Know more about CS',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519314164/IS_ivhqyn.jpg',
         button: [            
             { msg: 'iics_IS', title: 'Information Systems' }
         ]
@@ -212,7 +212,7 @@ announcements_menu: [
     {
         name: 'general_announcements',
         title: 'General Annoncements',        
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135975/general_otscgo.jpg',
         button: [
             { msg: 'General-announcement', title: 'General' }            
         ]
@@ -220,9 +220,9 @@ announcements_menu: [
     {
         name: 'dep_announcements',
         title: 'Department',        
-        image: 'https://res.cloudinary.com/do2kgbqib/image/upload/v1514441154/Get-Started_rplfxj.jpg',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1519135975/dept_xvvhet.jpg',
         button: [
-            { msg: 'Department-announcement', title: 'Deparment' }            
+            { msg: 'Department-announcement', title: 'Department' }
         ]
     }
 ]
