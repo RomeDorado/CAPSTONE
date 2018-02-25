@@ -21,6 +21,7 @@ module.exports.nextClass = [
 
 module.exports.room = [
     (session, args) => {
+        console.log(args,'args sched')
         try {
             api.room(session, args.firstname, args.prof, (err, results) => {
                 if (results.success) {//dagdag kapag walang time si prof

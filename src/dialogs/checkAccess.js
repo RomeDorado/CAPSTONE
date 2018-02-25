@@ -26,6 +26,7 @@ module.exports = [
         if(!response.body.d.facAccess){
             session.replaceDialog('/FacultyInquiry');
         }else{
+            console.log(args, 'args check access')
             switch(args.intent){
                 case 'get_next_class':
                     session.replaceDialog('/FacultySched/NextClass', {firstname: args.firstname, prof: args.prof});
