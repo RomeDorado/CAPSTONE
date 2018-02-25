@@ -35,34 +35,35 @@ module.exports.nextClass = [
                     } else {
                         session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));
                     }
-                    // session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));                                
+                } else {
+                    //if no class or no prof    
                 }
             })
         } catch (exception) {
-            api.nextClass(session, "", args.prof, (err, results) => {
-                if (results.success) {//dagdag kapag walang time si prof
-                    console.log(results, "catch")
-                    if (results.data instanceof Array) {
-                        profs = results.data.map((val, index) => {
-                            return {
-                                name: index,
-                                title: val.firstname,
-                                button: [
-                                    { msg: val.firstname + '/' + val.lastname, btn_title: val.firstname }
-                                ]
-                            }
-                        })
+            // api.nextClass(session, "", args.prof, (err, results) => {
+            //     if (results.success) {//dagdag kapag walang time si prof
+            //         console.log(results, "catch")
+            //         if (results.data instanceof Array) {
+            //             profs = results.data.map((val, index) => {
+            //                 return {
+            //                     name: index,
+            //                     title: val.firstname,
+            //                     button: [
+            //                         { msg: val.firstname + '/' + val.lastname, btn_title: val.firstname }
+            //                     ]
+            //                 }
+            //             })
 
-                        var cardName = card.getName(profs);
-                        var msg = card(session, profs, cardName);
+            //             var cardName = card.getName(profs);
+            //             var msg = card(session, profs, cardName);
 
-                        builder.Prompts.choice(session, msg, card.choices(profs), { maxRetries: 0, promptAfterAction: false });
+            //             builder.Prompts.choice(session, msg, card.choices(profs), { maxRetries: 0, promptAfterAction: false });
 
-                    } else {
-                        session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));
-                    }
-                }
-            })
+            //         } else {
+            //             session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));
+            //         }
+            //     }
+            // })
         }
     },
     (session, results) => {
@@ -109,15 +110,17 @@ module.exports.room = [
                     } else {
                         session.endDialog(format(consts.prompts.PROF_ROOM, "at " + results.data));
                     }
+                } else {
+                    //if no class or no prof
                 }
             })
         } catch (exception) {
-            api.room(session, "", args.prof, (err, results) => {
-                if (results.success) {//dagdag kapag walang time si prof
-                    console.log(results, "catch")
-                    session.endDialog(format(consts.prompts.PROF_ROOM, "at " + results.data));
-                }
-            })
+            // api.room(session, "", args.prof, (err, results) => {
+            //     if (results.success) {//dagdag kapag walang time si prof
+            //         console.log(results, "catch")
+            //         session.endDialog(format(consts.prompts.PROF_ROOM, "at " + results.data));
+            //     }
+            // })
         }
 
     }
