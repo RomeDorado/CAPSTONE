@@ -89,6 +89,7 @@ module.exports.room = [
             console.log('went down here')
             api.room(session, args.firstname, args.prof, args.datetime, (err, results) => {
                 console.log(results, "asd")
+                console.log(args.datetime, "dtime")
                 if (results.success) {
                     //dagdag kapag walang time si prof
                     if (results.data instanceof Array) {
