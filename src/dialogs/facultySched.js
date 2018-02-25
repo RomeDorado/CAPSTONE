@@ -15,14 +15,14 @@ module.exports.nextClass = [
                 console.log(results, "asd")
                 if (results.success) {
                 //dagdag kapag walang time si prof
-                session.endDialog(format(consts.prompts.PROF_NEXT, "at " + results.data));
+                session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));
                 }
             })
         } catch (exception) {
             api.room(session, "", args.prof, (err, results) => {
                 if (results.success) {//dagdag kapag walang time si prof
                     console.log(results, "catch")
-                    session.endDialog(format(consts.prompts.PROF_ROOM, "at " + results.data));
+                    session.endConversation(format(consts.prompts.PROF_ROOM, "at " + results.data));
                 }
             })
         }
