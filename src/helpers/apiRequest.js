@@ -237,7 +237,8 @@ module.exports.nextClass =
 async (session, firstname, professor, callback)  => {    
     var options = {
         method: 'GET',
-        url: 'https://iics-schedule-service.herokuapp.com/api/getNextClass',
+        // url: 'https://iics-schedule-service.herokuapp.com/api/getNextClass',
+        url: 'localhost:3000/api/getNextClass',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -266,7 +267,8 @@ module.exports.room =
 async (session, firstname, professor, callback)  => {
     var options = {
         method: 'GET',
-        url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
+        // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
+        url: 'localhost:3000/api/getRoom',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
