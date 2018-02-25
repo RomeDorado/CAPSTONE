@@ -9,9 +9,9 @@ const usersession = require('../helpers/usersession');
 
 module.exports.nextClass = [
     (session, args) => {
-        if(!args.firstname) args.firstname = ""
+        if (!args.firstname) args.firstname = ""
         api.room(session, args.firstname, args.prof, (err, results) => {
-            if(results.success){//dagdag kapag walang time si prof
+            if (results.success) {//dagdag kapag walang time si prof
                 session.endDialog(format(consts.prompts.GET_STARTED, results.data));
             }
         })
@@ -21,20 +21,19 @@ module.exports.nextClass = [
 
 module.exports.room = [
     (session, args) => {
-        if(args.firstname == undefined) {
-            api.room(session, "", args.prof, (err, results) => {
-                if(results.success){//dagdag kapag walang time si prof
+        try {
+            api.room(session, args.firstname, args.prof, (err, results) => {
+                if (results.success) {//dagdag kapag walang time si prof
                     session.endDialog(format(consts.prompts.GET_STARTED, "at " + results.data));
                 }
             })
-        }else{
-            api.room(session, args.firstname, args.prof, (err, results) => {
-                if(results.success){//dagdag kapag walang time si prof
+        }catch (exception) {
+            api.room(session, "", args.prof, (err, results) => {
+                if (results.success) {//dagdag kapag walang time si prof
                     session.endDialog(format(consts.prompts.GET_STARTED, "at " + results.data));
                 }
             })
         }
         
-
     }
 ]
