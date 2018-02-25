@@ -22,7 +22,7 @@ module.exports.nextClass = [
                                 name: index,
                                 title: val.firstname,
                                 button: [
-                                    { msg: val.firstname + '/' + val.lastname, title: val.firstname }
+                                    { msg: val.firstname + '/' + val.lastname, title: "Select" }
                                 ]
                             }
                         })
@@ -33,7 +33,7 @@ module.exports.nextClass = [
                         builder.Prompts.choice(session, msg, card.choices(profs), { maxRetries: 0, promptAfterAction: false });
 
                     } else {
-                        session.endConversation(format(consts.prompts.PROF_ROOM, "at " + results.data));
+                        session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));
                     }
                     // session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));                                
                 }
@@ -59,9 +59,22 @@ module.exports.nextClass = [
                         builder.Prompts.choice(session, msg, card.choices(profs), { maxRetries: 0, promptAfterAction: false });
 
                     } else {
-                        session.endConversation(format(consts.prompts.PROF_ROOM, "at " + results.data));
+                        session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));
                     }
                 }
+            })
+        }
+    },
+    (session, args, results) => {
+        if (results.response == null) {
+            session.replaceDialog('/');
+        } else {
+            var reply = results.response.entity;
+            var firstname = reply.split["/"][0];
+            var lastname = reply.split["/"][1];
+            
+            api.nextClass(session, firstname, lastname, (err, results) => {
+                session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));            
             })
         }
     }
