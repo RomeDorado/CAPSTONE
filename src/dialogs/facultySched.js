@@ -22,7 +22,7 @@ module.exports.nextClass = [
                                 name: index,
                                 title: val.firstname,
                                 button: [
-                                    { msg: val.firstname + '/' + val.lastname, btn_title: val.firstname }
+                                    { msg: val.firstname + '/' + val.lastname, title: val.firstname }
                                 ]
                             }
                         })
