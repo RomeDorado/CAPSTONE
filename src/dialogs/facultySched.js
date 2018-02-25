@@ -23,6 +23,7 @@ module.exports.room = [
     (session, args) => {
         console.log(args,'args sched')
         try {
+            console.log('went down here')
             api.room(session, args.firstname, args.prof, (err, results) => {
                 if (results.success) {//dagdag kapag walang time si prof
                     session.endDialog(format(consts.prompts.GET_STARTED, "at " + results.data));
