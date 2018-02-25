@@ -12,7 +12,7 @@ module.exports.nextClass = [
         var profs = []
         try {
             console.log('went down here')
-            api.nextClass(session, args.firstname, args.prof, (err, results) => {
+            api.nextClass(session, args.firstname, args.prof, args.datetime, (err, results) => {
                 console.log(results, "asd")
                 if (results.success) {
                     //dagdag kapag walang time si prof                
@@ -87,7 +87,7 @@ module.exports.room = [
         console.log(args, 'args sched')
         try {
             console.log('went down here')
-            api.room(session, args.firstname, args.prof, (err, results) => {
+            api.room(session, args.firstname, args.prof, args.datetime, (err, results) => {
                 console.log(results, "asd")
                 if (results.success) {
                     //dagdag kapag walang time si prof

@@ -234,7 +234,7 @@ async (code, callback)  => {
 
 
 module.exports.nextClass = 
-async (session, firstname, professor, callback)  => {    
+async (session, firstname, professor, datetime, callback)  => {    
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getNextClass',
@@ -248,13 +248,13 @@ async (session, firstname, professor, callback)  => {
             client: "iics",
             firstname: firstname,
             professor: professor,
-            fb_id: session.message.address.user.id,
+            day: datetime,        
         },
         body:{                              
                 client: "iics",
                 firstname: firstname,
                 professor: professor,
-                fb_id: session.message.address.user.id,
+                day: datetime,                
         },       
         json: true  
         };
@@ -266,7 +266,7 @@ async (session, firstname, professor, callback)  => {
 }
 
 module.exports.room = 
-async (session, firstname, professor, callback)  => {
+async (session, firstname, professor, datetime, callback)  => {
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
@@ -280,13 +280,13 @@ async (session, firstname, professor, callback)  => {
             client: "iics",
             firstname: firstname,
             professor: professor,
-            fb_id: session.message.address.user.id,
+            day: datetime            
         },
         body:{                              
                 client: "iics",
                 firstname: firstname,
                 professor: professor,
-                fb_id: session.message.address.user.id,
+                day: datetime
         },       
         json: true  
         };
