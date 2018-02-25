@@ -33,6 +33,7 @@ module.exports.room = [
         }catch (exception) {
             api.room(session, "", args.prof, (err, results) => {
                 if (results.success) {//dagdag kapag walang time si prof
+                    console.log(results)
                     session.endDialog(format(consts.prompts.PROF_ROOM, "at " + results.data));
                 }
             })
