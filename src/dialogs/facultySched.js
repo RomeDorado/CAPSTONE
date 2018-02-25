@@ -66,19 +66,19 @@ module.exports.nextClass = [
         }
     },
     (session, results) => {
-        // if (results.response == null) {
-        //     session.replaceDialog('/');
-        // } else {
+        if (results.response == null) {
+            session.replaceDialog('/');
+        } else {
             console.log(results)
             var reply = results.response.entity;
-            var firstname = reply.split["="][0];
-            var lastname = reply.split["="][1];
-            
+            var firstname = reply.split("=")[0];
+            var lastname = reply.split("=")[1];
+
             api.nextClass(session, firstname, lastname, (err, results) => {
-                session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));            
+                session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));
             })
         }
-    // }
+    }
 ]
 
 module.exports.room = [
@@ -90,7 +90,25 @@ module.exports.room = [
                 console.log(results, "asd")
                 if (results.success) {
                     //dagdag kapag walang time si prof
-                    session.endDialog(format(consts.prompts.PROF_ROOM, "at " + results.data));
+                    if (results.data instanceof Array) {
+                        profs = results.data.map((val, index) => {
+                            return {
+                                name: index,
+                                title: val.firstname,
+                                button: [
+                                    { msg: val.firstname + '=' + val.lastname, title: "Select" }
+                                ]
+                            }
+                        })
+
+                        var cardName = card.getName(profs);
+                        var msg = card(session, profs, cardName);
+
+                        builder.Prompts.choice(session, msg, card.choices(profs), { maxRetries: 0, promptAfterAction: false });
+
+                    } else {
+                        session.endDialog(format(consts.prompts.PROF_ROOM, "at " + results.data));
+                    }
                 }
             })
         } catch (exception) {
