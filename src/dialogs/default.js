@@ -36,7 +36,7 @@ module.exports =
                                 if(('time' in entities)){var time = entities.time[0].value;}
                                     // if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
                                     // if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
-                                getWitIntents(intent, professor, time, session);
+                                getWitIntents(intent, professor, time, session, firstname);
 
                         })
                         .catch(console.error)
@@ -49,7 +49,7 @@ module.exports =
 
 
 
-function getWitIntents(intent, professor, time, session){
+function getWitIntents(intent, professor, time, session, firstname){
     switch(intent){
 
         case 'get_greetings':            
@@ -253,11 +253,14 @@ function getWitIntents(intent, professor, time, session){
         break;//madadagdagan ito hehe
 
         case 'get_next_class':
-            session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, firstname: firstname});
+        if(firstname) session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, firstname: firstname});
+        else session.replaceDialog('/CheckAccess', {intent: intent, prof: professor});
+            
         break;
 
         case 'get_faculty_room':
-            session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, firstname: firstname});
+        if(firstname) session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, firstname: firstname});
+        else session.replaceDialog('/CheckAccess', {intent: intent, prof: professor});
         break;
         
 
