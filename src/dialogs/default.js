@@ -36,10 +36,9 @@ module.exports =
                                 if(('firstname' in entities)){var firstname = entities.firstname[0].value;}
                                 if(('datetime' in entities)){var datetime = entities.datetime[0].value;}
                                 if(('time' in entities)){var time = entities.time[0].value;}
-                                console.log(datetime)
                                     // if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
                                     // if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
-                                getWitIntents(intent, professor, time, session, firstname);
+                                getWitIntents(intent, professor, time, session, firstname, datetime);
 
                         })
                         .catch(console.error)
