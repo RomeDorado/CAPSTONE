@@ -253,11 +253,11 @@ function getWitIntents(intent, professor, time, session){
         break;//madadagdagan ito hehe
 
         case 'get_next_class':
-            session.replaceDialog('/CheckAccess', {intent: intent, prof: professor});
+            session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, firstname: firstname});
         break;
 
         case 'get_faculty_room':
-            session.replaceDialog('/CheckAccess', {intent: intent, prof: professor});
+            session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, firstname: firstname});
         break;
         
 

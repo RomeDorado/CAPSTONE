@@ -231,6 +231,65 @@ async (code, callback)  => {
 
 
 }
+
+
+module.exports.nextClass = 
+async (session, firstname, professor, callback)  => {    
+    var options = {
+        method: 'GET',
+        url: 'https://iics-schedule-service.herokuapp.com/api/getNextClass',
+        headers: 
+        {
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs: {
+            client: "iics",
+            firstname: firstname,
+            professor: professor
+        },
+        body:{                              
+                client: "iics",
+                firstname: firstname,
+                professor: professor
+        },       
+        json: true  
+        };
+
+        request(options, (error, response, body) => {   
+        if (error) throw new Error(error);    
+        callback (null, body);        
+        });
+}
+
+module.exports.room = 
+async (session, firstname, professor, callback)  => {
+    var options = {
+        method: 'GET',
+        url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
+        headers: 
+        {
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs: {
+            client: "iics",
+            firstname: firstname,
+            professor: professor
+        },
+        body:{                              
+                client: "iics",
+                firstname: firstname,
+                professor: professor
+        },       
+        json: true  
+        };
+
+        request(options, (error, response, body) => {   
+        if (error) throw new Error(error);    
+        callback (null, body);        
+        });
+}
 /**END */
 
 
