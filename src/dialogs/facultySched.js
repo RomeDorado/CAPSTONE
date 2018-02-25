@@ -22,7 +22,7 @@ module.exports.nextClass = [
                                 name: index,
                                 title: val.firstname,
                                 button: [
-                                    { msg: val.firstname + '/' + val.lastname, title: "Select" }
+                                    { msg: val.firstname + '=' + val.lastname, title: "Select" }
                                 ]
                             }
                         })
@@ -71,8 +71,8 @@ module.exports.nextClass = [
         } else {
             console.log(results.response)
             var reply = results.response.entity;
-            var firstname = reply.split["/"][0];
-            var lastname = reply.split["/"][1];
+            var firstname = reply.split["="][0];
+            var lastname = reply.split["="][1];
             
             api.nextClass(session, firstname, lastname, (err, results) => {
                 session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));            
