@@ -33,6 +33,7 @@ module.exports =
 
                                 console.log(intent);
                                 if(('professor' in entities)){var professor = entities.professor[0].value;}
+                                if(('firstname' in entities)){var professor = entities.firstname[0].value;}
                                 if(('time' in entities)){var time = entities.time[0].value;}
                                     // if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
                                     // if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
