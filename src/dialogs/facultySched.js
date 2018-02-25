@@ -66,9 +66,9 @@ module.exports.nextClass = [
         }
     },
     (session, args, results) => {
-        if (results.response == null) {
-            session.replaceDialog('/');
-        } else {
+        // if (results.response == null) {
+        //     session.replaceDialog('/');
+        // } else {
             console.log(results)
             var reply = results.response.entity;
             var firstname = reply.split["="][0];
@@ -78,7 +78,7 @@ module.exports.nextClass = [
                 session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));            
             })
         }
-    }
+    // }
 ]
 
 module.exports.room = [
