@@ -69,6 +69,7 @@ module.exports.nextClass = [
         if (results.response == null) {
             session.replaceDialog('/');
         } else {
+            console.log(results.response)
             var reply = results.response.entity;
             var firstname = reply.split["/"][0];
             var lastname = reply.split["/"][1];
