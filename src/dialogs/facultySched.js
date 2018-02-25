@@ -25,14 +25,15 @@ module.exports.room = [
         try {
             console.log('went down here')
             api.room(session, args.firstname, args.prof, (err, results) => {
-                if (results.success) {//dagdag kapag walang time si prof
-                    session.endDialog(format(consts.prompts.GET_STARTED, "at " + results.data));
-                }
+                // if (results.success) {
+                    //dagdag kapag walang time si prof
+                    session.endDialog(format(consts.prompts.PROF_ROOM, "at " + results.data));
+                // }
             })
         }catch (exception) {
             api.room(session, "", args.prof, (err, results) => {
                 if (results.success) {//dagdag kapag walang time si prof
-                    session.endDialog(format(consts.prompts.GET_STARTED, "at " + results.data));
+                    session.endDialog(format(consts.prompts.PROF_ROOM, "at " + results.data));
                 }
             })
         }
