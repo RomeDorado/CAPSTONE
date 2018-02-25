@@ -238,7 +238,7 @@ async (session, firstname, professor, callback)  => {
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getNextClass',
-        url: 'localhost:3000/api/getNextClass',
+        url: 'http://37132040.ngrok.io/api/getNextClass',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -268,7 +268,7 @@ async (session, firstname, professor, callback)  => {
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
-        url: 'localhost:3000/api/getRoom',
+        url: 'http://37132040.ngrok.io/api/getRoom',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
