@@ -9,20 +9,45 @@ const usersession = require('../helpers/usersession');
 
 module.exports.nextClass = [
     (session, args) => {
+        var profs = []
         try {
             console.log('went down here')
             api.nextClass(session, args.firstname, args.prof, (err, results) => {
                 console.log(results, "asd")
                 if (results.success) {
                 //dagdag kapag walang time si prof
-                session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));
+                if(results.data instanceof Array){
+                    profs = results.map((val, index) => {
+                        return{
+                            name: index,
+                            title: val.firstname,                            
+                            button: [
+                                { msg: val.firstname + '/' + val.lastname, btn_title: val.firstname }
+                            ]
+                        }
+                    })
+                    
+                var cardName = card.getName(profs);
+                var msg = card(session, profs, cardName);
+                
+                builder.Prompts.choice(session, msg, card.choices(profs), { maxRetries:0,promptAfterAction:false});
+
+                }else{
+                    session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));
+                }
+                
                 }
             })
         } catch (exception) {
             api.room(session, "", args.prof, (err, results) => {
                 if (results.success) {//dagdag kapag walang time si prof
                     console.log(results, "catch")
-                    session.endConversation(format(consts.prompts.PROF_ROOM, "at " + results.data));
+                    if(results.data instanceof Array){
+
+                    }else{
+                        session.endConversation(format(consts.prompts.PROF_ROOM, "at " + results.data));
+                    }
+                    
                 }
             })
         }

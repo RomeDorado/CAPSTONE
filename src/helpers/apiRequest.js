@@ -247,12 +247,14 @@ async (session, firstname, professor, callback)  => {
         qs: {
             client: "iics",
             firstname: firstname,
-            professor: professor
+            professor: professor,
+            fb_id: session.message.address.user.id,
         },
         body:{                              
                 client: "iics",
                 firstname: firstname,
-                professor: professor
+                professor: professor,
+                fb_id: session.message.address.user.id,
         },       
         json: true  
         };
@@ -277,12 +279,14 @@ async (session, firstname, professor, callback)  => {
         qs: {
             client: "iics",
             firstname: firstname,
-            professor: professor
+            professor: professor,
+            fb_id: session.message.address.user.id,
         },
         body:{                              
                 client: "iics",
                 firstname: firstname,
-                professor: professor
+                professor: professor,
+                fb_id: session.message.address.user.id,
         },       
         json: true  
         };

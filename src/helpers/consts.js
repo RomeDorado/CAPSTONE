@@ -35,7 +35,9 @@ IT_IICS: 'Under Bachelor of Science in Information Technology, the students are 
 IS_IICS: 'The Department of Information Systems of the Institute of Information and Computing Sciences has identified two (2) professional elective tracks for BS Information Systems students. They are as follows:<br/>1. Business Analytics<br/>2. System Management',
 STATUS_DOCU: 'Your document is now: ',
 PROF_ROOM: `The professor is {0}`,
-PROF_NEXT: `The professor's next class is {0}`
+PROF_NEXT: `The professor's next class is {0}`,
+//james pachange
+MULTI_PROF: 'I have detected that there are {0} professors with the same lastname. Please select the professor you want are inquiring about: '
 }
 
 exports.menus = {
