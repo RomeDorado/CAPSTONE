@@ -17,7 +17,7 @@ module.exports.nextClass = [
                 if (results.success) {
                 //dagdag kapag walang time si prof
                 if(results.data instanceof Array){
-                    profs = results.map((val, index) => {
+                    profs = results.data.map((val, index) => {
                         return{
                             name: index,
                             title: val.firstname,                            
