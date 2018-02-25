@@ -65,7 +65,7 @@ module.exports.nextClass = [
             })
         }
     },
-    (session, args, results) => {
+    (session, results) => {
         // if (results.response == null) {
         //     session.replaceDialog('/');
         // } else {
