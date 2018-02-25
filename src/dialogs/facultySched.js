@@ -15,7 +15,7 @@ module.exports.nextClass = [
                 console.log(results, "asd")
                 if (results.success) {
                 //dagdag kapag walang time si prof
-                session.endDialog(format(consts.prompts.PROF_ROOM, "at " + results.data));
+                session.endDialog(format(consts.prompts.PROF_NEXT, "at " + results.data));
                 }
             })
         } catch (exception) {
