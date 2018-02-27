@@ -238,7 +238,7 @@ async (session, firstname, professor, datetime, callback)  => {
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getNextClass',
-        url: 'http://3291c625.ngrok.io/api/getNextClass',
+        url: 'http://3baf1dd3.ngrok.io/api/getNextClass',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -270,7 +270,7 @@ async (session, firstname, professor, datetime, callback)  => {
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
-        url: 'http://3291c625.ngrok.io/api/getRoom',
+        url: 'http://3baf1dd3.ngrok.io/api/getRoom',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -287,6 +287,110 @@ async (session, firstname, professor, datetime, callback)  => {
                 firstname: firstname,
                 professor: professor,
                 day: datetime
+        },       
+        json: true  
+        };
+
+        request(options, (error, response, body) => {   
+        if (error) throw new Error(error);    
+        callback (null, body);        
+        });
+}
+
+module.exports.currentClass = 
+async (session, firstname, professor, datetime, callback)  => {
+    var options = {
+        method: 'GET',
+        // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
+        url: 'http://3baf1dd3.ngrok.io/api/currentClass',
+        headers: 
+        {
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs: {
+            client: "iics",
+            firstname: firstname,
+            professor: professor,
+            day: datetime            
+        },
+        body:{                              
+                client: "iics",
+                firstname: firstname,
+                professor: professor,
+                day: datetime
+        },       
+        json: true  
+        };
+
+        request(options, (error, response, body) => {   
+        if (error) throw new Error(error);    
+        callback (null, body);        
+        });
+}
+
+module.exports.subjectTime = 
+async (session, firstname, professor, datetime, section, subject, callback)  => {
+    var options = {
+        method: 'GET',
+        // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
+        url: 'http://3baf1dd3.ngrok.io/api/getSubjectTime',
+        headers: 
+        {
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs: {
+            client: "iics",
+            firstname: firstname,
+            professor: professor,
+            day: datetime,
+            section: section,
+            subject: subject      
+        },
+        body:{                              
+                client: "iics",
+                firstname: firstname,
+                professor: professor,
+                day: datetime,
+                section: section,
+                subject: subject
+        },       
+        json: true  
+        };
+
+        request(options, (error, response, body) => {   
+        if (error) throw new Error(error);    
+        callback (null, body);        
+        });
+}
+
+module.exports.subjectDay = 
+async (session, firstname, professor, datetime, section, subject, callback)  => {
+    var options = {
+        method: 'GET',
+        // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
+        url: 'http://3baf1dd3.ngrok.io/api/getSubjectTimeWhen',
+        headers: 
+        {
+            'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
+            'content-type': 'application/json' 
+        },
+        qs: {
+            client: "iics",
+            firstname: firstname,
+            professor: professor,
+            day: datetime,
+            section: section,
+            subject: subject            
+        },
+        body:{                              
+                client: "iics",
+                firstname: firstname,
+                professor: professor,
+                day: datetime,
+                section: section,
+                subject: subject
         },       
         json: true  
         };

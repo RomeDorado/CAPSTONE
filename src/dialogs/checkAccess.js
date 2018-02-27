@@ -35,6 +35,17 @@ module.exports = [
                 case 'get_faculty_room':
                     session.replaceDialog('/FacultySched/Room', {firstname: args.firstname, prof: args.prof, datetime: args.datetime});
                 break;
+
+                case 'get_faculty_currentclass':
+                    session.replaceDialog('/FacultySched/CurrentClass', {firstname: args.firstname, prof: args.prof, datetime: args.datetime});
+                break;
+
+                case 'get_faculty_subject_time':
+                    session.replaceDialog('/FacultySched/SubjectTime', {firstname: args.firstname, prof: args.prof, datetime: args.datetime, section: args.section, subject: args.subject, timeOrDay: args.timeOrDay});
+                break;
+
+                // 
+                
             }            
             
         }

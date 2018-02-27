@@ -86,6 +86,8 @@ bot.dialog('/About/Courses/IT', dialogs.about.IT).triggerAction({matches:/iics_I
 bot.dialog('/About/Courses/IS', dialogs.about.IS).triggerAction({matches:/iics_IS/i});
 bot.dialog('/FacultySched/NextClass', dialogs.faculty.nextClass);
 bot.dialog('/FacultySched/Room', dialogs.faculty.room);
+bot.dialog('/FacultySched/CurrentClass', dialogs.faculty.currentClass);
+bot.dialog('/FacultySched/SubjectTime', dialogs.faculty.subjectTime);
 
 //=========================================================
 // Server Setup
