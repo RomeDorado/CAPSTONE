@@ -238,7 +238,7 @@ async (session, firstname, professor, datetime, callback)  => {
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getNextClass',
-        url: 'http://ac25cb12.ngrok.io/api/getNextClass',
+        url: 'http://8d87fc6e.ngrok.io/api/getNextClass',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -270,7 +270,7 @@ async (session, firstname, professor, datetime, callback)  => {
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
-        url: 'http://ac25cb12.ngrok.io/api/getRoom',
+        url: 'http://8d87fc6e.ngrok.io/api/getRoom',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -302,7 +302,7 @@ async (session, firstname, professor, datetime, callback)  => {
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
-        url: 'http://ac25cb12.ngrok.io/api/getCurrentClass',
+        url: 'http://8d87fc6e.ngrok.io/api/getCurrentClass',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -334,7 +334,7 @@ async (session, firstname, professor, datetime, section, subject, callback)  => 
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
-        url: 'http://ac25cb12.ngrok.io/api/getSubjectTime',
+        url: 'http://8d87fc6e.ngrok.io/api/getSubjectTime',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
@@ -370,7 +370,7 @@ async (session, firstname, professor, datetime, section, subject, callback)  => 
     var options = {
         method: 'GET',
         // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
-        url: 'http://ac25cb12.ngrok.io/api/getSubjectTimeWhen',
+        url: 'http://8d87fc6e.ngrok.io/api/getSubjectTimeWhen',
         headers: 
         {
             'API-Token': 'eyJhbGciOiJIUzI1NiJ9.c2FtcGxlVG9rZW4.F2vUteLfaWAK9iUKu1PRZnPS2r_HlhzU9NC8zeBN28Q',
