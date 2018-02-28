@@ -234,7 +234,7 @@ module.exports.subjectTime = [
 
                     } else {
                         // session.session.endConversation(format(consts.prompts.PROF_CURRENT_CLASS, results.data));(format(consts.prompts.PROF_CURRENT_CLASS, results.data));
-                        session.session.endConversation(results.data);
+                        session.endConversation(results.data);
                     }
                 } else {
                     //if no class or no prof
@@ -264,7 +264,7 @@ module.exports.subjectTime = [
     
                         } else {
                             // session.session.endConversation(format(consts.prompts.PROF_CURRENT_CLASS, results.data));(format(consts.prompts.PROF_CURRENT_CLASS, results.data));
-                            session.session.endConversation(results.data);
+                            session.endConversation(results.data);
                         }
                     } else {
                         //if no class or no prof
