@@ -34,7 +34,7 @@ module.exports = [
                     if(department == "IT") stringDep = "Information Technology Department"
                     if(department == "CS") stringDep = "Computer Science Department"
                     if(department == "IS") stringDep = "Information Systems Department"
-                    usersession.createUserIfUnique(session, department);                    
+                    usersession.createUserIfUnique(session, department, email);                    
                     session.send(format(consts.prompts.SUBSCRIBED, name, stringDep));
                     session.send(consts.prompts.NOW_DONE);
                     session.replaceDialog('/Menu');
@@ -56,6 +56,10 @@ module.exports = [
         }
     },
     (session, results) => {
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }
         var choices = card.choices(consts.menus.enter_email);
             if(results.response == null){
                 session.replaceDialog('/')

@@ -15,6 +15,10 @@ module.exports.main = [
         builder.Prompts.choice(session, msg, card.choices(consts.menus.announcements_menu), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }
         var choices = card.choices(consts.menus.announcements_menu);
         if(results.response == null){
             session.replaceDialog('/')
@@ -166,7 +170,7 @@ module.exports.noDepartment = [
                     if(department == "CS") stringDep = "Computer Science Department"
                     if(department == "IS") stringDep = "Information Systems Department"
                     // await usersession.createUserNoSub(session, dep);      
-                        usersession.createUserNoSub(session, department);      
+                        usersession.createUserNoSub(session, department, email);      
                         session.endDialog(format(consts.prompts.VERIFIED_EMAIL_ANNOUNCEMENT, name, stringDep)); 
                         session.replaceDialog('/depAnnouncements')                                           
                     

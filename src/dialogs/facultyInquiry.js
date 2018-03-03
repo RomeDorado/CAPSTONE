@@ -53,6 +53,10 @@ module.exports = [
         }
     },
     (session, results) => {
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }
         var choices = card.choices(consts.menus.enter_email);
             if(results.response == null){
                 session.replaceDialog('/')

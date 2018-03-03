@@ -15,6 +15,10 @@ module.exports = [
     },
     (session, results, callback) => {
         var choices = card.choices(consts.menus.default_menu);
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }
         if(results.response == null){
             session.replaceDialog('/')
         }else{

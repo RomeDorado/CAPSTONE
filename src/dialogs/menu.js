@@ -12,6 +12,11 @@ module.exports =
         builder.Prompts.choice(session, msg, card.choices(consts.menus.menu), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
+        console.log(results,"123")
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }
         var choices = card.choices(consts.menus.menu);
         if(results.response == null){
             session.replaceDialog('/')

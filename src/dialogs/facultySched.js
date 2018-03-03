@@ -69,6 +69,10 @@ module.exports.nextClass = [
         }
     },
     (session, results) => {
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }
         if (results.response == null) {
             session.replaceDialog('/');
         } else {
@@ -127,6 +131,10 @@ module.exports.room = [
 
     },
     (session, results) => {
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }
         if (results.response == null) {
             session.replaceDialog('/');
         } else {
@@ -185,6 +193,10 @@ module.exports.currentClass = [
 
     },
     (session, results) => {
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }
         if (results.response == null) {
             session.replaceDialog('/');
         } else {
@@ -283,6 +295,10 @@ module.exports.subjectTime = [
 
     },
     (session, results) => {
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }
         if (results.response == null) {
             session.replaceDialog('/');
         } else {

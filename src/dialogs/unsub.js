@@ -19,6 +19,10 @@ module.exports.main = [
     },
     (session,results) =>{
         var choices = card.choices(consts.menus.second_menu);
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }
                 if(results.response == null){
                     session.replaceDialog('/')
                 }else{
@@ -41,7 +45,11 @@ module.exports.unsubconfirm = [
     (session) => {        
         builder.Prompts.choice(session, consts.prompts.UNSUBSCRIBE, consts.choices.UNSUBSCRIBE, consts.styles.button);
     },
-    (session, results) => {                
+    (session, results) => {  
+        if(results.response.score < 0.8){
+            session.replaceDialog('/')
+            return;
+        }              
             if(results.response == null){
                 session.replaceDialog('/')
             }else{
