@@ -56,12 +56,14 @@ module.exports = [
         }
     },
     (session, results) => {
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
-        }        
+        }
         var choices = card.choices(consts.menus.enter_email);
             if(results.response == null){
                 session.replaceDialog('/')

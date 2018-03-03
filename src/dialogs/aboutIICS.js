@@ -13,12 +13,14 @@ module.exports.main =
     },
     (session, results) => {
         var choices = card.choices(consts.menus.about);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
-        }        
+        }
         if(results.response == null){
             session.replaceDialog('/')
         }else{
@@ -71,10 +73,12 @@ module.exports.about = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if(results.response == null){
@@ -103,10 +107,12 @@ module.exports.vision = [
         builder.Prompts.choice(session, msg, card.choices(consts.menus.back_menu), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         var choices = card.choices(consts.menus.back_menu);
@@ -137,10 +143,12 @@ module.exports.mission = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if(results.response == null){
@@ -170,10 +178,12 @@ module.exports.admin = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if(results.response == null){
@@ -203,10 +213,12 @@ module.exports.chair = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if(results.response == null){
@@ -236,10 +248,12 @@ module.exports.staff = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if(results.response == null){
@@ -269,10 +283,12 @@ module.exports.courses = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.courses_menu);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if(results.response == null){
@@ -300,10 +316,12 @@ module.exports.courses = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if(results.response == null){
@@ -333,10 +351,12 @@ module.exports.CS = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if(results.response == null){
@@ -366,10 +386,12 @@ module.exports.IT = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if(results.response == null){
@@ -399,10 +421,12 @@ module.exports.IS = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         console.log(results.response, "aaa")

@@ -69,10 +69,12 @@ module.exports.nextClass = [
         }
     },
     (session, results) => {
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if (results.response == null) {
@@ -133,10 +135,12 @@ module.exports.room = [
 
     },
     (session, results) => {
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if (results.response == null) {
@@ -197,10 +201,12 @@ module.exports.currentClass = [
 
     },
     (session, results) => {
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if (results.response == null) {
@@ -301,10 +307,12 @@ module.exports.subjectTime = [
 
     },
     (session, results) => {
-        if(results.response.hasOwnProperty("score")){
-            if(results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
             }
         }
         if (results.response == null) {
