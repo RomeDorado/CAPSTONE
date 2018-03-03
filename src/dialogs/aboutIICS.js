@@ -13,7 +13,7 @@ module.exports.main =
     },
     (session, results) => {
         var choices = card.choices(consts.menus.about);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -69,7 +69,7 @@ module.exports.about = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -99,7 +99,7 @@ module.exports.vision = [
         builder.Prompts.choice(session, msg, card.choices(consts.menus.back_menu), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -131,7 +131,7 @@ module.exports.mission = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -162,7 +162,7 @@ module.exports.admin = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -193,7 +193,7 @@ module.exports.chair = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -224,7 +224,7 @@ module.exports.staff = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -255,7 +255,7 @@ module.exports.courses = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.courses_menu);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -284,7 +284,7 @@ module.exports.courses = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -315,7 +315,7 @@ module.exports.CS = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -346,7 +346,7 @@ module.exports.IT = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -377,7 +377,7 @@ module.exports.IS = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.back_menu);
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }

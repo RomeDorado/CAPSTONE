@@ -69,7 +69,7 @@ module.exports.nextClass = [
         }
     },
     (session, results) => {
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -131,7 +131,7 @@ module.exports.room = [
 
     },
     (session, results) => {
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -193,7 +193,7 @@ module.exports.currentClass = [
 
     },
     (session, results) => {
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -295,7 +295,7 @@ module.exports.subjectTime = [
 
     },
     (session, results) => {
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }

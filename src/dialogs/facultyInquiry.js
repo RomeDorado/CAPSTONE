@@ -53,7 +53,7 @@ module.exports = [
         }
     },
     (session, results) => {
-        if(results.response.score < 0.8){
+        if(results.response.score && results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
