@@ -15,7 +15,7 @@ module.exports.main = [
         builder.Prompts.choice(session, msg, card.choices(consts.menus.announcements_menu), { maxRetries:0,promptAfterAction:false});
     },
     (session, results) => {
-        if(results.response.score != undefined){
+        if(results.response.hasOwnProperty("score")){
             if(results.response.score< 0.8){
                 session.replaceDialog('/')
                 return;

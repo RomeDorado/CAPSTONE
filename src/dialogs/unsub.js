@@ -46,7 +46,7 @@ module.exports.unsubconfirm = [
         builder.Prompts.choice(session, consts.prompts.UNSUBSCRIBE, consts.choices.UNSUBSCRIBE, consts.styles.button);
     },
     (session, results) => {  
-        if(results.response.score != undefined){
+        if(results.response.hasOwnProperty("score")){
             if(results.response.score< 0.8){
                 session.replaceDialog('/')
                 return;

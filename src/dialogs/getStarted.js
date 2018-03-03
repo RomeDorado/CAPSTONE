@@ -51,7 +51,7 @@ module.exports =
         (session, results) => {
             console.log(results, "123")
             var choices = card.choices(consts.menus.first_menu);
-            if(results.response.score != undefined){
+            if(results.response.hasOwnProperty("score")){
                 if(results.response.score< 0.8){
                     session.replaceDialog('/')
                     return;
