@@ -19,7 +19,7 @@ module.exports.main = [
     },
     (session,results) =>{
         var choices = card.choices(consts.menus.second_menu);
-        if(results.response.score && results.response.score< 0.8){
+        if(results.response.score< 0.8){
             session.replaceDialog('/')
             return;
         }
@@ -46,10 +46,12 @@ module.exports.unsubconfirm = [
         builder.Prompts.choice(session, consts.prompts.UNSUBSCRIBE, consts.choices.UNSUBSCRIBE, consts.styles.button);
     },
     (session, results) => {  
-        if(results.response.score && results.response.score< 0.8){
-            session.replaceDialog('/')
-            return;
-        }              
+        if(results.response.score != undefined){
+            if(results.response.score< 0.8){
+                session.replaceDialog('/')
+                return;
+            }
+        }
             if(results.response == null){
                 session.replaceDialog('/')
             }else{

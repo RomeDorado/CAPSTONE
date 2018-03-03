@@ -69,9 +69,11 @@ module.exports.nextClass = [
         }
     },
     (session, results) => {
-        if(results.response.score && results.response.score< 0.8){
-            session.replaceDialog('/')
-            return;
+        if(results.response.score != undefined){
+            if(results.response.score< 0.8){
+                session.replaceDialog('/')
+                return;
+            }
         }
         if (results.response == null) {
             session.replaceDialog('/');
@@ -131,9 +133,11 @@ module.exports.room = [
 
     },
     (session, results) => {
-        if(results.response.score && results.response.score< 0.8){
-            session.replaceDialog('/')
-            return;
+        if(results.response.score != undefined){
+            if(results.response.score< 0.8){
+                session.replaceDialog('/')
+                return;
+            }
         }
         if (results.response == null) {
             session.replaceDialog('/');
@@ -193,9 +197,11 @@ module.exports.currentClass = [
 
     },
     (session, results) => {
-        if(results.response.score && results.response.score< 0.8){
-            session.replaceDialog('/')
-            return;
+        if(results.response.score != undefined){
+            if(results.response.score< 0.8){
+                session.replaceDialog('/')
+                return;
+            }
         }
         if (results.response == null) {
             session.replaceDialog('/');
@@ -295,9 +301,11 @@ module.exports.subjectTime = [
 
     },
     (session, results) => {
-        if(results.response.score && results.response.score< 0.8){
-            session.replaceDialog('/')
-            return;
+        if(results.response.score != undefined){
+            if(results.response.score< 0.8){
+                session.replaceDialog('/')
+                return;
+            }
         }
         if (results.response == null) {
             session.replaceDialog('/');

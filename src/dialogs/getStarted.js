@@ -51,9 +51,11 @@ module.exports =
         (session, results) => {
             console.log(results, "123")
             var choices = card.choices(consts.menus.first_menu);
-            if(results.response.score && results.response.score< 0.8){
-                session.replaceDialog('/')
-                return;
+            if(results.response.score != undefined){
+                if(results.response.score< 0.8){
+                    session.replaceDialog('/')
+                    return;
+                }
             }
             if(results.response == null){
                 session.replaceDialog('/')

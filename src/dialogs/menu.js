@@ -13,9 +13,11 @@ module.exports =
     },
     (session, results) => {
         console.log(results,"123")
-        if(results.response.score && results.response.score< 0.8){
-            session.replaceDialog('/')
-            return;
+        if(results.response.score != undefined){
+            if(results.response.score< 0.8){
+                session.replaceDialog('/')
+                return;
+            }
         }
         var choices = card.choices(consts.menus.menu);
         if(results.response == null){
