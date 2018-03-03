@@ -84,6 +84,10 @@ bot.dialog('/About/Courses', dialogs.about.courses).triggerAction({matches:/cour
 bot.dialog('/About/Courses/CS', dialogs.about.CS).triggerAction({matches:/iics_CS/i});
 bot.dialog('/About/Courses/IT', dialogs.about.IT).triggerAction({matches:/iics_IT/i});
 bot.dialog('/About/Courses/IS', dialogs.about.IS).triggerAction({matches:/iics_IS/i});
+bot.dialog('/FacultySched/NextClass', dialogs.faculty.nextClass);
+bot.dialog('/FacultySched/Room', dialogs.faculty.room);
+bot.dialog('/FacultySched/CurrentClass', dialogs.faculty.currentClass);
+bot.dialog('/FacultySched/SubjectTime', dialogs.faculty.subjectTime);
 
 //=========================================================
 // Server Setup

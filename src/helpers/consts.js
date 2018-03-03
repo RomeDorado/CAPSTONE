@@ -33,7 +33,12 @@ COURSES_IICS: 'Here are the courses offered by IICS: ',
 CS_IICS: 'Students under this program are highly trained for software and system development. The program’s main focus is to expose the students to different approaches and styles in developing programs whether they are procedural or the object oriented type of system approach.<br/><br/>Starting Academic Year 2018-2019 (August 2018), the BS Computer Science program will offer three professional elective tracks for students:<br/>1. Core Computer Science<br/>2. Game Development',
 IT_IICS: 'Under Bachelor of Science in Information Technology, the students are trained to be well versed in the practical and technical know-how of installing/setting-up of computers and computer networks. Special skills taught include troubleshooting and repairing of hardware components.<br/><br/>The Department of Information Technology of the Institute of Information and Computing Sciences has identified three (3) professional elective tracks for BS Information Technology students. They are as follows:<br/>1. Network and Security<br/>2. Web and Mobile App Development<br/>3. Robotics',
 IS_IICS: 'The Department of Information Systems of the Institute of Information and Computing Sciences has identified two (2) professional elective tracks for BS Information Systems students. They are as follows:<br/>1. Business Analytics<br/>2. System Management',
-STATUS_DOCU: 'Your document is now: '
+STATUS_DOCU: 'Your document is now: ',
+PROF_ROOM: `The professor is {0}`,
+PROF_CURRENT_CLASS: `The professor's current class is at {0}`,
+PROF_NEXT: `The professor's next class is {0}`,
+//james pachange
+MULTI_PROF: 'I have detected that there are {0} professors with the same lastname. Please select the professor you want are inquiring about: '
 }
 
 exports.menus = {

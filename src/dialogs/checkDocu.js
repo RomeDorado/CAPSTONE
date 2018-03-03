@@ -14,7 +14,7 @@ module.exports = [
     (session, results) => {
         var code = results.response;
         api.getDocuStatus(code, (err, res) => {
-            // session.send(consts.prompts.STATUS_DOCU);
+            // session.send(consts.prompts.STATUS_DOCU + " " + res.data);
         })
     }
 ]

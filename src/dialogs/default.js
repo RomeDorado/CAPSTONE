@@ -33,10 +33,15 @@ module.exports =
 
                                 console.log(intent);
                                 if(('professor' in entities)){var professor = entities.professor[0].value;}
+                                if(('firstname' in entities)){var firstname = entities.firstname[0].value;}
+                                if(('datetime' in entities)){var datetime = entities.datetime[0].value;}
                                 if(('time' in entities)){var time = entities.time[0].value;}
+                                if(('section' in entities)){var section = entities.section[0].value;}
+                                if(('class' in entities)){var subject = entities.class[0].value;}
+                                if(('timeOrDay' in entities)){var timeOrDay = entities.timeOrDay[0].value;}
                                     // if(('inquiry_type' in entities)){var inquiry_type = entities.inquiry_type[0].value;}
                                     // if(('emotion_type' in entities)){var emotion_type = entities.emotion_type[0].value;}
-                                getWitIntents(intent, professor, time, session);
+                                getWitIntents(intent, professor, time, session, firstname, datetime, section, subject, timeOrDay);
 
                         })
                         .catch(console.error)
@@ -49,7 +54,7 @@ module.exports =
 
 
 
-function getWitIntents(intent, professor, time, session){
+function getWitIntents(intent, professor, time, session, firstname, datetime, section, subject, timeOrDay){
     switch(intent){
 
         case 'get_greetings':            
@@ -258,7 +263,29 @@ function getWitIntents(intent, professor, time, session){
         case 'get_faculty_inquiry':
             session.replaceDialog('/CheckAccess');
             // session.replaceDialog('/FacultyInquiry')
+        break;//madadagdagan ito hehe
+
+        case 'get_next_class':
+        if(firstname) session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, firstname: firstname, datetime: datetime});
+        else session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, datetime: datetime});
+            
         break;
+
+        case 'get_faculty_room':
+        if(firstname) session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, firstname: firstname, datetime: datetime});
+        else session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, datetime: datetime});
+        break;
+
+        case 'get_faculty_currentclass':
+        if(firstname) session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, firstname: firstname, datetime: datetime});
+        else session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, datetime: datetime});
+        break;
+
+        case 'get_faculty_subject_time':
+        if(firstname) session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, firstname: firstname, datetime: datetime, section: section, subject: subject, timeOrDay: timeOrDay});
+        else session.replaceDialog('/CheckAccess', {intent: intent, prof: professor, datetime: datetime, section: section, subject: subject, timeOrDay: timeOrDay});
+        break;
+        
 
         case 'get_document_status':
             //dialog docu
