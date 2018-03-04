@@ -1,17 +1,17 @@
 const builder = require('botbuilder');
 exports.prompts = {
-GET_STARTED: 'Hi {0}!, I\'m IICS bot! I\'m here to assist you as much as I can on student and faculty related matters. Click the menu button below to start or click the subscribe button for latest news and announcements!',
-DEPARTMENT: 'Kindly enter your UST or ICS-MyGBiz email for verification: ',
-DEPARTMENT_SECOND: 'Please enter again your UST or ICS-MyGBiz email for verification: ',
-NO_DEPARTMENT: 'I don\'nt seem to know which department you belong to 🤔 please tell me your department so you can view announcements ',//////////////
-SUBSCRIBED: 'Welcome, {0}! You are now subscribed to receive announcements from the {1} 🙂',
+GET_STARTED: 'Hi {0}!, I\'m IICS bot! I\'m here to assist you as much as I can on student and faculty related matters. Click MENU to start or click SUBSCRIBE for latest news and announcements!',
+DEPARTMENT: 'Please enter your UST or ICS-MyGBiz email for verification: ',
+DEPARTMENT_SECOND: 'Please enter your UST or ICS-MyGBiz email again for verification: ',
+NO_DEPARTMENT: 'I don\'nt know your department. Please tell me your department so you can view announcements ',//////////////
+SUBSCRIBED: 'Welcome, {0}! You are now subscribed to the {1} 🙂',
 NOW_DONE: 'Now that\'s done, how can I be of assistance?',
 UNSUBSCRIBE: 'Are you sure you want to unsubscribe? Doing so will prevent you from receiving announcements',
 UNSUBSCRIBE_CONFIRMED: 'You are now unsubscribed',
 ENTER_INQUIRY: 'Please enter your inquiry:',
-FACULTY_FIRST: `It seems like it's your first time accessing this feature, for security purposes, please enter your ICS MyGBiz account.`,
+FACULTY_FIRST: `Please enter your ICS MyGBiz account.`,
 FACULTY_SECOND: `Please enter your ICS-MyGBiz account.`,
-INVALID_EMAIL: `Sorry there is something wrong with validating the email you entered. Kindly check if you mistyped anything. Do you want to enter again?`,
+INVALID_EMAIL: `Invalid email. Please check if you mistyped anything. Enter again?`,
 VERIFIED_EMAIL: 'Hello {0} from {1}!, you can now ask questions regarding faculty schedule 🙂',
 VERIFIED_EMAIL_ANNOUNCEMENT: 'Hello {0}!, you can now view announcements from the {1} 🙂',
 NO_DEPARTMENT_ANNOUNCEMENTS: 'No announcements yet from your department',
@@ -37,8 +37,7 @@ STATUS_DOCU: 'Your document is now: ',
 PROF_ROOM: `The professor is {0}`,
 PROF_CURRENT_CLASS: `The professor's current class is at {0}`,
 PROF_NEXT: `The professor's next class is {0}`,
-//james pachange
-MULTI_PROF: 'I have detected that there are {0} professors with the same lastname. Please select the professor you want are inquiring about: '
+MULTI_PROF: 'There are {0} professors with the same lastname. Please select which professor you are referring to: '
 }
 
 exports.menus = {
