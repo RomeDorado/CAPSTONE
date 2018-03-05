@@ -82,7 +82,7 @@ menu: [//START HERE
         button: [
             { msg: 'Announcements', title: 'Announcements' }
         ]
-    }
+    },
     {
         name: 'default_choice',
         title: 'Contact us',
