@@ -5,19 +5,31 @@ const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const request = require('request');
 const usersession = require('../helpers/usersession');
-
+const moment = require("moment")
+var now = moment().add(8, 'hours').startOf('minute');
+var timenow = moment(now).format("hh:mm:ss")
+var time = "";
 //TO DO: if beyond 9am or it's sunday
 
 
 module.exports.nextClass = [
     (session, args) => {
+        time = args.datetime;
         var profs = []
-        try {
+        try {            
             console.log('went down here')
+            
+            var stime = args.datetime.split("T")[1];
+            var ztime = stime.split("+")[0];
+
+            if(ztime == "00:00:00"){
+                args.datetime = timenow;
+            }
+                        
             api.nextClass(session, args.firstname, args.prof, args.datetime, (err, results) => {
                 console.log(results, "asd")
                 if (results.success) {
-                    //dagdag kapag walang time si prof                
+                    //dagdag kapag walang time si prof  
                     if (results.data instanceof Array) {
                         profs = results.data.map((val, index) => {
                             return {
@@ -85,18 +97,25 @@ module.exports.nextClass = [
             var firstname = reply.split("=")[0];
             var lastname = reply.split("=")[1];
 
-            api.nextClass(session, firstname, lastname, (err, results) => {
+            api.nextClass(session, firstname, lastname, time, (err, results) => {
                 session.endConversation(format(consts.prompts.PROF_NEXT, results.data));
             })
         }
     }
 ]
 
-module.exports.room = [
+module.exports.room = [    
     (session, args) => {
+        time = args.datetime;
         console.log(args, 'args sched')
         try {
             console.log('went down here')
+            var stime = args.datetime.split("T")[1];
+            var ztime = stime.split("+")[0];
+
+            if(ztime == "00:00:00"){
+                args.datetime = timenow;
+            }
             api.room(session, args.firstname, args.prof, args.datetime, (err, results) => {
                 console.log(results, "asd")
                 if (results.success) {
@@ -151,7 +170,7 @@ module.exports.room = [
             var firstname = reply.split("=")[0];
             var lastname = reply.split("=")[1];
 
-            api.room(session, firstname, lastname, (err, results) => {
+            api.room(session, firstname, lastname, time, (err, results) => {
                 session.endConversation(format(consts.prompts.PROF_NEXT, results.data));
             })
         }
@@ -160,9 +179,17 @@ module.exports.room = [
 
 module.exports.currentClass = [
     (session, args) => {
+        time = args.datetime;
         console.log(args, 'args sched')
         try {
             console.log('went down current class')
+                        
+            var stime = args.datetime.split("T")[1];
+            var ztime = stime.split("+")[0];
+
+            if(ztime == "00:00:00"){
+                args.datetime = timenow;
+            }
             api.currentClass(session, args.firstname, args.prof, args.datetime, (err, results) => {
                 console.log(results, "asd")
                 if (results.success) {
@@ -217,7 +244,7 @@ module.exports.currentClass = [
             var firstname = reply.split("=")[0];
             var lastname = reply.split("=")[1];
 
-            api.currentClass(session, firstname, lastname, (err, results) => {
+            api.currentClass(session, firstname, lastname, time,(err, results) => {
                 session.endConversation(format(consts.prompts.PROF_CURRENT_CLASS, results.data));
             })
         }
@@ -228,6 +255,7 @@ module.exports.subjectTime = [
     //kapag what and when hehe
     //kapag what subj gamitin, kapag when, subj date
     (session, args) => {
+        time = args.datetime;
         console.log(args, 'args sched')
         try {
             if(args.timeOrDay) var timeOrDay =  args.timeOrDay
@@ -236,6 +264,13 @@ module.exports.subjectTime = [
                 return;
             }
             console.log('went down sub time class')
+                        
+            var stime = args.datetime.split("T")[1];
+            var ztime = stime.split("+")[0];
+
+            if(ztime == "00:00:00"){
+                args.datetime = timenow;
+            }
             api.subjectTime(session, args.firstname, args.prof, args.datetime, args.section, args.subject, (err, results) => {
                 console.log(results, "asd")
                 if (results.success) {
@@ -266,6 +301,13 @@ module.exports.subjectTime = [
             })
 
             function subjectDay(){
+                            
+            var stime = args.datetime.split("T")[1];
+            var ztime = stime.split("+")[0];
+
+            if(ztime == "00:00:00"){
+                args.datetime = timenow;
+            }
                 api.subjectDay(session, args.firstname, args.prof, args.datetime, args.section, args.subject, (err, results) => {
                     console.log(results, "asd")
                     if (results.success) {

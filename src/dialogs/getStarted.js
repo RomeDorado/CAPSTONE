@@ -25,7 +25,7 @@ module.exports =
                 json: true  
                 };
         
-                request(options, function (error, response, body) {                    
+                request(options, function (error, response, body) {
                 if (error) throw new Error(error);
                 console.log(body)//user sesh log
                 if(body.d == "Resource not found." || body.d.subscription == false){

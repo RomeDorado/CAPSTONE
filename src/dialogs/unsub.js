@@ -19,9 +19,13 @@ module.exports.main = [
     },
     (session, results) => {
         var choices = card.choices(consts.menus.second_menu);
-        if (results.response.score < 0.8) {
-            session.replaceDialog('/')
-            return;
+        if (results.hasOwnProperty("response")) {
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
+                }
+            }
         }
         if (results.response == null) {
             session.replaceDialog('/')
