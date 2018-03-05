@@ -33,6 +33,14 @@ module.exports =
     
                 case choices[1]:
                     session.replaceDialog('/Announcements');                    
+                break;
+                
+                case choices[2]:
+                    session.replaceDialog('/Ticket');                    
+                break;
+                
+                case choices[3]:
+                    session.replaceDialog('/Livechat');                    
                 break;                   
     
                 default:
