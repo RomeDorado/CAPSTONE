@@ -300,8 +300,24 @@ function getWitIntents(intent, professor, time, session, firstname, datetime, se
             session.replaceDialog('/Documents');
         break;
         
-        case 'get_about':
-            //about iics
+        case 'get_menu_subscribe':
+            session.replaceDialog('/Subscribe');
+        break;
+
+        case 'get_menu_unsubscribe':
+            session.replaceDialog('/UnsubConfirm');
+        break;
+
+        case 'get_announcements':
+            session.replaceDialog('/depAnnouncements');
+        break;
+        
+        case 'get_general_announcements':
+            session.replaceDialog('/genAnnouncements');
+        break;
+
+        case 'get_department_announcements':
+            session.replaceDialog('/depAnnouncements');
         break;
 
         case 'get_help':

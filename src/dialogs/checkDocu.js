@@ -44,7 +44,7 @@ module.exports = [
         var choices = card.choices(consts.menus.enter_code);
             if(results.response == null){
                 session.replaceDialog('/')
-            }else{
+            }else{                        
                 var reply = results.response.entity;
                 switch(reply){
                     case choices[0]:
