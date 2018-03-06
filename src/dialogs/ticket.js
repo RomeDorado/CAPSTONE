@@ -8,6 +8,7 @@ const moment = require('moment-timezone');
 
 module.exports = [
     (session) => {
+        session.send(consts.prompts.DEFAULT);
         builder.Prompts.text(session, consts.prompts.ENTER_INQUIRY, {maxRetries:0,promptAfterAction:false});
     },
     (session, results, callback) => {

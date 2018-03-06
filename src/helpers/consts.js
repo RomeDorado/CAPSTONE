@@ -37,7 +37,9 @@ STATUS_DOCU: 'Your document is now: ',
 PROF_ROOM: `The professor is {0}`,
 PROF_CURRENT_CLASS: `The professor's current class is at {0}`,
 PROF_NEXT: `The professor's next class is {0}`,
-MULTI_PROF: 'There are {0} professors with the same lastname. Please select which professor you are referring to: '
+MULTI_PROF: 'There are {0} professors with the same lastname. Please select which professor you are referring to: ',
+DEFAULT: `Sorry, I didn't understand that. Would you like to leave your message for our admins to answer or would you like to chat with one now?`,
+NO_DOCU: 'The code you entered did not match any document'
 }
 
 exports.menus = {
@@ -179,7 +181,18 @@ enter_email: [
         name: 'enter_email',
         title: 'OPTIONS',
         button: [
-            { msg: 'Enter again', title: 'Enter again' },
+            { msg: 'Enter again', title: 'Retry' },
+            { msg: 'Back to Main Menu', title: 'Back to Main Menu' }
+        ]
+    }
+],
+
+enter_code: [
+    {
+        name: 'enter_code',
+        title: 'OPTIONS',
+        button: [
+            { msg: 'Entercode', title: 'Retry' },
             { msg: 'Back to Main Menu', title: 'Back to Main Menu' }
         ]
     }
