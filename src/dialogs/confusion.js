@@ -7,8 +7,8 @@ const request = require('request');
 
 
 module.exports = [
-    (session) => {        
-
+    (session) => {
+        session.send(consts.prompts.DEFAULT);
         var cardName = card.getName(consts.menus.default_menu);
         var msg = card(session, consts.menus.default_menu, cardName);
         builder.Prompts.choice(session, msg, card.choices(consts.menus.default_menu), { maxRetries:0,promptAfterAction:false});
