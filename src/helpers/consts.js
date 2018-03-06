@@ -85,6 +85,7 @@ menu: [//START HERE
     },
     {
         name: 'default_choice',
+        image: 'https://res.cloudinary.com/dw6pwyqbo/image/upload/v1520295457/contactus_r4kpwj.jpg',
         title: 'Contact us',
         // text:'You can contact the admin by:',
         button: [
