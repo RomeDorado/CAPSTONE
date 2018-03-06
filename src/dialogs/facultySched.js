@@ -38,7 +38,7 @@ module.exports.nextClass = [
                         session.endConversation(format(consts.prompts.PROF_NEXT, " " + results.data));
                     }
                 } else {
-                    //if no class or no prof    
+                    session.endConversation(results.data);
                 }
             })
         } catch (exception) {
@@ -86,7 +86,12 @@ module.exports.nextClass = [
             var lastname = reply.split("=")[1];
 
             api.nextClass(session, firstname, lastname, (err, results) => {
-                session.endConversation(format(consts.prompts.PROF_NEXT, results.data));
+                if(results.success){
+                    session.endConversation(format(consts.prompts.PROF_NEXT, results.data));
+                }else{
+                    session.endConversation(results.data);
+                }
+                
             })
         }
     }
@@ -122,6 +127,7 @@ module.exports.room = [
                     }
                 } else {
                     //if no class or no prof
+                    session.endConversation(results.data);
                 }
             })
         } catch (exception) {
@@ -152,7 +158,12 @@ module.exports.room = [
             var lastname = reply.split("=")[1];
 
             api.room(session, firstname, lastname, (err, results) => {
-                session.endConversation(format(consts.prompts.PROF_NEXT, results.data));
+                if(results.success){
+                    session.endConversation(format(consts.prompts.PROF_NEXT, results.data));
+                }else{
+                    session.endConversation(results.data);
+                }
+                
             })
         }
     }
@@ -188,6 +199,7 @@ module.exports.currentClass = [
                     }
                 } else {
                     //if no class or no prof
+                    session.endConversation(results.data);
                 }
             })
         } catch (exception) {
@@ -218,7 +230,12 @@ module.exports.currentClass = [
             var lastname = reply.split("=")[1];
 
             api.currentClass(session, firstname, lastname, (err, results) => {
-                session.endConversation(format(consts.prompts.PROF_CURRENT_CLASS, results.data));
+                if(results.success){
+                    session.endConversation(format(consts.prompts.PROF_CURRENT_CLASS, results.data));
+                }else{
+                    session.endConversation(results.data);
+                }
+                
             })
         }
     }
@@ -262,6 +279,7 @@ module.exports.subjectTime = [
                     }
                 } else {
                     //if no class or no prof
+                    session.endConversation(results.data);
                 }
             })
 
@@ -292,6 +310,7 @@ module.exports.subjectTime = [
                         }
                     } else {
                         //if no class or no prof
+                        session.endConversation(results.data);
                     }
                 })
             }
