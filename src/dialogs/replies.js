@@ -15,7 +15,8 @@ module.exports = [
             intent: args
         },
         headers: { 
-         'Content-type': 'Application/json' 
+         'Content-type': 'Application/json', 
+         'API-Token': process.env.API_TOKEN
         },
         json: true
     };
