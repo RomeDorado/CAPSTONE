@@ -57,9 +57,9 @@ async function logUserConversation (event, type) {
 bot.dialog('/', dialogs.default);
 bot.dialog('/GetStarted', dialogs.getStarted).triggerAction({matches:/^started|get started|start over|get started|Get_Started/i});
 bot.dialog('/Unsub', dialogs.unsub.main).triggerAction({matches:/Unsubscribe/i});
-bot.dialog('/UnsubConfirm', dialogs.unsub.unsubconfirm);
+bot.dialog('/UnsubConfirm', dialogs.unsub.unsubconfirm)
 bot.dialog('/Menu', dialogs.menu).triggerAction({matches:/^menu|main menu|Main menu|main_menu/i});
-bot.dialog('/Subscribe', dialogs.subscribe);
+bot.dialog('/Subscribe', dialogs.subscribe).triggerAction({matches:/Subscribe/i});
 bot.dialog('/Confusion', dialogs.confusion);
 bot.dialog('/Ticket', dialogs.ticket).triggerAction({matches:/send_ticket/i});
 bot.dialog('/Replies', dialogs.replies);
