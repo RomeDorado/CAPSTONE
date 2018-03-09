@@ -1,16 +1,16 @@
 const builder = require('botbuilder');
 exports.prompts = {
 GET_STARTED: 'Hi {0}!, I\'m IICS bot! I\'m here to assist you as much as I can on student and faculty related matters. Click MENU to start or click SUBSCRIBE for latest news and announcements!',
-DEPARTMENT: 'Please enter your UST or ICS-MyGBiz email for verification: ',
-DEPARTMENT_SECOND: 'Please enter your UST or ICS-MyGBiz email again for verification: ',
+DEPARTMENT: 'To subscribe, please enter your UST or ICS-MyGBiz email for verification: ',
+DEPARTMENT_SECOND: 'To subscribe, please enter your UST or ICS-MyGBiz email again for verification: ',
 NO_DEPARTMENT: 'I don\'t know your department. Please enter your UST or ICS-MyGBiz email so you can view announcements from your department',//////////////
 SUBSCRIBED: 'Welcome, {0}! You are now subscribed to the {1} 🙂',
 NOW_DONE: 'Now that\'s done, how can I be of assistance?',
 UNSUBSCRIBE: 'Are you sure you want to unsubscribe? Doing so will prevent you from receiving announcements',
 UNSUBSCRIBE_CONFIRMED: 'You are now unsubscribed',
 ENTER_INQUIRY: 'Please enter your inquiry:',
-FACULTY_FIRST: `Please enter your ICS MyGBiz account.`,
-FACULTY_SECOND: `Please enter your ICS-MyGBiz account.`,
+FACULTY_FIRST: `To access this feature, please enter your UST or ICS-MyGBiz email for verification: `,
+FACULTY_SECOND: `To access this feature, please enter your UST or ICS-MyGBiz email again for verification: `,
 INVALID_EMAIL: `Invalid email. Please check if you mistyped anything. Enter again?`,
 VERIFIED_EMAIL: 'Hello {0} from {1}!, you can now ask questions regarding faculty schedule 🙂',
 VERIFIED_EMAIL_ANNOUNCEMENT: 'Hello {0}!, you can now view announcements from the {1} 🙂',
