@@ -12,7 +12,7 @@ module.exports.I =
 
             api.userProfile(session.message.user.id, 'first_name', (err, res) => {
                 if (!err) {
-                    session.endConversation(format(consts.prompts.WHO, res.first_name));
+                    session.endConversation(format(consts.prompts.WHO_I, res.first_name));
                 }
             });
         }
