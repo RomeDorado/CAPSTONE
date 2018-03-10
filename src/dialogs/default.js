@@ -245,8 +245,8 @@ function getWitIntents(intent, professor, time, session, firstname, datetime, se
         break;
 
         case 'get_profanity':
-        /*api.createProfanity(session);
-            let randomprof = ['Hey! Sorry for whatever prompted you to say that. To make your experience better, why not party with us at IICS BOT? :)',
+        api.createProfanity(session);
+        /*    let randomprof = ['Hey! Sorry for whatever prompted you to say that. To make your experience better, why not party with us at IICS BOT? :)',
                               '💩💩💩',
                             'Duuuuude!',
                           'Ey dude, that\'s not cool!'];
