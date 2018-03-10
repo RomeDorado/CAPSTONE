@@ -35,7 +35,11 @@ module.exports =
                                 if(('professor' in entities)){var professor = entities.professor[0].value;}
                                 if(('firstname' in entities)){var firstname = entities.firstname[0].value;}
                                 if(('datetime' in entities)){var datetime = entities.datetime[0].value;}
-                                if(('datetime' in entities)){var endDate = entities.datetime[0].values[0].from.value;}
+                                if(('datetime' in entities)){
+                                    if (entities.datetime[0].values[0].from.value) {
+                                        var endDate = entities.datetime[0].values[0].from.value;
+                                    }
+                                }
                                 if(('time' in entities)){var time = entities.time[0].value;}
                                 if(('section' in entities)){var section = entities.section[0].value;}
                                 if(('class' in entities)){var subject = entities.class[0].value;}
