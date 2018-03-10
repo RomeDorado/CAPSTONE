@@ -7,7 +7,7 @@ var time = now.tz('Asia/Taipei').format();
 exports.newMessageFromBot = function (params) {
     console.log("new message from bot")
     api.checkUserMW(params.fb_id, (err, res) => {
-        console.log(res)
+        // console.log(res)
         if (res.d.onSupport) {
             console.log("reached newMessage in bot");
             var options = {

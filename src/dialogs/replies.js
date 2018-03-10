@@ -27,31 +27,31 @@ module.exports = [
             var replies = response.body.data;
             console.log(replies, "reply")
 
-            replies.forEach(async function (element) {
-                if (element.includes("cloudinary")) {
-                    var img = new builder.Message(session)
-                        .addAttachment({
-                            contentURL: element,
-                            contentType: 'image/jpg',
-                        });
-                    session.send(img);
-                }else{
-                    session.send(element)                    
-                }
-            })
+            var random = replies[Math.floor(Math.random() * replies.length)];
+            if (random && random.includes("cloudinary")) {
+                var img = new builder.Message(session)
+                    .addAttachment({
+                        contentURL: random,
+                        contentType: 'image/jpg',
+                    });
+                session.send(img);
+            } else {
+                session.send(random);
+            }
 
-            // var random = replies[Math.floor(Math.random() * replies.length)];
-            // if (random && random.includes("cloudinary")) {
-            //     var img = new builder.Message(session)
-            //         .addAttachment({
-            //             contentURL: random,
-            //             contentType: 'image/jpg',
-            //         });
-            //     session.endDialog(img);
-            // } else {
-            //     session.endDialog(random);
-            // }
 
+        //     replies.forEach(async function (element) {
+        //         if (element.includes("cloudinary")) {
+        //             var img = new builder.Message(session)
+        //                 .addAttachment({
+        //                     contentURL: element,
+        //                     contentType: 'image/jpg',
+        //                 });
+        //             session.send(img);
+        //         }else{
+        //             session.send(element)                    
+        //         }
+        //     })
 
         });
         

@@ -84,7 +84,7 @@ menu: [//START HERE
         title: 'Announcements',
         text: 'Know the recent announcements',
         button: [
-            { msg: 'Announcements', title: 'Announcements' }
+            { msg: 'Announcements-button', title: 'Announcements' }
         ]
     },
     {
