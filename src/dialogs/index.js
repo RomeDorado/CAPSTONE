@@ -14,3 +14,4 @@ exports.livechat = require('./livechat');
 exports.rating = require('./rating');
 exports.about = require('./aboutIICS');
 exports.faculty = require('./facultySched');
+exports.who = require('./who');

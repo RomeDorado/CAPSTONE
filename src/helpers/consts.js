@@ -39,7 +39,9 @@ PROF_CURRENT_CLASS: `The professor's current class is at {0}`,
 PROF_NEXT: `The professor's next class is {0}`,
 MULTI_PROF: 'There are {0} professors with the same lastname. Please select which professor you are referring to: ',
 DEFAULT: `Sorry, I didn't understand that. Would you like to leave your message for our admins to answer or would you like to chat with one now?`,
-NO_DOCU: 'The code you entered did not match any document'
+NO_DOCU: 'The code you entered did not match any document',
+WHO_I: 'You are {0}!',
+WHO_YOU: ['I am IICS Bot. I can assist you with various inquiries regarding the institute!', 'I am IICS Bot! Have questions regarding the institute? Ask me now!']
 }
 
 exports.menus = {

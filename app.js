@@ -88,6 +88,8 @@ bot.dialog('/FacultySched/NextClass', dialogs.faculty.nextClass);
 bot.dialog('/FacultySched/Room', dialogs.faculty.room);
 bot.dialog('/FacultySched/CurrentClass', dialogs.faculty.currentClass);
 bot.dialog('/FacultySched/SubjectTime', dialogs.faculty.subjectTime);
+bot.dialog('/Who', dialogs.who.I);
+bot.dialog('/Who/You', dialogs.who.YOU);
 
 //=========================================================
 // Server Setup

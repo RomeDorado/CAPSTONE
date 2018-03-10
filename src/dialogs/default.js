@@ -221,6 +221,14 @@ function getWitIntents(intent, professor, time, session, firstname, datetime, se
         session.replaceDialog('/Replies', intent);
         break;           
 
+        case 'get_who_i':
+        session.replaceDialog('/Who');
+        break;
+
+        case 'get_who_you':
+        session.replaceDialog('/Who/You');
+        break;
+
         case 'get_farewell':
             session.send(' Just hit me up whenever you need me :)');
         break;
