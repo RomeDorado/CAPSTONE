@@ -330,7 +330,12 @@ function getWitIntents(intent, professor, time, session, firstname, datetime, se
         break;
 
         case 'get_department_announcements':        
-            session.replaceDialog('/depAnnouncements', endDate);//put start end
+            if(endDate){
+                session.replaceDialog('/depAnnouncements', endDate);
+            }else if(datetime){
+                session.replaceDialog('/depAnnouncements', datetime);
+            }
+            
         break;
 
         case 'get_help':
