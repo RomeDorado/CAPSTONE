@@ -36,8 +36,8 @@ module.exports =
                                 if(('firstname' in entities)){var firstname = entities.firstname[0].value;}
                                 if(('datetime' in entities)){var datetime = entities.datetime[0].value;}
                                 if(('datetime' in entities)){
-                                    var obj = entities.datetime[0].values[0].from
-                                    if (obj.hasOwnProperty("value")) {
+                                    var obj = entities.datetime[0].values
+                                    if (obj.hasOwnProperty("from")) {
                                         var endDate = entities.datetime[0].values[0].from.value;
                                     }
                                 }
