@@ -34,7 +34,7 @@ module.exports =
     ]
 
 function witAPI(session) {
-    var entity = args || session.message.text;
+    var entity = session.message.text;
     const client = new Wit({ accessToken: WIT_TOKEN });
 
     client.message(entity, {})
