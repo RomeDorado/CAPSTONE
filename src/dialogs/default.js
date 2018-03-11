@@ -16,6 +16,7 @@ module.exports =
                 api.checkUser(session, (err, res) => {
                     if (!res.d.onSupport) {//false unsupport
                         api.access(session, (err, res) => {
+                            console.log(res, "ress")
                             if (!res.d.access) {//false access
                                 console.log(session.message.user.name);
                                 var entity = args || session.message.text;
