@@ -52,6 +52,7 @@ module.exports.department = [
                 var end = moment(args).format('D');
 
                 console.log(start+ " " + end,args, "dddd")
+                console.log(args, "daaaa")
                 //I can only fetch you announcements within 7 days max
                 if ((start - end) < 0) {
                     session.endConversation("I can only fetch you announcements within 7 days max")
