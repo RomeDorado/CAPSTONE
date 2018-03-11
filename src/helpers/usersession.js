@@ -8,7 +8,7 @@ exports.newMessageFromBot = function (params) {
     console.log("new message from bot")
     api.checkUserMW(params.fb_id, (err, res) => {
         // console.log(res)
-        if (res.d.onSupport) {
+        if (res.d.access) {
             console.log("reached newMessage in bot");
             var options = {
                 method: 'PUT',
