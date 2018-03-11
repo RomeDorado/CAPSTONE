@@ -399,6 +399,38 @@ async (session, firstname, professor, datetime, section, subject, callback)  => 
         if (error) throw new Error(error);    
         callback (null, body);        
         });
+
+        
+}
+
+module.exports.access = 
+async (session, callback)  => {
+    var options = {
+        method: 'GET',
+        // url: 'https://iics-schedule-service.herokuapp.com/api/getRoom',
+        url: 'https://iics-usersessions.herokuapp.com/api/bot/getAccess',
+        headers: 
+        {
+            'API-Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjoiSE9nUFBrbTRBWE1tb3JYYklpSEFuM3oyYnBFbElvQnAiLCJkYXRhIjp7Il9pZCI6IjVhNzE0NTc3MGQ3MTY0MTg0NDhmODYwNCIsInVzZXJuYW1lIjoiYmVlcF9hZG1pbiIsImVtYWlsIjoibmVteUBjaGF0Ym90LnBoIiwiaXNfbG9naW4iOnRydWUsInBlcm1pc3Npb24iOiJhZG1pbiIsIm5hbWUiOnsiZmlyc3QiOiJOZW15IiwibGFzdCI6IlRvbGVudGlubyJ9fSwiZXhwaXJlSW4iOiIyNGgiLCJpYXQiOjE1MTg2NzY0Njl9.Ob_k32oWk8DFz0p3FKFD5MkYWHB_MlYAtHSSsqIWt0g',
+            'content-type': 'application/json' 
+        },
+        qs: {
+            client: "iics",
+            id: session.message.address.user.id
+        },
+        body:{                              
+            client: "iics",
+            id: session.message.address.user.id
+        },       
+        json: true  
+        };
+
+        request(options, (error, response, body) => {   
+        if (error) throw new Error(error);    
+        callback (null, body);        
+        });
+
+        
 }
 /**END */
 
