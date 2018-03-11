@@ -346,6 +346,8 @@ function getWitIntents(intent, professor, time, session, firstname, datetime, se
             break;
 
         case 'get_department_announcements':
+        console.log(endDate, "end");
+        console.log(datetime, "datetime");
             if (endDate) {
                 session.replaceDialog('/depAnnouncements', endDate);
             } else if (datetime) {
