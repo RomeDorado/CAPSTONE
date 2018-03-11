@@ -172,7 +172,8 @@ module.exports.createProfanity =
                 client: "iics",
                 name: session.message.address.user.name,
                 fb_id: session.message.address.user.id,
-                timestamp: time //new route?
+                timestamp: time,
+                message: session.message.text //new route?
             },
             json: true
         };
