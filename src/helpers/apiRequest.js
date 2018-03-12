@@ -153,20 +153,10 @@ module.exports.checkAdmin =
     }
 
 module.exports.createProfanity =
-    async (session) => {
-        var email = await checkUser(session);
+    async (session, email) => {
+
         var time = moment().add(8, 'hours');
-
-        checkUser(session, (err, res) => {
-            return new Promise((resolve, reject) => {
-                if(res.d.email){
-                    resolve(res.d.email);
-                }else{
-                    reject(err);
-                }
-            })
-        });
-
+            
         var options = {
             method: 'POST',
             url: 'https://iics-usersessions.herokuapp.com/api/bot/profanity',

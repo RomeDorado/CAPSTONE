@@ -262,7 +262,8 @@ function getWitIntents(intent, professor, time, session, firstname, datetime, se
             break;
 
         case 'get_profanity':
-            api.createProfanity(session);
+            var result = await email();
+            api.createProfanity(session, result);
             /*    let randomprof = ['Hey! Sorry for whatever prompted you to say that. To make your experience better, why not party with us at IICS BOT? :)',
                                   '💩💩💩',
                                 'Duuuuude!',
@@ -366,5 +367,18 @@ function getWitIntents(intent, professor, time, session, firstname, datetime, se
             break;
 
             break;
+
+            async function email(){
+                api.checkUser(session, (err, res) => {
+                    return new Promise((resolve, reject) => {
+                        if(res.d.email){
+                            resolve(res.d.email);
+                        }else{
+                            reject(err);
+                        }
+                    })
+                });
+            }
+            
     }
 }
