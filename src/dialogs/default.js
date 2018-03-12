@@ -5,6 +5,7 @@ const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
 const WIT_TOKEN = "OAC2GWS2OVEXUJV5TUQX5FIDJ2F466EH"
 const { Wit, log } = require('node-wit');
+const request = require('request');
 module.exports =
     [
         (session, args, next) => {
@@ -262,16 +263,27 @@ async function getWitIntents(intent, professor, time, session, firstname, dateti
             break;
 
         case 'get_profanity':
-            var result = await email();
-            console.log(result , "result")
-            api.createProfanity(session, result);
-            /*    let randomprof = ['Hey! Sorry for whatever prompted you to say that. To make your experience better, why not party with us at IICS BOT? :)',
-                                  '💩💩💩',
-                                'Duuuuude!',
-                              'Ey dude, that\'s not cool!'];
-                let replyprof = randomprof[Math.floor(Math.random() * randomprof.length)];
-                session.send(replyprof);
-            */
+            
+        var options = {
+            method: 'GET',
+            url: 'https://iics-usersessions.herokuapp.com/api/bot/user/getuser',
+            headers:
+                {
+                    'API-Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjoiSGpaTGVJYlRtRlpzNlRTR0lDUE1lNU9FdVA0OFJDSXIiLCJkYXRhIjp7Il9pZCI6IjVhNTA4YWE5NzYxYTY3MDAxNDA1ODliNCIsInVzZXJuYW1lIjoiaWljc19hZG1pbjEyMyIsImVtYWlsIjoic2FtcGxlIiwiaGFwcHkiOjIwLCJzYWQiOjMsInBlcm1pc3Npb24iOiJBZG1pbiIsIm5hbWUiOnsiZmlyc3QiOiJJSUNTIiwibGFzdCI6IkFkbWluIn19LCJleHBpcmVJbiI6IjI0aCIsImlhdCI6MTUyMDE0OTg3MH0.A8jv7Gbqe61vfF3e1rdzrONbN0arB8vAEaNA6w509h8',
+                    'content-type': 'application/json'
+                },
+            qs: {
+                client: "iics",
+                fb_id: session.message.address.user.id,
+            },
+            json: true
+        };
+
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);            
+            api.createProfanity(session, body.d.email);
+            
+        });
             session.replaceDialog('/Replies', intent);
             break;
 
@@ -370,7 +382,9 @@ async function getWitIntents(intent, professor, time, session, firstname, dateti
             break;
 
             async function email(){
+                console.log("andito")
                 api.checkUser(session, (err, res) => {
+                    console.log(res, "reasdad")
                     return new Promise((resolve, reject) => {
                         if(res.d.email){
                             resolve(res.d.email);

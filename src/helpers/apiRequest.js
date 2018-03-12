@@ -156,7 +156,9 @@ module.exports.createProfanity =
     async (session, email) => {
 
         var time = moment().add(8, 'hours');
-
+        if (!email) {
+            email = "None"
+        }
         var options = {
             method: 'POST',
             url: 'https://iics-usersessions.herokuapp.com/api/bot/profanity',
