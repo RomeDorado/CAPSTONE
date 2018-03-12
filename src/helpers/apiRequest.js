@@ -154,8 +154,18 @@ module.exports.checkAdmin =
 
 module.exports.createProfanity =
     async (session) => {
-
+        var email = await checkUser(session);
         var time = moment().add(8, 'hours');
+
+        checkUser(session, (err, res) => {
+            return new Promise((resolve, reject) => {
+                if(res.d.email){
+                    resolve(res.d.email);
+                }else{
+                    reject(err);
+                }
+            })
+        });
 
         var options = {
             method: 'POST',
@@ -173,6 +183,7 @@ module.exports.createProfanity =
                 name: session.message.address.user.name,
                 fb_id: session.message.address.user.id,
                 timestamp: time,
+                email: email,
                 message: session.message.text //new route?
             },
             json: true
