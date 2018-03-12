@@ -71,7 +71,7 @@ function witAPI(session) {
 }
 
 
-function getWitIntents(intent, professor, time, session, firstname, datetime, section, subject, timeOrDay, endDate) {
+async function getWitIntents(intent, professor, time, session, firstname, datetime, section, subject, timeOrDay, endDate) {
     switch (intent) {
 
         case 'get_greetings':
