@@ -263,6 +263,7 @@ async function getWitIntents(intent, professor, time, session, firstname, dateti
 
         case 'get_profanity':
             var result = await email();
+            console.log(result , "result")
             api.createProfanity(session, result);
             /*    let randomprof = ['Hey! Sorry for whatever prompted you to say that. To make your experience better, why not party with us at IICS BOT? :)',
                                   '💩💩💩',
