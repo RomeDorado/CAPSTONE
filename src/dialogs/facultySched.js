@@ -86,12 +86,12 @@ module.exports.nextClass = [
             var lastname = reply.split("=")[1];
 
             api.nextClass(session, firstname, lastname, (err, results) => {
-                if(results.success){
+                if (results.success) {
                     session.endConversation(format(consts.prompts.PROF_NEXT, results.data));
-                }else{
+                } else {
                     session.endConversation(results.data);
                 }
-                
+
             })
         }
     }
@@ -158,12 +158,12 @@ module.exports.room = [
             var lastname = reply.split("=")[1];
 
             api.room(session, firstname, lastname, (err, results) => {
-                if(results.success){
+                if (results.success) {
                     session.endConversation(format(consts.prompts.PROF_NEXT, results.data));
-                }else{
+                } else {
                     session.endConversation(results.data);
                 }
-                
+
             })
         }
     }
@@ -195,7 +195,7 @@ module.exports.currentClass = [
                         builder.Prompts.choice(session, msg, card.choices(profs), { maxRetries: 0, promptAfterAction: false });
 
                     } else {
-                        session.session.endConversation(format(consts.prompts.PROF_CURRENT_CLASS, results.data));(format(consts.prompts.PROF_CURRENT_CLASS, results.data));
+                        session.session.endConversation(format(consts.prompts.PROF_CURRENT_CLASS, results.data)); (format(consts.prompts.PROF_CURRENT_CLASS, results.data));
                     }
                 } else {
                     //if no class or no prof
@@ -230,12 +230,12 @@ module.exports.currentClass = [
             var lastname = reply.split("=")[1];
 
             api.currentClass(session, firstname, lastname, (err, results) => {
-                if(results.success){
+                if (results.success) {
                     session.endConversation(format(consts.prompts.PROF_CURRENT_CLASS, results.data));
-                }else{
+                } else {
                     session.endConversation(results.data);
                 }
-                
+
             })
         }
     }
@@ -247,8 +247,8 @@ module.exports.subjectTime = [
     (session, args) => {
         console.log(args, 'args sched')
         try {
-            if(args.timeOrDay) var timeOrDay =  args.timeOrDay
-            if(timeOrDay.toLocaleLowerCase() == "when"){
+            if (args.timeOrDay) var timeOrDay = args.timeOrDay
+            if (timeOrDay.toLocaleLowerCase() == "when") {
                 subjectDay();
                 return;
             }
@@ -279,11 +279,15 @@ module.exports.subjectTime = [
                     }
                 } else {
                     //if no class or no prof
-                    session.endConversation(results.data);
+                    if (results.status == "No class") {
+                        session.endConversation(`No ${args.subject} class with ${args.section}`);
+                    } else {
+                        session.endConversation(consts.prompts.NO_PROF);
+                    }
                 }
             })
 
-            function subjectDay(){
+            function subjectDay() {
                 api.subjectDay(session, args.firstname, args.prof, args.datetime, args.section, args.subject, (err, results) => {
                     console.log(results, "asd")
                     if (results.success) {
@@ -298,23 +302,28 @@ module.exports.subjectTime = [
                                     ]
                                 }
                             })
-    
+
                             var cardName = card.getName(profs);
                             var msg = card(session, profs, cardName);
-    
+
                             builder.Prompts.choice(session, msg, card.choices(profs), { maxRetries: 0, promptAfterAction: false });
-    
+
                         } else {
                             // session.session.endConversation(format(consts.prompts.PROF_CURRENT_CLASS, results.data));(format(consts.prompts.PROF_CURRENT_CLASS, results.data));
                             session.endConversation(results.data);
                         }
                     } else {
                         //if no class or no prof
-                        session.endConversation(results.data);
+                        if (results.status == "No class") {
+                            session.endConversation(`No ${args.subject} class with ${args.section}`);
+                        } else {
+                            session.endConversation(consts.prompts.NO_PROF);
+                        }
+
                     }
                 })
             }
-                            
+
         } catch (exception) {
             // api.room(session, "", args.prof, (err, results) => {
             //     if (results.success) {//dagdag kapag walang time si prof
@@ -327,13 +336,13 @@ module.exports.subjectTime = [
     },
     (session, results) => {
         if (results.hasOwnProperty("response")) {
-                if (results.response.hasOwnProperty("score")) {
-                    if (results.response.score < 0.8) {
-                        session.replaceDialog('/')
-                        return;
-                    }
+            if (results.response.hasOwnProperty("score")) {
+                if (results.response.score < 0.8) {
+                    session.replaceDialog('/')
+                    return;
                 }
             }
+        }
         if (results.response == null) {
             session.replaceDialog('/');
         } else {
@@ -342,15 +351,32 @@ module.exports.subjectTime = [
             var firstname = reply.split("=")[0];
             var lastname = reply.split("=")[1];
             var choice = reply.split("=")[2];
-
-            if(choice == "what")
-            api.subjectTime(session, args.firstname, args.prof, args.datetime, args.section, args.subject, (err, results) => {
-                session.endConversation(results.data);
-            });
-            else{
-                api.subjectDay(session, args.firstname, args.prof, args.datetime, args.section, args.subject, (err, results) => {
-                    session.endConversation(results.data);
-                });
+            if (choice) {
+                if (choice == "what")
+                    api.subjectTime(session, args.firstname, args.prof, args.datetime, args.section, args.subject, (err, results) => {
+                        if (results.success) {
+                        session.endConversation(results.data);
+                        }else{
+                            if (results.status == "No class") {
+                                session.endConversation(`No ${args.subject} class with ${args.section}`);
+                            } else {
+                                session.endConversation(consts.prompts.NO_PROF);
+                            }
+                        }
+                    });
+                else {
+                    api.subjectDay(session, args.firstname, args.prof, args.datetime, args.section, args.subject, (err, results) => {
+                        if (results.success) {
+                            session.endConversation(results.data);
+                            }else{
+                                if (results.status == "No class") {
+                                    session.endConversation(`No ${args.subject} class with ${args.section}`);
+                                } else {
+                                    session.endConversation(consts.prompts.NO_PROF);
+                                }
+                            }
+                    });
+                }
             }
         }
     }
