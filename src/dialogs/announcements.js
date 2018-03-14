@@ -81,7 +81,7 @@ module.exports.department = [
 
                         var index = 0;
                         // if (typeof body.d[index] == 'undefined'){
-                        if (!body.d[0]) {
+                        if (typeof body.d[0] == 'undefined' || !body.d[0]) {
                             console.log("null ang body")
                             session.endConversation(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);
 
