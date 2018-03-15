@@ -440,7 +440,31 @@ module.exports.access =
 
 
     }
+
+module.exports.replies =
+    async (intent) => {
+        return new Promise((resolve, reject) => {
+            console.log(intent)
+            var options = {
+                method: 'GET',
+                url: 'http://iics-response-service.herokuapp.com/api/response/intents',
+                qs: {
+                    client: 'iics',
+                    intent: intent
+                },
+                headers: {
+                    'Content-type': 'Application/json',
+                    'API-Token': process.env.API_TOKEN
+                },
+                json: true
+            };
+
+            request(options, function (error, response, body) {
+                if (error) reject(error)
+                console.log(response.body.data)
+                resolve(response.body.data);
+
+            });
+        });
+    }
 /**END */
-
-
-

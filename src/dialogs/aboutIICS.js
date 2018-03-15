@@ -2,6 +2,7 @@ const builder = require('botbuilder');
 const format = require('string-format');
 const consts = require('../helpers/consts');
 const card = require('../helpers/cardBuilder');
+const api = require('../helpers/apiRequest');
 
 module.exports.main =
 [
@@ -99,8 +100,12 @@ module.exports.about = [
 ]
 
 module.exports.vision = [
-    (session) => {
-        session.send(consts.prompts.VISION_IICS);
+    async (session) => {
+        var intent = "get_inquiry_IICS_about_vision";
+        var reply = await api.replies(intent);
+        
+        session.endConversation(reply[0]);
+        
         var cardName = card.getName(consts.menus.back_menu);
         var msg = card(session, consts.menus.back_menu, cardName);
         
@@ -134,8 +139,12 @@ module.exports.vision = [
 ]
 
 module.exports.mission = [
-    (session) => {
-        session.send(consts.prompts.MISSION_IICS);
+    async (session) => {
+        var intent = "get_inquiry_IICS_about_vision";
+        var reply = await api.replies(intent);
+        
+        session.endConversation(reply[0]);
+        
         var cardName = card.getName(consts.menus.back_menu);
         var msg = card(session, consts.menus.back_menu, cardName);
         
@@ -169,8 +178,11 @@ module.exports.mission = [
 ]
 
 module.exports.admin = [
-    (session) => {
-        session.send(consts.prompts.ADMIN_IICS);
+    async (session) => {
+        var intent = "get_inquiry_IICS_administrators";
+        var reply = await api.replies(intent);
+        
+        session.endConversation(reply[0]);
         var cardName = card.getName(consts.menus.back_menu);
         var msg = card(session, consts.menus.back_menu, cardName);
         
@@ -204,8 +216,12 @@ module.exports.admin = [
 ]
 
 module.exports.chair = [
-    (session) => {
-        session.send(consts.prompts.CHAIR_IICS);
+    async (session) => {
+        var intent = "get_inquiry_IICS_chairpersons";
+        var reply = await api.replies(intent);
+        
+        session.endConversation(reply[0]);
+
         var cardName = card.getName(consts.menus.back_menu);
         var msg = card(session, consts.menus.back_menu, cardName);
         
@@ -239,7 +255,12 @@ module.exports.chair = [
 ]
 
 module.exports.staff = [
-    (session) => {
+    async (session) => {
+        var intent = "get_inquiry_IICS_supportstaff";
+        var reply = await api.replies(intent);
+        
+        session.endConversation(reply[0]);
+        
         session.send(consts.prompts.STAFF_IICS);
         var cardName = card.getName(consts.menus.back_menu);
         var msg = card(session, consts.menus.back_menu, cardName);
@@ -342,8 +363,13 @@ module.exports.courses = [
 ]
 
 module.exports.CS = [
-    (session) => {
-        session.send(consts.prompts.CS_IICS)                    
+    async (session) => {
+        // session.send(consts.prompts.CS_IICS)             
+        var intent = "get_inquiry_CS_about_general";
+        var reply = await api.replies(intent);
+        
+        session.endConversation(reply[0]);
+
         var cardName = card.getName(consts.menus.back_menu);
         var msg = card(session, consts.menus.back_menu, cardName);
         
@@ -377,8 +403,12 @@ module.exports.CS = [
 ]
 
 module.exports.IT = [
-    (session) => {
-        session.send(consts.prompts.IT_IICS)
+    async (session) => {
+        var intent = "get_inquiry_IT_about_general";
+        var reply = await api.replies(intent);
+        
+        session.endConversation(reply[0]);
+
         var cardName = card.getName(consts.menus.back_menu);
         var msg = card(session, consts.menus.back_menu, cardName);
         
@@ -412,8 +442,12 @@ module.exports.IT = [
 ]
 
 module.exports.IS = [
-    (session) => {
-        session.send(consts.prompts.IS_IICS)
+    async (session) => {
+        var intent = "get_inquiry_IS_about_general";
+        var reply = await api.replies(intent);
+        
+        session.endConversation(reply[0]);
+        
         var cardName = card.getName(consts.menus.back_menu);
         var msg = card(session, consts.menus.back_menu, cardName);
         
