@@ -3,7 +3,7 @@ exports.prompts = {
 GET_STARTED: 'Hi {0}!, I\'m IICS bot! I\'m here to assist you as much as I can on student and faculty related matters. Click MENU to start or click SUBSCRIBE for latest news and announcements!',
 DEPARTMENT: 'To subscribe, please enter your UST or ICS-MyGBiz email for verification: ',
 DEPARTMENT_SECOND: 'To subscribe, please enter your UST or ICS-MyGBiz email again for verification: ',
-NO_DEPARTMENT: 'I don\'t know your department. Please enter your UST or ICS-MyGBiz email so you can view announcements from your department',//////////////
+NO_DEPARTMENT: 'I don\'t know your department.<br/>Please enter your UST or ICS-MyGBiz email so you can view announcements from your department',//////////////
 SUBSCRIBED: 'Welcome, {0}! You are now subscribed to the {1} 🙂',
 NOW_DONE: 'Now that\'s done, how can I be of assistance?',
 UNSUBSCRIBE: 'Are you sure you want to unsubscribe? Doing so will prevent you from receiving announcements',
