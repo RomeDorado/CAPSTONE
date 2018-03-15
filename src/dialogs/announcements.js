@@ -82,7 +82,10 @@ module.exports.department = [
                         var index = 0;
                         // if (typeof body.d[index] == 'undefined'){
                             console.log(body)
-                        if (typeof body.d == 'undefined' || !body.d[0]) {
+                        if (typeof body.d == 'undefined'){
+                            session.replaceDialog('/noDepAnnouncements')
+                        }
+                        else if (!body.d[0]) {
                             console.log("null ang body")
                             session.endConversation(consts.prompts.NO_DEPARTMENT_ANNOUNCEMENTS);
 
