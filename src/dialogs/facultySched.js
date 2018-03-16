@@ -127,6 +127,11 @@ module.exports.room = [
                     }
                 } else {
                     //if no class or no prof
+                    if (results.status == "No class") {
+                        session.endConversation(`The professor has no scheduled class`);
+                    } else {
+                        session.endConversation(consts.prompts.NO_PROF);
+                    }
                     session.endConversation(results.data);
                 }
             })

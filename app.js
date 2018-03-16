@@ -90,6 +90,7 @@ bot.dialog('/FacultySched/CurrentClass', dialogs.faculty.currentClass);
 bot.dialog('/FacultySched/SubjectTime', dialogs.faculty.subjectTime);
 bot.dialog('/Who', dialogs.who.I);
 bot.dialog('/Who/You', dialogs.who.YOU);
+bot.dialog('/CheatSheet', dialogs.cheat).triggerAction({matches:/cheat_sheet/i});
 
 //=========================================================
 // Server Setup
