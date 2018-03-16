@@ -61,7 +61,7 @@ bot.dialog('/UnsubConfirm', dialogs.unsub.unsubconfirm)
 bot.dialog('/Menu', dialogs.menu).triggerAction({matches:/^menu|main menu|Main menu|main_menu/i});
 bot.dialog('/Subscribe', dialogs.subscribe).triggerAction({matches:/Subscribe/i});
 bot.dialog('/Confusion', dialogs.confusion);
-bot.dialog('/Ticket', dialogs.ticket).triggerAction({matches:/^send_ticket|send a ticket|Send a ticket/i});
+bot.dialog('/Ticket', dialogs.ticket).triggerAction({matches:/^send_ticket|send a ticket|Send a ticket|ticket/i});
 bot.dialog('/Replies', dialogs.replies);
 bot.dialog('/CheckAccess', dialogs.checkAccess);
 bot.dialog('/FacultyInquiry', dialogs.facInq);

@@ -140,7 +140,7 @@ module.exports.vision = [
 
 module.exports.mission = [
     async (session) => {
-        var intent = "get_inquiry_IICS_about_vision";
+        var intent = "get_inquiry_IICS_about_mission";
         var reply = await api.replies(intent);
         
         session.endConversation(reply[0]);
@@ -259,9 +259,7 @@ module.exports.staff = [
         var intent = "get_inquiry_IICS_supportstaff";
         var reply = await api.replies(intent);
         
-        session.endConversation(reply[0]);
-        
-        session.send(consts.prompts.STAFF_IICS);
+        session.endConversation(reply[0]);                
         var cardName = card.getName(consts.menus.back_menu);
         var msg = card(session, consts.menus.back_menu, cardName);
         
